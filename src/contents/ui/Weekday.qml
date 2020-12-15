@@ -56,19 +56,19 @@ GridLayout {
 			weekday = now.getDay()
 
 			var row='<table width="100%"><tr>'
+			var offset = (weekStartsOnSunday) ? 0 : 1
 			for(var i=0; i<7; i++) {
-				var label = labels[i % 7]
-				row += '<td align="center" '
-				if (weekday == i%7) {
-					row += ' bgcolor="red">'
-					row += `<b>${label}</b>`
+				var label = labels[(i+offset) % 7]
+				row += '<td align="center"'
+				if (weekday == ((i+offset)%7)) {
+					row += ` bgcolor="red"><b>${label}</b>`
 				} else {
-					row += '>' + label
+					row += `>${label}`
 				}
 				row += '</td>'
 			}
 
-			row+='</tr></table>'
+			row += '</tr></table>'
 
 			widget.text = row
 		}
@@ -84,7 +84,6 @@ GridLayout {
 		Layout.fillWidth: true
 		Layout.alignment: Qt.AlignHCenter
 		textFormat: Text.RichText
-//		visible: mainContainer.weekStartsOnSunday && weekday == 0
 		text: ''
 	}
 
