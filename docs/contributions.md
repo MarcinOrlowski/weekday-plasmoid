@@ -8,4 +8,4 @@ follow a few simple rules to make our lives easier:
    of time while merging later. I will not not accept PRs against `master`, just because of
    that, as `dev` changes more often than `master` branch, so if we cannot merge with `dev`
    right now, we will not be able to merge with `master` later, as all  the PRs are always
-   merged with `dev` first, and hen go to `master` ¯\_(ツ)_/¯
+   merged with `dev` first, and hen go to `master` ¯\\_(ツ)_/¯
