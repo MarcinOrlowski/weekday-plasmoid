@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Weekday inticator
-Comment=Clearly tells what week day it is today
-Icon=clock
+Name=Weekday
+Comment=Shows whole week and clearly tells week day it is today
+Icon=office-calendar
 
 Type=Service
 
