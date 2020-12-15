@@ -18,8 +18,6 @@ import "../js/utils.js" as Utils
 ColumnLayout {
 	id: container
 
-//	Layout.fillWidth: true
-
 	Rectangle {
 		anchors.fill: parent
 		color: "#aa0000ff"
@@ -104,79 +102,14 @@ ColumnLayout {
 		}
 		readonly property int cellMinWidth: 16
 
-		Day {
-			dayIndex: 0
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 1
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 2
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 3
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 4
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 5
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-		Day {
-			dayIndex: 6
-			label: container.labels[this.dayIndex]
-			highlight: weekdayOffset === this.dayIndex
-		}
-
-/*
 		Repeater {
 			model: 7
-			delegate: Text {
-				Layout.fillWidth: true
-				Layout.minimumWidth: 16
-				Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-				text: {
-					return container.labels[index]
-				}
-				horizontalAlignment: Text.AlignHCenter
-				verticalAlignment: Text.AlignVCenter
+			Day {
+				dayIndex: index
+				label: container.labels[this.dayIndex]
+				highlight: weekdayOffset === this.dayIndex
 			}
-		} // repeater
-*/
-	} // weekGrid
-
-/*
-	PlasmaComponents.Label {
-		id: widget
-		clip: true
-visible: false
-
-		Layout.fillWidth: true
-		Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-		textFormat: Text.RichText
-		text: ''
-		maximumLineCount: 1
-
-		Rectangle {
-			anchors.fill: parent
-			color: "#aa00ff00"
 		}
-	}
-*/
-
-	// ------------------------------------------------------------------------------------------------------------------------
-
+	} // weekGrid
 
 } // container
