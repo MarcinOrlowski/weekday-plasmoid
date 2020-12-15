@@ -6,7 +6,6 @@ Plasma/KDE weekday widget - shows clearly which day of week it is now
 ## Table of contents ##
 
  * [Introduction](#introduction)
- * [Features](#features)
  * [Installation and configuration](docs/setup.md)
  * [License](#license)
  * [Changelog](CHANGES.md)
