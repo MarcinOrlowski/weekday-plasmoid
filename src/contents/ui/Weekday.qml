@@ -23,27 +23,6 @@ ColumnLayout {
 		color: "#aa0000ff"
 	}
 
-	states: [
-		State {
-			name: "horizontalPanel"
-			when: plasmoid.formFactor === PlasmaCore.Types.Horizontal
-
-//			PropertyChanges {
-//				target: container
-//				Layout.maximumWidth: 250
-//			}
-//			PropertyChanges {
-//				target: widget
-//				Layout.maximumWidth: 250
-//			}
-		}
-
-//		State {
-//			name: "verticalPanel"
-//			when: plasmoid.formFactor === PlasmaCore.Types.Vertical
-//		}
-	]
-
     // ------------------------------------------------------------------------------------------------------------------------
 
 	// we always count from 0 being sunday
@@ -53,7 +32,7 @@ ColumnLayout {
 	property string today: "#ff0000"
 
 	// we start from Sunday here
-	property var labels: ['0','1','2','3','4','5','6']
+	property var labels: ['', '', '', '', '', '', '']
 
     // ------------------------------------------------------------------------------------------------------------------------
 
