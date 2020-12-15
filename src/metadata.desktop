@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Weekday inticator
-Comment=Clearly tells what week day it is today
-Icon=clock
+Name=Weekday
+Comment=Shows whole week and clearly tells week day it is today
+Icon=office-calendar
 
 Type=Service
 
@@ -14,7 +14,7 @@ X-KDE-PluginInfo-Author-Url=http://marcinorlowski.com/
 X-KDE-PluginInfo-Email=
 X-KDE-PluginInfo-License=MIT
 X-KDE-PluginInfo-Name=com.marcinorlowski.kde.weekday
-X-KDE-PluginInfo-Version=1.0.0
+X-KDE-PluginInfo-Version=1.1.0
 X-KDE-PluginInfo-Website=https://github.com/MarcinOrlowski/weekday-plasmoid
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript

@@ -24,6 +24,9 @@ function testPlasmoid() {
 	#export QT_MESSAGE_PATTERN="%{time} %{file}:%{line}: %{message}"
 	export QT_MESSAGE_PATTERN="%{time} L%{line} %{message}"
 
+	# https://doc.qt.io/qt-5.15/qmldiskcache.html
+	export QML_DISABLE_DISK_CACHE=1
+
 	if [[ $# -ge 1 ]]; then
 		echo "Running FullRepresentation"
 		plasmoidviewer --applet "${ROOT_DIR}/src"
