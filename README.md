@@ -16,6 +16,16 @@ Plasma/KDE weekday widget - shows clearly which day of week it is now
 
  * [Contributions](docs/contributions.md)
 
+---
+
+## Introduction ##
+
+Weekday widget is a small utiliy helping you track passing time. It shows your what the day is today in context of 
+current week. Once installed, it just shows you grid of 7 cells, each one corresponding to sigle weekday, with
+current day additionally marked:
+
+![Widget in action](img/widget.png)
+
 
 ---
 
