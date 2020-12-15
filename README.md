@@ -10,8 +10,6 @@ Plasma/KDE weekday widget - shows clearly which day of week it is now
  * [License](#license)
  * [Changelog](CHANGES.md)
 
- * [Contributions](docs/contributions.md)
-
 ---
 
 ## Introduction ##
