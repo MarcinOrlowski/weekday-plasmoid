@@ -18,10 +18,12 @@ import "../js/utils.js" as Utils
 ColumnLayout {
 	id: container
 
+/*
 	Rectangle {
 		anchors.fill: parent
 		color: "#aa0000ff"
 	}
+*/
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -29,7 +31,8 @@ ColumnLayout {
 	property int weekdayOffset: 0
 	property int firstDayOfWeek: 0
 
-	property string today: "#ff0000"
+	property string todayFg: "white"
+	property string todayBg: "#ff006e"
 
 	// we start from Sunday here
 	property var labels: ['', '', '', '', '', '', '']
@@ -75,10 +78,12 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+/*
 		Rectangle {
 			anchors.fill: parent
 			color: "#aa00ff00"
 		}
+*/
 		readonly property int cellMinWidth: 16
 
 		Repeater {
@@ -87,6 +92,8 @@ ColumnLayout {
 				dayIndex: index
 				label: container.labels[this.dayIndex]
 				highlight: weekdayOffset === this.dayIndex
+				highlightFg: container.todayFg
+				highlightBg: container.todayBg
 			}
 		}
 	} // weekGrid
