@@ -1,5 +1,5 @@
 /**
- * HTML Clock Plasmoid
+ * Weekday Widget
  *
  * Configurabler vertical multi clock plasmoid.
  *
@@ -15,33 +15,47 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import "../js/utils.js" as Utils
 
-GridLayout {
-	id: mainContainer
+ColumnLayout {
+	id: container
 
-	rows: 1
-	columns: 7
+//	Layout.fillWidth: true
 
-	Layout.fillWidth: true
+	Rectangle {
+		anchors.fill: parent
+		color: "#aa0000ff"
+	}
+
+	states: [
+		State {
+			name: "horizontalPanel"
+			when: plasmoid.formFactor === PlasmaCore.Types.Horizontal
+
+//			PropertyChanges {
+//				target: container
+//				Layout.maximumWidth: 250
+//			}
+//			PropertyChanges {
+//				target: widget
+//				Layout.maximumWidth: 250
+//			}
+		}
+
+//		State {
+//			name: "verticalPanel"
+//			when: plasmoid.formFactor === PlasmaCore.Types.Vertical
+//		}
+	]
 
     // ------------------------------------------------------------------------------------------------------------------------
 
 	// we always count from 0 being sunday
-	property int weekday: 3
-	property bool weekStartsOnSunday: false
+	property int weekdayOffset: 0
+	property int firstDayOfWeek: 0
 
 	property string today: "#ff0000"
 
 	// we start from Sunday here
-	property var labels: []
-
-	Component.onCompleted: {
-		// it's known that Jan 5, 2020 is Sunday
-		for(var i=0; i<7; i++) {
-			// it's known that Jan 5, 2020 is Sunday
-			var now = new Date(2020, 0, 5+i)
-			labels[i] = Qt.formatDate(now, 'ddd').substr(0, 1).toUpperCase()
-		}
-	}
+	property var labels: ['0','1','2','3','4','5','6']
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -52,41 +66,117 @@ GridLayout {
 		running: true
 		triggeredOnStart: true
 		onTriggered: {
+			// https://doc.qt.io/qt-5/qml-qtqml-locale.html
+			// Offset indicates first day of week with Sunday equals 0
+			// and Saturday equals 6
+			// https://doc.qt.io/qt-5/qml-qtqml-locale.html#firstDayOfWeek-prop
+			firstDayOfWeek = Qt.locale().firstDayOfWeek
+
 			var now = new Date()
-			weekday = now.getDay()
+			weekdayOffset = now.getDay()-firstDayOfWeek
 
-			var row='<table width="100%"><tr>'
-			var offset = (weekStartsOnSunday) ? 0 : 1
+			// it's known that Jan 5, 2020 is Sunday
+			// so we shift the index offset (based on locale) so the first
+			// cell of 'labels' is always first day of the week.
+			var tmp = ['', '', '', '', '', '', '']
+
 			for(var i=0; i<7; i++) {
-				var label = labels[(i+offset) % 7]
-				row += '<td align="center"'
-				if (weekday == ((i+offset)%7)) {
-					row += ` bgcolor="red"><b>${label}</b>`
-				} else {
-					row += `>${label}`
-				}
-				row += '</td>'
+				// it's known that Jan 5, 2020 is Sunday
+				var day = new Date(2020, 0, 5+firstDayOfWeek+i)
+				tmp[i] = Qt.formatDate(day, 'ddd').substr(0, 1).toUpperCase()
 			}
-
-			row += '</tr></table>'
-
-			widget.text = row
+			labels = tmp
 		}
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------
 
+	GridLayout {
+		id: weekGrid
+		columns: 7
+		rows: 1
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+		Rectangle {
+			anchors.fill: parent
+			color: "#aa00ff00"
+		}
+		readonly property int cellMinWidth: 16
+
+		Day {
+			dayIndex: 0
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 1
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 2
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 3
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 4
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 5
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+		Day {
+			dayIndex: 6
+			label: container.labels[this.dayIndex]
+			highlight: weekdayOffset === this.dayIndex
+		}
+
+/*
+		Repeater {
+			model: 7
+			delegate: Text {
+				Layout.fillWidth: true
+				Layout.minimumWidth: 16
+				Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+				text: {
+					return container.labels[index]
+				}
+				horizontalAlignment: Text.AlignHCenter
+				verticalAlignment: Text.AlignVCenter
+			}
+		} // repeater
+*/
+	} // weekGrid
+
+/*
 	PlasmaComponents.Label {
 		id: widget
-		anchors.left: parent.left
-		anchors.right: parent.right
+		clip: true
+visible: false
 
 		Layout.fillWidth: true
-		Layout.alignment: Qt.AlignHCenter
+		Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 		textFormat: Text.RichText
 		text: ''
+		maximumLineCount: 1
+
+		Rectangle {
+			anchors.fill: parent
+			color: "#aa00ff00"
+		}
 	}
+*/
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-} // mainContainer
+
+} // container
