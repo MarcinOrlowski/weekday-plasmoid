@@ -11,32 +11,14 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
+import "../js/meta.js" as Meta
 
 Item {
     id: main
-/*
-	states: [
-		State {
-			name: "horizontalPanel"
-			when: plasmoid.formFactor === PlasmaCore.Types.Horizontal
 
-			PropertyChanges {
-				target: main
-				Layout.maximumWidth: 100
-			}
-		},
-
-		State {
-			name: "verticalPanel"
-			when: plasmoid.formFactor === PlasmaCore.Types.Vertical
-
-			PropertyChanges {
-				target: main
-				Layout.maximumWidth: 300
-			}
-		}
-	]
-*/
+    Component.onCompleted: {
+        plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
+    }
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -44,5 +26,16 @@ Item {
 	Plasmoid.compactRepresentation: Week {} 
 
     // ------------------------------------------------------------------------------------------------------------------------
+
+    function action_showAboutDialog() {
+        aboutDialog.visible = true
+    }
+
+    AboutDialog {
+        id: aboutDialog
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
 
 } // main
