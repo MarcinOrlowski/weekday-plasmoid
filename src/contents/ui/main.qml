@@ -20,13 +20,6 @@ Item {
         plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
     }
 
-    // ------------------------------------------------------------------------------------------------------------------------
-
-	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-	Plasmoid.compactRepresentation: Week {} 
-
-    // ------------------------------------------------------------------------------------------------------------------------
-
     function action_showAboutDialog() {
         aboutDialog.visible = true
     }
@@ -37,5 +30,14 @@ Item {
 
     // ------------------------------------------------------------------------------------------------------------------------
 
+	Plasmoid.toolTipMainText: new Date().toLocaleDateString(Qt.locale(), Locale.LongFormat)
+	Plasmoid.toolTipSubText: ''
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
+	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
+	Plasmoid.compactRepresentation: Week {} 
+
+    // ------------------------------------------------------------------------------------------------------------------------
 
 } // main

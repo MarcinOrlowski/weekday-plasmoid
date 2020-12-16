@@ -1,3 +1,6 @@
+* @dev
+  * Added widget tooltip with current date
+
 * v1.1.0 (2020-12-16)
   * General code cleamup
   * Week layout not uses GridLayout for better positioning
