@@ -1,0 +1,157 @@
+/**
+ * Weekday Widget for KDE
+ *
+ * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+ * @copyright 2020 Marcin Orlowski
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT
+ * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
+ */
+
+import QtQuick 2.0
+import QtQuick.Controls 2.3
+import QtQuick.Layouts 1.1
+import org.kde.kirigami 2.5 as Kirigami
+import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.kquickcontrols 2.0 as KQControls
+
+Kirigami.FormLayout {
+//    width: childrenRect.width
+	Layout.fillWidth: true
+
+	property alias cfg_customColorsEnabled: customColorsEnabled.checked
+
+	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
+	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
+	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
+	property alias cfg_customColorsPastDayItalic: customColorsPastDayItalic.checked
+
+	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
+	property alias cfg_customColorsTodayBg: customColorsTodayBg.color
+	property alias cfg_customColorsTodayBold: customColorsTodayBold.checked
+	property alias cfg_customColorsTodayItalic: customColorsTodayItalic.checked
+
+	property alias cfg_customColorsFutureDayFg: customColorsFutureDayFg.color
+	property alias cfg_customColorsFutureDayBg: customColorsFutureDayBg.color
+	property alias cfg_customColorsFutureDayBold: customColorsFutureDayBold.checked
+	property alias cfg_customColorsFutureDayItalic: customColorsFutureDayItalic.checked
+
+//	Item {
+//		Kirigami.FormData.label: i18n('Appearance')
+//		Kirigami.FormData.isSection: true
+//	}
+
+	CheckBox {
+		id: customColorsEnabled
+		text: i18n("Use custom colors")
+	}
+
+	GridLayout {
+		columns: 5
+		enabled: cfg_customColorsEnabled
+
+		PlasmaComponents.Label {
+			text: ''
+		}
+		PlasmaComponents.Label {
+			text: i18n('Text')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		PlasmaComponents.Label {
+			text: i18n('Bg')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		PlasmaComponents.Label {
+			text: i18n('Bold')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		PlasmaComponents.Label {
+			text: i18n('Italic')
+			Layout.alignment: Qt.AlignHCenter
+		}
+
+		// passed day
+		PlasmaComponents.Label {
+			text: i18n('Past days')
+			Layout.alignment: Qt.AlignRight
+		}
+		KQControls.ColorButton {
+			id: customColorsPastDayFg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select text color')
+//			onColorChanged: console.log(color)
+			Layout.alignment: Qt.AlignHCenter
+		}
+		KQControls.ColorButton {
+			id: customColorsPastDayBg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsPastDayBold
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsPastDayItalic
+			Layout.alignment: Qt.AlignHCenter
+		}
+
+		// current day
+		PlasmaComponents.Label {
+			text: i18n('Today')
+			Layout.alignment: Qt.AlignRight
+		}
+		KQControls.ColorButton {
+			id: customColorsTodayFg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select text color')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		KQControls.ColorButton {
+			id: customColorsTodayBg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsTodayBold
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsTodayItalic
+			Layout.alignment: Qt.AlignHCenter
+		}
+
+		// future day
+		PlasmaComponents.Label {
+			text: i18n('Future days')
+			Layout.alignment: Qt.AlignRight
+		}
+		KQControls.ColorButton {
+			id: customColorsFutureDayFg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select text color')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		KQControls.ColorButton {
+			id: customColorsFutureDayBg
+			showAlphaChannel: true
+			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsFutureDayBold
+			Layout.alignment: Qt.AlignHCenter
+		}
+		CheckBox {
+			id: customColorsFutureDayItalic
+			Layout.alignment: Qt.AlignHCenter
+		}
+	} // GridLayout
+	
+    Item {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+    }
+
+}

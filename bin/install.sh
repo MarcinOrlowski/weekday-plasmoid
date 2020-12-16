@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Weekday Plasmoid for KDE
+# Weekday Widget for KDE
 #
 # @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
 # @copyright 2020 Marcin Orlowski
@@ -18,17 +18,17 @@ source "${ROOT_DIR}/bin/common.sh"
 
 function installPlasmoid() {
 	local -r plasmoid_file_name="$(getPlasmoidFileName)"
-	local -r target_plasmoid_file="$(pwd)/${plasmoid_file_name}"
 
 	local -r tmp="$(mktemp -d "/tmp/${plasmoid_file_name}.XXXXXX")"
+	local -r target_plasmoid_file="$(mktemp -u "/tmp/${plasmoid_file_name}.plasmoid.XXXXXX")"
 	cp -a "${ROOT_DIR}"/src/* "${tmp}"
 
 	dumpMeta > "${tmp}/contents/js/meta.js"
 
 	pushd "${tmp}" > /dev/null
-	zip -q -r "${target_plasmoid_file}" -- *
-	ls -ld "${target_plasmoid_file}"
+	zip  -r "${target_plasmoid_file}" -- *
 	popd > /dev/null
+	rm -rf "${tmp}"
 
 	local -r user_home_dir="$(eval echo "~${USER}")"
 	local -r pkg_name="$(getMetaTag "X-KDE-PluginInfo-Name")"
@@ -40,6 +40,8 @@ function installPlasmoid() {
 
 	kquitapp5 plasmashell
 	kstart5 plasmashell
+
+	rm -f "${target_plasmoid_file}"
 }
 
 installPlasmoid

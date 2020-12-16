@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+
+    <kcfgfile name=""/>
+
+    <group name="Locale">
+        <entry name="useSpecificLocaleEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="useSpecificLocaleLocaleName" type="String">
+            <default>en_US</default>
+        </entry>
+
+        <entry name="nonDefaultWeekStartDayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+         <entry name="nonDefaultWeekStartDayDayIndex" type="Int">
+            <default>0</default>
+        </entry>
+    </group>
+
+	<group name="CustomColors">
+        <entry name="customColorsEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsPastDayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsPastDayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsPastDayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPastDayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsTodayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsTodayBg" type="String">
+        	<default>#FFff006e</default>
+        </entry>
+        <entry name="customColorsTodayBold" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="customColorsTodayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsFutureDayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsFutureDayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsFutureDayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureDayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+	</group>
+
+</kcfg>
