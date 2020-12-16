@@ -1,7 +1,7 @@
-Weekday Widget for KDE
-======================
+Weekday Grid Widget for KDE
+===========================
 
-Weekday is a small widget for KDE that shows what the day is today in context of whole week by rendering small
+Weekday Grid is a small widget for KDE that shows what the day is today in context of whole week by rendering small
 horizontal 7 cells grid, one for each week day and visually distinguishing day of today with past and future
 week days. 
 
@@ -63,5 +63,5 @@ so you may want to convince Plasma by doing manual reload:
 ## License ##
 
  * Written and copyrighted &copy;2020 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
- * Weekday Widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+ * Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
 
