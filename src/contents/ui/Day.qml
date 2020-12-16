@@ -35,6 +35,7 @@ ColumnLayout {
 		font.italic: italic
 
 		Layout.fillWidth: true
+		Layout.margins: 4
 
 		horizontalAlignment: Text.AlignHCenter
 		verticalAlignment: Text.AlignVCenter

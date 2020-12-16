@@ -25,10 +25,10 @@ ColumnLayout {
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
 	// or PlasmaCore.Theme.* (starting frameworks 5.73)
-	property string passedDayFg: ccEnabled ? plasmoid.configuration.customColorsPassedDayFg : theme.disabledTextColor
-	property string passedDayBg: ccEnabled ? plasmoid.configuration.customColorsPassedDayBg : theme.backgroundColor
-	property bool passedDayBold: ccEnabled ? plasmoid.configuration.customColorsPassedDayBold: false
-	property bool passedDayItalic: ccEnabled ? plasmoid.configuration.customColorsPassedDayItalic: false
+	property string pastDayFg: ccEnabled ? plasmoid.configuration.customColorsPastDayFg : theme.disabledTextColor
+	property string pastDayBg: ccEnabled ? plasmoid.configuration.customColorsPastDayBg : theme.backgroundColor
+	property bool pastDayBold: ccEnabled ? plasmoid.configuration.customColorsPastDayBold: false
+	property bool pastDayItalic: ccEnabled ? plasmoid.configuration.customColorsPastDayItalic: false
 
 	property string todayFg: ccEnabled ? plasmoid.configuration.customColorsTodayFg : "#FFffffff"
 	property string todayBg: ccEnabled ? plasmoid.configuration.customColorsTodayBg : "#FFff006e"
@@ -96,6 +96,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+		columnSpacing: 0
 
 		readonly property int cellMinWidth: 16
 
@@ -105,19 +106,19 @@ ColumnLayout {
 				label: labels[index]
 				fg: {
 					if (index === weekdayOffset) return todayFg
-					return (index < weekdayOffset) ? passedDayFg : futureDayFg
+					return (index < weekdayOffset) ? pastDayFg : futureDayFg
 				}
 				bg: {
 					if (index === weekdayOffset) return todayBg
-					return (index < weekdayOffset) ? passedDayBg : futureDayBg
+					return (index < weekdayOffset) ? pastDayBg : futureDayBg
 				}
 				bold: {
 					if (index === weekdayOffset) return todayBold
-					return (index < weekdayOffset) ? passedDayBold : futureDayBold
+					return (index < weekdayOffset) ? pastDayBold : futureDayBold
 				}
 				italic: {
 					if (index === weekdayOffset) return todayItalic
-					return (index < weekdayOffset) ? passedDayItalic : futureDayItalic
+					return (index < weekdayOffset) ? pastDayItalic : futureDayItalic
 				}
 			}
 		}

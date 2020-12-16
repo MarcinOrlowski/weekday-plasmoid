@@ -20,10 +20,10 @@ Kirigami.FormLayout {
 
 	property alias cfg_customColorsEnabled: customColorsEnabled.checked
 
-	property alias cfg_customColorsPassedDayFg: customColorsPassedDayFg.color
-	property alias cfg_customColorsPassedDayBg: customColorsPassedDayBg.color
-	property alias cfg_customColorsPassedDayBold: customColorsPassedDayBold.checked
-	property alias cfg_customColorsPassedDayItalic: customColorsPassedDayItalic.checked
+	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
+	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
+	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
+	property alias cfg_customColorsPastDayItalic: customColorsPastDayItalic.checked
 
 	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
 	property alias cfg_customColorsTodayBg: customColorsTodayBg.color
@@ -67,24 +67,24 @@ Kirigami.FormLayout {
 
 		// passed day
 		PlasmaComponents.Label {
-			text: i18n('Passed days')
+			text: i18n('Past days')
 		}
 		KQControls.ColorButton {
-			id: customColorsPassedDayFg
+			id: customColorsPastDayFg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select text color')
 //			onColorChanged: console.log(color)
 		}
 		KQControls.ColorButton {
-			id: customColorsPassedDayBg
+			id: customColorsPastDayBg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select background color')
 		}
 		CheckBox {
-			id: customColorsPassedDayBold
+			id: customColorsPastDayBold
 		}
 		CheckBox {
-			id: customColorsPassedDayItalic
+			id: customColorsPastDayItalic
 		}
 
 		// current day
