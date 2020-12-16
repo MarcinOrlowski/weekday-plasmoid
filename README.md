@@ -13,6 +13,20 @@ week days.
 
 ---
 
+## Table of Contents ##
+
+ * [Configuration](#configuration)
+   * [Appearance](#appearance)
+   * [Locale](#locale)
+ * [Installation](#installation)
+   * [Using built-in installer](#using-built-in-installer)
+   * [Manual installation](#manual-installation)
+ * [Upgrading](#upgrading)
+ * [Changelog](CHANGES.md)
+ * [License](#license)
+
+---
+
 ## Configuration ##
 
 ### Appearance ###
@@ -24,9 +38,9 @@ week days.
    * **Today**: appearance of current day
    * **Future days**: appearance of remaining, future days of the week.
 
-### Localization ###
+### Locale ###
 
-![Localization](img/config-locale.png)
+![Locale](img/config-locale.png)
 
  * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
  * **Use noo default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
