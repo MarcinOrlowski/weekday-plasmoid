@@ -5,13 +5,25 @@ Weekday Widget is a small widget for KDE that shows what the day is today in con
 installed, it just shows you grid of 7 cells, each one corresponding to sigle weekday, with current
 day additionally marked:
 
-![Widget in action](img/widget.png)
+![Widget in action](img/widget01.png)
+![Widget in action](img/widget02.png)
+![Widget in action](img/widget03.png)
+![Widget in action](img/widget04.png)
+![Widget in action](img/widget05.png)
 
 ---
 
 ## Configuration ##
 
 ![Appearance](img/config-appearance.png)
+
+ * **Appearance**
+   * **Use custom colors**: enable to override default appearance.
+     * **Past days**: appearance of past week days
+     * **Today**: appearance of current day
+     * **Future days**: appearance of remaining, future days of the week.
+
+![Localization](img/config-locale.png)
 
  * **Localization**
    * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
