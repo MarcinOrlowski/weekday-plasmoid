@@ -11,8 +11,6 @@
 
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
-//import org.kde.plasma.components 3.0 as PlasmaComponents
-
 
 ColumnLayout {
 	property int dayIndex: 0
@@ -33,7 +31,6 @@ ColumnLayout {
 	}
 
 	Text {
-//		padding: 6
 		readonly property int dayIndex: 0
 
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
