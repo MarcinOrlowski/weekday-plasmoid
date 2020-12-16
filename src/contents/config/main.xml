@@ -19,7 +19,52 @@
          <entry name="nonDefaultWeekStartDayDayIndex" type="Int">
             <default>0</default>
         </entry>
-
     </group>
+
+	<group name="CustomColors">
+        <entry name="customColorsEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsPassedDayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsPassedDayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsPassedDayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPassedDayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsTodayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsTodayBg" type="String">
+        	<default>#FFff006e</default>
+        </entry>
+        <entry name="customColorsTodayBold" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="customColorsTodayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsFutureDayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsFutureDayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsFutureDayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureDayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+	</group>
 
 </kcfg>

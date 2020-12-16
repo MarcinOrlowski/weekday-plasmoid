@@ -21,8 +21,22 @@ ColumnLayout {
 	property int weekdayOffset: 0
 	property int firstDayOfWeek: 0
 
-	property string todayFg: "white"
-	property string todayBg: "#ff006e"
+	readonly property bool ccEnabled: plasmoid.configuration.customColorsEnabled
+
+	property string passedDayFg: ccEnabled ? plasmoid.configuration.customColorsPassedDayFg : '#80aaaaaa'
+	property string passedDayBg: ccEnabled ? plasmoid.configuration.customColorsPassedDayBg : '#00000000'
+	property bool passedDayBold: ccEnabled ? plasmoid.configuration.customColorsPassedDayBold: false
+	property bool passedDayItalic: ccEnabled ? plasmoid.configuration.customColorsPassedDayItalic: false
+
+	property string todayFg: ccEnabled ? plasmoid.configuration.customColorsTodayFg : "#FFffffff"
+	property string todayBg: ccEnabled ? plasmoid.configuration.customColorsTodayBg : "#FFff006e"
+	property bool todayBold: ccEnabled ? plasmoid.configuration.customColorsTodayBold: true
+	property bool todayItalic: ccEnabled ? plasmoid.configuration.customColorsTodayItalic: false
+
+	property string futureDayFg: ccEnabled ? plasmoid.configuration.customColorsFutureDayFg : '#FFffffff'
+	property string futureDayBg: ccEnabled ? plasmoid.configuration.customColorsFutureDayBg : '#00000000'
+	property bool futureDayBold: ccEnabled ? plasmoid.configuration.customColorsFutureDayBold: false
+	property bool futureDayItalic: ccEnabled ? plasmoid.configuration.customColorsFutureDayItalic: false
 
 	// we start from Sunday here
 	property var labels: ['', '', '', '', '', '', '']
@@ -86,11 +100,23 @@ ColumnLayout {
 		Repeater {
 			model: 7
 			Day {
-				dayIndex: index
-				label: container.labels[this.dayIndex]
-				highlight: weekdayOffset === this.dayIndex
-				highlightFg: container.todayFg
-				highlightBg: container.todayBg
+				label: container.labels[index]
+				fg: {
+					if (index === weekdayOffset) return todayFg
+					return (index < weekdayOffset) ? passedDayFg : futureDayFg
+				}
+				bg: {
+					if (index === weekdayOffset) return todayBg
+					return (index < weekdayOffset) ? passedDayBg : futureDayBg
+				}
+				bold: {
+					if (index === weekdayOffset) return todayBold
+					return (index < weekdayOffset) ? passedDayBold : futureDayBold
+				}
+				italic: {
+					if (index === weekdayOffset) return todayItalic
+					return (index < weekdayOffset) ? passedDayItalic : futureDayItalic
+				}
 			}
 		}
 	} // weekGrid

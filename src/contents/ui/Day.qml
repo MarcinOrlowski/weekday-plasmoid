@@ -11,11 +11,11 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 
 ColumnLayout {
-	property int dayIndex: 0
 	property string label: '?'
-	property bool highlight: false
-	property string highlightFg: "white"
-	property string highlightBg: "black"
+	property string fg: "FFffffff"
+	property string bg: "#00000000"
+	property bool bold: false
+	property bool italic: false
 
 	Layout.fillWidth: true
 	Layout.minimumWidth: weekGrid.cellMinWidth
@@ -25,16 +25,17 @@ ColumnLayout {
 	
 	Rectangle {
 		anchors.fill: parent
-		color: highlight ? highlightBg : "#00000000"
+		color: bg
 	}
 
 	Text {
-		readonly property int dayIndex: 0
+		text: label
+		color: fg
+		font.bold: bold
+		font.italic: italic
 
-		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-		text: parent.label
-		color: highlight ? highlightFg : "white"
 		horizontalAlignment: Text.AlignHCenter
 		verticalAlignment: Text.AlignVCenter
+		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 	}
 }
