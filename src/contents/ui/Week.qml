@@ -23,8 +23,10 @@ ColumnLayout {
 
 	readonly property bool ccEnabled: plasmoid.configuration.customColorsEnabled
 
-	property string passedDayFg: ccEnabled ? plasmoid.configuration.customColorsPassedDayFg : '#80aaaaaa'
-	property string passedDayBg: ccEnabled ? plasmoid.configuration.customColorsPassedDayBg : '#00000000'
+	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
+	// or PlasmaCore.Theme.* (starting frameworks 5.73)
+	property string passedDayFg: ccEnabled ? plasmoid.configuration.customColorsPassedDayFg : theme.disabledTextColor
+	property string passedDayBg: ccEnabled ? plasmoid.configuration.customColorsPassedDayBg : theme.backgroundColor
 	property bool passedDayBold: ccEnabled ? plasmoid.configuration.customColorsPassedDayBold: false
 	property bool passedDayItalic: ccEnabled ? plasmoid.configuration.customColorsPassedDayItalic: false
 
@@ -33,8 +35,8 @@ ColumnLayout {
 	property bool todayBold: ccEnabled ? plasmoid.configuration.customColorsTodayBold: true
 	property bool todayItalic: ccEnabled ? plasmoid.configuration.customColorsTodayItalic: false
 
-	property string futureDayFg: ccEnabled ? plasmoid.configuration.customColorsFutureDayFg : '#FFffffff'
-	property string futureDayBg: ccEnabled ? plasmoid.configuration.customColorsFutureDayBg : '#00000000'
+	property string futureDayFg: ccEnabled ? plasmoid.configuration.customColorsFutureDayFg : theme.textColor
+	property string futureDayBg: ccEnabled ? plasmoid.configuration.customColorsFutureDayBg : theme.backgroundColor
 	property bool futureDayBold: ccEnabled ? plasmoid.configuration.customColorsFutureDayBold: false
 	property bool futureDayItalic: ccEnabled ? plasmoid.configuration.customColorsFutureDayItalic: false
 
@@ -100,7 +102,7 @@ ColumnLayout {
 		Repeater {
 			model: 7
 			Day {
-				label: container.labels[index]
+				label: labels[index]
 				fg: {
 					if (index === weekdayOffset) return todayFg
 					return (index < weekdayOffset) ? passedDayFg : futureDayFg
