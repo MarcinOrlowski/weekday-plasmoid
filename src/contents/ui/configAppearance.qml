@@ -20,25 +20,20 @@ Kirigami.FormLayout {
 
 	property alias cfg_customColorsEnabled: customColorsEnabled.checked
 
-	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
-	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
-	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
-	property alias cfg_customColorsPastDayItalic: customColorsPastDayItalic.checked
-
 	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
 	property alias cfg_customColorsTodayBg: customColorsTodayBg.color
 	property alias cfg_customColorsTodayBold: customColorsTodayBold.checked
 	property alias cfg_customColorsTodayItalic: customColorsTodayItalic.checked
 
+	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
+	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
+	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
+	property alias cfg_customColorsPastDayItalic: customColorsPastDayItalic.checked
+
 	property alias cfg_customColorsFutureDayFg: customColorsFutureDayFg.color
 	property alias cfg_customColorsFutureDayBg: customColorsFutureDayBg.color
 	property alias cfg_customColorsFutureDayBold: customColorsFutureDayBold.checked
 	property alias cfg_customColorsFutureDayItalic: customColorsFutureDayItalic.checked
-
-//	Item {
-//		Kirigami.FormData.label: i18n('Appearance')
-//		Kirigami.FormData.isSection: true
-//	}
 
 	CheckBox {
 		id: customColorsEnabled
@@ -49,69 +44,22 @@ Kirigami.FormLayout {
 		columns: 5
 		enabled: cfg_customColorsEnabled
 
-		PlasmaComponents.Label {
-			text: ''
-		}
-		PlasmaComponents.Label {
-			text: i18n('Text')
-			Layout.alignment: Qt.AlignHCenter
-		}
-		PlasmaComponents.Label {
-			text: i18n('Bg')
-			Layout.alignment: Qt.AlignHCenter
-		}
-		PlasmaComponents.Label {
-			text: i18n('Bold')
-			Layout.alignment: Qt.AlignHCenter
-		}
-		PlasmaComponents.Label {
-			text: i18n('Italic')
-			Layout.alignment: Qt.AlignHCenter
-		}
-
-		// passed day
-		PlasmaComponents.Label {
-			text: i18n('Past days')
-			Layout.alignment: Qt.AlignRight
-		}
-		KQControls.ColorButton {
-			id: customColorsPastDayFg
-			showAlphaChannel: true
-			dialogTitle: i18n('Select text color')
-//			onColorChanged: console.log(color)
-			Layout.alignment: Qt.AlignHCenter
-		}
-		KQControls.ColorButton {
-			id: customColorsPastDayBg
-			showAlphaChannel: true
-			dialogTitle: i18n('Select background color')
-			Layout.alignment: Qt.AlignHCenter
-		}
-		CheckBox {
-			id: customColorsPastDayBold
-			Layout.alignment: Qt.AlignHCenter
-		}
-		CheckBox {
-			id: customColorsPastDayItalic
-			Layout.alignment: Qt.AlignHCenter
-		}
+		// Grid header
+		LabelCenter {}
+		LabelCenter { text: i18n('Text') }
+		LabelCenter { text: i18n('Bg') }
+		LabelCenter { text: i18n('Bold') }
+		LabelCenter { text: i18n('Italic') }
 
 		// current day
-		PlasmaComponents.Label {
-			text: i18n('Today')
-			Layout.alignment: Qt.AlignRight
-		}
-		KQControls.ColorButton {
+		LabelRight { text: i18n('Today') }
+		ColorButton {
 			id: customColorsTodayFg
-			showAlphaChannel: true
 			dialogTitle: i18n('Select text color')
-			Layout.alignment: Qt.AlignHCenter
 		}
-		KQControls.ColorButton {
+		ColorButton {
 			id: customColorsTodayBg
-			showAlphaChannel: true
 			dialogTitle: i18n('Select background color')
-			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsTodayBold
@@ -122,22 +70,34 @@ Kirigami.FormLayout {
 			Layout.alignment: Qt.AlignHCenter
 		}
 
-		// future day
-		PlasmaComponents.Label {
-			text: i18n('Future days')
-			Layout.alignment: Qt.AlignRight
-		}
-		KQControls.ColorButton {
-			id: customColorsFutureDayFg
-			showAlphaChannel: true
+		// past days
+		LabelRight { text: i18n('Past days') }
+		ColorButton {
+			id: customColorsPastDayFg
 			dialogTitle: i18n('Select text color')
+		}
+		ColorButton {
+			id: customColorsPastDayBg
+			dialogTitle: i18n('Select background color')
+		}
+		CheckBox {
+			id: customColorsPastDayBold
 			Layout.alignment: Qt.AlignHCenter
 		}
-		KQControls.ColorButton {
-			id: customColorsFutureDayBg
-			showAlphaChannel: true
-			dialogTitle: i18n('Select background color')
+		CheckBox {
+			id: customColorsPastDayItalic
 			Layout.alignment: Qt.AlignHCenter
+		}
+
+		// future days
+		LabelRight { text: i18n('Future days') }
+		ColorButton {
+			id: customColorsFutureDayFg
+			dialogTitle: i18n('Select text color')
+		}
+		ColorButton {
+			id: customColorsFutureDayBg
+			dialogTitle: i18n('Select background color')
 		}
 		CheckBox {
 			id: customColorsFutureDayBold
@@ -147,6 +107,11 @@ Kirigami.FormLayout {
 			id: customColorsFutureDayItalic
 			Layout.alignment: Qt.AlignHCenter
 		}
+
+
+
+
+
 	} // GridLayout
 	
     Item {
