@@ -47,7 +47,11 @@ ColumnLayout {
 			// Offset indicates first day of week with Sunday equals 0
 			// and Saturday equals 6
 			// https://doc.qt.io/qt-5/qml-qtqml-locale.html#firstDayOfWeek-prop
-			firstDayOfWeek = Qt.locale().firstDayOfWeek
+
+			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+
+			var locale = Qt.locale(localeToUse)
+			firstDayOfWeek = locale.firstDayOfWeek
 
 			var now = new Date()
 			weekdayOffset = now.getDay()-firstDayOfWeek
@@ -60,7 +64,7 @@ ColumnLayout {
 			for(var i=0; i<7; i++) {
 				// it's known that Jan 5, 2020 is Sunday
 				var day = new Date(2020, 0, 5+firstDayOfWeek+i)
-				tmp[i] = Qt.formatDate(day, 'ddd').substr(0, 1).toUpperCase()
+				tmp[i] = day.toLocaleDateString(locale, 'ddd').substr(0, 1).toUpperCase()
 			}
 			labels = tmp
 		}
