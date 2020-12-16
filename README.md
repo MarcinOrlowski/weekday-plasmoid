@@ -35,9 +35,22 @@ week days.
 
 ## Installation ##
 
+You should be able to install Weekday Grid widget either using built-in Plasma Add-on installer or manually, by
+downloading `*.plasmoid` file either from project [Github repository](https://github.com/MarcinOrlowski/weekday-plasmoid/) or from [KDE Store](https://store.kde.org/p/1460393/)
+
+### Using built-in installer ###
+
+To install widget using Plasma built-in mechanism, press right mouse button over your desktop or panel and select 
+"Add Widgets..." from the context menu, then "Get new widgets..." eventually choosing "Download New Plasma Widgets...".
+Then search for "Weekday Grid" in "Plasma Add-On Installer" window.
+
+![Plasma Add-On Installer](img/plasma-installer.png)
+
+### Manual installation ###
+
 Download `*.plasmoid` file from [project Release section](https://github.com/MarcinOrlowski/weekday-plasmoid/releases).
-Then you can either install it via Plasmashell's GUI, by clicking RMB over your desktop or panel and selecting
-"Add widgets", then "Get new widgets..." eventually choosing "Install from local file..." and pointing to downloaded
+Then you can either install it via Plasmashell's GUI, by clicking right mouse button over your desktop or panel and
+selecting "Add widgets...", then "Get new widgets..." eventually choosing "Install from local file..." and pointing to downloaded
 `*.plasmoid` file.
 
 Alternatively you can install it using your terminal, with help of `kpackagetool5`:
