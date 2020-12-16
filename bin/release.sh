@@ -29,9 +29,9 @@ function releasePlasmoid() {
 
 	dumpMeta > "${tmp}/contents/js/meta.js"
 
+	pushd "${tmp}" > /dev/null
 	zip -q -r "${target_file}" -- *
 	ls -ld "${target_file}"
-
 	popd > /dev/null
 
 	rm -rf "${tmp}"
