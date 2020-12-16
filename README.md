@@ -13,9 +13,9 @@ day additionally marked:
 
 ![Appearance](img/config-appearance.png)
 
- * ##Localization## - By default, widget uses system specified locale to construct week day labels. It also uses system locale to determine first day of the week.
-   * **Use non default locale**: enable this option and specify name of installed locale you want to be used for constructing day labels.
-   * **Use noo default week start day**: first day of the week is obtained from locale. Enable this obtion if you want to manyally set first day of the week.
+ * **Localization**
+   * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
+   * **Use noo default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
 
 ---
 
