@@ -20,6 +20,8 @@ ColumnLayout {
 
     property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
+	property alias cfg_nonDefaultWeekStartDayEnabled: nonDefaultWeekStartDayEnabled.checked
+	property alias cfg_nonDefaultWeekStartDayDayIndex: nonDefaultWeekStartDayDayIndex.currentIndex
 
     GroupBox {
         title: i18n("Localization")
@@ -31,7 +33,7 @@ ColumnLayout {
 
         	RowLayout {
                 Layout.fillWidth: true
-        	    Kirigami.FormData.label: i18n("Use specific locale")
+        	    Kirigami.FormData.label: i18n("Use non default locale")
 
                 CheckBox {
                     id: useSpecificLocaleEnabled
@@ -42,7 +44,38 @@ ColumnLayout {
                     Layout.fillWidth: true
                     enabled: cfg_useSpecificLocaleEnabled
                 }
-        	}
+			}
+
+        	RowLayout {
+                Layout.fillWidth: true
+        	    Kirigami.FormData.label: i18n("Use non default week start day")
+
+                CheckBox {
+                    id: nonDefaultWeekStartDayEnabled
+                }
+
+				PlasmaComponents.ComboBox {
+					id: nonDefaultWeekStartDayDayIndex
+					enabled: cfg_nonDefaultWeekStartDayEnabled
+
+					// This is to make it work on pre Qt5.14
+					// https://develop.kde.org/docs/plasma/widget/plasma-qml-api/#combobox---multiple-choice
+			    	property string _valueRole: "value"
+				    readonly property var _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : null
+
+					textRole: "text"
+				    model: [
+			    	    { value: 0, text: i18n("Sunday") },
+				        { value: 1, text: i18n("Monday") },
+				        { value: 2, text: i18n("Tuesday") },
+				        { value: 3, text: i18n("Wednesday") },
+				        { value: 4, text: i18n("Thursday") },
+		    		    { value: 5, text: i18n("Friday") },
+				        { value: 6, text: i18n("Saturday") },
+				    ]
+				}
+			}
+
         } // FormLayout
     } // GroupBox
 

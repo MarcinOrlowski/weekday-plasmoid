@@ -9,9 +9,15 @@
         <entry name="useSpecificLocaleEnabled" type="Bool">
             <default>false</default>
         </entry>
- 
         <entry name="useSpecificLocaleLocaleName" type="String">
             <default>en_US</default>
+        </entry>
+
+        <entry name="nonDefaultWeekStartDayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+         <entry name="nonDefaultWeekStartDayDayIndex" type="Int">
+            <default>0</default>
         </entry>
 
     </group>

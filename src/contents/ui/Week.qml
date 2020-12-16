@@ -15,13 +15,6 @@ import org.kde.plasma.plasmoid 2.0
 ColumnLayout {
 	id: container
 
-/*
-	Rectangle {
-		anchors.fill: parent
-		color: "#aa0000ff"
-	}
-*/
-
     // ------------------------------------------------------------------------------------------------------------------------
 
 	// we always count from 0 being sunday
@@ -38,7 +31,7 @@ ColumnLayout {
 
 	// https://doc.qt.io/qt-5/richtext-html-subset.html
 	Timer {
-		interval: 1000 * 30
+		interval: 1000
 		repeat: true
 		running: true
 		triggeredOnStart: true
@@ -53,8 +46,16 @@ ColumnLayout {
 			var locale = Qt.locale(localeToUse)
 			firstDayOfWeek = locale.firstDayOfWeek
 
+			if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
+				firstDayOfWeek = plasmoid.configuration.nonDefaultWeekStartDayDayIndex
+			} else {
+				var locale = Qt.locale(localeToUse)
+				firstDayOfWeek = locale.firstDayOfWeek
+			}
+
 			var now = new Date()
 			weekdayOffset = now.getDay()-firstDayOfWeek
+			if (weekdayOffset < 0) weekdayOffset += 7
 
 			// it's known that Jan 5, 2020 is Sunday
 			// so we shift the index offset (based on locale) so the first
@@ -79,12 +80,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-/*
-		Rectangle {
-			anchors.fill: parent
-			color: "#aa00ff00"
-		}
-*/
+
 		readonly property int cellMinWidth: 16
 
 		Repeater {
