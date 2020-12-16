@@ -22,6 +22,7 @@ week days.
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
  * [Upgrading](#upgrading)
+ * [Related links](#related-links)
  * [Changelog](CHANGES.md)
  * [License](#license)
 
@@ -84,6 +85,12 @@ so you may want to convince Plasma by doing manual reload:
     kquitapp5 plasmashell && kstart5 plasmashell
     
 **NOTE:** this will **NOT** log you out nor affects any other apps. 
+
+---
+
+## Related links ##
+
+ * [KDE store project page](https://store.kde.org/p/1460393/) 
 
 ---
 
