@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Weekday Plasmoid for KDE
+# Weekday Widget for KDE
 #
 # @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
 # @copyright 2020 Marcin Orlowski

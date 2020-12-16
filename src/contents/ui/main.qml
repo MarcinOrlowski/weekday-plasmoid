@@ -1,5 +1,5 @@
 /**
- * Weekday Plasmoid
+ * Weekday Widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020 Marcin Orlowski
