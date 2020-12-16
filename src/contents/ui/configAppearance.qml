@@ -54,79 +54,98 @@ Kirigami.FormLayout {
 		}
 		PlasmaComponents.Label {
 			text: i18n('Text')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		PlasmaComponents.Label {
 			text: i18n('Bg')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		PlasmaComponents.Label {
 			text: i18n('Bold')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		PlasmaComponents.Label {
 			text: i18n('Italic')
+			Layout.alignment: Qt.AlignHCenter
 		}
 
 		// passed day
 		PlasmaComponents.Label {
 			text: i18n('Past days')
+			Layout.alignment: Qt.AlignRight
 		}
 		KQControls.ColorButton {
 			id: customColorsPastDayFg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select text color')
 //			onColorChanged: console.log(color)
+			Layout.alignment: Qt.AlignHCenter
 		}
 		KQControls.ColorButton {
 			id: customColorsPastDayBg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsPastDayBold
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsPastDayItalic
+			Layout.alignment: Qt.AlignHCenter
 		}
 
 		// current day
 		PlasmaComponents.Label {
 			text: i18n('Today')
+			Layout.alignment: Qt.AlignRight
 		}
 		KQControls.ColorButton {
 			id: customColorsTodayFg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select text color')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		KQControls.ColorButton {
 			id: customColorsTodayBg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsTodayBold
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsTodayItalic
+			Layout.alignment: Qt.AlignHCenter
 		}
 
 		// future day
 		PlasmaComponents.Label {
 			text: i18n('Future days')
+			Layout.alignment: Qt.AlignRight
 		}
 		KQControls.ColorButton {
 			id: customColorsFutureDayFg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select text color')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		KQControls.ColorButton {
 			id: customColorsFutureDayBg
 			showAlphaChannel: true
 			dialogTitle: i18n('Select background color')
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsFutureDayBold
+			Layout.alignment: Qt.AlignHCenter
 		}
 		CheckBox {
 			id: customColorsFutureDayItalic
+			Layout.alignment: Qt.AlignHCenter
 		}
 	} // GridLayout
 	
