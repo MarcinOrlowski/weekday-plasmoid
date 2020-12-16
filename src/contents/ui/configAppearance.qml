@@ -10,7 +10,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-//import QtQuick.Dialogs 1.0
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
@@ -107,7 +106,7 @@ ColumnLayout {
 
         	RowLayout {
                 Layout.fillWidth: true
-        	    Kirigami.FormData.label: i18n("Use custom theme")
+        	    Kirigami.FormData.label: i18n("Use custom appearance")
 
                 CheckBox {
                     id: customColorsEnabled
@@ -141,14 +140,12 @@ ColumnLayout {
 				KQControls.ColorButton {
 					id: customColorsPassedDayFg
 					showAlphaChannel: true
-					currentColor: "#ffffff"
 					dialogTitle: i18n('Select text color')
 //					onColorChanged: console.log(color)
 				}
 				KQControls.ColorButton {
 					id: customColorsPassedDayBg
 					showAlphaChannel: true
-					currentColor: "#ff0000"
 					dialogTitle: i18n('Select background color')
 				}
                 CheckBox {
@@ -165,13 +162,11 @@ ColumnLayout {
 				KQControls.ColorButton {
 					id: customColorsTodayFg
 					showAlphaChannel: true
-					currentColor: "#ffffff"
 					dialogTitle: i18n('Select text color')
 				}
 				KQControls.ColorButton {
 					id: customColorsTodayBg
 					showAlphaChannel: true
-					currentColor: "#ff0000"
 					dialogTitle: i18n('Select background color')
 				}
                 CheckBox {
@@ -188,13 +183,11 @@ ColumnLayout {
 				KQControls.ColorButton {
 					id: customColorsFutureDayFg
 					showAlphaChannel: true
-					currentColor: "#ffffff"
 					dialogTitle: i18n('Select text color')
 				}
 				KQControls.ColorButton {
 					id: customColorsFutureDayBg
 					showAlphaChannel: true
-					currentColor: "#ff0000"
 					dialogTitle: i18n('Select background color')
 				}
                 CheckBox {
