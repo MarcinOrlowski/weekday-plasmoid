@@ -1,9 +1,9 @@
 Weekday Widget for KDE
 ======================
 
-Weekday Widget is a small widget for KDE that shows what the day is today in context of whole week. Once
-installed, it just shows you grid of 7 cells, each one corresponding to sigle weekday, with current
-day additionally marked:
+Weekday is a small widget for KDE that shows what the day is today in context of whole week by rendering small
+horizontal 7 cells grid, one for each week day and visually distinguishing day of today with past and future
+week days. 
 
 ![Widget in action](img/widget01.png)
 ![Widget in action](img/widget02.png)
