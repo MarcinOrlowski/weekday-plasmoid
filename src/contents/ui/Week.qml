@@ -15,13 +15,6 @@ import org.kde.plasma.plasmoid 2.0
 ColumnLayout {
 	id: container
 
-/*
-	Rectangle {
-		anchors.fill: parent
-		color: "#aa0000ff"
-	}
-*/
-
     // ------------------------------------------------------------------------------------------------------------------------
 
 	// we always count from 0 being sunday
@@ -38,7 +31,7 @@ ColumnLayout {
 
 	// https://doc.qt.io/qt-5/richtext-html-subset.html
 	Timer {
-		interval: 1000 * 30
+		interval: 1000
 		repeat: true
 		running: true
 		triggeredOnStart: true
@@ -47,10 +40,22 @@ ColumnLayout {
 			// Offset indicates first day of week with Sunday equals 0
 			// and Saturday equals 6
 			// https://doc.qt.io/qt-5/qml-qtqml-locale.html#firstDayOfWeek-prop
-			firstDayOfWeek = Qt.locale().firstDayOfWeek
+
+			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+
+			var locale = Qt.locale(localeToUse)
+			firstDayOfWeek = locale.firstDayOfWeek
+
+			if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
+				firstDayOfWeek = plasmoid.configuration.nonDefaultWeekStartDayDayIndex
+			} else {
+				var locale = Qt.locale(localeToUse)
+				firstDayOfWeek = locale.firstDayOfWeek
+			}
 
 			var now = new Date()
 			weekdayOffset = now.getDay()-firstDayOfWeek
+			if (weekdayOffset < 0) weekdayOffset += 7
 
 			// it's known that Jan 5, 2020 is Sunday
 			// so we shift the index offset (based on locale) so the first
@@ -60,7 +65,7 @@ ColumnLayout {
 			for(var i=0; i<7; i++) {
 				// it's known that Jan 5, 2020 is Sunday
 				var day = new Date(2020, 0, 5+firstDayOfWeek+i)
-				tmp[i] = Qt.formatDate(day, 'ddd').substr(0, 1).toUpperCase()
+				tmp[i] = day.toLocaleDateString(locale, 'ddd').substr(0, 1).toUpperCase()
 			}
 			labels = tmp
 		}
@@ -75,12 +80,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-/*
-		Rectangle {
-			anchors.fill: parent
-			color: "#aa00ff00"
-		}
-*/
+
 		readonly property int cellMinWidth: 16
 
 		Repeater {

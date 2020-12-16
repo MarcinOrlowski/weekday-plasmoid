@@ -27,16 +27,6 @@ function releasePlasmoid() {
 	local -r tmp="$(mktemp -d "/tmp/${plasmoid_file_name}.XXXXXX")"
 	cp -a "${ROOT_DIR}"/src/* "${tmp}"
 
-	local op_api_url=
-	local op_api_key=
-	local op_snapshot_url=
-	local -r cfg_template_file="${tmp}/contents/config/main-template.xml"
-	local -r cfg_config_file="${tmp}/contents/config/main.xml"
-
-	pushd "${tmp}" > /dev/null
-	cat "${cfg_template_file}" | sed -e "s/{OCTOPRINT_API_URL}/${op_api_url}/g" | sed -e "s/{OCTOPRINT_API_KEY}/${op_api_key}/g" | sed -e "s/{OCTOPRINT_SNAPSHOT_URL}/${op_snapshot_url}/g" > "${cfg_config_file}"
-	rm -vf "${cfg_template_file}"
-
 	dumpMeta > "${tmp}/contents/js/meta.js"
 
 	zip -q -r "${target_file}" -- *
