@@ -39,6 +39,7 @@ function dumpMeta() {
 	local -r author_url="$(getMetaTag "X-KDE-PluginInfo-Author-Url")"
 	local -r project_name="$(getMetaTag "Name")"
 	local -r project_url="$(getMetaTag "X-KDE-PluginInfo-Website")"
+	local -r update_checker_url="$(getMetaTag "X-KDE-PluginInfo-UpdateChecker-Url")"
 
 #	local -r pkg_name="$(getMetaTag "X-KDE-PluginInfo-Name")"
 #	local -r pkg_base_name=$(echo "${pkg_name}" | awk '{cnt=split($0,a,"."); print a[cnt]}')
@@ -58,7 +59,8 @@ function dumpMeta() {
 			"var title=\"${project_name}\"\n"\
 			"var url=\"${project_url}\"\n"\
 			"var authorName=\"${author_name}\"\n"\
-			"var authorUrl=\"${author_url}\"\n"
+			"var authorUrl=\"${author_url}\"\n" \
+			"var updateCheckerUrl=\"${update_checker_url}\"\n"
 }
 
 # ----------------------------------------------------------

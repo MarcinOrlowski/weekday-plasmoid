@@ -1,3 +1,6 @@
+* @dev
+  * Added update availability checker
+
 * v1.2.0 (2020-12-17)
   * Added widget tooltip with current date
   * Added option to override used locale
