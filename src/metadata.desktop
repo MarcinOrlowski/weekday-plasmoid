@@ -1,6 +1,6 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Weekday
+Name=Weekday Grid
 Comment=Shows whole week and clearly tells week day it is today
 Icon=office-calendar
 
@@ -8,13 +8,14 @@ Type=Service
 
 X-KDE-PluginInfo-Author=Marcin Orlowski
 
-# Artificial field
+# Artificial fields
 X-KDE-PluginInfo-Author-Url=http://marcinorlowski.com/
+X-KDE-PluginInfo-UpdateChecker-Url=https://raw.githubusercontent.com/MarcinOrlowski/weekday-plasmoid/master/src/metadata.desktop
 
 X-KDE-PluginInfo-Email=
 X-KDE-PluginInfo-License=MIT
 X-KDE-PluginInfo-Name=com.marcinorlowski.kde.weekday
-X-KDE-PluginInfo-Version=1.2.0
+X-KDE-PluginInfo-Version=1.3.0
 X-KDE-PluginInfo-Website=https://github.com/MarcinOrlowski/weekday-plasmoid
 X-KDE-ServiceTypes=Plasma/Applet
 X-Plasma-API=declarativeappletscript

@@ -1,3 +1,7 @@
+* v1.3.0 (2020-12-18)
+  * Added update availability checker
+  * Corrected layout items
+
 * v1.2.0 (2020-12-17)
   * Added widget tooltip with current date
   * Added option to override used locale

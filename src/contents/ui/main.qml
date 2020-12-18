@@ -18,15 +18,19 @@ Item {
 
     Component.onCompleted: {
         plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
+        plasmoid.setAction("checkUpdateAvailability", i18n("Check update…"));
     }
+
+	function action_checkUpdateAvailability() {
+		updateChecker.checkUpdateAvailability(true)
+	}
 
     function action_showAboutDialog() {
         aboutDialog.visible = true
     }
-
     AboutDialog {
-        id: aboutDialog
-    }
+		id: aboutDialog
+	}
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -39,5 +43,12 @@ Item {
 	Plasmoid.compactRepresentation: Week {} 
 
     // ------------------------------------------------------------------------------------------------------------------------
+
+	UpdateChecker {
+		id: updateChecker
+
+		// once per 7 days
+		checkInterval: (((1000*60)*60)*24*7)
+	}
 
 } // main

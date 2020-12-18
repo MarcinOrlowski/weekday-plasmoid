@@ -10,29 +10,32 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 
-ColumnLayout {
+Rectangle {
 	property string label: '?'
 	property string fg: "FFffffff"
 	property string bg: "#00000000"
 	property bool bold: false
 	property bool italic: false
 
+	implicitWidth: dayLabel.implicitWidth
+	implicitHeight: dayLabel.implicitHeight
+
 	Layout.fillWidth: true
 	Layout.minimumWidth: weekGrid.cellMinWidth
 	Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-
 	Layout.margins: 0
 	
-	Rectangle {
-		anchors.fill: parent
-		color: bg
-	}
+	color: bg
 
 	Text {
+		id: dayLabel
+
 		text: label
 		color: fg
 		font.bold: bold
 		font.italic: italic
+
+		anchors.fill: parent
 
 		Layout.fillWidth: true
 		Layout.margins: 4
