@@ -2,6 +2,7 @@
   * Added separately configurable appearance of Saturday and Sunday 
   * Added separated general widget background color
   * Fixed Tooltip not using custom locale
+  * Added option to export current custom theme as JSON string
 
 * v1.3.0 (2020-12-18)
   * Added update availability checker
