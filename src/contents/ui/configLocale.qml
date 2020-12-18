@@ -1,5 +1,5 @@
 /**
- * Weekday Widget for KDE
+ * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
  * @copyright 2020 Marcin Orlowski

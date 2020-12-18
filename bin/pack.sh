@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Weekday Widget for KDE
+# Weekday Grid widget for KDE
 #
 # @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
 # @copyright 2020 Marcin Orlowski
 # @license   http://www.opensource.org/licenses/mit-license.php MIT
 # @link      https://github.com/MarcinOrlowski/weekday-plasmoid
 #
-#  Packs plasmoid into distributable archive
+# Packs plasmoid into distributable archive
 #
 
 set -euo pipefail
