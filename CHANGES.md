@@ -1,6 +1,7 @@
 * @dev
   * Added separately configurable appearance of Saturday and Sunday 
   * Added separated general widget background color
+  * Fixed Tooltip not using custom locale
 
 * v1.3.0 (2020-12-18)
   * Added update availability checker

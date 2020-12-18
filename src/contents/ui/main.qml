@@ -34,7 +34,10 @@ Item {
 
     // ------------------------------------------------------------------------------------------------------------------------
 
-	Plasmoid.toolTipMainText: new Date().toLocaleDateString(Qt.locale(), Locale.LongFormat)
+	Plasmoid.toolTipMainText: {
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+		return new Date().toLocaleDateString(Qt.locale(localeToUse), Locale.LongFormat)
+	}
 	Plasmoid.toolTipSubText: ''
 
     // ------------------------------------------------------------------------------------------------------------------------
