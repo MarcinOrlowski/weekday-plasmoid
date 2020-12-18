@@ -35,16 +35,27 @@ week days.
 ![Appearance](img/config-appearance.png)
 
  * **Use custom colors**: enable to override default appearance.
+   * **Widget**: specifies general widget background color. 
    * **Past days**: appearance of past week days
    * **Today**: appearance of current day
    * **Future days**: appearance of remaining, future days of the week.
+   * **Furure Saturday**: appearance of future Saturday. If not enabled, "Future days" settings will be used.
+   * **Future Sunday**: appearance of future Sunday. If not enabled, "Future days" settings will be used.
+
+**NOTES:** 
+
+  * For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
+  * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
+    by background color as set for specific type of day.
+  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
+  * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
 
 ### Locale ###
 
 ![Locale](img/config-locale.png)
 
  * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
- * **Use noo default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
+ * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
 
 ---
 

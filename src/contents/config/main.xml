@@ -22,6 +22,10 @@
     </group>
 
 	<group name="CustomColors">
+		<entry name="customColorsWidgetBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+
         <entry name="customColorsEnabled" type="Bool">
             <default>false</default>
         </entry>
@@ -62,6 +66,38 @@
             <default>false</default>
         </entry>
         <entry name="customColorsFutureDayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+		<entry name="customColorsFutureSaturdayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureSaturdayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsFutureSaturdayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsFutureSaturdayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureSaturdayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsFutureSundayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureSundayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsFutureSundayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsFutureSundayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsFutureSundayItalic" type="Bool">
             <default>false</default>
         </entry>
 
