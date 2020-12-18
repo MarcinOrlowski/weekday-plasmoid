@@ -11,6 +11,7 @@ import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
+import org.kde.kquickcontrolsaddons 2.0 as KQCA
 
 ColumnLayout {
 	id: container
@@ -126,7 +127,16 @@ ColumnLayout {
 			attrsBg = bgTmp
 			attrsBold = boldTmp
 			attrsItalic = italicTmp
+
+//		KQCA.Clipboard.setMode('text/plain')
+//		KQCA.Clipboard.setContent('ofooooo')
+//		clipboard.content = now
 		}
+	}
+
+	KQCA.Clipboard {
+		id: clipboard
+		// content: 'foo'
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------

@@ -13,6 +13,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
+import org.kde.kquickcontrolsaddons 2.0 as KQCA
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true
@@ -47,6 +48,11 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsFutureSundayBg: customColorsFutureSundayBg.color
 	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
 	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
+
+	KQCA.Clipboard {
+		id: clipboard
+		// content: 'foo'
+	}
 
 	CheckBox {
 		id: customColorsEnabled
@@ -183,6 +189,8 @@ Kirigami.FormLayout {
 			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
+
+		// copy to clipboard
 
 	} // GridLayout
 	
