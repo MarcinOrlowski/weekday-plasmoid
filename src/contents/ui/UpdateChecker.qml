@@ -54,14 +54,14 @@ Item {
 						updateCheckerNotificationManager.post({
 							'title': Meta.title,
 							'summary': i18n("New version (v%1) available!", remoteVersion),
-                            'body': `You are currently using version ${Meta.version}. See project page for more information. Link in About dialog.`,
+                            'body': i18n("You are currently using version %1. See project page for more information (link in About dialog).", Meta.version),
                             'expireTimeout': 0,
                         });
                     } else {
 						updateCheckerNotificationManager.post({
 							'title': Meta.title,
 							'summary': i18n("No update available."),
-                            'body': `You are using most recent version.`,
+                            'body': i18n("You are using most recent version of %1.", Meta.title),
                             'expireTimeout': 1000 * 10,
                         });
 					}
