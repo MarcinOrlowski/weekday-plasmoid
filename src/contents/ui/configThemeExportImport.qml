@@ -40,7 +40,6 @@ ColumnLayout {
     	        textInput.cursorPosition = curPos;
 	            textInput.select(selectStart,selectEnd);
 	        }
-/*
 	        onPressAndHold: {
     	        if (mouse.source === Qt.MouseEventNotSynthesized) {
         	        var selectStart = textInput.selectionStart;
@@ -53,7 +52,6 @@ ColumnLayout {
     	            textInput.select(selectStart,selectEnd);
         	    }
 	        }
-*/
 
     	    QtControls.Menu {
         	    id: contextMenu
