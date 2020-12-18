@@ -1,5 +1,6 @@
 * @dev
   * Added separately configurable appearance of Saturday and Sunday 
+  * Added separated general widget background color
 
 * v1.3.0 (2020-12-18)
   * Added update availability checker

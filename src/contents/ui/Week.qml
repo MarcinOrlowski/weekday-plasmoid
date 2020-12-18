@@ -25,8 +25,11 @@ ColumnLayout {
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
 	// or PlasmaCore.Theme.* (starting frameworks 5.73)
+
+	readonly property string widgetBg: ccEnabled ? plasmoid.configuration.customColorsWidgetBg : theme.backgroundColor
+
 	readonly property string pastDayFg: ccEnabled ? plasmoid.configuration.customColorsPastDayFg : theme.disabledTextColor
-	readonly property string pastDayBg: ccEnabled ? plasmoid.configuration.customColorsPastDayBg : theme.backgroundColor
+	readonly property string pastDayBg: ccEnabled ? plasmoid.configuration.customColorsPastDayBg : widgetBg
 	readonly property bool pastDayBold: ccEnabled ? plasmoid.configuration.customColorsPastDayBold : false
 	readonly property bool pastDayItalic: ccEnabled ? plasmoid.configuration.customColorsPastDayItalic : false
 
@@ -36,7 +39,7 @@ ColumnLayout {
 	readonly property bool todayItalic: ccEnabled ? plasmoid.configuration.customColorsTodayItalic : false
 
 	readonly property string futureDayFg: ccEnabled ? plasmoid.configuration.customColorsFutureDayFg : theme.textColor
-	readonly property string futureDayBg: ccEnabled ? plasmoid.configuration.customColorsFutureDayBg : theme.backgroundColor
+	readonly property string futureDayBg: ccEnabled ? plasmoid.configuration.customColorsFutureDayBg : widgetBg
 	readonly property bool futureDayBold: ccEnabled ? plasmoid.configuration.customColorsFutureDayBold : false
 	readonly property bool futureDayItalic: ccEnabled ? plasmoid.configuration.customColorsFutureDayItalic : false
 
@@ -180,6 +183,11 @@ ColumnLayout {
 
 		readonly property int cellMinWidth: 16
 
+		Rectangle {
+			anchors.fill: weekGrid
+			color: widgetBg
+		}
+
 		Repeater {
 			model: 7
 			Day {
@@ -187,7 +195,7 @@ ColumnLayout {
 				fg: attrsFg[index]
 				bg: attrsBg[index]
 				bold: attrsBold[index]
-//				italic: attrsItalic[index]
+				italic: attrsItalic[index]
 			}
 		}
 	} // weekGrid

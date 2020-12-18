@@ -19,6 +19,8 @@ Kirigami.FormLayout {
 
 	property alias cfg_customColorsEnabled: customColorsEnabled.checked
 
+	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
+
 	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
 	property alias cfg_customColorsTodayBg: customColorsTodayBg.color
 	property alias cfg_customColorsTodayBold: customColorsTodayBold.checked
@@ -61,6 +63,16 @@ Kirigami.FormLayout {
 		LabelCenter { text: i18n('Bg') }
 		LabelCenter { text: i18n('Bold') }
 		LabelCenter { text: i18n('Italic') }
+
+		// widget background
+		LabelRight { Layout.columnSpan: 2; text: i18n('Widget') }
+		LabelCenter {}
+		ColorButton {
+			id: customColorsWidgetBg
+			dialogTitle: i18n('Select background color')
+		}
+		LabelCenter {}
+		LabelCenter {}
 
 		// current day
 		LabelRight { Layout.columnSpan: 2; text: i18n('Today') }
