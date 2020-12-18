@@ -130,7 +130,7 @@ ColumnLayout {
 
 //		KQCA.Clipboard.setMode('text/plain')
 //		KQCA.Clipboard.setContent('ofooooo')
-		clipboard.content = now
+//		clipboard.content = now
 		}
 	}
 
