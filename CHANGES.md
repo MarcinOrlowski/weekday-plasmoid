@@ -1,3 +1,6 @@
+* @dev
+  * Added separately configurable appearance of Saturday and Sunday 
+
 * v1.3.0 (2020-12-18)
   * Added update availability checker
   * Corrected layout items

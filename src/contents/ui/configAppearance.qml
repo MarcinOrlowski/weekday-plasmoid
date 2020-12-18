@@ -15,7 +15,6 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 
 Kirigami.FormLayout {
-//    width: childrenRect.width
 	Layout.fillWidth: true
 
 	property alias cfg_customColorsEnabled: customColorsEnabled.checked
@@ -35,24 +34,36 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsFutureDayBold: customColorsFutureDayBold.checked
 	property alias cfg_customColorsFutureDayItalic: customColorsFutureDayItalic.checked
 
+	property alias cfg_customColorsFutureSaturdayEnabled: customColorsFutureSaturdayEnabled.checked
+	property alias cfg_customColorsFutureSaturdayFg: customColorsFutureSaturdayFg.color
+	property alias cfg_customColorsFutureSaturdayBg: customColorsFutureSaturdayBg.color
+	property alias cfg_customColorsFutureSaturdayBold: customColorsFutureSaturdayBold.checked
+	property alias cfg_customColorsFutureSaturdayItalic: customColorsFutureSaturdayItalic.checked
+
+	property alias cfg_customColorsFutureSundayEnabled: customColorsFutureSundayEnabled.checked
+	property alias cfg_customColorsFutureSundayFg: customColorsFutureSundayFg.color
+	property alias cfg_customColorsFutureSundayBg: customColorsFutureSundayBg.color
+	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
+	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
+
 	CheckBox {
 		id: customColorsEnabled
 		text: i18n("Use custom colors")
 	}
 
 	GridLayout {
-		columns: 5
+		columns: 6
 		enabled: cfg_customColorsEnabled
 
 		// Grid header
-		LabelCenter {}
+		LabelCenter { Layout.columnSpan: 2 }
 		LabelCenter { text: i18n('Text') }
 		LabelCenter { text: i18n('Bg') }
 		LabelCenter { text: i18n('Bold') }
 		LabelCenter { text: i18n('Italic') }
 
 		// current day
-		LabelRight { text: i18n('Today') }
+		LabelRight { Layout.columnSpan: 2; text: i18n('Today') }
 		ColorButton {
 			id: customColorsTodayFg
 			dialogTitle: i18n('Select text color')
@@ -71,7 +82,7 @@ Kirigami.FormLayout {
 		}
 
 		// past days
-		LabelRight { text: i18n('Past days') }
+		LabelRight { Layout.columnSpan: 2; text: i18n('Past days') }
 		ColorButton {
 			id: customColorsPastDayFg
 			dialogTitle: i18n('Select text color')
@@ -90,7 +101,7 @@ Kirigami.FormLayout {
 		}
 
 		// future days
-		LabelRight { text: i18n('Future days') }
+		LabelRight { Layout.columnSpan: 2; text: i18n('Future days') }
 		ColorButton {
 			id: customColorsFutureDayFg
 			dialogTitle: i18n('Select text color')
@@ -108,9 +119,58 @@ Kirigami.FormLayout {
 			Layout.alignment: Qt.AlignHCenter
 		}
 
+		// future Saturday
+		LabelRight { text: i18n('Future Saturday') }
+		CheckBox {
+			id: customColorsFutureSaturdayEnabled
+		}
+		ColorButton {
+			id: customColorsFutureSaturdayFg
+			dialogTitle: i18n('Select text color')
+			enabled: cfg_customColorsFutureSaturdayEnabled
+		}
+		ColorButton {
+			id: customColorsFutureSaturdayBg
+			dialogTitle: i18n('Select background color')
+			enabled: cfg_customColorsFutureSaturdayEnabled
+		}
+		CheckBox {
+			id: customColorsFutureSaturdayBold
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsFutureSaturdayEnabled
+		}
+		CheckBox {
+			id: customColorsFutureSaturdayItalic
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsFutureSaturdayEnabled
+		}
 
 
-
+		// future Sunday
+		LabelRight { text: i18n('Future Sunday') }
+		CheckBox {
+			id: customColorsFutureSundayEnabled
+		}
+		ColorButton {
+			id: customColorsFutureSundayFg
+			dialogTitle: i18n('Select text color')
+			enabled: cfg_customColorsFutureSundayEnabled
+		}
+		ColorButton {
+			id: customColorsFutureSundayBg
+			dialogTitle: i18n('Select background color')
+			enabled: cfg_customColorsFutureSundayEnabled
+		}
+		CheckBox {
+			id: customColorsFutureSundayBold
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsFutureSundayEnabled
+		}
+		CheckBox {
+			id: customColorsFutureSundayItalic
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsFutureSundayEnabled
+		}
 
 	} // GridLayout
 	
