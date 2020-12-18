@@ -21,4 +21,9 @@ ConfigModel {
         icon: "languages"
         source: "configLocale.qml"
     }
+	ConfigCategory {
+		name: i18n("Export/Import")
+		icon: "view-visible"
+		source: "configThemeExportImport.qml"
+	}
 }
