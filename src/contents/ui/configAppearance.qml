@@ -58,6 +58,7 @@ Kirigami.FormLayout {
 			configKey: 'themeName'
 			model: [
 				{ value: Themes.defaultTheme, text: i18n('Default') },
+
 				{ value: 'amber', text: i18n('Amber') },
 				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
 				{ value: 'bw-dark', text: i18n('B&W') },
