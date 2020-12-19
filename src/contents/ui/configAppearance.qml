@@ -63,7 +63,7 @@ Kirigami.FormLayout {
 			Layout.minimumWidth: 300
 			configKey: 'themeName'
 			model: [
-				{ value: Themes.custom, text: i18n('Default') },
+				{ value: Themes.defaultTheme, text: i18n('Default') },
 				{ value: 'amber', text: i18n('Amber') },
 				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
 				{ value: 'bw-dark', text: i18n('B&W') },
@@ -71,7 +71,7 @@ Kirigami.FormLayout {
 				{ value: 'sea-blue', text: i18n('Sea Blue') },
 				{ value: 'violet', text: i18n('Violet') },
 
-				{ value: Themes.defaultTheme, text: i18n('Custom colors') }
+				{ value: Themes.custom, text: i18n('Custom colors') }
 			]
 		}
 /*
