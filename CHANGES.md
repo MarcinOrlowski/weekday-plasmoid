@@ -1,4 +1,5 @@
 * @dev
+  * Added bunch of predefined color schemes
   * Added separately configurable appearance of Saturday and Sunday 
   * Added separated general widget background color
   * Fixed Tooltip not using custom locale

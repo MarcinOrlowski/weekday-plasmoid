@@ -21,13 +21,19 @@
         </entry>
     </group>
 
-	<group name="CustomColors">
-		<entry name="customColorsWidgetBg" type="String">
-        	<default>#00000000</default>
-        </entry>
+	<group name="Appearance">
+		<entry name="themeName" type="String">
+			<default>__default__</default>
+		</entry>
+	</group>
 
+	<group name="CustomColors">
         <entry name="customColorsEnabled" type="Bool">
             <default>false</default>
+        </entry>
+
+		<entry name="customColorsWidgetBg" type="String">
+        	<default>#00000000</default>
         </entry>
 
         <entry name="customColorsPastDayFg" type="String">

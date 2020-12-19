@@ -12,21 +12,19 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import org.kde.kquickcontrolsaddons 2.0 as KQCA
+import "../js/themes.js" as Themes
 
 ColumnLayout {
-	id: container
-
-    // ------------------------------------------------------------------------------------------------------------------------
+	id: week
 
 	// we always count from 0 being sunday unless user set different day to be first day of the week
 	property int weekdayOffset: 0
 	property int firstDayOfWeek: 0
 
-	readonly property bool ccEnabled: plasmoid.configuration.customColorsEnabled
+	readonly property bool ccEnabled: themeName === Themes.custom
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
 	// or PlasmaCore.Theme.* (starting frameworks 5.73)
-
 	readonly property string widgetBg: ccEnabled ? plasmoid.configuration.customColorsWidgetBg : theme.backgroundColor
 
 	readonly property string pastDayFg: ccEnabled ? plasmoid.configuration.customColorsPastDayFg : theme.disabledTextColor
@@ -62,6 +60,13 @@ ColumnLayout {
 	property var attrsFg: ['#00000000', '#00000000', '#00000000', '#00000000', '#00000000', '#00000000', '#00000000']
 	property var attrsBold: [false, false, false, false, false, false, false]
 	property var attrsItalic: [false, false, false, false, false, false, false]
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
+	property string themeName: plasmoid.configuration.themeName
+	property var currentTheme: Themes.themes[Themes.defaultTheme]
+
+	onThemeNameChanged: currentTheme = Themes.themes[themeName]
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -142,42 +147,42 @@ ColumnLayout {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	function getFg(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayFg
-		if (index < todayOffset) return pastDayFg
-		var result = futureDayFg
+		if (index === todayOffset) return ccEnabled ? todayFg : currentTheme['today']['fg']
+		if (index < todayOffset) return ccEnabled ? pastDayFg : currentTheme['pastDay']['fg']
+		var result = ccEnabled ? futureDayFg : currentTheme['futureDay']['fg']
 		switch(weekday) {
-			case 0: result = futureSundayFg; break
-			case 6: result = futureSaturdayFg; break
+			case 0: result = ccEnabled ? futureSundayFg : currentTheme['futureSunday']['fg']; break
+			case 6: result = ccEnabled ? futureSaturdayFg : currentTheme['futureSaturday']['fg']; break
 		}
 		return result
 	}
 	function getBg(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayBg
-		if (index < todayOffset) return pastDayBg
-		var result = futureDayBg
+		if (index === todayOffset) return ccEnabled ? todayBg : currentTheme['today']['bg']
+		if (index < todayOffset) return ccEnabled ? pastDayBg : currentTheme['pastDay']['bg']
+		var result = ccEnabled ? futureDayBg : currentTheme['futureDay']['bg']
 		switch(weekday) {
-			case 0: result = futureSundayBg; break
-			case 6: result = futureSaturdayBg; break
+			case 0: result = ccEnabled ? futureSundayBg : currentTheme['futureSunday']['bg']; break
+			case 6: result = ccEnabled ? futureSaturdayBg : currentTheme['futureSaturday']['bg']; break
 		}
 		return result
 	}
 	function getBold(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayBold
-		if (index < todayOffset) return pastDayBold
-		var result = futureDayBold
+		if (index === todayOffset) return ccEnabled ? todayBold : currentTheme['today']['bold']
+		if (index < todayOffset) return ccEnabled ? pastDayBold : currentTheme['pastDay']['bold']
+		var result = ccEnabled ? futureDayBold : currentTheme['futureDay']['bold']
 		switch(weekday) {
-			case 0: result = futureSundayBold; break
-			case 6: result = futureSaturdayBold; break
+			case 0: result = ccEnabled ? futureSundayBold : currentTheme['futureSunday']['bold']; break
+			case 6: result = ccEnabled ? futureSaturdayBold : currentTheme['futureSaturday']['bold']; break
 		}
 		return result
 	}
 	function getItalic(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayItalic
-		if (index < todayOffset) return pastDayItalic
-		var result = futureDayItalic
+		if (index === todayOffset) return ccEnabled ? todayItalic : currentTheme['today']['italic']
+		if (index < todayOffset) return ccEnabled ? pastDayItalic : currentTheme['pastDay']['italic']
+		var result = ccEnabled ? futureDayItalic : currentTheme['futureDay']['italic']
 		switch(weekday) {
-			case 0: result = futureSundayItalic; break
-			case 6: result = futureSaturdayItalic; break
+			case 0: result = ccEnabled ? futureSundayItalic : currentTheme['futureSunday']['italic']; break
+			case 6: result = ccEnabled ? futureSaturdayItalic : currentTheme['futureSaturday']['italic']; break
 		}
 		return result
 	}
@@ -210,4 +215,4 @@ ColumnLayout {
 		}
 	} // weekGrid
 
-} // container
+} // week

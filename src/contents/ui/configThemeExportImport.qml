@@ -10,20 +10,33 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3 as QtControls
 import QtQuick.Layouts 1.1
-import QtQuick.Dialogs 1.3
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.plasmoid 2.0
+import "../js/themes.js" as Themes
 
 ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
+
+	Kirigami.InlineMessage {
+		id: messageWidget
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Notice
+		text: i18n('Custom colors must be enabled for this feature to work.')
+		showCloseButton: false
+		visible: !customColorsEnabled
+	}
+
 	QtControls.TextArea {
 		id: textInput
 		Layout.fillWidth: true
 		Layout.fillHeight: true
+		enabled: customColorsEnabled
 		selectByMouse: true
 
 		 MouseArea {
@@ -71,27 +84,13 @@ ColumnLayout {
     	}
 	}
 
-	Dialog {
-		id: customColorsNotEnabledDialog
-    	standardButtons: StandardButton.Ok
-
-        PlasmaComponents.Label {
-            Layout.alignment: Qt.AlignHCenter
-            textFormat: Text.RichText
-            text: i18n('Custom colors must be enabled for export to work.')
-        }
-	} // customColorsNotEnabedDialog
-
 	RowLayout {
-		PlasmaComponents.Button {
-			text: 'Update'
-			icon.name: 'view-refresh-symbolic'
-			onClicked: {
-				if (!plasmoid.configuration.customColorsEnabled) {
-					customColorsNotEnabledDialog.visible = true
-					return
-				}
+		enabled: customColorsEnabled
 
+		PlasmaComponents.Button {
+			text: i18n('Export')
+			icon.name: 'document-export'
+			onClicked: {
 				var json = {
 					'widget': {'bg': plasmoid.configuration.customColorsWidgetBg.toString()},
 					'today': {
@@ -133,8 +132,8 @@ ColumnLayout {
 		}
 
 		PlasmaComponents.Button {
-			text: 'Import'
-			icon.name: 'view-refresh-symbolic'
+			text: i18n('Import')
+			icon.name: 'document-import'
 			onClicked: {
 			}
 		}

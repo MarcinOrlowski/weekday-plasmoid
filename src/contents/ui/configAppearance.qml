@@ -8,17 +8,18 @@
  */
 
 import QtQuick 2.0
-import QtQuick.Controls 2.3
+//import QtQuick.Controls 2.3
+import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.kquickcontrolsaddons 2.0 as KQCA
+import "../js/themes.js" as Themes
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true
 
-	property alias cfg_customColorsEnabled: customColorsEnabled.checked
+//	property alias cfg_widgetThemeName: themeName.value
 
 	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
 
@@ -49,19 +50,52 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
 	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
 
-	KQCA.Clipboard {
-		id: clipboard
-		// content: 'foo'
-	}
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
-	CheckBox {
-		id: customColorsEnabled
-		text: i18n("Use custom colors")
-	}
+	RowLayout {
+		id: themeSwitcher
+		PlasmaComponents.Label {
+			text: i18n('Theme')
+		}
+
+		ConfigComboBox {
+			id: themeName
+			Layout.minimumWidth: 300
+			configKey: 'themeName'
+			model: [
+				{ value: Themes.custom, text: i18n('Default') },
+				{ value: 'amber', text: i18n('Amber') },
+				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
+				{ value: 'bw-dark', text: i18n('B&W') },
+				{ value: 'forest', text: i18n('Forest') },
+				{ value: 'sea-blue', text: i18n('Sea Blue') },
+				{ value: 'violet', text: i18n('Violet') },
+
+				{ value: Themes.defaultTheme, text: i18n('Custom colors') }
+			]
+		}
+/*
+		PlasmaComponents.ComboBox {
+			id: themeName
+		    textRole: "text"
+		    property string _valueRole: "value"
+		    readonly property string _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : Themes.defaultTheme
+
+			model: [
+				{ value: Themes.defaultTheme, text: i18n('Default') },
+				{ value: 'amber', text: i18n('Amber') },
+				{ value: 'forest', text: i18n('Forest') },
+				{ value: 'yellow', text: i18n('Yellow') },
+				{ value: Themes.custom, text: i18n('Custom colors') }
+			]
+		}
+*/
+	} // themeSwitcher
 
 	GridLayout {
+		id: customColors
 		columns: 6
-		enabled: cfg_customColorsEnabled
+		enabled: customColorsEnabled
 
 		// Grid header
 		LabelCenter { Layout.columnSpan: 2 }
@@ -190,9 +224,7 @@ Kirigami.FormLayout {
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
 
-		// copy to clipboard
-
-	} // GridLayout
+	} // customColors
 	
     Item {
         Layout.fillWidth: true
