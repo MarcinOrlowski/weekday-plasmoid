@@ -1,7 +1,8 @@
 var defaultTheme='__default__'
 var custom='__custom__'
 var themes = {
-		"__default__": {
+		defaultTheme: {
+			"theme":{"name":"Default"},
 			"widget":{"bg":"#00000000"},
 			"today":{"fg":"#FFffffff", "bg":"#FFff006e", "bold":true, "italic":false},
 			"pastDay":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
@@ -10,6 +11,7 @@ var themes = {
 			"futureSunday":{"enabled":false, "fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false}
 		},
 		"violet": {
+			"theme":{"name":"Violet"},
 			"widget":{"bg":"#2e3136"},
 			"today":{"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
 			"pastDay":{"fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
@@ -18,6 +20,7 @@ var themes = {
 			"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
 		},
 		"amber": {
+			"theme":{"name":"Amber"},
 			"widget":{"bg":"#00000000"},
 			"today":{"fg":"#f0e513","bg":"#5500ff","bold":true,"italic":false},
 			"pastDay":{"fg":"#a3705e","bg":"#783e23","bold":false,"italic":false},
@@ -26,6 +29,7 @@ var themes = {
 			"futureSunday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false}
 		},
 		"forest": {
+			"theme":{"name":"Forest"},
 			"widget":{"bg":"#2e3136"},
 			"today":{"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
 			"pastDay":{"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
@@ -34,6 +38,7 @@ var themes = {
 			"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 		},
 		"sea-blue": {
+			"theme":{"name":"Sea Blue"},
 			"widget":{"bg":"#2e3136"},"today":{"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
 			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
 			"futureDay":{"fg":"#ffffff","bg":"#3a738b","bold":false,"italic":false},
@@ -41,6 +46,7 @@ var themes = {
 			"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false}
 		},
 		"accented-bw-dark": {
+			"theme":{"name":"B&W Accented"},
 			"widget":{"bg":"#253137"},
 			"today":{"fg":"#232323","bg":"#b4b4b4","bold":true,"italic":false},
 			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
@@ -49,6 +55,7 @@ var themes = {
 			"futureSunday":{"enabled":true,"fg":"#c80064","bg":"#00253137","bold":true,"italic":false}
 		},
 		"bw-dark": {
+			"theme":{"name":"B&W"},
 			"widget":{"bg":"#253137"},
 			"today":{"fg":"#232323","bg":"#b4b4b4","bold":true,"italic":false},
 			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
