@@ -1,7 +1,7 @@
 var defaultTheme='__default__'
 var custom='__custom__'
 var themes = {
-		defaultTheme: {
+		'__default__': {
 			"theme":{"name":"Default"},
 			"widget":{"bg":"#00000000"},
 			"today":{"fg":"#FFffffff", "bg":"#FFff006e", "bold":true, "italic":false},
