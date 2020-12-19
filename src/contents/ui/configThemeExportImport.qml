@@ -20,6 +20,8 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === '__custom__'
+
 	Kirigami.InlineMessage {
 		id: messageWidget
 		Layout.fillWidth: true
@@ -27,14 +29,14 @@ ColumnLayout {
 		type: Kirigami.MessageType.Notice
 		text: i18n('Custom colors must be enabled for this feature to work.')
 		showCloseButton: false
-		visible: !plasmoid.configuration.customColorsEnabled
+		visible: !customColorsEnabled
 	}
 
 	QtControls.TextArea {
 		id: textInput
 		Layout.fillWidth: true
 		Layout.fillHeight: true
-		enabled: plasmoid.configuration.customColorsEnabled
+		enabled: customColorsEnabled
 		selectByMouse: true
 
 		 MouseArea {
@@ -83,15 +85,12 @@ ColumnLayout {
 	}
 
 	RowLayout {
+		enabled: customColorsEnabled
+
 		PlasmaComponents.Button {
 			text: i18n('Export')
 			icon.name: 'document-export'
-			enabled: plasmoid.configuration.customColorsEnabled
 			onClicked: {
-				if (!plasmoid.configuration.customColorsEnabled) {
-					return
-				}
-
 				var json = {
 					'widget': {'bg': plasmoid.configuration.customColorsWidgetBg.toString()},
 					'today': {
@@ -134,7 +133,6 @@ ColumnLayout {
 
 		PlasmaComponents.Button {
 			text: i18n('Import')
-			enabled: plasmoid.configuration.customColorsEnabled
 			icon.name: 'document-import'
 			onClicked: {
 			}

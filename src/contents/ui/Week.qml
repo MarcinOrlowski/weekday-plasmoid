@@ -14,19 +14,16 @@ import org.kde.plasma.plasmoid 2.0
 import org.kde.kquickcontrolsaddons 2.0 as KQCA
 
 ColumnLayout {
-	id: container
-
-    // ------------------------------------------------------------------------------------------------------------------------
+	id: week
 
 	// we always count from 0 being sunday unless user set different day to be first day of the week
 	property int weekdayOffset: 0
 	property int firstDayOfWeek: 0
 
-	readonly property bool ccEnabled: plasmoid.configuration.customColorsEnabled
+	readonly property bool ccEnabled: themeName === '__custom__'
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
 	// or PlasmaCore.Theme.* (starting frameworks 5.73)
-
 	readonly property string widgetBg: ccEnabled ? plasmoid.configuration.customColorsWidgetBg : theme.backgroundColor
 
 	readonly property string pastDayFg: ccEnabled ? plasmoid.configuration.customColorsPastDayFg : theme.disabledTextColor
@@ -62,6 +59,76 @@ ColumnLayout {
 	property var attrsFg: ['#00000000', '#00000000', '#00000000', '#00000000', '#00000000', '#00000000', '#00000000']
 	property var attrsBold: [false, false, false, false, false, false, false]
 	property var attrsItalic: [false, false, false, false, false, false, false]
+
+	property var themes: {
+		"__default__": {
+			"widget":{"bg":"#00000000"},
+			"today":{"fg":"#FFffffff", "bg":"#FFff006e", "bold":true, "italic":false},
+			"pastDay":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
+			"futureDay":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
+			"futureSaturday":{"enabled":false, "fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
+			"futureSunday":{"enabled":false, "fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false}
+		},
+		"violet": {
+			"widget":{"bg":"#2e3136"},
+			"today":{"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
+			"pastDay":{"fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
+			"futureDay":{"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
+			"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
+			"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
+		},
+		"amber": {
+			"widget":{"bg":"#00000000"},
+			"today":{"fg":"#f0e513","bg":"#5500ff","bold":true,"italic":false},
+			"pastDay":{"fg":"#a3705e","bg":"#783e23","bold":false,"italic":false},
+			"futureDay":{"fg":"#752503","bg":"#d2900c","bold":true,"italic":false},
+			"futureSaturday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false},
+			"futureSunday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false}
+		},
+		"forest": {
+			"widget":{"bg":"#2e3136"},
+			"today":{"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
+			"pastDay":{"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
+			"futureDay":{"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
+			"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
+			"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
+		},
+		"sea-blue": {
+			"widget":{"bg":"#2e3136"},"today":{"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
+			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
+			"futureDay":{"fg":"#ffffff","bg":"#3a738b","bold":false,"italic":false},
+			"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false},
+			"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false}
+		},
+		"accented-bw-dark": {
+			"widget":{"bg":"#253137"},
+			"today":{"fg":"#232323","bg":"#b4b4b4","bold":true,"italic":false},
+			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
+			"futureDay":{"fg":"#ffffff","bg":"#00253137","bold":false,"italic":false},
+			"futureSaturday":{"enabled":true,"fg":"#c8ff007f","bg":"#00253137","bold":true,"italic":false},
+			"futureSunday":{"enabled":true,"fg":"#c80064","bg":"#00253137","bold":true,"italic":false}
+		},
+		"bw-dark": {
+			"widget":{"bg":"#253137"},
+			"today":{"fg":"#232323","bg":"#b4b4b4","bold":true,"italic":false},
+			"pastDay":{"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
+			"futureDay":{"fg":"#ffffff","bg":"#00253137","bold":false,"italic":false},
+			"futureSaturday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false},
+			"futureSunday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false}
+		}
+	}
+
+
+	property string themeName: plasmoid.configuration.themeName
+	property var currentTheme: themes['__default__']
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
+	onThemeNameChanged: {
+		console.debug('Theme changed ' + themeName)
+
+		currentTheme = themes[themeName]
+	}
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -142,42 +209,42 @@ ColumnLayout {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	function getFg(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayFg
-		if (index < todayOffset) return pastDayFg
-		var result = futureDayFg
+		if (index === todayOffset) return ccEnabled ? todayFg : currentTheme['today']['fg']
+		if (index < todayOffset) return ccEnabled ? pastDayFg : currentTheme['pastDay']['fg']
+		var result = ccEnabled ? futureDayFg : currentTheme['futureDay']['fg']
 		switch(weekday) {
-			case 0: result = futureSundayFg; break
-			case 6: result = futureSaturdayFg; break
+			case 0: result = ccEnabled ? futureSundayFg : currentTheme['futureSunday']['fg']; break
+			case 6: result = ccEnabled ? futureSaturdayFg : currentTheme['futureSaturday']['fg']; break
 		}
 		return result
 	}
 	function getBg(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayBg
-		if (index < todayOffset) return pastDayBg
-		var result = futureDayBg
+		if (index === todayOffset) return ccEnabled ? todayBg : currentTheme['today']['bg']
+		if (index < todayOffset) return ccEnabled ? pastDayBg : currentTheme['pastDay']['bg']
+		var result = ccEnabled ? futureDayBg : currentTheme['futureDay']['bg']
 		switch(weekday) {
-			case 0: result = futureSundayBg; break
-			case 6: result = futureSaturdayBg; break
+			case 0: result = ccEnabled ? futureSundayBg : currentTheme['futureSunday']['bg']; break
+			case 6: result = ccEnabled ? futureSaturdayBg : currentTheme['futureSaturday']['bg']; break
 		}
 		return result
 	}
 	function getBold(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayBold
-		if (index < todayOffset) return pastDayBold
-		var result = futureDayBold
+		if (index === todayOffset) return ccEnabled ? todayBold : currentTheme['today']['bold']
+		if (index < todayOffset) return ccEnabled ? pastDayBold : currentTheme['pastDay']['bold']
+		var result = ccEnabled ? futureDayBold : currentTheme['futureDay']['bold']
 		switch(weekday) {
-			case 0: result = futureSundayBold; break
-			case 6: result = futureSaturdayBold; break
+			case 0: result = ccEnabled ? futureSundayBold : currentTheme['futureSunday']['bold']; break
+			case 6: result = ccEnabled ? futureSaturdayBold : currentTheme['futureSaturday']['bold']; break
 		}
 		return result
 	}
 	function getItalic(index, weekday, todayOffset) {
-		if (index === todayOffset) return todayItalic
-		if (index < todayOffset) return pastDayItalic
-		var result = futureDayItalic
+		if (index === todayOffset) return ccEnabled ? todayItalic : currentTheme['today']['italic']
+		if (index < todayOffset) return ccEnabled ? pastDayItalic : currentTheme['pastDay']['italic']
+		var result = ccEnabled ? futureDayItalic : currentTheme['futureDay']['italic']
 		switch(weekday) {
-			case 0: result = futureSundayItalic; break
-			case 6: result = futureSaturdayItalic; break
+			case 0: result = ccEnabled ? futureSundayItalic : currentTheme['futureSunday']['italic']; break
+			case 6: result = ccEnabled ? futureSaturdayItalic : currentTheme['futureSaturday']['italic']; break
 		}
 		return result
 	}
@@ -210,4 +277,4 @@ ColumnLayout {
 		}
 	} // weekGrid
 
-} // container
+} // week

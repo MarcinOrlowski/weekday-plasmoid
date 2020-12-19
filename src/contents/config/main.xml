@@ -21,12 +21,13 @@
         </entry>
     </group>
 
-	<group name="CustomColors">
-		<entry name="theme" type="Int">
-			<default>0</default>
+	<group name="Appearance">
+		<entry name="themeName" type="String">
+			<default>__default__</default>
 		</entry>
+	</group>
 
-
+	<group name="CustomColors">
         <entry name="customColorsEnabled" type="Bool">
             <default>false</default>
         </entry>
