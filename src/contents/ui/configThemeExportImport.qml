@@ -10,17 +10,17 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3 as QtControls
 import QtQuick.Layouts 1.1
-//import QtQuick.Dialogs 1.3
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.plasmoid 2.0
+import "../js/themes.js" as Themes
 
 ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === '__custom__'
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
 
 	Kirigami.InlineMessage {
 		id: messageWidget

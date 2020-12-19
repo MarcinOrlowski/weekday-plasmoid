@@ -14,6 +14,7 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
+import "../js/themes.js" as Themes
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true
@@ -49,9 +50,7 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
 	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
 
-	//readonly property bool customColorsEnabled: themeName._currentValue == '__custom__'
-
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == '__custom__'
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
 	RowLayout {
 		id: themeSwitcher
@@ -61,16 +60,18 @@ Kirigami.FormLayout {
 
 		ConfigComboBox {
 			id: themeName
+			Layout.minimumWidth: 300
 			configKey: 'themeName'
 			model: [
-				{ value: '__default__', text: i18n('Default') },
+				{ value: Themes.custom, text: i18n('Default') },
 				{ value: 'amber', text: i18n('Amber') },
 				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
 				{ value: 'bw-dark', text: i18n('B&W') },
 				{ value: 'forest', text: i18n('Forest') },
 				{ value: 'sea-blue', text: i18n('Sea Blue') },
 				{ value: 'violet', text: i18n('Violet') },
-				{ value: '__custom__', text: i18n('Custom colors') }
+
+				{ value: Themes.defaultTheme, text: i18n('Custom colors') }
 			]
 		}
 /*
@@ -78,14 +79,14 @@ Kirigami.FormLayout {
 			id: themeName
 		    textRole: "text"
 		    property string _valueRole: "value"
-		    readonly property string _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : '__default__'
+		    readonly property string _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : Themes.defaultTheme
 
 			model: [
-				{ value: '__default__', text: i18n('Default') },
+				{ value: Themes.defaultTheme, text: i18n('Default') },
 				{ value: 'amber', text: i18n('Amber') },
 				{ value: 'forest', text: i18n('Forest') },
 				{ value: 'yellow', text: i18n('Yellow') },
-				{ value: '__custom__', text: i18n('Custom colors') }
+				{ value: Themes.custom, text: i18n('Custom colors') }
 			]
 		}
 */
