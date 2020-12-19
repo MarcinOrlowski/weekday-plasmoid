@@ -2,6 +2,7 @@
 *.iml
 *.bak
 *.swp
+*.swo
 *~
 package/contents/config/main.xml
 *.plasmoid
