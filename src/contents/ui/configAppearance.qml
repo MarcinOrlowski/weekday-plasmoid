@@ -13,10 +13,11 @@ import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.kquickcontrolsaddons 2.0 as KQCA
 
 Kirigami.FormLayout {
 	Layout.fillWidth: true
+
+	property alias cfg_theme: theme.currentIndex
 
 	property alias cfg_customColorsEnabled: customColorsEnabled.checked
 
@@ -49,9 +50,25 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
 	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
 
-	KQCA.Clipboard {
-		id: clipboard
-		// content: 'foo'
+
+	RowLayout {
+		enabled: !cfg_customColorsEnabled
+
+		PlasmaComponents.Label {
+			text: i18n('Theme')
+		}
+
+		PlasmaComponents.ComboBox {
+			id: theme
+		    textRole: "text"
+			enabled: !cfg_customColorsEnabled
+		    property string _valueRole: "value"
+		    readonly property var _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : null
+
+			model: [
+				{ value: 0, text: i18n('Default') }
+			]
+		}
 	}
 
 	CheckBox {
