@@ -52,15 +52,9 @@ Kirigami.FormLayout {
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
-	RowLayout {
-		id: themeSwitcher
-		PlasmaComponents.Label {
-			text: i18n('Theme')
-		}
-
 		ConfigComboBox {
 			id: themeName
-			Layout.minimumWidth: 300
+			before: i18n('Theme')
 			configKey: 'themeName'
 			model: [
 				{ value: Themes.defaultTheme, text: i18n('Default') },
@@ -90,7 +84,6 @@ Kirigami.FormLayout {
 			]
 		}
 */
-	} // themeSwitcher
 
 	GridLayout {
 		id: customColors
