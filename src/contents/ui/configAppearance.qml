@@ -19,8 +19,6 @@ import "../js/themes.js" as Themes
 Kirigami.FormLayout {
 	Layout.fillWidth: true
 
-//	property alias cfg_widgetThemeName: themeName.value
-
 	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
 
 	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
@@ -76,23 +74,94 @@ Kirigami.FormLayout {
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
-	ConfigComboBox {
-		id: themeName
-		before: i18n('Theme')
-		configKey: 'themeName'
-		model: [
-			{ value: Themes.defaultTheme, text: i18n('Default') },
+	RowLayout {
+		ConfigComboBox {
+			id: themeName
+			before: i18n('Theme')
+			configKey: 'themeName'
+			model: [
+				{ value: Themes.defaultTheme, text: i18n('Default') },
 
-			{ value: 'amber', text: i18n('Amber') },
-			{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
-			{ value: 'bw-dark', text: i18n('B&W') },
-			{ value: 'forest', text: i18n('Forest') },
-			{ value: 'sea-blue', text: i18n('Sea Blue') },
-			{ value: 'violet', text: i18n('Violet') },
+				{ value: 'amber', text: i18n('Amber') },
+				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
+				{ value: 'bw-dark', text: i18n('B&W') },
+				{ value: 'forest', text: i18n('Forest') },
+				{ value: 'sea-blue', text: i18n('Sea Blue') },
+				{ value: 'violet', text: i18n('Violet') },
 
-			{ value: Themes.custom, text: i18n('Custom colors') }
-		]
+				{ value: Themes.custom, text: i18n('Custom colors') }
+			]
+		}
+
+		Button {
+			function getVal(theme, dayKey, key, fallback) {
+				return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
+			}
+
+			text: i18n('Clone as custom colors')
+			enabled: plasmoid.configuration.themeName !== Themes.custom
+			onClicked: {
+				var theme = Themes.themes[plasmoid.configuration.themeName]
+
+				cfg_customColorsWidgetBg = theme['widget']['bg']
+
+				cfg_customColorsTodayFg = theme['today']['fg']
+				cfg_customColorsTodayBg = theme['today']['bg']
+				cfg_customColorsTodayBold = theme['today']['bold']
+				cfg_customColorsTodayItalic = theme['today']['italic']
+
+				cfg_customColorsTodaySaturdayEnabled = getVal(theme, 'todaySaturday', 'enabled', false)
+				cfg_customColorsTodaySaturdayFg = getVal(theme, 'todaySaturday', 'fg', cfg_customColorsTodayFg)
+				cfg_customColorsTodaySaturdayBg = getVal(theme, 'todaySaturday', 'bg', cfg_customColorsTodayBg)
+				cfg_customColorsTodaySaturdayBold = getVal(theme, 'todaySaturday', 'bold', cfg_customColorsTodayBold)
+				cfg_customColorsTodaySaturdayItalic = getVal(theme, 'todaySaturday', 'italic', cfg_customColorsTodayItalic)
+
+				cfg_customColorsTodaySundayEnabled = getVal(theme, 'todaySunday', 'enabled', false)
+				cfg_customColorsTodaySundayFg = getVal(theme, 'todaySunday', 'fg', cfg_customColorsTodayFg)
+				cfg_customColorsTodaySundayBg = getVal(theme, 'todaySunday', 'bg', cfg_customColorsTodayBg)
+				cfg_customColorsTodaySundayBold = getVal(theme, 'todaySunday', 'bold', cfg_customColorsTodayBold)
+				cfg_customColorsTodaySundayItalic = getVal(theme, 'todaySunday', 'italic', cfg_customColorsTodayItalic)
+
+				cfg_customColorsPastDayFg = theme['pastDay']['fg']
+				cfg_customColorsPastDayBg = theme['pastDay']['bg']
+				cfg_customColorsPastDayBold = theme['pastDay']['bold']
+				cfg_customColorsPastDayItalic = theme['pastDay']['italic']
+
+				cfg_customColorsPastSaturdayEnabled = getVal(theme, 'pastSaturday', 'enabled', false)
+				cfg_customColorsPastSaturdayFg = getVal(theme, 'pastSaturday', 'fg', cfg_customColorsPastDayFg)
+				cfg_customColorsPastSaturdayBg = getVal(theme, 'pastSaturday', 'bg', cfg_customColorsPastDayBg)
+				cfg_customColorsPastSaturdayBold = getVal(theme, 'pastSaturday', 'bold', cfg_customColorsPastDayBold)
+				cfg_customColorsPastSaturdayItalic = getVal(theme, 'pastSaturday', 'italic', cfg_customColorsPastDayItalic)
+
+				cfg_customColorsPastSundayEnabled = getVal(theme, 'pastSunday', 'enabled', false)
+				cfg_customColorsPastSundayFg = getVal(theme, 'pastSunday', 'fg', cfg_customColorsPastDayFg)
+				cfg_customColorsPastSundayBg = getVal(theme, 'pastSunday', 'bg', cfg_customColorsPastDayBg)
+				cfg_customColorsPastSundayBold = getVal(theme, 'pastSunday', 'bold', cfg_customColorsPastDayBold)
+				cfg_customColorsPastSundayItalic = getVal(theme, 'pastSunday', 'italic', cfg_customColorsPastDayItalic)
+
+				cfg_customColorsFutureDayFg = theme['futureDay']['fg']
+				cfg_customColorsFutureDayBg = theme['futureDay']['bg']
+				cfg_customColorsFutureDayBold = theme['futureDay']['bold']
+				cfg_customColorsFutureDayItalic = theme['futureDay']['italic']
+
+				cfg_customColorsFutureSaturdayEnabled = getVal(theme, 'futureSaturday', 'enabled', false)
+				cfg_customColorsFutureSaturdayFg = getVal(theme, 'futureSaturday', 'fg', cfg_customColorsFutureDayFg)
+				cfg_customColorsFutureSaturdayBg = getVal(theme, 'futureSaturday', 'bg', cfg_customColorsFutureDayBg)
+				cfg_customColorsFutureSaturdayBold = getVal(theme, 'futureSaturday', 'bold', cfg_customColorsFutureDayBold)
+				cfg_customColorsFutureSaturdayItalic = getVal(theme, 'futureSaturday', 'italic', cfg_customColorsFutureDayItalic)
+
+				cfg_customColorsFutureSundayEnabled = getVal(theme, 'futureSunday', 'enabled', false)
+				cfg_customColorsFutureSundayFg = getVal(theme, 'futureSunday', 'fg', cfg_customColorsFutureDayFg)
+				cfg_customColorsFutureSundayBg = getVal(theme, 'futureSunday', 'bg', cfg_customColorsFutureDayBg)
+				cfg_customColorsFutureSundayBold = getVal(theme, 'futureSunday', 'bold', cfg_customColorsFutureDayBold)
+				cfg_customColorsFutureSundayItalic = getVal(theme, 'futureSunday', 'italic', cfg_customColorsFutureDayItalic)
+
+				themeName.selectValue(Themes.custom)
+			}
+		}
+
 	}
+
 /*
 	PlasmaComponents.ComboBox {
 		id: themeName

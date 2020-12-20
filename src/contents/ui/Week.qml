@@ -193,7 +193,7 @@ ColumnLayout {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	function getField(theme, dayKey, key, fallback) {
-		return (dayKey in theme && theme[dayKey]['enabled']) ? theme[dayKey][key] : fallback
+		return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
 	}
 
 	function getVal(theme, key, index, weekday, todayOffset) {
