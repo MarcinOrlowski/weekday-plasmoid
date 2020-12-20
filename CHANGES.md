@@ -6,6 +6,7 @@
   * Added separated general widget background color
   * Fixed Tooltip not using custom locale
   * Added option to export current custom theme as JSON string
+  * Added option to clone built-in theme into custom colors for easy tweaking
 
 * v1.3.0 (2020-12-18)
   * Added update availability checker
