@@ -240,10 +240,9 @@ Kirigami.FormLayout {
 				cfg_customColorsFutureSundayBold = cfg_customColorsFutureDayBold
 				cfg_customColorsFutureSundayItalic = cfg_customColorsFutureDayItalic
 			}
-
 		}
 
-	} // customColors
+	} // customColors (GridLayout)
 	
     Item {
         Layout.fillWidth: true
