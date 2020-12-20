@@ -1,6 +1,7 @@
 * @dev
   * Added bunch of predefined color schemes
-  * Added separately configurable appearance of Saturday and Sunday 
+  * Added separate (optional) appearance of future Saturday and Sunday
+  * Added separate (optional) appearance of past Saturday and Sunday
   * Added separated general widget background color
   * Fixed Tooltip not using custom locale
   * Added option to export current custom theme as JSON string

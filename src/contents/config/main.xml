@@ -49,6 +49,40 @@
             <default>false</default>
         </entry>
 
+		<entry name="customColorsPastSaturdayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPastSaturdayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsPastSaturdayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsPastSaturdayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPastSaturdayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="customColorsPastSundayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPastSundayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="customColorsPastSundayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="customColorsPastSundayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="customColorsPastSundayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+
+
         <entry name="customColorsTodayFg" type="String">
             <default>#FFffffff</default>
         </entry>

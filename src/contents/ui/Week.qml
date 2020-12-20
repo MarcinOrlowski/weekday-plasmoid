@@ -31,12 +31,28 @@ ColumnLayout {
 			"bold": plasmoid.configuration.customColorsTodayBold,
 			"italic": plasmoid.configuration.customColorsTodayItalic
 		},
+
 		"pastDay": {
 			"fg": plasmoid.configuration.customColorsPastDayFg,
 			"bg": plasmoid.configuration.customColorsPastDayBg,
 			"bold": plasmoid.configuration.customColorsPastDayBold,
 			"italic": plasmoid.configuration.customColorsPastDayItalic
 		},
+		"pastSaturday": {
+			"enabled": plasmoid.configuration.customColorsPastSaturdayEnabled,
+			"fg": plasmoid.configuration.customColorsPastSaturdayFg,
+			"bg": plasmoid.configuration.customColorsPastSaturdayBg,
+			"bold": plasmoid.configuration.customColorsPastSaturdayBold,
+			"italic": plasmoid.configuration.customColorsPastSaturdayItalic
+		},
+		"pastSunday": {
+			"enabled": plasmoid.configuration.customColorsPastSundayEnabled,
+			"fg": plasmoid.configuration.customColorsPastSundayFg,
+			"bg": plasmoid.configuration.customColorsPastSundayBg,
+			"bold": plasmoid.configuration.customColorsPastSundayBold,
+			"italic": plasmoid.configuration.customColorsPastSundayItalic
+		},
+
 		"futureDay": {
 			"fg": plasmoid.configuration.customColorsFutureDayFg,
 			"bg": plasmoid.configuration.customColorsFutureDayBg,
@@ -162,13 +178,26 @@ ColumnLayout {
 
     // ------------------------------------------------------------------------------------------------------------------------
 
+	function getField(theme, dayKey, key, fallback) {
+		return (dayKey in theme && theme[dayKey]['enabled']) ? theme[dayKey][key] : fallback
+	}
+
 	function getVal(theme, key, index, weekday, todayOffset) {
+		var result = ''
 		if (index === todayOffset) return theme['today'][key]
-		if (index < todayOffset) return theme['pastDay'][key]
-		var result = theme['futureDay'][key]
+		if (index < todayOffset) {
+			result = theme['pastDay'][key]
+			switch(weekday) {
+				case 0: result = getField(theme, 'pastSunday', key, result); break
+				case 6: result = getField(theme, 'pastSaturday', key, result); break
+			}
+			return result
+		}
+
+		result = theme['futureDay'][key]
 		switch(weekday) {
-			case 0: result = theme['futureSunday'][key]; break
-			case 6: result = theme['futureSaturday'][key]; break
+			case 0: result = getField(theme, 'futureSunday', key, result); break
+			case 6: result = getField(theme, 'futureSaturday', key, result); break
 		}
 		return result
 	}
