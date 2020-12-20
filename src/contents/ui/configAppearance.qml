@@ -197,12 +197,13 @@ ColumnLayout {
 
 	GridLayout {
 		id: customColors
-		columns: 7
+		columns: 8
 		enabled: customColorsEnabled
 
 		// Grid header
 		LabelCenter { Layout.columnSpan: 2 }
 		LabelCenter { text: i18n('Text') }
+		LabelCenter {}
 		LabelCenter { text: i18n('Bg') }
 		LabelCenter { text: i18n('Bold') }
 		LabelCenter { text: i18n('Italic') }
@@ -210,7 +211,7 @@ ColumnLayout {
 
 		// widget background
 		LabelRight { text: i18n('Widget') }
-		LabelCenter { Layout.columnSpan: 2}
+		LabelCenter { Layout.columnSpan: 3}
 		ConfigColorButtonBg {
 			id: customColorsWidgetBg
 		}
@@ -226,6 +227,10 @@ ColumnLayout {
 		LabelCenter {}
 		ConfigColorButtonFg {
 			id: customColorsTodayFg
+		}
+		ColorButtonSwap {
+			buttonA: customColorsTodayFg
+			buttonB: customColorsTodayBg
 		}
 		ConfigColorButtonBg {
 			id: customColorsTodayBg
@@ -250,6 +255,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsTodaySaturdayFg
 			enabled: cfg_customColorsTodaySaturdayEnabled
+		}
+		ColorButtonSwap {
+			buttonA: customColorsTodaySaturdayFg
+			buttonB: customColorsTodaySaturdayBg
 		}
 		ConfigColorButtonBg {
 			id: customColorsTodaySaturdayBg
@@ -287,6 +296,10 @@ ColumnLayout {
 			id: customColorsTodaySundayFg
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
+		ColorButtonSwap {
+			buttonA: customColorsTodaySundayFg
+			buttonB: customColorsTodaySundayBg
+		}
 		ConfigColorButtonBg {
 			id: customColorsTodaySundayBg
 			enabled: cfg_customColorsTodaySundayEnabled
@@ -321,6 +334,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsPastDayFg
 		}
+		ColorButtonSwap {
+			buttonA: customColorsPastDayFg
+			buttonB: customColorsPastDayBg
+		}
 		ConfigColorButtonBg {
 			id: customColorsPastDayBg
 		}
@@ -344,6 +361,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsPastSaturdayFg
 			enabled: cfg_customColorsPastSaturdayEnabled
+		}
+		ColorButtonSwap {
+			buttonA: customColorsPastSaturdayFg
+			buttonB: customColorsPastSaturdayBg
 		}
 		ConfigColorButtonBg {
 			id: customColorsPastSaturdayBg
@@ -381,6 +402,10 @@ ColumnLayout {
 			id: customColorsPastSundayFg
 			enabled: cfg_customColorsPastSundayEnabled
 		}
+		ColorButtonSwap {
+			buttonA: customColorsPastSundayFg
+			buttonB: customColorsPastSundayBg
+		}
 		ConfigColorButtonBg {
 			id: customColorsPastSundayBg
 			enabled: cfg_customColorsPastSundayEnabled
@@ -412,6 +437,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsFutureDayFg
 		}
+		ColorButtonSwap {
+			buttonA: customColorsFutureDayFg
+			buttonB: customColorsFutureDayBg
+		}
 		ConfigColorButtonBg {
 			id: customColorsFutureDayBg
 		}
@@ -433,6 +462,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsFutureSaturdayFg
 			enabled: cfg_customColorsFutureSaturdayEnabled
+		}
+		ColorButtonSwap {
+			buttonA: customColorsFutureSaturdayFg
+			buttonB: customColorsFutureSaturdayBg
 		}
 		ConfigColorButtonBg {
 			id: customColorsFutureSaturdayBg
@@ -467,6 +500,10 @@ ColumnLayout {
 		ConfigColorButtonFg {
 			id: customColorsFutureSundayFg
 			enabled: cfg_customColorsFutureSundayEnabled
+		}
+		ColorButtonSwap {
+			buttonA: customColorsFutureSundayFg
+			buttonB: customColorsFutureSundayBg
 		}
 		ConfigColorButtonBg {
 			id: customColorsFutureSundayBg

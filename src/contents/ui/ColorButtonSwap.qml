@@ -10,11 +10,17 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-// KDeclarative
-import org.kde.kquickcontrols 2.0 as KQControls
+//import org.kde.kquickcontrols 2.0 as KQControls
 
-KQControls.ColorButton {
-	showAlphaChannel: true
-	dialogTitle: i18n('Select text color')
-	Layout.alignment: Qt.AlignHCenter
+Button {
+	Layout.fillWidth: false
+	property var buttonA: undefined
+	property var buttonB: undefined
+	text: '<>'
+	onClicked: {
+		var tmp = buttonA.color.toString()
+		buttonA.color = buttonB.color
+		buttonB.color = tmp
+	}
 }
+
