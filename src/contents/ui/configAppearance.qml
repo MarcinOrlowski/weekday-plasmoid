@@ -88,7 +88,7 @@ Kirigami.FormLayout {
 
 	GridLayout {
 		id: customColors
-		columns: 6
+		columns: 7
 		enabled: customColorsEnabled
 
 		// Grid header
@@ -97,6 +97,7 @@ Kirigami.FormLayout {
 		LabelCenter { text: i18n('Bg') }
 		LabelCenter { text: i18n('Bold') }
 		LabelCenter { text: i18n('Italic') }
+		LabelCenter {}
 
 		// widget background
 		LabelRight { Layout.columnSpan: 2; text: i18n('Widget') }
@@ -105,6 +106,7 @@ Kirigami.FormLayout {
 			id: customColorsWidgetBg
 			dialogTitle: i18n('Select background color')
 		}
+		LabelCenter {}
 		LabelCenter {}
 		LabelCenter {}
 
@@ -126,6 +128,7 @@ Kirigami.FormLayout {
 			id: customColorsTodayItalic
 			Layout.alignment: Qt.AlignHCenter
 		}
+		LabelCenter {}
 
 		// past days
 		LabelRight { Layout.columnSpan: 2; text: i18n('Past days') }
@@ -145,9 +148,10 @@ Kirigami.FormLayout {
 			id: customColorsPastDayItalic
 			Layout.alignment: Qt.AlignHCenter
 		}
+		LabelCenter {}
 
 		// future days
-		LabelRight { Layout.columnSpan: 2; text: i18n('Future days') }
+		LabelRight { id: futureDaysLabel; Layout.columnSpan: 2; text: i18n('Future days') }
 		ColorButton {
 			id: customColorsFutureDayFg
 			dialogTitle: i18n('Select text color')
@@ -164,6 +168,7 @@ Kirigami.FormLayout {
 			id: customColorsFutureDayItalic
 			Layout.alignment: Qt.AlignHCenter
 		}
+		LabelCenter {}
 
 		// future Saturday
 		LabelRight { text: i18n('Future Saturday') }
@@ -190,7 +195,16 @@ Kirigami.FormLayout {
 			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-
+		Button {
+			text: i18n('Copy from "%1"', futureDaysLabel.text )
+			onClicked: {
+				cfg_customColorsFutureSaturdayEnabled = true
+				cfg_customColorsFutureSaturdayFg = cfg_customColorsFutureDayFg
+				cfg_customColorsFutureSaturdayBg = cfg_customColorsFutureDayBg
+				cfg_customColorsFutureSaturdayBold = cfg_customColorsFutureDayBold
+				cfg_customColorsFutureSaturdayItalic = cfg_customColorsFutureDayItalic
+			}
+		}
 
 		// future Sunday
 		LabelRight { text: i18n('Future Sunday') }
@@ -216,6 +230,17 @@ Kirigami.FormLayout {
 			id: customColorsFutureSundayItalic
 			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
+		}
+		Button {
+			text: i18n('Copy from "%1"', futureDaysLabel.text )
+			onClicked: {
+				cfg_customColorsFutureSundayEnabled = true
+				cfg_customColorsFutureSundayFg = cfg_customColorsFutureDayFg
+				cfg_customColorsFutureSundayBg = cfg_customColorsFutureDayBg
+				cfg_customColorsFutureSundayBold = cfg_customColorsFutureDayBold
+				cfg_customColorsFutureSundayItalic = cfg_customColorsFutureDayItalic
+			}
+
 		}
 
 	} // customColors
