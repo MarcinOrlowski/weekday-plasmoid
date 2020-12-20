@@ -14,6 +14,6 @@ import org.kde.kquickcontrols 2.0 as KQControls
 
 KQControls.ColorButton {
 	showAlphaChannel: true
-	dialogTitle: i18n('Select background color')
+	dialogTitle: i18n('Select text color')
 	Layout.alignment: Qt.AlignHCenter
 }

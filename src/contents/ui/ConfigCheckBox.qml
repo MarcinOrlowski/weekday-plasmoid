@@ -10,10 +10,8 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-import org.kde.kquickcontrols 2.0 as KQControls
 
-KQControls.ColorButton {
-	showAlphaChannel: true
-	dialogTitle: i18n('Select background color')
+CheckBox {
 	Layout.alignment: Qt.AlignHCenter
 }
+

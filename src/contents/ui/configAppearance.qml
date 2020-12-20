@@ -86,6 +86,7 @@ ColumnLayout {
 	}
 
 	RowLayout {
+		id: themeSelector
 		Layout.fillWidth: true
 
 		ConfigComboBox {
@@ -175,8 +176,7 @@ ColumnLayout {
 				messageWidget.visible = true
 			}
 		}
-
-	}
+	} // themeSelector
 
 /*
 	PlasmaComponents.ComboBox {
@@ -192,7 +192,7 @@ ColumnLayout {
 			{ value: 'yellow', text: i18n('Yellow') },
 			{ value: Themes.custom, text: i18n('Custom colors') }
 		]
-	}
+	} // themeName
 */
 
 	GridLayout {
@@ -209,11 +209,10 @@ ColumnLayout {
 		LabelCenter {}
 
 		// widget background
-		LabelRight { Layout.columnSpan: 2; text: i18n('Widget') }
-		LabelCenter {}
-		ColorButton {
+		LabelRight { text: i18n('Widget') }
+		LabelCenter { Layout.columnSpan: 2}
+		ConfigColorButtonBg {
 			id: customColorsWidgetBg
-			dialogTitle: i18n('Select background color')
 		}
 		LabelCenter { Layout.columnSpan: 3 }
 
@@ -222,24 +221,20 @@ ColumnLayout {
 		// Today
 		LabelRight {
 			id: customColorsTodayLabel
-			Layout.columnSpan: 2
 			text: i18n('Today')
 		}
-		ColorButton {
+		LabelCenter {}
+		ConfigColorButtonFg {
 			id: customColorsTodayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -252,24 +247,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsTodaySaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsTodaySaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodaySaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
 		Button {
@@ -292,24 +283,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsTodaySundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsTodaySundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodaySundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
 		Button {
@@ -328,24 +315,20 @@ ColumnLayout {
 		// past days
 		LabelRight {
 			id: customColorsPastDayLabel
-			Layout.columnSpan: 2
 			text: i18n('Past days')
 		}
-		ColorButton {
+		LabelCenter {}
+		ConfigColorButtonFg {
 			id: customColorsPastDayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastDayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastDayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastDayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -358,24 +341,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsPastSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsPastSaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastSaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
 		Button {
@@ -398,24 +377,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsPastSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsPastSundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastSundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSundayEnabled
 		}
 		Button {
@@ -432,22 +407,19 @@ ColumnLayout {
     	// ------------------------------------------------------------------------------------------------------------------------
 
 		// future days
-		LabelRight { id: futureDaysLabel; Layout.columnSpan: 2; text: i18n('Future days') }
-		ColorButton {
+		LabelRight { id: futureDaysLabel; text: i18n('Future days') }
+		LabelCenter {}  
+		ConfigColorButtonFg {
 			id: customColorsFutureDayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureDayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureDayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureDayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -458,24 +430,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsFutureSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsFutureSaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureSaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
 		Button {
@@ -496,24 +464,20 @@ ColumnLayout {
 		CheckBox {
 			id: customColorsFutureSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsFutureSundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureSundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
 		Button {
@@ -526,12 +490,11 @@ ColumnLayout {
 				cfg_customColorsFutureSundayItalic = cfg_customColorsFutureDayItalic
 			}
 		}
-
 	} // customColors (GridLayout)
-	
+
     Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
     }
 
-}
+} // ColumnLayout
