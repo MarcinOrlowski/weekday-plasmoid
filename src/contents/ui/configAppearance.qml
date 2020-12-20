@@ -16,8 +16,9 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 import "../js/themes.js" as Themes
 
-Kirigami.FormLayout {
+ColumnLayout {
 	Layout.fillWidth: true
+	Layout.fillHeight: true
 
 	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
 
@@ -74,7 +75,19 @@ Kirigami.FormLayout {
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
+	Kirigami.InlineMessage {
+		id: messageWidget
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Notice
+		text: i18n('Custom colors must be enabled for this feature to work.')
+		showCloseButton: true
+		visible: false
+	}
+
 	RowLayout {
+		Layout.fillWidth: true
+
 		ConfigComboBox {
 			id: themeName
 			before: i18n('Theme')
@@ -157,6 +170,9 @@ Kirigami.FormLayout {
 				cfg_customColorsFutureSundayItalic = getVal(theme, 'futureSunday', 'italic', cfg_customColorsFutureDayItalic)
 
 				themeName.selectValue(Themes.custom)
+
+				messageWidget.text = i18n('Custom colors populated from "%1" theme. Press "Apply" to see the change, otherwise old custom colors will be still used.', theme['theme']['name'])
+				messageWidget.visible = true
 			}
 		}
 
