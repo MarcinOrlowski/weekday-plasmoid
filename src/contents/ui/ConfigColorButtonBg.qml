@@ -17,3 +17,4 @@ KQControls.ColorButton {
 	dialogTitle: i18n('Select background color')
 	Layout.alignment: Qt.AlignHCenter
 }
+

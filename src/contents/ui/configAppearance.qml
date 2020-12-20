@@ -16,8 +16,9 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 import "../js/themes.js" as Themes
 
-Kirigami.FormLayout {
+ColumnLayout {
 	Layout.fillWidth: true
+	Layout.fillHeight: true
 
 	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
 
@@ -74,7 +75,20 @@ Kirigami.FormLayout {
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
+	Kirigami.InlineMessage {
+		id: messageWidget
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Notice
+		text: i18n('Custom colors must be enabled for this feature to work.')
+		showCloseButton: true
+		visible: false
+	}
+
 	RowLayout {
+		id: themeSelector
+		Layout.fillWidth: true
+
 		ConfigComboBox {
 			id: themeName
 			before: i18n('Theme')
@@ -157,10 +171,12 @@ Kirigami.FormLayout {
 				cfg_customColorsFutureSundayItalic = getVal(theme, 'futureSunday', 'italic', cfg_customColorsFutureDayItalic)
 
 				themeName.selectValue(Themes.custom)
+
+				messageWidget.text = i18n('Custom colors populated from "%1" theme. Press "Apply" to see the change, otherwise old custom colors will be still used.', theme['theme']['name'])
+				messageWidget.visible = true
 			}
 		}
-
-	}
+	} // themeSelector
 
 /*
 	PlasmaComponents.ComboBox {
@@ -176,7 +192,7 @@ Kirigami.FormLayout {
 			{ value: 'yellow', text: i18n('Yellow') },
 			{ value: Themes.custom, text: i18n('Custom colors') }
 		]
-	}
+	} // themeName
 */
 
 	GridLayout {
@@ -193,11 +209,10 @@ Kirigami.FormLayout {
 		LabelCenter {}
 
 		// widget background
-		LabelRight { Layout.columnSpan: 2; text: i18n('Widget') }
-		LabelCenter {}
-		ColorButton {
+		LabelRight { text: i18n('Widget') }
+		LabelCenter { Layout.columnSpan: 2}
+		ConfigColorButtonBg {
 			id: customColorsWidgetBg
-			dialogTitle: i18n('Select background color')
 		}
 		LabelCenter { Layout.columnSpan: 3 }
 
@@ -206,24 +221,20 @@ Kirigami.FormLayout {
 		// Today
 		LabelRight {
 			id: customColorsTodayLabel
-			Layout.columnSpan: 2
 			text: i18n('Today')
 		}
-		ColorButton {
+		LabelCenter {}
+		ConfigColorButtonFg {
 			id: customColorsTodayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -236,24 +247,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsTodaySaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsTodaySaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodaySaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySaturdayEnabled
 		}
 		Button {
@@ -276,24 +283,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsTodaySundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsTodaySundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsTodaySundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsTodaySundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsTodaySundayEnabled
 		}
 		Button {
@@ -312,24 +315,20 @@ Kirigami.FormLayout {
 		// past days
 		LabelRight {
 			id: customColorsPastDayLabel
-			Layout.columnSpan: 2
 			text: i18n('Past days')
 		}
-		ColorButton {
+		LabelCenter {}
+		ConfigColorButtonFg {
 			id: customColorsPastDayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastDayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastDayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastDayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -342,24 +341,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsPastSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsPastSaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastSaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
 		Button {
@@ -382,24 +377,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsPastSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsPastSundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsPastSundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsPastSundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsPastSundayEnabled
 		}
 		Button {
@@ -416,22 +407,19 @@ Kirigami.FormLayout {
     	// ------------------------------------------------------------------------------------------------------------------------
 
 		// future days
-		LabelRight { id: futureDaysLabel; Layout.columnSpan: 2; text: i18n('Future days') }
-		ColorButton {
+		LabelRight { id: futureDaysLabel; text: i18n('Future days') }
+		LabelCenter {}  
+		ConfigColorButtonFg {
 			id: customColorsFutureDayFg
-			dialogTitle: i18n('Select text color')
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureDayBg
-			dialogTitle: i18n('Select background color')
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureDayBold
-			Layout.alignment: Qt.AlignHCenter
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureDayItalic
-			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
 
@@ -442,24 +430,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsFutureSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsFutureSaturdayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureSaturdayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSaturdayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSaturdayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
 		Button {
@@ -480,24 +464,20 @@ Kirigami.FormLayout {
 		CheckBox {
 			id: customColorsFutureSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonFg {
 			id: customColorsFutureSundayFg
-			dialogTitle: i18n('Select text color')
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		ColorButton {
+		ConfigColorButtonBg {
 			id: customColorsFutureSundayBg
-			dialogTitle: i18n('Select background color')
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSundayBold
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
-		CheckBox {
+		ConfigCheckBox {
 			id: customColorsFutureSundayItalic
-			Layout.alignment: Qt.AlignHCenter
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
 		Button {
@@ -510,12 +490,11 @@ Kirigami.FormLayout {
 				cfg_customColorsFutureSundayItalic = cfg_customColorsFutureDayItalic
 			}
 		}
-
 	} // customColors (GridLayout)
-	
+
     Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
     }
 
-}
+} // ColumnLayout
