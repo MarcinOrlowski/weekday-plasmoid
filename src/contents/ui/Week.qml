@@ -31,6 +31,20 @@ ColumnLayout {
 			"bold": plasmoid.configuration.customColorsTodayBold,
 			"italic": plasmoid.configuration.customColorsTodayItalic
 		},
+		"todaySaturday": {
+			"enabled": plasmoid.configuration.customColorsTodaySaturdayEnabled,
+			"fg": plasmoid.configuration.customColorsTodaySaturdayFg,
+			"bg": plasmoid.configuration.customColorsTodaySaturdayBg,
+			"bold": plasmoid.configuration.customColorsTodaySaturdayBold,
+			"italic": plasmoid.configuration.customColorsTodaySaturdayItalic
+		},
+		"todaySunday": {
+			"enabled": plasmoid.configuration.customColorsTodaySundayEnabled,
+			"fg": plasmoid.configuration.customColorsTodaySundayFg,
+			"bg": plasmoid.configuration.customColorsTodaySundayBg,
+			"bold": plasmoid.configuration.customColorsTodaySundayBold,
+			"italic": plasmoid.configuration.customColorsTodaySundayItalic
+		},
 
 		"pastDay": {
 			"fg": plasmoid.configuration.customColorsPastDayFg,
@@ -184,20 +198,24 @@ ColumnLayout {
 
 	function getVal(theme, key, index, weekday, todayOffset) {
 		var result = ''
-		if (index === todayOffset) return theme['today'][key]
-		if (index < todayOffset) {
+		if (index === todayOffset) {
+			result = theme['today'][key]
+			switch(weekday) {
+				case 0: result = getField(theme, 'todaySunday', key, result); break
+				case 6: result = getField(theme, 'todaySaturday', key, result); break
+			}
+		} else if (index < todayOffset) {
 			result = theme['pastDay'][key]
 			switch(weekday) {
 				case 0: result = getField(theme, 'pastSunday', key, result); break
 				case 6: result = getField(theme, 'pastSaturday', key, result); break
 			}
-			return result
-		}
-
-		result = theme['futureDay'][key]
-		switch(weekday) {
-			case 0: result = getField(theme, 'futureSunday', key, result); break
-			case 6: result = getField(theme, 'futureSaturday', key, result); break
+		} else {
+			result = theme['futureDay'][key]
+			switch(weekday) {
+				case 0: result = getField(theme, 'futureSunday', key, result); break
+				case 6: result = getField(theme, 'futureSaturday', key, result); break
+			}
 		}
 		return result
 	}

@@ -28,6 +28,18 @@ Kirigami.FormLayout {
 	property alias cfg_customColorsTodayBold: customColorsTodayBold.checked
 	property alias cfg_customColorsTodayItalic: customColorsTodayItalic.checked
 
+	property alias cfg_customColorsTodaySaturdayEnabled: customColorsTodaySaturdayEnabled.checked
+	property alias cfg_customColorsTodaySaturdayFg: customColorsTodaySaturdayFg.color
+	property alias cfg_customColorsTodaySaturdayBg: customColorsTodaySaturdayBg.color
+	property alias cfg_customColorsTodaySaturdayBold: customColorsTodaySaturdayBold.checked
+	property alias cfg_customColorsTodaySaturdayItalic: customColorsTodaySaturdayItalic.checked
+
+	property alias cfg_customColorsTodaySundayEnabled: customColorsTodaySundayEnabled.checked
+	property alias cfg_customColorsTodaySundayFg: customColorsTodaySundayFg.color
+	property alias cfg_customColorsTodaySundayBg: customColorsTodaySundayBg.color
+	property alias cfg_customColorsTodaySundayBold: customColorsTodaySundayBold.checked
+	property alias cfg_customColorsTodaySundayItalic: customColorsTodaySundayItalic.checked
+
 	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
 	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
 	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
@@ -122,7 +134,7 @@ Kirigami.FormLayout {
 
     	// ------------------------------------------------------------------------------------------------------------------------
 
-		// current day
+		// Today
 		LabelRight {
 			id: customColorsTodayLabel
 			Layout.columnSpan: 2
@@ -145,6 +157,86 @@ Kirigami.FormLayout {
 			Layout.alignment: Qt.AlignHCenter
 		}
 		LabelCenter {}
+
+		// ------------------------------------------------------------------------------------------------------------------------
+
+		// Today Saturday
+		LabelRight {
+			text: i18n('Today Saturday')
+		}
+		CheckBox {
+			id: customColorsTodaySaturdayEnabled
+		}
+		ColorButton {
+			id: customColorsTodaySaturdayFg
+			dialogTitle: i18n('Select text color')
+			enabled: cfg_customColorsTodaySaturdayEnabled
+		}
+		ColorButton {
+			id: customColorsTodaySaturdayBg
+			dialogTitle: i18n('Select background color')
+			enabled: cfg_customColorsTodaySaturdayEnabled
+		}
+		CheckBox {
+			id: customColorsTodaySaturdayBold
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsTodaySaturdayEnabled
+		}
+		CheckBox {
+			id: customColorsTodaySaturdayItalic
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsTodaySaturdayEnabled
+		}
+		Button {
+			text: i18n('Clone "%1"', customColorsTodayLabel.text )
+			onClicked: {
+				cfg_customColorsTodaySaturdayEnabled = true
+				cfg_customColorsTodaySaturdayFg = cfg_customColorsTodayFg
+				cfg_customColorsTodaySaturdayBg = cfg_customColorsTodayBg
+				cfg_customColorsTodaySaturdayBold = cfg_customColorsTodayBold
+				cfg_customColorsTodaySaturdayItalic = cfg_customColorsTodayItalic
+			}
+		}
+
+		// ------------------------------------------------------------------------------------------------------------------------
+
+		// past Today
+		LabelRight {
+			text: i18n('Today Sunday')
+		}
+		CheckBox {
+			id: customColorsTodaySundayEnabled
+		}
+		ColorButton {
+			id: customColorsTodaySundayFg
+			dialogTitle: i18n('Select text color')
+			enabled: cfg_customColorsTodaySundayEnabled
+		}
+		ColorButton {
+			id: customColorsTodaySundayBg
+			dialogTitle: i18n('Select background color')
+			enabled: cfg_customColorsTodaySundayEnabled
+		}
+		CheckBox {
+			id: customColorsTodaySundayBold
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsTodaySundayEnabled
+		}
+		CheckBox {
+			id: customColorsTodaySundayItalic
+			Layout.alignment: Qt.AlignHCenter
+			enabled: cfg_customColorsTodaySundayEnabled
+		}
+		Button {
+			text: i18n('Clone "%1"', customColorsTodayLabel.text )
+			onClicked: {
+				cfg_customColorsTodaySundayEnabled = true
+				cfg_customColorsTodaySundayFg = cfg_customColorsTodayFg
+				cfg_customColorsTodaySundayBg = cfg_customColorsTodayBg
+				cfg_customColorsTodaySundayBold = cfg_customColorsTodayBold
+				cfg_customColorsTodaySundayItalic = cfg_customColorsTodayItalic
+			}
+		}
 
     	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -202,7 +294,7 @@ Kirigami.FormLayout {
 			enabled: cfg_customColorsPastSaturdayEnabled
 		}
 		Button {
-			text: i18n('Copy from "%1"', customColorsPastDayLabel.text )
+			text: i18n('Clone "%1"', customColorsPastDayLabel.text )
 			onClicked: {
 				cfg_customColorsPastSaturdayEnabled = true
 				cfg_customColorsPastSaturdayFg = cfg_customColorsPastDayFg
@@ -242,7 +334,7 @@ Kirigami.FormLayout {
 			enabled: cfg_customColorsPastSundayEnabled
 		}
 		Button {
-			text: i18n('Copy from "%1"', customColorsPastDayLabel.text )
+			text: i18n('Clone "%1"', customColorsPastDayLabel.text )
 			onClicked: {
 				cfg_customColorsPastSundayEnabled = true
 				cfg_customColorsPastSundayFg = cfg_customColorsPastDayFg
@@ -302,7 +394,7 @@ Kirigami.FormLayout {
 			enabled: cfg_customColorsFutureSaturdayEnabled
 		}
 		Button {
-			text: i18n('Copy from "%1"', futureDaysLabel.text )
+			text: i18n('Clone "%1"', futureDaysLabel.text )
 			onClicked: {
 				cfg_customColorsFutureSaturdayEnabled = true
 				cfg_customColorsFutureSaturdayFg = cfg_customColorsFutureDayFg
@@ -340,7 +432,7 @@ Kirigami.FormLayout {
 			enabled: cfg_customColorsFutureSundayEnabled
 		}
 		Button {
-			text: i18n('Copy from "%1"', futureDaysLabel.text )
+			text: i18n('Clone "%1"', futureDaysLabel.text )
 			onClicked: {
 				cfg_customColorsFutureSundayEnabled = true
 				cfg_customColorsFutureSundayFg = cfg_customColorsFutureDayFg

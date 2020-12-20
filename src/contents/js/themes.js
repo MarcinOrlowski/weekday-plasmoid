@@ -5,7 +5,11 @@ var themes = {
 	"<UNIQUE-ID>": {
 		"theme":{"name":"<NAME>"},
 		"widget":{"bg":"#00000000"},
+
 		"today":{"fg":"#FFffffff", "bg":"#FFff006e", "bold":true, "italic":false},
+		// todayXXX can be ommitied if "enabled: false". The Today values are the fallback
+		"todaySaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
+		"todaySunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
 
 		"pastDay":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
 		// pastXXX can be ommitied if "enabled: false". The pastDay values are the fallback
