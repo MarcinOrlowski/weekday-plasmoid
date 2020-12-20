@@ -44,7 +44,9 @@ Item {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-	Plasmoid.compactRepresentation: Week {} 
+	Plasmoid.compactRepresentation: Week {
+		timerInterval: 1
+	}
 
     // ------------------------------------------------------------------------------------------------------------------------
 
