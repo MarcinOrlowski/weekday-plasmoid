@@ -10,17 +10,18 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.1
-//import org.kde.kquickcontrols 2.0 as KQControls
+import org.kde.plasma.components 3.0 as PlasmaComponents
 
-Button {
-	Layout.fillWidth: false
+PlasmaComponents.Button {
 	property var buttonA: undefined
 	property var buttonB: undefined
-	text: '<>'
+//	text: ''
+	icon.name: 'swap-panels'
 	onClicked: {
+		// we need to 'export' color, otherwise using just .color would get
+		// get us only color reference, overwritten next line, killing the swap
 		var tmp = buttonA.color.toString()
 		buttonA.color = buttonB.color
 		buttonB.color = tmp
 	}
 }
-
