@@ -20,7 +20,7 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
+	property alias cfg_customColorsWidgetBg: widgetConfig.bg
 
 	property alias cfg_customColorsTodayFg: todayConfig.fg
 	property alias cfg_customColorsTodayBg: todayConfig.bg
@@ -126,7 +126,7 @@ ColumnLayout {
 				if (parentNode === undefined) parentNode = theme[key]
 				return (key in theme) 
 					? {
-						'enabled': ('enabled' in theme) ? theme['enabled'] : false,
+						'enabled': theme['enabled'] || false,
 						'fg': getValIfEnabled(theme, key, 'fg', parentNode),
 						'bg': getValIfEnabled(theme, key, 'bg', parentNode),
 						'bold': getValIfEnabled(theme, key, 'bold', parentNode),
@@ -141,7 +141,7 @@ ColumnLayout {
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
 
-				cfg_customColorsWidgetBg = theme['widget']['bg']
+				widgetConfig.populate(getNode(theme, 'widget'))
 
 				todayConfig.populate(getNode(theme, 'today', theme['today']))
 				todaySaturdayConfig.populate(getNode(theme, 'todaySaturday', theme['today']))
@@ -199,11 +199,23 @@ ColumnLayout {
 
 		// widget background
 		LabelRight { text: i18n('Widget') }
+		AttributeConfig {
+			id: widgetConfig
+			alwaysEnabled: true
+			fgEnabled: false
+			boldEnabled: false
+			italicEnabled: false
+		}
+
+
+/*
+		LabelRight { text: i18n('Widget') }
 		LabelCenter { Layout.columnSpan: 3}
 		ConfigColorButtonBg {
 			id: customColorsWidgetBg
 		}
 		LabelCenter { Layout.columnSpan: 4 }
+*/
 
     	// ------------------------------------------------------------------------------------------------------------------------
 

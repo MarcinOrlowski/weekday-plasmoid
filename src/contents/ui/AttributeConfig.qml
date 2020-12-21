@@ -13,12 +13,19 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 RowLayout {
-	readonly property bool enabled: enabledButton.checked
-	readonly property var fg: fgButton.color 
-	readonly property var bg: bgButton.color
-	readonly property bool bold: boldButton.checked
-	readonly property bool italic: italicButton.checked
 	property bool alwaysEnabled: false
+	property bool fgEnabled: true
+	property bool bgEnabled: true
+	property bool boldEnabled: true
+	property bool italicEnabled: true
+	property bool copyEnabled: true
+	property bool pasteEnabled: true
+
+	property bool enabled: enabledButton.checked
+	property var fg: fgButton.color
+	property var bg: bgButton.color
+	property bool bold: boldButton.checked
+	property bool italic: italicButton.checked
 
 	function setEnabled(flag) {
 		if (alwaysEnabled) flag = true
@@ -29,16 +36,12 @@ RowLayout {
 	function setBold(flag) { boldButton.checked = flag }
 	function setItalic(flag) { italicButton.checked = flag }
 
-	function getVal(node, key, def) {
-		return (key in node) ? node[key] : def
-	}
-
 	function populate(node) {
-		setEnabled(getVal(node, 'enabled', false))
-		setFg(getVal(node, 'fg', '#FF000000'))
-		setBg(getVal(node, 'bg', '#00000000'))
-		setBold(getVal(node, 'bold', false))
-		setItalic(getVal(node, 'italic', false))
+		setEnabled(node['enabled'] || false)
+		setFg(node['fg'] || '#FF000000')
+		setBg(node['bg'] || '#00000000')
+		setBold(node['bold'] || false)
+		setItalic(node['italic'] || false)
 	}
 
 	Layout.columnSpan: 8
@@ -52,27 +55,33 @@ RowLayout {
 	ConfigColorButtonFg {
 		id: fgButton
 		enabled: enabledButton.checked
+		opacity: fgEnabled ? 1 : 0
 	}
 	ColorButtonSwap {
 		buttonA: fgButton
 		buttonB: bgButton
 		enabled: enabledButton.checked
+		opacity: (fgEnabled && bgEnabled) ? 1 : 0
 	}
 	ConfigColorButtonBg {
 		id: bgButton
 		enabled: enabledButton.checked
+		opacity: bgEnabled ? 1 : 0
 	}
 	ConfigCheckBox {
 		id: boldButton
 		enabled: enabledButton.checked
+		opacity: boldEnabled ? 1 : 0
 	}
 	ConfigCheckBox {
 		id: italicButton
 		enabled: enabledButton.checked
+		opacity: italicEnabled ? 1 : 0
 	}
 	PlasmaComponents.Button {
 		icon.name: 'edit-copy'
 		enabled: enabledButton.checked
+		opacity: copyEnabled ? 1 : 0
 		onClicked: {
 			customColors.clipboard = {
 				"fg": fgButton.color.toString(),
@@ -85,6 +94,7 @@ RowLayout {
 	PlasmaComponents.Button {
 		icon.name: 'edit-paste'
 		enabled: customColors.clipboard !== undefined
+		opacity: pasteEnabled ? 1 : 0
 		onClicked: {
 			var clip = customColors.clipboard
 			enabledButton.checked = true
@@ -94,10 +104,5 @@ RowLayout {
 			italicButton.checked = clip['italic']
 		}
 	}
-
-/*
-	StyleCopyButton {}
-	StylePasteButton {}
-*/
 }
 
