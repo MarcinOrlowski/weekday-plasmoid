@@ -22,56 +22,56 @@ ColumnLayout {
 
 	property alias cfg_customColorsWidgetBg: customColorsWidgetBg.color
 
-	property alias cfg_customColorsTodayFg: customColorsTodayFg.color
-	property alias cfg_customColorsTodayBg: customColorsTodayBg.color
-	property alias cfg_customColorsTodayBold: customColorsTodayBold.checked
-	property alias cfg_customColorsTodayItalic: customColorsTodayItalic.checked
+	property alias cfg_customColorsTodayFg: todayConfig.fg
+	property alias cfg_customColorsTodayBg: todayConfig.bg
+	property alias cfg_customColorsTodayBold: todayConfig.bold
+	property alias cfg_customColorsTodayItalic: todayConfig.italic
 
-	property alias cfg_customColorsTodaySaturdayEnabled: customColorsTodaySaturdayEnabled.checked
-	property alias cfg_customColorsTodaySaturdayFg: customColorsTodaySaturdayFg.color
-	property alias cfg_customColorsTodaySaturdayBg: customColorsTodaySaturdayBg.color
-	property alias cfg_customColorsTodaySaturdayBold: customColorsTodaySaturdayBold.checked
-	property alias cfg_customColorsTodaySaturdayItalic: customColorsTodaySaturdayItalic.checked
+	property alias cfg_customColorsTodaySaturdayEnabled: todaySaturdayConfig.enabled
+	property alias cfg_customColorsTodaySaturdayFg: todaySaturdayConfig.fg
+	property alias cfg_customColorsTodaySaturdayBg: todaySaturdayConfig.bg
+	property alias cfg_customColorsTodaySaturdayBold: todaySaturdayConfig.bold
+	property alias cfg_customColorsTodaySaturdayItalic: todaySaturdayConfig.italic
 
-	property alias cfg_customColorsTodaySundayEnabled: customColorsTodaySundayEnabled.checked
-	property alias cfg_customColorsTodaySundayFg: customColorsTodaySundayFg.color
-	property alias cfg_customColorsTodaySundayBg: customColorsTodaySundayBg.color
-	property alias cfg_customColorsTodaySundayBold: customColorsTodaySundayBold.checked
-	property alias cfg_customColorsTodaySundayItalic: customColorsTodaySundayItalic.checked
+	property alias cfg_customColorsTodaySundayEnabled: todaySundayConfig.enabled
+	property alias cfg_customColorsTodaySundayFg: todaySundayConfig.fg
+	property alias cfg_customColorsTodaySundayBg: todaySundayConfig.bg
+	property alias cfg_customColorsTodaySundayBold: todaySundayConfig.bold
+	property alias cfg_customColorsTodaySundayItalic: todaySundayConfig.italic
 
-	property alias cfg_customColorsPastDayFg: customColorsPastDayFg.color
-	property alias cfg_customColorsPastDayBg: customColorsPastDayBg.color
-	property alias cfg_customColorsPastDayBold: customColorsPastDayBold.checked
-	property alias cfg_customColorsPastDayItalic: customColorsPastDayItalic.checked
+	property alias cfg_customColorsPastFg: todayConfig.fg
+	property alias cfg_customColorsPastBg: todayConfig.bg
+	property alias cfg_customColorsPastBold: todayConfig.bold
+	property alias cfg_customColorsPastItalic: todayConfig.italic
 
-	property alias cfg_customColorsPastSaturdayEnabled: customColorsPastSaturdayEnabled.checked
-	property alias cfg_customColorsPastSaturdayFg: customColorsPastSaturdayFg.color
-	property alias cfg_customColorsPastSaturdayBg: customColorsPastSaturdayBg.color
-	property alias cfg_customColorsPastSaturdayBold: customColorsPastSaturdayBold.checked
-	property alias cfg_customColorsPastSaturdayItalic: customColorsPastSaturdayItalic.checked
+	property alias cfg_customColorsPastSaturdayEnabled: todaySaturdayConfig.enabled
+	property alias cfg_customColorsPastSaturdayFg: todaySaturdayConfig.fg
+	property alias cfg_customColorsPastSaturdayBg: todaySaturdayConfig.bg
+	property alias cfg_customColorsPastSaturdayBold: todaySaturdayConfig.bold
+	property alias cfg_customColorsPastSaturdayItalic: todaySaturdayConfig.italic
 
-	property alias cfg_customColorsPastSundayEnabled: customColorsPastSundayEnabled.checked
-	property alias cfg_customColorsPastSundayFg: customColorsPastSundayFg.color
-	property alias cfg_customColorsPastSundayBg: customColorsPastSundayBg.color
-	property alias cfg_customColorsPastSundayBold: customColorsPastSundayBold.checked
-	property alias cfg_customColorsPastSundayItalic: customColorsPastSundayItalic.checked
+	property alias cfg_customColorsPastSundayEnabled: todaySundayConfig.enabled
+	property alias cfg_customColorsPastSundayFg: todaySundayConfig.fg
+	property alias cfg_customColorsPastSundayBg: todaySundayConfig.bg
+	property alias cfg_customColorsPastSundayBold: todaySundayConfig.bold
+	property alias cfg_customColorsPastSundayItalic: todaySundayConfig.italic
 
-	property alias cfg_customColorsFutureDayFg: customColorsFutureDayFg.color
-	property alias cfg_customColorsFutureDayBg: customColorsFutureDayBg.color
-	property alias cfg_customColorsFutureDayBold: customColorsFutureDayBold.checked
-	property alias cfg_customColorsFutureDayItalic: customColorsFutureDayItalic.checked
+	property alias cfg_customColorsFutureFg: todayConfig.fg
+	property alias cfg_customColorsFutureBg: todayConfig.bg
+	property alias cfg_customColorsFutureBold: todayConfig.bold
+	property alias cfg_customColorsFutureItalic: todayConfig.italic
 
-	property alias cfg_customColorsFutureSaturdayEnabled: customColorsFutureSaturdayEnabled.checked
-	property alias cfg_customColorsFutureSaturdayFg: customColorsFutureSaturdayFg.color
-	property alias cfg_customColorsFutureSaturdayBg: customColorsFutureSaturdayBg.color
-	property alias cfg_customColorsFutureSaturdayBold: customColorsFutureSaturdayBold.checked
-	property alias cfg_customColorsFutureSaturdayItalic: customColorsFutureSaturdayItalic.checked
+	property alias cfg_customColorsFutureSaturdayEnabled: todaySaturdayConfig.enabled
+	property alias cfg_customColorsFutureSaturdayFg: todaySaturdayConfig.fg
+	property alias cfg_customColorsFutureSaturdayBg: todaySaturdayConfig.bg
+	property alias cfg_customColorsFutureSaturdayBold: todaySaturdayConfig.bold
+	property alias cfg_customColorsFutureSaturdayItalic: todaySaturdayConfig.italic
 
-	property alias cfg_customColorsFutureSundayEnabled: customColorsFutureSundayEnabled.checked
-	property alias cfg_customColorsFutureSundayFg: customColorsFutureSundayFg.color
-	property alias cfg_customColorsFutureSundayBg: customColorsFutureSundayBg.color
-	property alias cfg_customColorsFutureSundayBold: customColorsFutureSundayBold.checked
-	property alias cfg_customColorsFutureSundayItalic: customColorsFutureSundayItalic.checked
+	property alias cfg_customColorsFutureSundayEnabled: todaySundayConfig.enabled
+	property alias cfg_customColorsFutureSundayFg: todaySundayConfig.fg
+	property alias cfg_customColorsFutureSundayBg: todaySundayConfig.bg
+	property alias cfg_customColorsFutureSundayBold: todaySundayConfig.bold
+	property alias cfg_customColorsFutureSundayItalic: todaySundayConfig.italic
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
@@ -79,7 +79,7 @@ ColumnLayout {
 		id: messageWidget
 		Layout.fillWidth: true
 		Layout.margins: Kirigami.Units.smallSpacing
-		type: Kirigami.MessageType.Notice
+		type: Kirigami.MessageType.Warning
 		text: i18n('Custom colors must be enabled for this feature to work.')
 		showCloseButton: true
 		visible: false
@@ -108,67 +108,52 @@ ColumnLayout {
 		}
 
 		Button {
-			function getVal(theme, dayKey, key, fallback) {
-				return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
+			/*
+			** Checks if dayKey (i.e. 'pastSaturday') exists in theme. If it does,
+			** next checks if config node for dayKey's 'enabled' is 'true'.
+			** If so, returns value of key element from dayKey node of the theme.
+			** If node is not enabled, returns key value from parent node. This
+			** allows easy handling of i.e. optional TodaySunday config, falling
+			** back to Today if not enabled.
+			*/
+			function getValIfEnabled(theme, dayKey, key, parentNode) {
+				return (dayKey in theme) && theme[dayKey]['enabled']
+					? theme[dayKey][key]
+					: parentNode[key]
+			}
+
+			function getNode(theme, key, parentNode) {
+				if (parentNode === undefined) parentNode = theme[key]
+				return (key in theme) 
+					? {
+						'enabled': ('enabled' in theme) ? theme['enabled'] : false,
+						'fg': getValIfEnabled(theme, key, 'fg', parentNode),
+						'bg': getValIfEnabled(theme, key, 'bg', parentNode),
+						'bold': getValIfEnabled(theme, key, 'bold', parentNode),
+						'italic': getValIfEnabled(theme, key, 'italic', parentNode)
+					  }
+					: parentNode
 			}
 
 			text: i18n('Clone as custom colors')
 			enabled: plasmoid.configuration.themeName !== Themes.custom
+
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
 
 				cfg_customColorsWidgetBg = theme['widget']['bg']
 
-				cfg_customColorsTodayFg = theme['today']['fg']
-				cfg_customColorsTodayBg = theme['today']['bg']
-				cfg_customColorsTodayBold = theme['today']['bold']
-				cfg_customColorsTodayItalic = theme['today']['italic']
+				todayConfig.populate(getNode(theme, 'today', theme['today']))
+				todaySaturdayConfig.populate(getNode(theme, 'todaySaturday', theme['today']))
+				todaySundayConfig.populate(getNode(theme, 'todaySunday', theme['today']))
 
-				cfg_customColorsTodaySaturdayEnabled = getVal(theme, 'todaySaturday', 'enabled', false)
-				cfg_customColorsTodaySaturdayFg = getVal(theme, 'todaySaturday', 'fg', cfg_customColorsTodayFg)
-				cfg_customColorsTodaySaturdayBg = getVal(theme, 'todaySaturday', 'bg', cfg_customColorsTodayBg)
-				cfg_customColorsTodaySaturdayBold = getVal(theme, 'todaySaturday', 'bold', cfg_customColorsTodayBold)
-				cfg_customColorsTodaySaturdayItalic = getVal(theme, 'todaySaturday', 'italic', cfg_customColorsTodayItalic)
+				pastConfig.populate(getNode(theme, 'pastDay'))
+				pastSaturdayConfig.populate(getNode(theme, 'pastSaturday', theme['pastDay']))
+				pastSundayConfig.populate(getNode(theme, 'pastSunday', theme['pastDay']))
 
-				cfg_customColorsTodaySundayEnabled = getVal(theme, 'todaySunday', 'enabled', false)
-				cfg_customColorsTodaySundayFg = getVal(theme, 'todaySunday', 'fg', cfg_customColorsTodayFg)
-				cfg_customColorsTodaySundayBg = getVal(theme, 'todaySunday', 'bg', cfg_customColorsTodayBg)
-				cfg_customColorsTodaySundayBold = getVal(theme, 'todaySunday', 'bold', cfg_customColorsTodayBold)
-				cfg_customColorsTodaySundayItalic = getVal(theme, 'todaySunday', 'italic', cfg_customColorsTodayItalic)
-
-				cfg_customColorsPastDayFg = theme['pastDay']['fg']
-				cfg_customColorsPastDayBg = theme['pastDay']['bg']
-				cfg_customColorsPastDayBold = theme['pastDay']['bold']
-				cfg_customColorsPastDayItalic = theme['pastDay']['italic']
-
-				cfg_customColorsPastSaturdayEnabled = getVal(theme, 'pastSaturday', 'enabled', false)
-				cfg_customColorsPastSaturdayFg = getVal(theme, 'pastSaturday', 'fg', cfg_customColorsPastDayFg)
-				cfg_customColorsPastSaturdayBg = getVal(theme, 'pastSaturday', 'bg', cfg_customColorsPastDayBg)
-				cfg_customColorsPastSaturdayBold = getVal(theme, 'pastSaturday', 'bold', cfg_customColorsPastDayBold)
-				cfg_customColorsPastSaturdayItalic = getVal(theme, 'pastSaturday', 'italic', cfg_customColorsPastDayItalic)
-
-				cfg_customColorsPastSundayEnabled = getVal(theme, 'pastSunday', 'enabled', false)
-				cfg_customColorsPastSundayFg = getVal(theme, 'pastSunday', 'fg', cfg_customColorsPastDayFg)
-				cfg_customColorsPastSundayBg = getVal(theme, 'pastSunday', 'bg', cfg_customColorsPastDayBg)
-				cfg_customColorsPastSundayBold = getVal(theme, 'pastSunday', 'bold', cfg_customColorsPastDayBold)
-				cfg_customColorsPastSundayItalic = getVal(theme, 'pastSunday', 'italic', cfg_customColorsPastDayItalic)
-
-				cfg_customColorsFutureDayFg = theme['futureDay']['fg']
-				cfg_customColorsFutureDayBg = theme['futureDay']['bg']
-				cfg_customColorsFutureDayBold = theme['futureDay']['bold']
-				cfg_customColorsFutureDayItalic = theme['futureDay']['italic']
-
-				cfg_customColorsFutureSaturdayEnabled = getVal(theme, 'futureSaturday', 'enabled', false)
-				cfg_customColorsFutureSaturdayFg = getVal(theme, 'futureSaturday', 'fg', cfg_customColorsFutureDayFg)
-				cfg_customColorsFutureSaturdayBg = getVal(theme, 'futureSaturday', 'bg', cfg_customColorsFutureDayBg)
-				cfg_customColorsFutureSaturdayBold = getVal(theme, 'futureSaturday', 'bold', cfg_customColorsFutureDayBold)
-				cfg_customColorsFutureSaturdayItalic = getVal(theme, 'futureSaturday', 'italic', cfg_customColorsFutureDayItalic)
-
-				cfg_customColorsFutureSundayEnabled = getVal(theme, 'futureSunday', 'enabled', false)
-				cfg_customColorsFutureSundayFg = getVal(theme, 'futureSunday', 'fg', cfg_customColorsFutureDayFg)
-				cfg_customColorsFutureSundayBg = getVal(theme, 'futureSunday', 'bg', cfg_customColorsFutureDayBg)
-				cfg_customColorsFutureSundayBold = getVal(theme, 'futureSunday', 'bold', cfg_customColorsFutureDayBold)
-				cfg_customColorsFutureSundayItalic = getVal(theme, 'futureSunday', 'italic', cfg_customColorsFutureDayItalic)
+				futureConfig.populate(getNode(theme, 'futureDay'))
+				futureSaturdayConfig.populate(getNode(theme, 'futureSaturday', theme['futureDay']))
+				futureSundayConfig.populate(getNode(theme, 'futureSunday', theme['futureDay']))
 
 				themeName.selectValue(Themes.custom)
 
@@ -197,8 +182,10 @@ ColumnLayout {
 
 	GridLayout {
 		id: customColors
-		columns: 8
+		columns: 9
 		enabled: customColorsEnabled
+
+		property var clipboard: undefined
 
 		// Grid header
 		LabelCenter { Layout.columnSpan: 2 }
@@ -208,6 +195,7 @@ ColumnLayout {
 		LabelCenter { text: i18n('Bold') }
 		LabelCenter { text: i18n('Italic') }
 		LabelCenter {}
+		LabelCenter {}
 
 		// widget background
 		LabelRight { text: i18n('Widget') }
@@ -215,318 +203,31 @@ ColumnLayout {
 		ConfigColorButtonBg {
 			id: customColorsWidgetBg
 		}
-		LabelCenter { Layout.columnSpan: 3 }
+		LabelCenter { Layout.columnSpan: 4 }
 
     	// ------------------------------------------------------------------------------------------------------------------------
 
 		// Today
-		LabelRight {
-			id: customColorsTodayLabel
-			text: i18n('Today')
-		}
-		LabelCenter {}
-		ConfigColorButtonFg {
-			id: customColorsTodayFg
-		}
-		ColorButtonSwap {
-			buttonA: customColorsTodayFg
-			buttonB: customColorsTodayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsTodayBg
-		}
-		ConfigCheckBox {
-			id: customColorsTodayBold
-		}
-		ConfigCheckBox {
-			id: customColorsTodayItalic
-		}
-		LabelCenter {}
+		LabelRight { text: i18n('Today') } 
+		AttributeConfig { id: todayConfig; alwaysEnabled: true }
+		LabelRight { text: i18n('Today Saturday') }
+		AttributeConfig { id: todaySaturdayConfig }
+		LabelRight { text: i18n('Today Sunday') }
+		AttributeConfig { id: todaySundayConfig }
 
-		// ------------------------------------------------------------------------------------------------------------------------
+		LabelRight { text: i18n('Past Days') } 
+		AttributeConfig { id: pastConfig; alwaysEnabled: true }
+		LabelRight { text: i18n('Past Saturday') }
+		AttributeConfig { id: pastSaturdayConfig }
+		LabelRight { text: i18n('Past Sunday') }
+		AttributeConfig { id: pastSundayConfig }
 
-		// Today Saturday
-		LabelRight {
-			text: i18n('Today Saturday')
-		}
-		CheckBox {
-			id: customColorsTodaySaturdayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsTodaySaturdayFg
-			enabled: cfg_customColorsTodaySaturdayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsTodaySaturdayFg
-			buttonB: customColorsTodaySaturdayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsTodaySaturdayBg
-			enabled: cfg_customColorsTodaySaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsTodaySaturdayBold
-			enabled: cfg_customColorsTodaySaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsTodaySaturdayItalic
-			enabled: cfg_customColorsTodaySaturdayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', customColorsTodayLabel.text )
-			onClicked: {
-				cfg_customColorsTodaySaturdayEnabled = true
-				cfg_customColorsTodaySaturdayFg = cfg_customColorsTodayFg
-				cfg_customColorsTodaySaturdayBg = cfg_customColorsTodayBg
-				cfg_customColorsTodaySaturdayBold = cfg_customColorsTodayBold
-				cfg_customColorsTodaySaturdayItalic = cfg_customColorsTodayItalic
-			}
-		}
-
-		// ------------------------------------------------------------------------------------------------------------------------
-
-		// past Today
-		LabelRight {
-			text: i18n('Today Sunday')
-		}
-		CheckBox {
-			id: customColorsTodaySundayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsTodaySundayFg
-			enabled: cfg_customColorsTodaySundayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsTodaySundayFg
-			buttonB: customColorsTodaySundayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsTodaySundayBg
-			enabled: cfg_customColorsTodaySundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsTodaySundayBold
-			enabled: cfg_customColorsTodaySundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsTodaySundayItalic
-			enabled: cfg_customColorsTodaySundayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', customColorsTodayLabel.text )
-			onClicked: {
-				cfg_customColorsTodaySundayEnabled = true
-				cfg_customColorsTodaySundayFg = cfg_customColorsTodayFg
-				cfg_customColorsTodaySundayBg = cfg_customColorsTodayBg
-				cfg_customColorsTodaySundayBold = cfg_customColorsTodayBold
-				cfg_customColorsTodaySundayItalic = cfg_customColorsTodayItalic
-			}
-		}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// past days
-		LabelRight {
-			id: customColorsPastDayLabel
-			text: i18n('Past days')
-		}
-		LabelCenter {}
-		ConfigColorButtonFg {
-			id: customColorsPastDayFg
-		}
-		ColorButtonSwap {
-			buttonA: customColorsPastDayFg
-			buttonB: customColorsPastDayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsPastDayBg
-		}
-		ConfigCheckBox {
-			id: customColorsPastDayBold
-		}
-		ConfigCheckBox {
-			id: customColorsPastDayItalic
-		}
-		LabelCenter {}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// past Saturday
-		LabelRight {
-			text: i18n('Past Saturday')
-		}
-		CheckBox {
-			id: customColorsPastSaturdayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsPastSaturdayFg
-			enabled: cfg_customColorsPastSaturdayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsPastSaturdayFg
-			buttonB: customColorsPastSaturdayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsPastSaturdayBg
-			enabled: cfg_customColorsPastSaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsPastSaturdayBold
-			enabled: cfg_customColorsPastSaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsPastSaturdayItalic
-			enabled: cfg_customColorsPastSaturdayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', customColorsPastDayLabel.text )
-			onClicked: {
-				cfg_customColorsPastSaturdayEnabled = true
-				cfg_customColorsPastSaturdayFg = cfg_customColorsPastDayFg
-				cfg_customColorsPastSaturdayBg = cfg_customColorsPastDayBg
-				cfg_customColorsPastSaturdayBold = cfg_customColorsPastDayBold
-				cfg_customColorsPastSaturdayItalic = cfg_customColorsPastDayItalic
-			}
-		}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// past Sunday
-		LabelRight {
-			text: i18n('Past Sunday')
-		}
-		CheckBox {
-			id: customColorsPastSundayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsPastSundayFg
-			enabled: cfg_customColorsPastSundayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsPastSundayFg
-			buttonB: customColorsPastSundayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsPastSundayBg
-			enabled: cfg_customColorsPastSundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsPastSundayBold
-			enabled: cfg_customColorsPastSundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsPastSundayItalic
-			enabled: cfg_customColorsPastSundayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', customColorsPastDayLabel.text )
-			onClicked: {
-				cfg_customColorsPastSundayEnabled = true
-				cfg_customColorsPastSundayFg = cfg_customColorsPastDayFg
-				cfg_customColorsPastSundayBg = cfg_customColorsPastDayBg
-				cfg_customColorsPastSundayBold = cfg_customColorsPastDayBold
-				cfg_customColorsPastSundayItalic = cfg_customColorsPastDayItalic
-			}
-		}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// future days
-		LabelRight { id: futureDaysLabel; text: i18n('Future days') }
-		LabelCenter {}  
-		ConfigColorButtonFg {
-			id: customColorsFutureDayFg
-		}
-		ColorButtonSwap {
-			buttonA: customColorsFutureDayFg
-			buttonB: customColorsFutureDayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsFutureDayBg
-		}
-		ConfigCheckBox {
-			id: customColorsFutureDayBold
-		}
-		ConfigCheckBox {
-			id: customColorsFutureDayItalic
-		}
-		LabelCenter {}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// future Saturday
+		LabelRight { text: i18n('Future') } 
+		AttributeConfig { id: futureConfig; alwaysEnabled: true }
 		LabelRight { text: i18n('Future Saturday') }
-		CheckBox {
-			id: customColorsFutureSaturdayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsFutureSaturdayFg
-			enabled: cfg_customColorsFutureSaturdayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsFutureSaturdayFg
-			buttonB: customColorsFutureSaturdayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsFutureSaturdayBg
-			enabled: cfg_customColorsFutureSaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsFutureSaturdayBold
-			enabled: cfg_customColorsFutureSaturdayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsFutureSaturdayItalic
-			enabled: cfg_customColorsFutureSaturdayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', futureDaysLabel.text )
-			onClicked: {
-				cfg_customColorsFutureSaturdayEnabled = true
-				cfg_customColorsFutureSaturdayFg = cfg_customColorsFutureDayFg
-				cfg_customColorsFutureSaturdayBg = cfg_customColorsFutureDayBg
-				cfg_customColorsFutureSaturdayBold = cfg_customColorsFutureDayBold
-				cfg_customColorsFutureSaturdayItalic = cfg_customColorsFutureDayItalic
-			}
-		}
-
-    	// ------------------------------------------------------------------------------------------------------------------------
-
-		// future Sunday
+		AttributeConfig { id: futureSaturdayConfig }
 		LabelRight { text: i18n('Future Sunday') }
-		CheckBox {
-			id: customColorsFutureSundayEnabled
-		}
-		ConfigColorButtonFg {
-			id: customColorsFutureSundayFg
-			enabled: cfg_customColorsFutureSundayEnabled
-		}
-		ColorButtonSwap {
-			buttonA: customColorsFutureSundayFg
-			buttonB: customColorsFutureSundayBg
-		}
-		ConfigColorButtonBg {
-			id: customColorsFutureSundayBg
-			enabled: cfg_customColorsFutureSundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsFutureSundayBold
-			enabled: cfg_customColorsFutureSundayEnabled
-		}
-		ConfigCheckBox {
-			id: customColorsFutureSundayItalic
-			enabled: cfg_customColorsFutureSundayEnabled
-		}
-		Button {
-			text: i18n('Clone "%1"', futureDaysLabel.text )
-			onClicked: {
-				cfg_customColorsFutureSundayEnabled = true
-				cfg_customColorsFutureSundayFg = cfg_customColorsFutureDayFg
-				cfg_customColorsFutureSundayBg = cfg_customColorsFutureDayBg
-				cfg_customColorsFutureSundayBold = cfg_customColorsFutureDayBold
-				cfg_customColorsFutureSundayItalic = cfg_customColorsFutureDayItalic
-			}
-		}
+		AttributeConfig { id: futureSundayConfig }
 	} // customColors (GridLayout)
 
     Item {
@@ -535,3 +236,4 @@ ColumnLayout {
     }
 
 } // ColumnLayout
+
