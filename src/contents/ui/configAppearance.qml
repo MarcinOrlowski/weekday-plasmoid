@@ -22,6 +22,23 @@ ColumnLayout {
 
 	property alias cfg_customColorsWidgetBg: widgetConfig.bg
 
+	property alias cfg_customColorsPastFg: pastConfig.fg
+	property alias cfg_customColorsPastBg: pastConfig.bg
+	property alias cfg_customColorsPastBold: pastConfig.bold
+	property alias cfg_customColorsPastItalic: pastConfig.italic
+
+	property alias cfg_customColorsPastSaturdayEnabled: pastSaturdayConfig.enabled
+	property alias cfg_customColorsPastSaturdayFg: pastSaturdayConfig.fg
+	property alias cfg_customColorsPastSaturdayBg: pastSaturdayConfig.bg
+	property alias cfg_customColorsPastSaturdayBold: pastSaturdayConfig.bold
+	property alias cfg_customColorsPastSaturdayItalic: pastSaturdayConfig.italic
+
+	property alias cfg_customColorsPastSundayEnabled: pastSundayConfig.enabled
+	property alias cfg_customColorsPastSundayFg: pastSundayConfig.fg
+	property alias cfg_customColorsPastSundayBg: pastSundayConfig.bg
+	property alias cfg_customColorsPastSundayBold: pastSundayConfig.bold
+	property alias cfg_customColorsPastSundayItalic: pastSundayConfig.italic
+
 	property alias cfg_customColorsTodayFg: todayConfig.fg
 	property alias cfg_customColorsTodayBg: todayConfig.bg
 	property alias cfg_customColorsTodayBold: todayConfig.bold
@@ -39,39 +56,22 @@ ColumnLayout {
 	property alias cfg_customColorsTodaySundayBold: todaySundayConfig.bold
 	property alias cfg_customColorsTodaySundayItalic: todaySundayConfig.italic
 
-	property alias cfg_customColorsPastFg: todayConfig.fg
-	property alias cfg_customColorsPastBg: todayConfig.bg
-	property alias cfg_customColorsPastBold: todayConfig.bold
-	property alias cfg_customColorsPastItalic: todayConfig.italic
+	property alias cfg_customColorsFutureFg: futureConfig.fg
+	property alias cfg_customColorsFutureBg: futureConfig.bg
+	property alias cfg_customColorsFutureBold: futureConfig.bold
+	property alias cfg_customColorsFutureItalic: futureConfig.italic
 
-	property alias cfg_customColorsPastSaturdayEnabled: todaySaturdayConfig.enabled
-	property alias cfg_customColorsPastSaturdayFg: todaySaturdayConfig.fg
-	property alias cfg_customColorsPastSaturdayBg: todaySaturdayConfig.bg
-	property alias cfg_customColorsPastSaturdayBold: todaySaturdayConfig.bold
-	property alias cfg_customColorsPastSaturdayItalic: todaySaturdayConfig.italic
+	property alias cfg_customColorsFutureSaturdayEnabled: futureSaturdayConfig.enabled
+	property alias cfg_customColorsFutureSaturdayFg: futureSaturdayConfig.fg
+	property alias cfg_customColorsFutureSaturdayBg: futureSaturdayConfig.bg
+	property alias cfg_customColorsFutureSaturdayBold: futureSaturdayConfig.bold
+	property alias cfg_customColorsFutureSaturdayItalic: futureSaturdayConfig.italic
 
-	property alias cfg_customColorsPastSundayEnabled: todaySundayConfig.enabled
-	property alias cfg_customColorsPastSundayFg: todaySundayConfig.fg
-	property alias cfg_customColorsPastSundayBg: todaySundayConfig.bg
-	property alias cfg_customColorsPastSundayBold: todaySundayConfig.bold
-	property alias cfg_customColorsPastSundayItalic: todaySundayConfig.italic
-
-	property alias cfg_customColorsFutureFg: todayConfig.fg
-	property alias cfg_customColorsFutureBg: todayConfig.bg
-	property alias cfg_customColorsFutureBold: todayConfig.bold
-	property alias cfg_customColorsFutureItalic: todayConfig.italic
-
-	property alias cfg_customColorsFutureSaturdayEnabled: todaySaturdayConfig.enabled
-	property alias cfg_customColorsFutureSaturdayFg: todaySaturdayConfig.fg
-	property alias cfg_customColorsFutureSaturdayBg: todaySaturdayConfig.bg
-	property alias cfg_customColorsFutureSaturdayBold: todaySaturdayConfig.bold
-	property alias cfg_customColorsFutureSaturdayItalic: todaySaturdayConfig.italic
-
-	property alias cfg_customColorsFutureSundayEnabled: todaySundayConfig.enabled
-	property alias cfg_customColorsFutureSundayFg: todaySundayConfig.fg
-	property alias cfg_customColorsFutureSundayBg: todaySundayConfig.bg
-	property alias cfg_customColorsFutureSundayBold: todaySundayConfig.bold
-	property alias cfg_customColorsFutureSundayItalic: todaySundayConfig.italic
+	property alias cfg_customColorsFutureSundayEnabled: futureSundayConfig.enabled
+	property alias cfg_customColorsFutureSundayFg: futureSundayConfig.fg
+	property alias cfg_customColorsFutureSundayBg: futureSundayConfig.bg
+	property alias cfg_customColorsFutureSundayBold: futureSundayConfig.bold
+	property alias cfg_customColorsFutureSundayItalic: futureSundayConfig.italic
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
@@ -116,6 +116,7 @@ ColumnLayout {
 			** allows easy handling of i.e. optional TodaySunday config, falling
 			** back to Today if not enabled.
 			*/
+/*
 			function getValIfEnabled(theme, dayKey, key, parentNode) {
 				return (dayKey in theme) && theme[dayKey]['enabled']
 					? theme[dayKey][key]
@@ -134,6 +135,7 @@ ColumnLayout {
 					  }
 					: parentNode
 			}
+*/
 
 			text: i18n('Clone as custom colors')
 			enabled: plasmoid.configuration.themeName !== Themes.custom
@@ -141,19 +143,19 @@ ColumnLayout {
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
 
-				widgetConfig.populate(getNode(theme, 'widget'))
+				widgetConfig.populateIf(theme, 'widget')
 
-				todayConfig.populate(getNode(theme, 'today', theme['today']))
-				todaySaturdayConfig.populate(getNode(theme, 'todaySaturday', theme['today']))
-				todaySundayConfig.populate(getNode(theme, 'todaySunday', theme['today']))
+				todayConfig.populateIf(theme, 'today', theme['today'])
+				todaySaturdayConfig.populateIf(theme, 'todaySaturday', theme['today'])
+				todaySundayConfig.populateIf(theme, 'todaySunday', theme['today'])
 
-				pastConfig.populate(getNode(theme, 'pastDay'))
-				pastSaturdayConfig.populate(getNode(theme, 'pastSaturday', theme['pastDay']))
-				pastSundayConfig.populate(getNode(theme, 'pastSunday', theme['pastDay']))
+				pastConfig.populateIf(theme, 'past')
+				pastSaturdayConfig.populateIf(theme, 'pastSaturday', theme['past'])
+				pastSundayConfig.populateIf(theme, 'pastSunday', theme['past'])
 
-				futureConfig.populate(getNode(theme, 'futureDay'))
-				futureSaturdayConfig.populate(getNode(theme, 'futureSaturday', theme['futureDay']))
-				futureSundayConfig.populate(getNode(theme, 'futureSunday', theme['futureDay']))
+				futureConfig.populateIf(theme, 'future')
+				futureSaturdayConfig.populateIf(theme, 'futureSaturday', theme['future'])
+				futureSundayConfig.populateIf(theme, 'futureSunday', theme['future'])
 
 				themeName.selectValue(Themes.custom)
 
@@ -206,16 +208,6 @@ ColumnLayout {
 			boldEnabled: false
 			italicEnabled: false
 		}
-
-
-/*
-		LabelRight { text: i18n('Widget') }
-		LabelCenter { Layout.columnSpan: 3}
-		ConfigColorButtonBg {
-			id: customColorsWidgetBg
-		}
-		LabelCenter { Layout.columnSpan: 4 }
-*/
 
     	// ------------------------------------------------------------------------------------------------------------------------
 

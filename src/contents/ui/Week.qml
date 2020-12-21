@@ -46,11 +46,11 @@ ColumnLayout {
 			"italic": plasmoid.configuration.customColorsTodaySundayItalic
 		},
 
-		"pastDay": {
-			"fg": plasmoid.configuration.customColorsPastDayFg,
-			"bg": plasmoid.configuration.customColorsPastDayBg,
-			"bold": plasmoid.configuration.customColorsPastDayBold,
-			"italic": plasmoid.configuration.customColorsPastDayItalic
+		"past": {
+			"fg": plasmoid.configuration.customColorsPastFg,
+			"bg": plasmoid.configuration.customColorsPastBg,
+			"bold": plasmoid.configuration.customColorsPastBold,
+			"italic": plasmoid.configuration.customColorsPastItalic
 		},
 		"pastSaturday": {
 			"enabled": plasmoid.configuration.customColorsPastSaturdayEnabled,
@@ -67,11 +67,11 @@ ColumnLayout {
 			"italic": plasmoid.configuration.customColorsPastSundayItalic
 		},
 
-		"futureDay": {
-			"fg": plasmoid.configuration.customColorsFutureDayFg,
-			"bg": plasmoid.configuration.customColorsFutureDayBg,
-			"bold": plasmoid.configuration.customColorsFutureDayBold,
-			"italic": plasmoid.configuration.customColorsFutureDayItalic
+		"future": {
+			"fg": plasmoid.configuration.customColorsFutureFg,
+			"bg": plasmoid.configuration.customColorsFutureBg,
+			"bold": plasmoid.configuration.customColorsFutureBold,
+			"italic": plasmoid.configuration.customColorsFutureItalic
 		},
 		"futureSaturday": {
 			"enabled": plasmoid.configuration.customColorsFutureSaturdayEnabled,
@@ -205,13 +205,13 @@ ColumnLayout {
 				case 6: result = getField(theme, 'todaySaturday', key, result); break
 			}
 		} else if (index < todayOffset) {
-			result = theme['pastDay'][key]
+			result = theme['past'][key]
 			switch(weekday) {
 				case 0: result = getField(theme, 'pastSunday', key, result); break
 				case 6: result = getField(theme, 'pastSaturday', key, result); break
 			}
 		} else {
-			result = theme['futureDay'][key]
+			result = theme['future'][key]
 			switch(weekday) {
 				case 0: result = getField(theme, 'futureSunday', key, result); break
 				case 6: result = getField(theme, 'futureSaturday', key, result); break

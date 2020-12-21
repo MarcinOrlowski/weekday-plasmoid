@@ -13,6 +13,11 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 RowLayout {
+	// FIXME this should not be here, but this is not a reusable compnent though.
+	Layout.columnSpan: 8
+
+    // -----------------------------------------------------------------------
+
 	property bool alwaysEnabled: false
 	property bool fgEnabled: true
 	property bool bgEnabled: true
@@ -21,30 +26,62 @@ RowLayout {
 	property bool copyEnabled: true
 	property bool pasteEnabled: true
 
-	property bool enabled: enabledButton.checked
-	property var fg: fgButton.color
-	property var bg: bgButton.color
-	property bool bold: boldButton.checked
-	property bool italic: italicButton.checked
+	property bool enabled: true
+	property string fg: '#FF000000'
+	property string bg: '#00000000'
+	property bool bold: false
+	property bool italic: false
 
-	function setEnabled(flag) {
-		if (alwaysEnabled) flag = true
-		enabledButton.checked = flag
+    // -----------------------------------------------------------------------
+
+	onEnabledChanged: enabledButton.checked = false
+	onFgChanged: fgButton.color = fg
+	onBgChanged: bgButton.color = bg
+	onBoldChanged: boldButton.checked = bold
+	onItalicChanged: italicButton.checked = italic
+
+    // -----------------------------------------------------------------------
+
+	/*
+	** Checks if dayKey (i.e. 'pastSaturday') exists in theme. If it does,
+	** next checks if config node for dayKey's 'enabled' is 'true'.
+	** If so, returns value of key element from dayKey node of the ttrue
+	** If node is not enabled, returns key value from parent node. This
+	** allows easy handling of i.e. optional TodaySunday config, falling
+	** back to Today if not enabled.
+	*/
+	function getValIfEnabled(theme, dayKey, key, parentNode) {
+		return (dayKey in theme) && theme[dayKey]['enabled']
+			? theme[dayKey][key]
+			: parentNode[key]
 	}
-	function setFg(color) { fgButton.color = color }
-	function setBg(color) { bgButton.color = color }
-	function setBold(flag) { boldButton.checked = flag }
-	function setItalic(flag) { italicButton.checked = flag }
+
+	function getNode(theme, key, parentNode) {
+		if (parentNode === undefined) parentNode = theme[key]
+		return (key in theme)
+			? {
+				'enabled': theme[key]['enabled'] || false,
+				'fg': getValIfEnabled(theme, key, 'fg', parentNode),
+				'bg': getValIfEnabled(theme, key, 'bg', parentNode),
+				'bold': getValIfEnabled(theme, key, 'bold', parentNode),
+				'italic': getValIfEnabled(theme, key, 'italic', parentNode)
+			  }
+			: parentNode
+	}
+
+	function populateIf(theme, key, parentNode) {
+		populate(getNode(theme, key, parentNode))
+	}
 
 	function populate(node) {
-		setEnabled(node['enabled'] || false)
-		setFg(node['fg'] || '#FF000000')
-		setBg(node['bg'] || '#00000000')
-		setBold(node['bold'] || false)
-		setItalic(node['italic'] || false)
+		this.enabled = node['enabled']
+		this.fg = node['fg'] || '#FF000000'
+		this.bg = node['bg'] || '#00000000'
+		this.bold = node['bold'] || false
+		this.italic = node['italic'] || false
 	}
 
-	Layout.columnSpan: 8
+    // -----------------------------------------------------------------------
 
 	ConfigCheckBox {
 		id: enabledButton
@@ -56,6 +93,7 @@ RowLayout {
 		id: fgButton
 		enabled: enabledButton.checked
 		opacity: fgEnabled ? 1 : 0
+		onColorChanged: fg = color.toString()
 	}
 	ColorButtonSwap {
 		buttonA: fgButton
@@ -67,16 +105,19 @@ RowLayout {
 		id: bgButton
 		enabled: enabledButton.checked
 		opacity: bgEnabled ? 1 : 0
+		onColorChanged: bg = color.toString()
 	}
 	ConfigCheckBox {
 		id: boldButton
 		enabled: enabledButton.checked
 		opacity: boldEnabled ? 1 : 0
+		onCheckedChanged: bold = checked
 	}
 	ConfigCheckBox {
 		id: italicButton
 		enabled: enabledButton.checked
 		opacity: italicEnabled ? 1 : 0
+		onCheckedChanged: italic = checked
 	}
 	PlasmaComponents.Button {
 		icon.name: 'edit-copy'

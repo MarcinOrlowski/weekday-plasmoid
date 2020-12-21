@@ -36,16 +36,16 @@
         	<default>#00000000</default>
         </entry>
 
-        <entry name="customColorsPastDayFg" type="String">
+        <entry name="customColorsPastFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="customColorsPastDayBg" type="String">
+		<entry name="customColorsPastBg" type="String">
         	<default>#00000000</default>
         </entry>
-         <entry name="customColorsPastDayBold" type="Bool">
+         <entry name="customColorsPastBold" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="customColorsPastDayItalic" type="Bool">
+        <entry name="customColorsPastItalic" type="Bool">
             <default>false</default>
         </entry>
 
@@ -87,7 +87,7 @@
             <default>#FFffffff</default>
         </entry>
 		<entry name="customColorsTodayBg" type="String">
-        	<default>#FFff006e</default>
+        	<default>#FFdeadBEEF</default>
         </entry>
         <entry name="customColorsTodayBold" type="Bool">
             <default>true</default>
@@ -130,16 +130,16 @@
 
 
 
-        <entry name="customColorsFutureDayFg" type="String">
+        <entry name="customColorsFutureFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="customColorsFutureDayBg" type="String">
+		<entry name="customColorsFutureBg" type="String">
         	<default>#00000000</default>
         </entry>
-         <entry name="customColorsFutureDayBold" type="Bool">
+         <entry name="customColorsFutureBold" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="customColorsFutureDayItalic" type="Bool">
+        <entry name="customColorsFutureItalic" type="Bool">
             <default>false</default>
         </entry>
 
