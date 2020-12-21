@@ -99,12 +99,42 @@ ColumnLayout {
 						'bold': plasmoid.configuration.customColorsTodayBold,
 						'italic': plasmoid.configuration.customColorsTodayItalic
 					},
+					'todaySaturday': {
+						'enabled': plasmoid.configuration.customColorsTodaySaturdayEnabled,
+						'fg': plasmoid.configuration.customColorsTodaySaturdayFg.toString(),
+						'bg': plasmoid.configuration.customColorsTodaySaturdayBg.toString(),
+						'bold': plasmoid.configuration.customColorsTodaySaturdayBold,
+						'italic': plasmoid.configuration.customColorsTodaySaturdayItalic
+					},
+					'todaySunday': {
+						'enabled': plasmoid.configuration.customColorsTodaySundayEnabled,
+						'fg': plasmoid.configuration.customColorsTodaySundayFg.toString(),
+						'bg': plasmoid.configuration.customColorsTodaySundayBg.toString(),
+						'bold': plasmoid.configuration.customColorsTodaySundayBold,
+						'italic': plasmoid.configuration.customColorsTodaySundayItalic
+					},
+
 					'pastDay': {
 						'fg': plasmoid.configuration.customColorsPastDayFg.toString(),
 						'bg': plasmoid.configuration.customColorsPastDayBg.toString(),
 						'bold': plasmoid.configuration.customColorsPastDayBold,
 						'italic': plasmoid.configuration.customColorsPastDayItalic
 					},
+					'pastSaturday': {
+						'enabled': plasmoid.configuration.customColorsPastSaturdayEnabled,
+						'fg': plasmoid.configuration.customColorsPastSaturdayFg.toString(),
+						'bg': plasmoid.configuration.customColorsPastSaturdayBg.toString(),
+						'bold': plasmoid.configuration.customColorsPastSaturdayBold,
+						'italic': plasmoid.configuration.customColorsPastSaturdayItalic
+					},
+					'pastSunday': {
+						'enabled': plasmoid.configuration.customColorsPastSundayEnabled,
+						'fg': plasmoid.configuration.customColorsPastSundayFg.toString(),
+						'bg': plasmoid.configuration.customColorsPastSundayBg.toString(),
+						'bold': plasmoid.configuration.customColorsPastSundayBold,
+						'italic': plasmoid.configuration.customColorsPastSundayItalic
+					},
+
 					'futureDay': {
 						'fg': plasmoid.configuration.customColorsFutureDayFg.toString(),
 						'bg': plasmoid.configuration.customColorsFutureDayBg.toString(),
