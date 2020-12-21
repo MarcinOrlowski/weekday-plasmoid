@@ -20,7 +20,71 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
+    // -----------------------------------------------------------------------
+
+	Theme {
+		id: theme
+	}
+
+    // -----------------------------------------------------------------------
+
+	property alias cfg_widgetBg: theme.widgetBg
+
+	// past
+	property alias cfg_pastFg: theme.pastFg
+	property alias cfg_pastBg: theme.pastBg
+	property alias cfg_pastBold: theme.pastBold
+	property alias cfg_pastItalic: theme.pastItalic
+
+	property alias cfg_pastSaturdayEnabled: theme.pastSaturdayEnabled
+	property alias cfg_pastSaturdayFg: theme.pastSaturdayFg
+	property alias cfg_pastSaturdayBg: theme.pastSaturdayBg
+	property alias cfg_pastSaturdayBold: theme.pastSaturdayBold
+	property alias cfg_pastSaturdayItalic: theme.pastSaturdayItalic
+
+	property alias cfg_pastSundayEnabled: theme.pastSundayEnabled
+	property alias cfg_pastSundayFg: theme.pastSundayFg
+	property alias cfg_pastSundayBg: theme.pastSundayBg
+	property alias cfg_pastSundayBold: theme.pastSundayBold
+	property alias cfg_pastSundayItalic: theme.pastSundayItalic
+
+	// today
+	property alias cfg_todayFg: theme.todayFg
+	property alias cfg_todayBg: theme.todayBg
+	property alias cfg_todayBold: theme.todayBold
+	property alias cfg_todayItalic: theme.todayItalic
+
+	property alias cfg_todaySaturdayEnabled: theme.todaySaturdayEnabled
+	property alias cfg_todaySaturdayFg: theme.todaySaturdayFg
+	property alias cfg_todaySaturdayBg: theme.todaySaturdayBg
+	property alias cfg_todaySaturdayBold: theme.todaySaturdayBold
+	property alias cfg_todaySaturdayItalic: theme.todaySaturdayItalic
+
+	property alias cfg_todaySundayEnabled: theme.todaySundayEnabled
+	property alias cfg_todaySundayFg: theme.todaySundayFg
+	property alias cfg_todaySundayBg: theme.todaySundayBg
+	property alias cfg_todaySundayBold: theme.todaySundayBold
+	property alias cfg_todaySundayItalic: theme.todaySundayItalic
+
+	// future
+	property alias cfg_futureFg: theme.futureFg
+	property alias cfg_futureBg: theme.futureBg
+	property alias cfg_futureBold: theme.futureBold
+	property alias cfg_futureItalic: theme.futureItalic
+
+	property alias cfg_futureSaturdayEnabled: theme.futureSaturdayEnabled
+	property alias cfg_futureSaturdayFg: theme.futureSaturdayFg
+	property alias cfg_futureSaturdayBg: theme.futureSaturdayBg
+	property alias cfg_futureSaturdayBold: theme.futureSaturdayBold
+	property alias cfg_futureSaturdayItalic: theme.futureSaturdayItalic
+
+	property alias cfg_futureSundayEnabled: theme.futureSundayEnabled
+	property alias cfg_futureSundayFg: theme.futureSundayFg
+	property alias cfg_futureSundayBg: theme.futureSundayBg
+	property alias cfg_futureSundayBold: theme.futureSundayBold
+	property alias cfg_futureSundayItalic: theme.futureSundayItalic
+
+	// -----------------------------------------------------------------------
 
 	Kirigami.InlineMessage {
 		id: messageWidget
@@ -90,81 +154,79 @@ ColumnLayout {
 		PlasmaComponents.Button {
 			text: i18n('Export')
 			icon.name: 'document-export'
-			onClicked: {
-				var json = {
-					'widget': {'bg': plasmoid.configuration.customColorsWidgetBg},
-					'today': {
-						'fg': plasmoid.configuration.customColorsTodayFg,
-						'bg': plasmoid.configuration.customColorsTodayBg,
-						'bold': plasmoid.configuration.customColorsTodayBold,
-						'italic': plasmoid.configuration.customColorsTodayItalic
-					},
-					'todaySaturday': {
-						'enabled': plasmoid.configuration.customColorsTodaySaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsTodaySaturdayFg,
-						'bg': plasmoid.configuration.customColorsTodaySaturdayBg,
-						'bold': plasmoid.configuration.customColorsTodaySaturdayBold,
-						'italic': plasmoid.configuration.customColorsTodaySaturdayItalic
-					},
-					'todaySunday': {
-						'enabled': plasmoid.configuration.customColorsTodaySundayEnabled,
-						'fg': plasmoid.configuration.customColorsTodaySundayFg,
-						'bg': plasmoid.configuration.customColorsTodaySundayBg,
-						'bold': plasmoid.configuration.customColorsTodaySundayBold,
-						'italic': plasmoid.configuration.customColorsTodaySundayItalic
-					},
-
-					'past': {
-						'fg': plasmoid.configuration.customColorsPastDayFg,
-						'bg': plasmoid.configuration.customColorsPastDayBg,
-						'bold': plasmoid.configuration.customColorsPastDayBold,
-						'italic': plasmoid.configuration.customColorsPastDayItalic
-					},
-					'pastSaturday': {
-						'enabled': plasmoid.configuration.customColorsPastSaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsPastSaturdayFg,
-						'bg': plasmoid.configuration.customColorsPastSaturdayBg,
-						'bold': plasmoid.configuration.customColorsPastSaturdayBold,
-						'italic': plasmoid.configuration.customColorsPastSaturdayItalic
-					},
-					'pastSunday': {
-						'enabled': plasmoid.configuration.customColorsPastSundayEnabled,
-						'fg': plasmoid.configuration.customColorsPastSundayFg,
-						'bg': plasmoid.configuration.customColorsPastSundayBg,
-						'bold': plasmoid.configuration.customColorsPastSundayBold,
-						'italic': plasmoid.configuration.customColorsPastSundayItalic
-					},
-
-					'future': {
-						'fg': plasmoid.configuration.customColorsFutureDayFg,
-						'bg': plasmoid.configuration.customColorsFutureDayBg,
-						'bold': plasmoid.configuration.customColorsFutureDayBold,
-						'italic': plasmoid.configuration.customColorsFutureDayItalic
-					},
-					'futureSaturday': {
-						'enabled': plasmoid.configuration.customColorsFutureSaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsFutureSaturdayFg,
-						'bg': plasmoid.configuration.customColorsFutureSaturdayBg,
-						'bold': plasmoid.configuration.customColorsFutureSaturdayBold,
-						'italic': plasmoid.configuration.customColorsFutureSaturdayItalic
-					},
-					'futureSunday': {
-						'enabled': plasmoid.configuration.customColorsFutureSundayEnabled,
-						'fg': plasmoid.configuration.customColorsFutureSundayFg,
-						'bg': plasmoid.configuration.customColorsFutureSundayBg,
-						'bold': plasmoid.configuration.customColorsFutureSundayBold,
-						'italic': plasmoid.configuration.customColorsFutureSundayItalic
-					}
-				}
-
-				textInput.text = JSON.stringify(json)
-			}
+			onClicked: textInput.text = JSON.stringify(theme.toJson())
 		}
 
 		PlasmaComponents.Button {
 			text: i18n('Import')
 			icon.name: 'document-import'
 			onClicked: {
+				try {
+					var json = JSON.parse(textInput.text)
+
+console.debug(JSON.stringify(json))
+
+/*
+					plasmoid.configuration.customColorsWidgetBg = json['widget']['bg']
+
+					plasmoid.configuration.customColorsPastFg = json['past']['fg']
+					plasmoid.configuration.customColorsPastBg = json['past']['bg']
+					plasmoid.configuration.customColorsPastBold = json['past']['bold']
+					plasmoid.configuration.customColorsPastItalic = json['past']['italic']
+
+					plasmoid.configuration.customColorsPastSaturdayEnabled = json['pastSaturday']['enabled']
+					plasmoid.configuration.customColorsPastSaturdayFg = json['pastSaturday']['fg']
+					plasmoid.configuration.customColorsPastSaturdayBg = json['pastSaturday']['bg']
+					plasmoid.configuration.customColorsPastSaturdayBold = json['pastSaturday']['bold']
+					plasmoid.configuration.customColorsPastSaturdayItalic = json['pastSaturday']['italic']
+
+					plasmoid.configuration.customColorsPastSundayEnabled = json['pastSunday']['enabled']
+					plasmoid.configuration.customColorsPastSundayFg = json['pastSunday']['fg']
+					plasmoid.configuration.customColorsPastSundayBg = json['pastSunday']['bg']
+					plasmoid.configuration.customColorsPastSundayBold = json['pastSunday']['bold']
+					plasmoid.configuration.customColorsPastSundayItalic = json['pastSunday']['italic']
+	
+
+					plasmoid.configuration.customColorsTodayFg = json['today']['fg']
+					plasmoid.configuration.customColorsTodayBg = json['today']['bg']
+					plasmoid.configuration.customColorsTodayBold = json['today']['bold']
+					plasmoid.configuration.customColorsTodayItalic = json['today']['italic']
+
+					plasmoid.configuration.customColorsTodaySaturdayEnabled = json['todaySaturday']['enabled']
+					plasmoid.configuration.customColorsTodaySaturdayFg = json['todaySaturday']['fg']
+					plasmoid.configuration.customColorsTodaySaturdayBg = json['todaySaturday']['bg']
+					plasmoid.configuration.customColorsTodaySaturdayBold = json['todaySaturday']['bold']
+					plasmoid.configuration.customColorsTodaySaturdayItalic = json['todaySaturday']['italic']
+
+					plasmoid.configuration.customColorsTodaySundayEnabled = json['todaySunday']['enabled']
+					plasmoid.configuration.customColorsTodaySundayFg = json['todaySunday']['fg']
+					plasmoid.configuration.customColorsTodaySundayBg = json['todaySunday']['bg']
+					plasmoid.configuration.customColorsTodaySundayBold = json['todaySunday']['bold']
+					plasmoid.configuration.customColorsTodaySundayItalic = json['todaySunday']['italic']
+	
+
+					plasmoid.configuration.customColorsFutureFg = json['future']['fg']
+					plasmoid.configuration.customColorsFutureBg = json['future']['bg']
+					plasmoid.configuration.customColorsFutureBold = json['future']['bold']
+					plasmoid.configuration.customColorsFutureItalic = json['future']['italic']
+
+					plasmoid.configuration.customColorsFutureSaturdayEnabled = json['futureSaturday']['enabled']
+					plasmoid.configuration.customColorsFutureSaturdayFg = json['futureSaturday']['fg']
+					plasmoid.configuration.customColorsFutureSaturdayBg = json['futureSaturday']['bg']
+					plasmoid.configuration.customColorsFutureSaturdayBold = json['futureSaturday']['bold']
+					plasmoid.configuration.customColorsFutureSaturdayItalic = json['futureSaturday']['italic']
+
+					plasmoid.configuration.customColorsFutureSundayEnabled = json['futureSunday']['enabled']
+					plasmoid.configuration.customColorsFutureSundayFg = json['futureSunday']['fg']
+					plasmoid.configuration.customColorsFutureSundayBg = json['futureSunday']['bg']
+					plasmoid.configuration.customColorsFutureSundayBold = json['futureSunday']['bold']
+					plasmoid.configuration.customColorsFutureSundayItalic = json['futureSunday']['italic']
+
+					plasmod.configuration.themeName = Themes.custom
+*/
+				} catch (error) {
+
+				}
 			}
 		}
 	} // RowLayout
