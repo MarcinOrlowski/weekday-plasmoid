@@ -92,66 +92,66 @@ ColumnLayout {
 			icon.name: 'document-export'
 			onClicked: {
 				var json = {
-					'widget': {'bg': plasmoid.configuration.customColorsWidgetBg.toString()},
+					'widget': {'bg': plasmoid.configuration.customColorsWidgetBg},
 					'today': {
-						'fg': plasmoid.configuration.customColorsTodayFg.toString(),
-						'bg': plasmoid.configuration.customColorsTodayBg.toString(),
+						'fg': plasmoid.configuration.customColorsTodayFg,
+						'bg': plasmoid.configuration.customColorsTodayBg,
 						'bold': plasmoid.configuration.customColorsTodayBold,
 						'italic': plasmoid.configuration.customColorsTodayItalic
 					},
 					'todaySaturday': {
 						'enabled': plasmoid.configuration.customColorsTodaySaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsTodaySaturdayFg.toString(),
-						'bg': plasmoid.configuration.customColorsTodaySaturdayBg.toString(),
+						'fg': plasmoid.configuration.customColorsTodaySaturdayFg,
+						'bg': plasmoid.configuration.customColorsTodaySaturdayBg,
 						'bold': plasmoid.configuration.customColorsTodaySaturdayBold,
 						'italic': plasmoid.configuration.customColorsTodaySaturdayItalic
 					},
 					'todaySunday': {
 						'enabled': plasmoid.configuration.customColorsTodaySundayEnabled,
-						'fg': plasmoid.configuration.customColorsTodaySundayFg.toString(),
-						'bg': plasmoid.configuration.customColorsTodaySundayBg.toString(),
+						'fg': plasmoid.configuration.customColorsTodaySundayFg,
+						'bg': plasmoid.configuration.customColorsTodaySundayBg,
 						'bold': plasmoid.configuration.customColorsTodaySundayBold,
 						'italic': plasmoid.configuration.customColorsTodaySundayItalic
 					},
 
 					'pastDay': {
-						'fg': plasmoid.configuration.customColorsPastDayFg.toString(),
-						'bg': plasmoid.configuration.customColorsPastDayBg.toString(),
+						'fg': plasmoid.configuration.customColorsPastDayFg,
+						'bg': plasmoid.configuration.customColorsPastDayBg,
 						'bold': plasmoid.configuration.customColorsPastDayBold,
 						'italic': plasmoid.configuration.customColorsPastDayItalic
 					},
 					'pastSaturday': {
 						'enabled': plasmoid.configuration.customColorsPastSaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsPastSaturdayFg.toString(),
-						'bg': plasmoid.configuration.customColorsPastSaturdayBg.toString(),
+						'fg': plasmoid.configuration.customColorsPastSaturdayFg,
+						'bg': plasmoid.configuration.customColorsPastSaturdayBg,
 						'bold': plasmoid.configuration.customColorsPastSaturdayBold,
 						'italic': plasmoid.configuration.customColorsPastSaturdayItalic
 					},
 					'pastSunday': {
 						'enabled': plasmoid.configuration.customColorsPastSundayEnabled,
-						'fg': plasmoid.configuration.customColorsPastSundayFg.toString(),
-						'bg': plasmoid.configuration.customColorsPastSundayBg.toString(),
+						'fg': plasmoid.configuration.customColorsPastSundayFg,
+						'bg': plasmoid.configuration.customColorsPastSundayBg,
 						'bold': plasmoid.configuration.customColorsPastSundayBold,
 						'italic': plasmoid.configuration.customColorsPastSundayItalic
 					},
 
 					'futureDay': {
-						'fg': plasmoid.configuration.customColorsFutureDayFg.toString(),
-						'bg': plasmoid.configuration.customColorsFutureDayBg.toString(),
+						'fg': plasmoid.configuration.customColorsFutureDayFg,
+						'bg': plasmoid.configuration.customColorsFutureDayBg,
 						'bold': plasmoid.configuration.customColorsFutureDayBold,
 						'italic': plasmoid.configuration.customColorsFutureDayItalic
 					},
 					'futureSaturday': {
 						'enabled': plasmoid.configuration.customColorsFutureSaturdayEnabled,
-						'fg': plasmoid.configuration.customColorsFutureSaturdayFg.toString(),
-						'bg': plasmoid.configuration.customColorsFutureSaturdayBg.toString(),
+						'fg': plasmoid.configuration.customColorsFutureSaturdayFg,
+						'bg': plasmoid.configuration.customColorsFutureSaturdayBg,
 						'bold': plasmoid.configuration.customColorsFutureSaturdayBold,
 						'italic': plasmoid.configuration.customColorsFutureSaturdayItalic
 					},
 					'futureSunday': {
 						'enabled': plasmoid.configuration.customColorsFutureSundayEnabled,
-						'fg': plasmoid.configuration.customColorsFutureSundayFg.toString(),
-						'bg': plasmoid.configuration.customColorsFutureSundayBg.toString(),
+						'fg': plasmoid.configuration.customColorsFutureSundayFg,
+						'bg': plasmoid.configuration.customColorsFutureSundayBg,
 						'bold': plasmoid.configuration.customColorsFutureSundayBold,
 						'italic': plasmoid.configuration.customColorsFutureSundayItalic
 					}
