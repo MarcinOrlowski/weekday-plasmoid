@@ -58,12 +58,14 @@ Item {
                             'expireTimeout': 0,
                         });
                     } else {
-						updateCheckerNotificationManager.post({
-							'title': Meta.title,
-							'summary': i18n("No update available."),
-                            'body': i18n("You are using most recent version of %1.", Meta.title),
-                            'expireTimeout': 1000 * 10,
-                        });
+						if (force) {
+							updateCheckerNotificationManager.post({
+								'title': Meta.title,
+								'summary': i18n("No update available."),
+            	                'body': i18n("You are using most recent version of %1.", Meta.title),
+                	            'expireTimeout': 1000 * 10,
+                    	    });
+						}
 					}
                 }
             });
