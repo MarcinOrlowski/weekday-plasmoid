@@ -114,7 +114,7 @@ ColumnLayout {
 						'italic': plasmoid.configuration.customColorsTodaySundayItalic
 					},
 
-					'pastDay': {
+					'past': {
 						'fg': plasmoid.configuration.customColorsPastDayFg,
 						'bg': plasmoid.configuration.customColorsPastDayBg,
 						'bold': plasmoid.configuration.customColorsPastDayBold,
@@ -135,7 +135,7 @@ ColumnLayout {
 						'italic': plasmoid.configuration.customColorsPastSundayItalic
 					},
 
-					'futureDay': {
+					'future': {
 						'fg': plasmoid.configuration.customColorsFutureDayFg,
 						'bg': plasmoid.configuration.customColorsFutureDayBg,
 						'bold': plasmoid.configuration.customColorsFutureDayBold,
