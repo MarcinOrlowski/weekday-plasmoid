@@ -20,58 +20,58 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-	property alias cfg_customColorsWidgetBg: widgetConfig.bg
+	property alias cfg_widgetBg: widgetConfig.bg
 
-	property alias cfg_customColorsPastFg: pastConfig.fg
-	property alias cfg_customColorsPastBg: pastConfig.bg
-	property alias cfg_customColorsPastBold: pastConfig.bold
-	property alias cfg_customColorsPastItalic: pastConfig.italic
+	property alias cfg_pastFg: pastConfig.fg
+	property alias cfg_pastBg: pastConfig.bg
+	property alias cfg_pastBold: pastConfig.bold
+	property alias cfg_pastItalic: pastConfig.italic
 
-	property alias cfg_customColorsPastSaturdayEnabled: pastSaturdayConfig.enabled
-	property alias cfg_customColorsPastSaturdayFg: pastSaturdayConfig.fg
-	property alias cfg_customColorsPastSaturdayBg: pastSaturdayConfig.bg
-	property alias cfg_customColorsPastSaturdayBold: pastSaturdayConfig.bold
-	property alias cfg_customColorsPastSaturdayItalic: pastSaturdayConfig.italic
+	property alias cfg_pastSaturdayEnabled: pastSaturdayConfig.enabled
+	property alias cfg_pastSaturdayFg: pastSaturdayConfig.fg
+	property alias cfg_pastSaturdayBg: pastSaturdayConfig.bg
+	property alias cfg_pastSaturdayBold: pastSaturdayConfig.bold
+	property alias cfg_pastSaturdayItalic: pastSaturdayConfig.italic
 
-	property alias cfg_customColorsPastSundayEnabled: pastSundayConfig.enabled
-	property alias cfg_customColorsPastSundayFg: pastSundayConfig.fg
-	property alias cfg_customColorsPastSundayBg: pastSundayConfig.bg
-	property alias cfg_customColorsPastSundayBold: pastSundayConfig.bold
-	property alias cfg_customColorsPastSundayItalic: pastSundayConfig.italic
+	property alias cfg_pastSundayEnabled: pastSundayConfig.enabled
+	property alias cfg_pastSundayFg: pastSundayConfig.fg
+	property alias cfg_pastSundayBg: pastSundayConfig.bg
+	property alias cfg_pastSundayBold: pastSundayConfig.bold
+	property alias cfg_pastSundayItalic: pastSundayConfig.italic
 
-	property alias cfg_customColorsTodayFg: todayConfig.fg
-	property alias cfg_customColorsTodayBg: todayConfig.bg
-	property alias cfg_customColorsTodayBold: todayConfig.bold
-	property alias cfg_customColorsTodayItalic: todayConfig.italic
+	property alias cfg_todayFg: todayConfig.fg
+	property alias cfg_todayBg: todayConfig.bg
+	property alias cfg_todayBold: todayConfig.bold
+	property alias cfg_todayItalic: todayConfig.italic
 
-	property alias cfg_customColorsTodaySaturdayEnabled: todaySaturdayConfig.enabled
-	property alias cfg_customColorsTodaySaturdayFg: todaySaturdayConfig.fg
-	property alias cfg_customColorsTodaySaturdayBg: todaySaturdayConfig.bg
-	property alias cfg_customColorsTodaySaturdayBold: todaySaturdayConfig.bold
-	property alias cfg_customColorsTodaySaturdayItalic: todaySaturdayConfig.italic
+	property alias cfg_todaySaturdayEnabled: todaySaturdayConfig.enabled
+	property alias cfg_todaySaturdayFg: todaySaturdayConfig.fg
+	property alias cfg_todaySaturdayBg: todaySaturdayConfig.bg
+	property alias cfg_todaySaturdayBold: todaySaturdayConfig.bold
+	property alias cfg_todaySaturdayItalic: todaySaturdayConfig.italic
 
-	property alias cfg_customColorsTodaySundayEnabled: todaySundayConfig.enabled
-	property alias cfg_customColorsTodaySundayFg: todaySundayConfig.fg
-	property alias cfg_customColorsTodaySundayBg: todaySundayConfig.bg
-	property alias cfg_customColorsTodaySundayBold: todaySundayConfig.bold
-	property alias cfg_customColorsTodaySundayItalic: todaySundayConfig.italic
+	property alias cfg_todaySundayEnabled: todaySundayConfig.enabled
+	property alias cfg_todaySundayFg: todaySundayConfig.fg
+	property alias cfg_todaySundayBg: todaySundayConfig.bg
+	property alias cfg_todaySundayBold: todaySundayConfig.bold
+	property alias cfg_todaySundayItalic: todaySundayConfig.italic
 
-	property alias cfg_customColorsFutureFg: futureConfig.fg
-	property alias cfg_customColorsFutureBg: futureConfig.bg
-	property alias cfg_customColorsFutureBold: futureConfig.bold
-	property alias cfg_customColorsFutureItalic: futureConfig.italic
+	property alias cfg_futureFg: futureConfig.fg
+	property alias cfg_futureBg: futureConfig.bg
+	property alias cfg_futureBold: futureConfig.bold
+	property alias cfg_futureItalic: futureConfig.italic
 
-	property alias cfg_customColorsFutureSaturdayEnabled: futureSaturdayConfig.enabled
-	property alias cfg_customColorsFutureSaturdayFg: futureSaturdayConfig.fg
-	property alias cfg_customColorsFutureSaturdayBg: futureSaturdayConfig.bg
-	property alias cfg_customColorsFutureSaturdayBold: futureSaturdayConfig.bold
-	property alias cfg_customColorsFutureSaturdayItalic: futureSaturdayConfig.italic
+	property alias cfg_futureSaturdayEnabled: futureSaturdayConfig.enabled
+	property alias cfg_futureSaturdayFg: futureSaturdayConfig.fg
+	property alias cfg_futureSaturdayBg: futureSaturdayConfig.bg
+	property alias cfg_futureSaturdayBold: futureSaturdayConfig.bold
+	property alias cfg_futureSaturdayItalic: futureSaturdayConfig.italic
 
-	property alias cfg_customColorsFutureSundayEnabled: futureSundayConfig.enabled
-	property alias cfg_customColorsFutureSundayFg: futureSundayConfig.fg
-	property alias cfg_customColorsFutureSundayBg: futureSundayConfig.bg
-	property alias cfg_customColorsFutureSundayBold: futureSundayConfig.bold
-	property alias cfg_customColorsFutureSundayItalic: futureSundayConfig.italic
+	property alias cfg_futureSundayEnabled: futureSundayConfig.enabled
+	property alias cfg_futureSundayFg: futureSundayConfig.fg
+	property alias cfg_futureSundayBg: futureSundayConfig.bg
+	property alias cfg_futureSundayBold: futureSundayConfig.bold
+	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
 	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
 
@@ -142,6 +142,7 @@ ColumnLayout {
 
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
+console.debug('theme ' + JSON.stringify(theme))
 
 				widgetConfig.populateIf(theme, 'widget')
 

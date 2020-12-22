@@ -20,30 +20,10 @@ ColumnLayout {
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
 	// or PlasmaCore.Theme.* (starting frameworks 5.73)
-	property var theme: {
+	property var userTheme: {
 		"theme":{"name":"UserTheme"},
 		"widget": {
 			"bg": plasmoid.configuration.widgetBg
-		},
-		"today": {
-			"fg": plasmoid.configuration.todayFg,
-			"bg": plasmoid.configuration.todayBg,
-			"bold": plasmoid.configuration.todayBold,
-			"italic": plasmoid.configuration.todayItalic
-		},
-		"todaySaturday": {
-			"enabled": plasmoid.configuration.todaySaturdayEnabled,
-			"fg": plasmoid.configuration.todaySaturdayFg,
-			"bg": plasmoid.configuration.todaySaturdayBg,
-			"bold": plasmoid.configuration.todaySaturdayBold,
-			"italic": plasmoid.configuration.todaySaturdayItalic
-		},
-		"todaySunday": {
-			"enabled": plasmoid.configuration.todaySundayEnabled,
-			"fg": plasmoid.configuration.todaySundayFg,
-			"bg": plasmoid.configuration.todaySundayBg,
-			"bold": plasmoid.configuration.todaySundayBold,
-			"italic": plasmoid.configuration.todaySundayItalic
 		},
 
 		"past": {
@@ -65,6 +45,27 @@ ColumnLayout {
 			"bg": plasmoid.configuration.pastSundayBg,
 			"bold": plasmoid.configuration.pastSundayBold,
 			"italic": plasmoid.configuration.pastSundayItalic
+		},
+
+		"today": {
+			"fg": plasmoid.configuration.todayFg,
+			"bg": plasmoid.configuration.todayBg,
+			"bold": plasmoid.configuration.todayBold,
+			"italic": plasmoid.configuration.todayItalic
+		},
+		"todaySaturday": {
+			"enabled": plasmoid.configuration.todaySaturdayEnabled,
+			"fg": plasmoid.configuration.todaySaturdayFg,
+			"bg": plasmoid.configuration.todaySaturdayBg,
+			"bold": plasmoid.configuration.todaySaturdayBold,
+			"italic": plasmoid.configuration.todaySaturdayItalic
+		},
+		"todaySunday": {
+			"enabled": plasmoid.configuration.todaySundayEnabled,
+			"fg": plasmoid.configuration.todaySundayFg,
+			"bg": plasmoid.configuration.todaySundayBg,
+			"bold": plasmoid.configuration.todaySundayBold,
+			"italic": plasmoid.configuration.todaySundayItalic
 		},
 
 		"future": {
@@ -103,11 +104,7 @@ ColumnLayout {
 	property string themeName: plasmoid.configuration.themeName
 	property var currentTheme: Themes.themes[Themes.defaultTheme]
 
-	onThemeNameChanged: currentTheme = (themeName !== Themes.custom) ? Themes.themes[themeName] : Theme
-
-	function getCurrentTheme() {
-		return (themeName !== Themes.custom) ? Themes.themes[themeName] : Theme
-	}
+	onThemeNameChanged: currentTheme = (themeName !== Themes.custom) ? Themes.themes[themeName] : userTheme
 
     // ------------------------------------------------------------------------------------------------------------------------
 
@@ -128,10 +125,7 @@ ColumnLayout {
 			firstDayOfWeek = locale.firstDayOfWeek
 		}
 
-		// get the theme to use
-		var theme = Themes.themes[Themes.default]
-
-		redrawWidget(locale, firstDayOfWeek, theme)
+		redrawWidget(locale, firstDayOfWeek, currentTheme)
 	}
 
 	function redrawWidget(locale, firstDayOfWeek, theme) {
@@ -161,8 +155,6 @@ ColumnLayout {
 		var todayOffset = now.getDay() - firstDayOfWeek
 		if (todayOffset < 0) todayOffset += 7
 
-		var theme = getCurrentTheme()
-	
 		for(var i=0; i<7; i++) {
 			var weekday = (i+firstDayOfWeek) % 7
 			fgTmp[i] = getVal(theme, 'fg', i, weekday, todayOffset)

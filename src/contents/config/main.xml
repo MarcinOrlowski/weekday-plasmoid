@@ -85,48 +85,48 @@
 
 		<!-- today -->
 
-        <entry name="TodayFg" type="String">
+        <entry name="todayFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="TodayBg" type="String">
+		<entry name="todayBg" type="String">
         	<default>#FFdeadBEEF</default>
         </entry>
-        <entry name="TodayBold" type="Bool">
+        <entry name="todayBold" type="Bool">
             <default>true</default>
         </entry>
-        <entry name="TodayItalic" type="Bool">
+        <entry name="todayItalic" type="Bool">
             <default>false</default>
         </entry>
 
-		<entry name="TodaySaturdayEnabled" type="Bool">
+		<entry name="todaySaturdayEnabled" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="TodaySaturdayFg" type="String">
+        <entry name="todaySaturdayFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="TodaySaturdayBg" type="String">
+		<entry name="todaySaturdayBg" type="String">
         	<default>#00000000</default>
         </entry>
-         <entry name="TodaySaturdayBold" type="Bool">
+         <entry name="todaySaturdayBold" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="TodaySaturdayItalic" type="Bool">
+        <entry name="todaySaturdayItalic" type="Bool">
             <default>false</default>
         </entry>
 
-        <entry name="TodaySundayEnabled" type="Bool">
+        <entry name="todaySundayEnabled" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="TodaySundayFg" type="String">
+        <entry name="todaySundayFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="TodaySundayBg" type="String">
+		<entry name="todaySundayBg" type="String">
         	<default>#00000000</default>
         </entry>
-         <entry name="TodaySundayBold" type="Bool">
+         <entry name="todaySundayBold" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="TodaySundayItalic" type="Bool">
+        <entry name="todaySundayItalic" type="Bool">
             <default>false</default>
         </entry>
 

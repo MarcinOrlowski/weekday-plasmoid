@@ -43,17 +43,17 @@ RowLayout {
     // -----------------------------------------------------------------------
 
 	/*
-	** Checks if dayKey (i.e. 'pastSaturday') exists in theme. If it does,
-	** next checks if config node for dayKey's 'enabled' is 'true'.
-	** If so, returns value of key element from dayKey node of the ttrue
-	** If node is not enabled, returns key value from parent node. This
-	** allows easy handling of i.e. optional TodaySunday config, falling
-	** back to Today if not enabled.
+	** Checks if key (i.e. 'pastSaturday') exists in theme. If it does,
+	** next checks if config node for key's 'enabled' is 'true'.
+	** If so, returns value of field element from key node. If node is not
+	** enabled, returns key value from parent node. This allows easy
+	** handling of i.e. optional TodaySunday config, falling back to Today
+	** if not enabled.
 	*/
-	function getValIfEnabled(theme, dayKey, key, parentNode) {
-		return (dayKey in theme) && theme[dayKey]['enabled']
-			? theme[dayKey][key]
-			: parentNode[key]
+	function getValIfEnabled(theme, key, field, parentNode) {
+		return (key in theme) && theme[key]['enabled']
+			? theme[key][field]
+			: parentNode[field]
 	}
 
 	function getNode(theme, key, parentNode) {

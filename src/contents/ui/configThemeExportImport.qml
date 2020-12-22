@@ -86,6 +86,10 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
+	readonly property bool customColorsEnabled: cfg_themeName === Themes.custom
+
+	// -----------------------------------------------------------------------
+
 	Kirigami.InlineMessage {
 		id: messageWidget
 		Layout.fillWidth: true
