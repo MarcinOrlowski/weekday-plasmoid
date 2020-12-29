@@ -13,6 +13,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import "../js/meta.js" as Meta
+import "../js/DateTimeFormatter.js" as DTF
 
 Item {
     id: main
@@ -36,10 +37,17 @@ Item {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.toolTipMainText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		return new Date().toLocaleDateString(Qt.locale(localeToUse), Locale.LongFormat)
+//		var localetouse = plasmoid.configuration.usespecificlocaleenabled ? plasmoid.configuration.usespecificlocalelocalename : ''
+//		return new date().tolocaledatestring(qt.locale(localetouse), locale.longformat)
+		var template = '%DDD:u%, %d% %MMM% %yyyy%'
+//		return DTF.format(template, localeToUse)
+		return DTF.format(template)
 	}
-	Plasmoid.toolTipSubText: ''
+	Plasmoid.toolTipSubText: {
+		var template = '%dy% day of %yyyy%'
+//		return DTF.format(template, localeToUse)
+		return DTF.format(template)
+	}
 
     // ------------------------------------------------------------------------------------------------------------------------
 
