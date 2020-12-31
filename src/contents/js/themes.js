@@ -32,16 +32,6 @@ var themes = {
 		"past":{"enabled":true,"fg":"#FFffffff","bg":"#00000000","bold":false,"italic":false},
 		"future":{"enabled":true,"fg":"#FFffffff","bg":"#00000000","bold":false,"italic":false},
 	},
-	"violet": {
-		"theme":{"name":"Violet"},
-		"widget":{"enabled":true,"bg":"#2e3136"},
-		"lastDayMonth":{"enabled":false,"bg":"#FF2effee"},
-		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
-		"past":{"enabked":true, "fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
-		"future":{"enabled":true,"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
-		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
-	},
 	"amber": {
 		"theme":{"name":"Amber"},
 		"widget":{"enabled":true,"bg":"#00000000"},
@@ -49,26 +39,6 @@ var themes = {
 		"today":{"enabled":true,"fg":"#f0e513","bg":"#5500ff","bold":true,"italic":false},
 		"past":{"enabled":true,"fg":"#a3705e","bg":"#783e23","bold":false,"italic":false},
 		"future":{"enabled":true,"fg":"#752503","bg":"#d2900c","bold":true,"italic":false},
-	},
-	"forest": {
-		"theme":{"name":"Forest"},
-		"widget":{"enabled":true,"bg":"#2e3136"},
-		"lastDayMonth":{"enabled":false,"bg":"#FFaaff00"},
-		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
-		"past":{"enabled":true,"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
-		"future":{"enabled":true,"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
-		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
-	},
-	"sea-blue": {
-		"theme":{"name":"Sea Blue"},
-		"widget":{"enabled":true,"bg":"#2e3136"},
-		"lastDayMonth":{"enabled":false,"bg":"#FF00fbff"},
-		"today":{"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
-		"past":{"enabled":true,"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
-		"future":{"enabled":true,"fg":"#ffffff","bg":"#3a738b","bold":false,"italic":false},
-		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false}
 	},
 	"accented-bw-dark": {
 		"theme":{"name":"B&W Accented"},
@@ -90,6 +60,36 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false}
 	}
+	"forest": {
+		"theme":{"name":"Forest"},
+		"widget":{"enabled":true,"bg":"#2e3136"},
+		"lastDayMonth":{"enabled":false,"bg":"#FFaaff00"},
+		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
+		"past":{"enabled":true,"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
+		"future":{"enabled":true,"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
+	},
+	"sea-blue": {
+		"theme":{"name":"Sea Blue"},
+		"widget":{"enabled":true,"bg":"#2e3136"},
+		"lastDayMonth":{"enabled":false,"bg":"#FF00fbff"},
+		"today":{"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
+		"past":{"enabled":true,"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
+		"future":{"enabled":true,"fg":"#ffffff","bg":"#3a738b","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false}
+	},
+	"violet": {
+		"theme":{"name":"Violet"},
+		"widget":{"enabled":true,"bg":"#2e3136"},
+		"lastDayMonth":{"enabled":false,"bg":"#FF2effee"},
+		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
+		"past":{"enabked":true, "fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
+		"future":{"enabled":true,"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
+	},
 
 }
 
