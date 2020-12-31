@@ -1,6 +1,7 @@
 * @dev
   * Clicking on widget opens CalendarView popup.
   * Fixed widget tooltip's sub-text not working properly.
+  * Added (optional) visual indicator of last day of the month.
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes
