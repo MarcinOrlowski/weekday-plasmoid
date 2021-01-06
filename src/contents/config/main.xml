@@ -32,7 +32,7 @@
             <default>false</default>
         </entry>
 
-		<entry name="WidgetBg" type="String">
+		<entry name="widgetBg" type="String">
         	<default>#00000000</default>
         </entry>
 
