@@ -64,6 +64,7 @@ RowLayout {
 
 	ComboBox {
 		id: comboBox
+		Layout.minimumWidth: 300
 		textRole: "text" // Doesn't autodeduce from model if we manually populate it
 		property string valueRole: "value"
 
