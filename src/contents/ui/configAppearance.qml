@@ -27,13 +27,13 @@ ColumnLayout {
 	property alias cfg_pastBold: pastConfig.bold
 	property alias cfg_pastItalic: pastConfig.italic
 
-	property alias cfg_pastSaturdayEnabled: pastSaturdayConfig.enabled
+	property alias cfg_pastSaturdayEnabled: pastSaturdayConfig.configEnabled
 	property alias cfg_pastSaturdayFg: pastSaturdayConfig.fg
 	property alias cfg_pastSaturdayBg: pastSaturdayConfig.bg
 	property alias cfg_pastSaturdayBold: pastSaturdayConfig.bold
 	property alias cfg_pastSaturdayItalic: pastSaturdayConfig.italic
 
-	property alias cfg_pastSundayEnabled: pastSundayConfig.enabled
+	property alias cfg_pastSundayEnabled: pastSundayConfig.configEnabled
 	property alias cfg_pastSundayFg: pastSundayConfig.fg
 	property alias cfg_pastSundayBg: pastSundayConfig.bg
 	property alias cfg_pastSundayBold: pastSundayConfig.bold
@@ -44,13 +44,13 @@ ColumnLayout {
 	property alias cfg_todayBold: todayConfig.bold
 	property alias cfg_todayItalic: todayConfig.italic
 
-	property alias cfg_todaySaturdayEnabled: todaySaturdayConfig.enabled
+	property alias cfg_todaySaturdayEnabled: todaySaturdayConfig.configEnabled
 	property alias cfg_todaySaturdayFg: todaySaturdayConfig.fg
 	property alias cfg_todaySaturdayBg: todaySaturdayConfig.bg
 	property alias cfg_todaySaturdayBold: todaySaturdayConfig.bold
 	property alias cfg_todaySaturdayItalic: todaySaturdayConfig.italic
 
-	property alias cfg_todaySundayEnabled: todaySundayConfig.enabled
+	property alias cfg_todaySundayEnabled: todaySundayConfig.configEnabled
 	property alias cfg_todaySundayFg: todaySundayConfig.fg
 	property alias cfg_todaySundayBg: todaySundayConfig.bg
 	property alias cfg_todaySundayBold: todaySundayConfig.bold
@@ -61,19 +61,19 @@ ColumnLayout {
 	property alias cfg_futureBold: futureConfig.bold
 	property alias cfg_futureItalic: futureConfig.italic
 
-	property alias cfg_futureSaturdayEnabled: futureSaturdayConfig.enabled
+	property alias cfg_futureSaturdayEnabled: futureSaturdayConfig.configEnabled
 	property alias cfg_futureSaturdayFg: futureSaturdayConfig.fg
 	property alias cfg_futureSaturdayBg: futureSaturdayConfig.bg
 	property alias cfg_futureSaturdayBold: futureSaturdayConfig.bold
 	property alias cfg_futureSaturdayItalic: futureSaturdayConfig.italic
 
-	property alias cfg_futureSundayEnabled: futureSundayConfig.enabled
+	property alias cfg_futureSundayEnabled: futureSundayConfig.configEnabled
 	property alias cfg_futureSundayFg: futureSundayConfig.fg
 	property alias cfg_futureSundayBg: futureSundayConfig.bg
 	property alias cfg_futureSundayBold: futureSundayConfig.bold
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName == Themes.custom
+	property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
 
 	Kirigami.InlineMessage {
 		id: messageWidget
@@ -108,41 +108,15 @@ ColumnLayout {
 		}
 
 		Button {
-			/*
-			** Checks if dayKey (i.e. 'pastSaturday') exists in theme. If it does,
-			** next checks if config node for dayKey's 'enabled' is 'true'.
-			** If so, returns value of key element from dayKey node of the theme.
-			** If node is not enabled, returns key value from parent node. This
-			** allows easy handling of i.e. optional TodaySunday config, falling
-			** back to Today if not enabled.
-			*/
-/*
-			function getValIfEnabled(theme, dayKey, key, parentNode) {
-				return (dayKey in theme) && theme[dayKey]['enabled']
-					? theme[dayKey][key]
-					: parentNode[key]
-			}
-
-			function getNode(theme, key, parentNode) {
-				if (parentNode === undefined) parentNode = theme[key]
-				return (key in theme) 
-					? {
-						'enabled': theme['enabled'] || false,
-						'fg': getValIfEnabled(theme, key, 'fg', parentNode),
-						'bg': getValIfEnabled(theme, key, 'bg', parentNode),
-						'bold': getValIfEnabled(theme, key, 'bold', parentNode),
-						'italic': getValIfEnabled(theme, key, 'italic', parentNode)
-					  }
-					: parentNode
-			}
-*/
-
 			text: i18n('Clone as custom colors')
-			enabled: plasmoid.configuration.themeName !== Themes.custom
+			enabled: !customColorsEnabled
 
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
-console.debug('theme ' + JSON.stringify(theme))
+
+console.debug('cloning from theme ' + theme['theme']['name'])
+console.debug(JSON.stringify(theme))
+console.debug('')
 
 				widgetConfig.populateIf(theme, 'widget')
 

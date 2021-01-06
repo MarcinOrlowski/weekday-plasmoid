@@ -26,7 +26,7 @@ RowLayout {
 	property bool copyEnabled: true
 	property bool pasteEnabled: true
 
-	property bool enabled: true
+	property bool configEnabled: false
 	property string fg: '#FF000000'
 	property string bg: '#00000000'
 	property bool bold: false
@@ -34,7 +34,7 @@ RowLayout {
 
     // -----------------------------------------------------------------------
 
-	onEnabledChanged: enabledButton.checked = false
+	onConfigEnabledChanged: enabledButton.checked = configEnabled
 	onFgChanged: fgButton.color = fg
 	onBgChanged: bgButton.color = bg
 	onBoldChanged: boldButton.checked = bold
@@ -74,7 +74,7 @@ RowLayout {
 	}
 
 	function populate(node) {
-		this.enabled = node['enabled']
+		this.configEnabled = node['enabled'] || true
 		this.fg = node['fg'] || '#FF000000'
 		this.bg = node['bg'] || '#00000000'
 		this.bold = node['bold'] || false
@@ -88,6 +88,7 @@ RowLayout {
 		enabled: !alwaysEnabled
 		checked: alwaysEnabled
 		opacity: alwaysEnabled ? 0 : 1
+		onCheckedChanged: configEnabled = checked
 	}
 	ConfigColorButtonFg {
 		id: fgButton
