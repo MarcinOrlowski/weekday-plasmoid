@@ -42,31 +42,27 @@ RowLayout {
 
     // -----------------------------------------------------------------------
 
-	/*
-	** Checks if key (i.e. 'pastSaturday') exists in theme. If it does,
-	** next checks if config node for key's 'enabled' is 'true'.
-	** If so, returns value of field element from key node. If node is not
-	** enabled, returns key value from parent node. This allows easy
-	** handling of i.e. optional TodaySunday config, falling back to Today
-	** if not enabled.
-	*/
-	function getValIfEnabled(theme, key, field, parentNode) {
-		return (key in theme) && theme[key]['enabled']
-			? theme[key][field]
-			: parentNode[field]
+	function getThemeVal(theme, key, field, defaultVal) {
+		return (key in theme)
+			? (theme[key][field] || defaultVal)
+			: defaultVal
 	}
 
 	function getNode(theme, key, parentNode) {
 		if (parentNode === undefined) parentNode = theme[key]
-		return (key in theme)
-			? {
-				'enabled': theme[key]['enabled'] || false,
-				'fg': getValIfEnabled(theme, key, 'fg', parentNode),
-				'bg': getValIfEnabled(theme, key, 'bg', parentNode),
-				'bold': getValIfEnabled(theme, key, 'bold', parentNode),
-				'italic': getValIfEnabled(theme, key, 'italic', parentNode)
-			  }
-			: parentNode
+
+		var defaultFg = parentNode['fg'] || '#FF000000'
+		var defaultBg = parentNode['bg'] || '#00000000'
+		var defaultBold = parentNode['bold'] || false
+		var defaultItalic = parentNode['italic'] || false
+
+		return {
+			'enabled': getThemeVal(theme, key, 'enabled', false),
+			'fg': getThemeVal(theme, key, 'fg', defaultFg),
+			'bg': getThemeVal(theme, key, 'bg', defaultBg),
+			'bold': getThemeVal(theme, key, 'bold', defaultBold),
+			'italic': getThemeVal(theme, key, 'italic', defaultItalic)
+		}
 	}
 
 	function populateIf(theme, key, parentNode) {
@@ -74,7 +70,7 @@ RowLayout {
 	}
 
 	function populate(node) {
-		this.configEnabled = node['enabled'] || true
+		this.configEnabled = node['enabled'] || false
 		this.fg = node['fg'] || '#FF000000'
 		this.bg = node['bg'] || '#00000000'
 		this.bold = node['bold'] || false
