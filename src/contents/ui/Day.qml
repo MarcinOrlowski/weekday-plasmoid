@@ -14,7 +14,7 @@ Rectangle {
 	id: container
 
 	property string label: '?'
-	property string fg: "FFffffff"
+	property string fg: "#FFffffff"
 	property string bg: "#00000000"
 	property bool bold: false
 	property bool italic: false
