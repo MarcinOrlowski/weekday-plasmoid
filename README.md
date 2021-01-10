@@ -18,6 +18,7 @@ week days.
  * [Configuration](#configuration)
    * [Appearance](#appearance)
    * [Locale](#locale)
+   * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
@@ -82,6 +83,13 @@ theme as your starting point.
  * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed
    locale (i.e. `en_US`) you want to be used for constructing day labels instead.
  * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
+
+### Calendar View ###
+
+![Locale](img/config-calendar.png)
+
+ * **Show week numbers**: specifies if popup calendar view should also show week numbers
+
 
 ### Tooltip ###
 
