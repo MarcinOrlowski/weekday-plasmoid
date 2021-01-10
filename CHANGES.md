@@ -1,3 +1,15 @@
+* v1.4.0 (2021-01-10)
+  * Added bunch of predefined color schemes
+  * Added separate (optional) appearance of future Saturday and Sunday
+  * Added separate (optional) appearance of past Saturday and Sunday
+  * Added separate (optional) appearance of today Saturday and Sunday
+  * Added separated general widget background color
+  * Added option to export current custom theme as JSON string
+  * Added option to clone built-in theme into custom colors for easy tweaking
+  * Added option to swap colors in custom theme editor
+  * Added fully configurable tooltip texts with placeholders support
+  * Fixed Tooltip not using custom locale
+
 * v1.3.0 (2020-12-18)
   * Added update availability checker
   * Corrected layout items

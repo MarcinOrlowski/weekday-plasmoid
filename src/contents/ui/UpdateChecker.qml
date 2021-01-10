@@ -2,7 +2,7 @@
  * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020 Marcin Orlowski
+ * @copyright 2020-2021 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
@@ -58,12 +58,14 @@ Item {
                             'expireTimeout': 0,
                         });
                     } else {
-						updateCheckerNotificationManager.post({
-							'title': Meta.title,
-							'summary': i18n("No update available."),
-                            'body': i18n("You are using most recent version of %1.", Meta.title),
-                            'expireTimeout': 1000 * 10,
-                        });
+						if (force) {
+							updateCheckerNotificationManager.post({
+								'title': Meta.title,
+								'summary': i18n("No update available."),
+            	                'body': i18n("You are using most recent version of %1.", Meta.title),
+                	            'expireTimeout': 1000 * 10,
+                    	    });
+						}
 					}
                 }
             });

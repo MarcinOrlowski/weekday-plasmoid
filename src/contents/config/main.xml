@@ -16,52 +16,173 @@
         <entry name="nonDefaultWeekStartDayEnabled" type="Bool">
             <default>false</default>
         </entry>
-         <entry name="nonDefaultWeekStartDayDayIndex" type="Int">
+        <entry name="nonDefaultWeekStartDayDayIndex" type="Int">
             <default>0</default>
         </entry>
     </group>
 
+	<group name="Tooltip">
+        <entry name="tooltipFirstLineFormat" type="String">
+            <default>%DDD:u%, %d% %MMM% %yyyy%</default>
+        </entry>
+        <entry name="tooltipSecondLineFormat" type="String">
+            <default>%dy% day of %yyyy%</default>
+        </entry>
+	</group>
+
+	<group name="Appearance">
+		<entry name="themeName" type="String">
+			<default>__default__</default>
+		</entry>
+	</group>
+
 	<group name="CustomColors">
-        <entry name="customColorsEnabled" type="Bool">
+        <entry name="Enabled" type="Bool">
             <default>false</default>
         </entry>
 
-        <entry name="customColorsPastDayFg" type="String">
-            <default>#FFffffff</default>
-        </entry>
-		<entry name="customColorsPastDayBg" type="String">
+		<entry name="widgetBg" type="String">
         	<default>#00000000</default>
         </entry>
-         <entry name="customColorsPastDayBold" type="Bool">
+
+		<!-- past days -->
+
+        <entry name="pastFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="pastBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="pastBold" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="customColorsPastDayItalic" type="Bool">
+        <entry name="pastItalic" type="Bool">
             <default>false</default>
         </entry>
 
-        <entry name="customColorsTodayFg" type="String">
+		<entry name="pastSaturdayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="pastSaturdayFg" type="String">
             <default>#FFffffff</default>
         </entry>
-		<entry name="customColorsTodayBg" type="String">
-        	<default>#FFff006e</default>
+		<entry name="pastSaturdayBg" type="String">
+        	<default>#00000000</default>
         </entry>
-        <entry name="customColorsTodayBold" type="Bool">
+         <entry name="pastSaturdayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="pastSaturdayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="pastSundayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="pastSundayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="pastSundayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="pastSundayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="pastSundayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+		<!-- today -->
+
+        <entry name="todayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="todayBg" type="String">
+        	<default>#FFdeadBEEF</default>
+        </entry>
+        <entry name="todayBold" type="Bool">
             <default>true</default>
         </entry>
-        <entry name="customColorsTodayItalic" type="Bool">
+        <entry name="todayItalic" type="Bool">
             <default>false</default>
         </entry>
 
-        <entry name="customColorsFutureDayFg" type="String">
-            <default>#FFffffff</default>
-        </entry>
-		<entry name="customColorsFutureDayBg" type="String">
-        	<default>#00000000</default>
-        </entry>
-         <entry name="customColorsFutureDayBold" type="Bool">
+		<entry name="todaySaturdayEnabled" type="Bool">
             <default>false</default>
         </entry>
-        <entry name="customColorsFutureDayItalic" type="Bool">
+        <entry name="todaySaturdayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="todaySaturdayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="todaySaturdayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="todaySaturdayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="todaySundayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="todaySundayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="todaySundayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="todaySundayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="todaySundayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+		<!-- future days -->
+
+        <entry name="futureFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="futureBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="futureBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="futureItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+		<entry name="futureSaturdayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="futureSaturdayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="futureSaturdayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="futureSaturdayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="futureSaturdayItalic" type="Bool">
+            <default>false</default>
+        </entry>
+
+        <entry name="futureSundayEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="futureSundayFg" type="String">
+            <default>#FFffffff</default>
+        </entry>
+		<entry name="futureSundayBg" type="String">
+        	<default>#00000000</default>
+        </entry>
+         <entry name="futureSundayBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="futureSundayItalic" type="Bool">
             <default>false</default>
         </entry>
 

@@ -21,4 +21,17 @@ ConfigModel {
         icon: "languages"
         source: "configLocale.qml"
     }
+    ConfigCategory {
+        name: i18n("Tooltip")
+        icon: "view-calendar-workweek"
+        source: "configTooltip.qml"
+    }
+
+/*
+	ConfigCategory {
+		name: i18n("Export/Import")
+		icon: "view-visible"
+		source: "configThemeExportImport.qml"
+	}
+*/
 }
