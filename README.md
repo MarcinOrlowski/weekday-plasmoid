@@ -58,28 +58,29 @@ theme as your starting point.
 
 ![Theme item settings](img/config-appearance-item.png)
 
- 1. Configuration item label
- 1. On/Off switch for optional configuration items
- 1. Background color
- 1. Swaps Background <-> Foreground colors
- 1. Foreground (text) color
- 1. Boldface appearance switch
- 1. Italic appearance switch
- 1. Copy all item attributes to internal clipboard
- 1. Paste attributes from internal clipboard
+ 1. Configuration item label,
+ 1. On/Off switch for optional configuration items,
+ 1. Background color,
+ 1. Swaps Background <-> Foreground colors,
+ 1. Foreground (text) color,
+ 1. Boldface appearance on/off switch,
+ 1. Italic appearance on/off switch,
+ 1. Copy all item attributes to internal clipboard,
+ 1. Paste attributes from internal clipboard.
 
 **NOTES:** 
-  * For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
-  * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
-    by background color as set for specific type of day.
-  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
-  * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
+ * For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
+ * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
+   by background color as set for specific type of day.
+ * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
+ * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
 
 ### Locale ###
 
 ![Locale](img/config-locale.png)
 
- * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
+ * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed
+   locale (i.e. `en_US`) you want to be used for constructing day labels instead.
  * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
 
 ### Tooltip ###
@@ -88,6 +89,8 @@ theme as your starting point.
 
  * **Main text**: template for main tooltip text line.
  * **Sub text**: template for tooltip subtext line.
+
+#### Supported placeholders ####
 
  Your formatting string can contain anything you like, however certain sequences are considered
  placeholders, and will be replaced by corresponding values. Non-placeholders are left unaltered.
@@ -130,14 +133,15 @@ theme as your starting point.
 |-------------|-------------|
 | U	| turns whole placeholder uppercased (i.e. "%DD:U%" => "SAT") |
 | L | turns whole placeholder lowercased (i.e. "%DD:L%: => "sat") |
-| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "%DDD%" can produce "wtorek" for Tuesday. With "%DDD:u%" you would get "Wtorek". |
+| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "%DDD%" can produce "wtorek" for Tuesday. With "%DDD:u%" you would get "Wtorek" instead. |
 
 ---
 
 ## Installation ##
 
 You should be able to install Weekday Grid widget either using built-in Plasma Add-on installer or manually, by
-downloading `*.plasmoid` file either from project [Github repository](https://github.com/MarcinOrlowski/weekday-plasmoid/) or from [KDE Store](https://store.kde.org/p/1460393/)
+downloading `*.plasmoid` file either from project [Github repository](https://github.com/MarcinOrlowski/weekday-plasmoid/) or
+from [KDE Store](https://store.kde.org/p/1460393/)
 
 ### Using built-in installer ###
 
