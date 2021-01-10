@@ -42,7 +42,7 @@ Item {
 	}
 	Plasmoid.toolTipSubText: {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		return DTF.format(tooltipSecondLineFormat, localeToUse)
+		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------
