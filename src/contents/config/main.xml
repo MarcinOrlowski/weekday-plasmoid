@@ -188,4 +188,16 @@
 
 	</group>
 
+	<group name="CalendarView">
+	    <entry name="showWeekNumbers" type="Bool">
+    	  <label>Whether the calendar should show week numbers.</label>
+	      <default>false</default>
+	    </entry>
+
+		<entry name="pin" type="Bool">
+			<label>Whether the popup should remain open when another window is activated</label>
+			<default>false</default>
+		</entry>
+	</group>
+
 </kcfg>
