@@ -41,17 +41,20 @@ theme as your starting point.
  * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
  * **Clone as custom colors**: Copies colors from currently set theme to custom color editior.
 
- * Color items
-   * **Widget**: specifies general widget background color. 
-   * **Today**: appearance of current day
-   * **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
-   * **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
-   * **Past**: appearance of past week days
-   * **Past Saturday**: optional, separate appearance of past Saturday. If not enabled, "Past" is used.
-   * **Past Sunday**: optional, separate appearance of past Sunday. If not enabled, "Past" is used.
-   * **Future**: appearance of remaining, future days of the week.
-   * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
-   * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
+#### Theme items ####
+
+ * **Widget**: specifies general widget background color. 
+ * **Today**: appearance of current day
+ * **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
+ * **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
+ * **Past**: appearance of past week days
+ * **Past Saturday**: optional, separate appearance of past Saturday. If not enabled, "Past" is used.
+ * **Past Sunday**: optional, separate appearance of past Sunday. If not enabled, "Past" is used.
+ * **Future**: appearance of remaining, future days of the week.
+ * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
+ * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
+
+#### Item settings ####
 
 ![Theme item settings](img/config-appearance-item.png)
 
