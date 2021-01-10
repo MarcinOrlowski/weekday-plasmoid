@@ -36,6 +36,8 @@ function format(template, localeName) {
 	map['M'] = map['MM'].substr(0, 1)
 	map['mm'] = Qt.formatDate(now, 'MM')
 	map['m'] = Qt.formatDate(now, 'M')
+//	ss
+//	s
 	map['DDD'] = now.toLocaleDateString(locale, 'dddd')
 	map['DD'] = now.toLocaleDateString(locale, 'ddd')
 	map['D'] = map['DD'].substr(0, 1)
