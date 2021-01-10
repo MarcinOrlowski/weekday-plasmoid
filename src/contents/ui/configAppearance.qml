@@ -114,10 +114,6 @@ ColumnLayout {
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
 
-console.debug('cloning from theme ' + theme['theme']['name'])
-console.debug(JSON.stringify(theme))
-console.debug('')
-
 				widgetConfig.populateIf(theme, 'widget')
 
 				todayConfig.populateIf(theme, 'today', theme['today'])
