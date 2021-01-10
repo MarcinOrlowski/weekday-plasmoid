@@ -35,16 +35,37 @@ week days.
 
 ![Appearance](img/config-appearance.png)
 
- * **Use custom colors**: enable to override default appearance.
+Allows you to select one of predefined color theme create own color style, either from scratch or using existing
+theme as your starting point.
+
+ * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
+ * **Clone as custom colors**: Copies colors from currently set theme to custom color editior.
+
+ * Color items
    * **Widget**: specifies general widget background color. 
-   * **Past days**: appearance of past week days
    * **Today**: appearance of current day
-   * **Future days**: appearance of remaining, future days of the week.
-   * **Furure Saturday**: appearance of future Saturday. If not enabled, "Future days" settings will be used.
-   * **Future Sunday**: appearance of future Sunday. If not enabled, "Future days" settings will be used.
+   * **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
+   * **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
+   * **Past**: appearance of past week days
+   * **Past Saturday**: optional, separate appearance of past Saturday. If not enabled, "Past" is used.
+   * **Past Sunday**: optional, separate appearance of past Sunday. If not enabled, "Past" is used.
+   * **Future**: appearance of remaining, future days of the week.
+   * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
+   * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
+
+![Theme item settings](img/config-appearance-item.png)
+
+ 1. Configuration item label
+ 1. On/Off switch for optional configuration items
+ 1. Background color
+ 1. Swaps Background <-> Foreground colors
+ 1. Foreground (text) color
+ 1. Boldface appearance switch
+ 1. Italic appearance switch
+ 1. Copy all item attributes to internal clipboard
+ 1. Paste attributes from internal clipboard
 
 **NOTES:** 
-
   * For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
   * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
     by background color as set for specific type of day.

@@ -161,6 +161,7 @@ ColumnLayout {
 		property var clipboard: undefined
 
 		// Grid header
+/*
 		LabelCenter { Layout.columnSpan: 2 }
 		LabelCenter { text: i18n('Text') }
 		LabelCenter {}
@@ -169,6 +170,7 @@ ColumnLayout {
 		LabelCenter { text: i18n('Italic') }
 		LabelCenter {}
 		LabelCenter {}
+*/
 
 		// widget background
 		LabelRight { text: i18n('Widget') }
