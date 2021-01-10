@@ -18,6 +18,7 @@ week days.
  * [Configuration](#configuration)
    * [Appearance](#appearance)
    * [Locale](#locale)
+   * [Tooltip](#tooltip)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -56,6 +57,56 @@ week days.
 
  * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed locale (i.e. `en_US`) you want to be used for constructing day labels instead.
  * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
+
+### Tooltip ###
+
+![Locale](img/config-tooltip.png)
+
+ * **Main text**: template for main tooltip text line.
+ * **Sub text**: template for tooltip subtext line.
+
+ Your formatting string can contain anything you like, however certain sequences are considered
+ placeholders, and will be replaced by corresponding values. Non-placeholders are left unaltered.
+
+| Placeholder | Description |
+|-------------|-------------|
+| %yyyy% 	| long year (i.e. "2009") |
+| %yy% 		| short year (i.e. "09") |
+| %MMM%	    | long month name (i.e. "January") |
+| %MM%		| abbreviated month name (i.e. "Jan") |
+| %M%		| first letter month name (i.e. "J") |
+| %mm%		| zero prefixed 2 digit month number ("02" for Feb, "12" for Dec) |
+| %m%		| month number as is ("2" for Feb, "12" for Dec) |
+| %DDD%	    | full day name (i.e. "Saturday", "Sunday", "Monday") |
+| %DD%		| abbreviated day name ("Sat", "Sun", "Mon") |
+| %D%		| first letter day name ("S", "S", "M") |
+| %dd%		| zero prefixed 2 digit day number ("01", "27") |
+| %d%		| day number as is ("1", "27") |
+| %dy%		| day number of the year (i.e. "250") |
+| %dw%		| day number in week (i.e. "1" for Monday **if** weeks start on Mondays!) |
+| %hh%		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
+| %h%		| current hour, 24hrs clock (i.e. "1", "16") |
+| %kk%		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
+| %k%		| current hour, 12hrs clock (i.e. "1", "11") |
+| %ii%		| current minute, zero prefixed (i.e. "01", "35") |
+| %i%		| current minute, zero prefixed (i.e. "1", "35") |
+| %AA%		| upper-cased AM/PM marker (i.e. "AM") |
+| %A%		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
+| %aa%		| lower-cased am/pm marker (i.e. "am") |
+| %a%		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
+| %Aa%		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
+| %t%		| Name of currently used timezone (i.e. "UTC") |
+
+ For example, `Today is %DDD%` will produce `Today is Sunday` (assuming today is Sunday).
+
+ You can also use optional formatting directives. The syntax is `%PLACEHOLDER:DIRECTIVE%`
+ and supported directives are:
+
+| Directive | Description |
+|-------------|-------------|
+| U	| turns whole placeholder uppercased (i.e. "%DD:U%" => "SAT") |
+| L | turns whole placeholder lowercased (i.e. "%DD:L%: => "sat") |
+| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "%DDD%" can produce "wtorek" for Tuesday. With "%DDD:u%" you would get "Wtorek". |
 
 ---
 

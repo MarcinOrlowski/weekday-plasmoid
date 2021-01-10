@@ -38,13 +38,11 @@ Item {
 
 	Plasmoid.toolTipMainText: {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		var template = '%DDD:u%, %d% %MMM% %yyyy%'
-		return DTF.format(template, localeToUse)
+		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
 	}
 	Plasmoid.toolTipSubText: {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		var template = '%dy% day of %yyyy%'
-		return DTF.format(template, localeToUse)
+		return DTF.format(tooltipSecondLineFormat, localeToUse)
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------

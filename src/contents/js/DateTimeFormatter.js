@@ -61,7 +61,6 @@ function format(template, localeName) {
 	map['a'] = map['aa'].substr(0, 1)
 	map['Aa'] = map['A'] + map['aa'].substr(-1)
 
-//	map['t'] = Qt.formatTime(now, 't')
 	map['t'] = now.toLocaleTimeString(locale, 't')
 
 //	system short format
