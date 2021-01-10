@@ -1,4 +1,4 @@
-* v2.0.0 (2021-01-10)
+* v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes
   * Added separate (optional) appearance of future Saturday and Sunday
   * Added separate (optional) appearance of past Saturday and Sunday
