@@ -86,7 +86,7 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	readonly property bool customColorsEnabled: cfg_themeName === Themes.custom
+	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
 
 	// -----------------------------------------------------------------------
 
@@ -107,11 +107,11 @@ ColumnLayout {
 		enabled: customColorsEnabled
 		selectByMouse: true
 
-		 MouseArea {
-    	    anchors.fill: parent
-        	acceptedButtons: Qt.RightButton
-	        hoverEnabled: true
-    	    onClicked: {
+		MouseArea {
+			anchors.fill: parent
+			acceptedButtons: Qt.RightButton
+			hoverEnabled: true
+   			onClicked: {
         	    var selectStart = textInput.selectionStart;
             	var selectEnd = textInput.selectionEnd;
 	            var curPos = textInput.cursorPosition;
@@ -155,13 +155,13 @@ ColumnLayout {
 	RowLayout {
 		enabled: customColorsEnabled
 
-		PlasmaComponents.Button {
+		QtControls.Button {
 			text: i18n('Export')
 			icon.name: 'document-export'
 			onClicked: textInput.text = JSON.stringify(theme.toJson())
 		}
 
-		PlasmaComponents.Button {
+		QtControls.Button {
 			text: i18n('Import')
 			icon.name: 'document-import'
 			onClicked: {
