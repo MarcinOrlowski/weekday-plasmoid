@@ -37,16 +37,14 @@ Item {
     // ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.toolTipMainText: {
-//		var localetouse = plasmoid.configuration.usespecificlocaleenabled ? plasmoid.configuration.usespecificlocalelocalename : ''
-//		return new date().tolocaledatestring(qt.locale(localetouse), locale.longformat)
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
 		var template = '%DDD:u%, %d% %MMM% %yyyy%'
-//		return DTF.format(template, localeToUse)
-		return DTF.format(template)
+		return DTF.format(template, localeToUse)
 	}
 	Plasmoid.toolTipSubText: {
+		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
 		var template = '%dy% day of %yyyy%'
-//		return DTF.format(template, localeToUse)
-		return DTF.format(template)
+		return DTF.format(template, localeToUse)
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------
