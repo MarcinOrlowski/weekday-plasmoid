@@ -16,7 +16,6 @@ import "../js/DateTimeFormatter.js" as DTF
 
 ColumnLayout {
 	// we always count from 0 being sunday unless user set different day to be first day of the week
-//	property int weekdayOffset: 0
 	property int firstDayOfWeek: 0
 
 	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
@@ -35,8 +34,6 @@ ColumnLayout {
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------
-
-	property string themeName: plasmoid.configuration.themeName
 
 	function getUserTheme() {
 		return {
@@ -136,9 +133,9 @@ ColumnLayout {
 			firstDayOfWeek = locale.firstDayOfWeek
 		}
 
-		var currentTheme = (themeName === Themes.custom) 
+		var currentTheme = plasmoid.configuration.useUserTheme
 								? getUserTheme() 
-								: Themes.themes[themeName]
+								: Themes.themes[plasmoid.configuration.themeName]
 
 		redrawWidget(locale, firstDayOfWeek, currentTheme)
 	}

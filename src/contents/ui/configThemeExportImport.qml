@@ -137,10 +137,6 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
-
-	// -----------------------------------------------------------------------
-
 	Kirigami.InlineMessage {
 		id: messageWidget
 		Layout.fillWidth: true
@@ -148,7 +144,7 @@ ColumnLayout {
 		type: Kirigami.MessageType.Notice
 		text: i18n('Custom colors must be enabled for this feature to work.')
 		showCloseButton: false
-		visible: !customColorsEnabled
+		visible: !plasmoid.configuration.useUserTheme
 	}
 
 	Kirigami.InlineMessage {
@@ -175,7 +171,7 @@ ColumnLayout {
 		id: textInput
 		Layout.fillWidth: true
 		Layout.fillHeight: true
-		enabled: customColorsEnabled
+		enabled: plasmoid.configuration.useUserTheme
 		selectByMouse: true
 
 		MouseArea {
@@ -224,7 +220,7 @@ ColumnLayout {
 	}
 
 	RowLayout {
-		enabled: customColorsEnabled
+		enabled: plasmoid.configuration.useUserTheme
 
 		QtControls.Button {
 			text: i18n('Export to JSON')
