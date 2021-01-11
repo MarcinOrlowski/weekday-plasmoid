@@ -227,13 +227,13 @@ ColumnLayout {
 		enabled: customColorsEnabled
 
 		QtControls.Button {
-			text: i18n('Export')
+			text: i18n('Export to JSON')
 			icon.name: 'document-export'
 			onClicked: textInput.text = JSON.stringify(theme.toJson())
 		}
 
 		QtControls.Button {
-			text: i18n('Import')
+			text: i18n('Import from JSON')
 			icon.name: 'document-import'
 			onClicked: {
 				try {
