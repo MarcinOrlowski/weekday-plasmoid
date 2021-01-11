@@ -45,6 +45,7 @@ theme as your starting point.
 #### Theme items ####
 
  * **Widget**: specifies general widget background color. 
+ * **Month last day**: optional month separator bar, drawn after last day of the current month.
  * **Today**: appearance of current day
  * **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
  * **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
