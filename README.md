@@ -88,7 +88,8 @@ theme as your starting point.
 
 ![Locale](img/config-calendar.png)
 
- * **Show week numbers**: specifies if popup calendar view should also show week numbers
+ * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
+ * **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
 
 ### Tooltip ###
