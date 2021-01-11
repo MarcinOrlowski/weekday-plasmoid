@@ -8,7 +8,6 @@
  */
 
 import QtQuick 2.0
-//import QtQuick.Controls 2.3
 import QtQuick.Controls 1.0
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
@@ -19,6 +18,9 @@ import "../js/themes.js" as Themes
 ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
+
+	property alias cfg_themeName: themeName.text
+	property alias cfg_useUserTheme: useUserTheme.checked
 
 	property alias cfg_widgetBg: widgetConfig.bg
 
@@ -76,26 +78,20 @@ ColumnLayout {
 	property alias cfg_futureSundayBold: futureSundayConfig.bold
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
-	property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
-
-	Kirigami.InlineMessage {
-		id: messageWidget
-		Layout.fillWidth: true
-		Layout.margins: Kirigami.Units.smallSpacing
-		type: Kirigami.MessageType.Warning
-		text: i18n('Custom colors must be enabled for this feature to work.')
-		showCloseButton: true
-		visible: false
-	}
-
 	RowLayout {
 		id: themeSelector
 		Layout.fillWidth: true
+		enabled: !cfg_useUserTheme
 
-		ConfigComboBox {
+		// key of theme
+		Text {
+			visible: false
 			id: themeName
-			before: i18n('Theme')
-			configKey: 'themeName'
+		}
+
+		PlasmaComponents.ComboBox {
+			textRole: "text"
+
 			model: [
 				{ value: Themes.defaultTheme, text: i18n('Default') },
 
@@ -105,14 +101,16 @@ ColumnLayout {
 				{ value: 'forest', text: i18n('Forest') },
 				{ value: 'sea-blue', text: i18n('Sea Blue') },
 				{ value: 'violet', text: i18n('Violet') },
-
-				{ value: Themes.custom, text: i18n('Custom colors') }
 			]
+			Component.onCompleted: {
+				var key = plasmoid.configuration['themeName']
+				currentIndex = find(Themes.themes[key]['theme']['name'])
+			}
+			onCurrentIndexChanged: cfg_themeName = model[currentIndex]['value']
 		}
 
 		Button {
 			text: i18n('Clone')
-			enabled: !customColorsEnabled
 
 			onClicked: {
 				var theme = Themes.themes[plasmoid.configuration.themeName]
@@ -133,35 +131,21 @@ ColumnLayout {
 				futureSaturdayConfig.populateIf(theme, 'futureSaturday', theme['future'])
 				futureSundayConfig.populateIf(theme, 'futureSunday', theme['future'])
 
-				themeName.selectValue(Themes.custom)
-
-				messageWidget.text = i18n('Custom colors populated from "%1" theme. Press "Apply" to see the change, otherwise old custom colors will be still used.', theme['theme']['name'])
-				messageWidget.visible = true
+				cfg_useUserTheme = true
 			}
 		}
 	} // themeSelector
 
-/*
-	PlasmaComponents.ComboBox {
-		id: themeName
-	    textRole: "text"
-	    property string _valueRole: "value"
-	    readonly property string _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : Themes.defaultTheme
-
-		model: [
-			{ value: Themes.defaultTheme, text: i18n('Default') },
-			{ value: 'amber', text: i18n('Amber') },
-			{ value: 'forest', text: i18n('Forest') },
-			{ value: 'yellow', text: i18n('Yellow') },
-			{ value: Themes.custom, text: i18n('Custom colors') }
-		]
-	} // themeName
-*/
+	PlasmaComponents.CheckBox {
+		id: useUserTheme
+		text: i18n("Use custom colors")
+	}
 
 	GridLayout {
 		id: customColors
 		columns: 9
-		enabled: customColorsEnabled
+		enabled: cfg_useUserTheme
+		visible: enabled
 
 		property var clipboard: undefined
 
