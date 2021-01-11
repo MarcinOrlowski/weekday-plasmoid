@@ -80,49 +80,6 @@ Item {
 
 	// -----------------------------------------------------------------------
 
-	function fromJson(j) {
-		widgetBg = j.widget.bg || defaultBg
-
-		lastDayMonthEnabled = j.lastDayMonth.enabled || false
-		lastDayMonthBg = j.lastDayMonth.bg || defaultBg
-
-		pastFg = j.past.fg || defaultFg
-		pastBg = j.past.bg || defaultBg
-		pastBold = j.past.bold || defaultBold
-		pastItalic = j.past.italic || defaultItalic
-
-		pastSaturdayEnabled = j.pastSaturdayEnabled || false
-		pastSaturdayFg = j.pastSaturday.fg || defaultFg
-		pastSaturdayBg = j.pastSaturday.bg || defaultBg
-		pastSaturdayBold = j.pastSaturday.bold || defaultBold
-		pastSaturdayItalic = j.pastSaturday.italic || defaultItalic
-
-		pastSundayEnabled = j.pastSundayEnabled || false
-		pastSundayFg = j.pastSunday.fg || defaultFg
-		pastSundayBg = j.pastSunday.bg || defaultBg
-		pastSundayBold = j.pastSunday.bold || defaultBold
-		pastSundayItalic = j.pastSunday.italic || defaultItalic
-
-		futureFg = j.future.fg || defaultFg
-		futureBg = j.future.bg || defaultBg
-		futureBold = j.future.bold || defaultBold
-		futureItalic = j.future.italic || defaultItalic
-
-		futureSaturdayEnabled = j.futureSaturdayEnabled || false
-		futureSaturdayFg = j.futureSaturday.fg || defaultFg
-		futureSaturdayBg = j.futureSaturday.bg || defaultBg
-		futureSaturdayBold = j.futureSaturday.bold || defaultBold
-		futureSaturdayItalic = j.futureSaturday.italic || defaultItalic
-
-		futureSundayEnabled = j.futureSundayEnabled || false
-		futureSundayFg = j.futureSunday.fg || defaultFg
-		futureSundayBg = j.futureSunday.bg || defaultBg
-		futureSundayBold = j.futureSunday.bold || defaultBold
-		futureSundayItalic = j.futureSunday.italic || defaultItalic
-	}
-
-	// -----------------------------------------------------------------------
-
 	function toJson() {
 		return {
 			'widget': {

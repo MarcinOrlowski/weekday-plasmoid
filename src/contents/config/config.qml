@@ -32,11 +32,11 @@ ConfigModel {
         source: "configTooltip.qml"
     }
 
-/*
+
 	ConfigCategory {
 		name: i18n("Export/Import")
 		icon: "view-visible"
 		source: "configThemeExportImport.qml"
 	}
-*/
+
 }
