@@ -1,8 +1,31 @@
-function pad(str, len) {
-	if (len === undefined) len = 2
-	len = len * -1
+/**
+ * Weekday Grid widget for KDE
+ *
+ * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+ * @copyright 2020-2021 Marcin Orlowski
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT
+ * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
+ */
 
-	return ('0000000' + str).substr(len)
+/*
+** Pads string with leading zeros to ensure returned
+** string is at least 'len' characters long. If string
+** is longer thatn 'len' is is returned unaltered.
+**
+** Arguments:
+**	str: string to pad
+**	len: length to pad to (if str is shorter). Default 2
+**	padChar: padding character. Default is '0' (zero)
+*/
+function pad(str, len, padChar) {
+	if (len === undefined) len = 2
+
+	if (str.length < len) {
+		if (padChar === undefined) padChar = '0'
+		str = padChar.repeat(len - str.length) + str
+	}
+
+	return str
 }
 
 function ucfirst(string) {
@@ -87,6 +110,7 @@ function format(template, localeName) {
 		template = template.replace(new RegExp(`%${key}:U%`, 'g'), map[key].toString().toUpperCase())
 		template = template.replace(new RegExp(`%${key}:L%`, 'g'), map[key].toString().toLowerCase())
 		template = template.replace(new RegExp(`%${key}:u%`, 'g'), ucfirst(map[key].toString()))
+		template = template.replace(new RegExp(`%${key}:00%`, 'g'), pad(map[key], 2))
 	}
 
 	return template
