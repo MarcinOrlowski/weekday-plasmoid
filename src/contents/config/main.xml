@@ -41,9 +41,20 @@
             <default>false</default>
         </entry>
 
+		<!-- widget -->
+
 		<entry name="widgetBg" type="String">
         	<default>#00000000</default>
         </entry>
+
+		<!-- last days -->
+
+		<entry name="lastDayMonthEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="lastDayMonthBg" type="String">
+			<default>#00000000</default>
+		</entry>
 
 		<!-- past days -->
 

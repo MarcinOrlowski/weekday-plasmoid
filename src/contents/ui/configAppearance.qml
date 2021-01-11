@@ -22,6 +22,9 @@ ColumnLayout {
 
 	property alias cfg_widgetBg: widgetConfig.bg
 
+	property alias cfg_lastDayMonthEnabled: lastDayMonthConfig.configEnabled
+	property alias cfg_lastDayMonthBg: lastDayMonthConfig.bg
+
 	property alias cfg_pastFg: pastConfig.fg
 	property alias cfg_pastBg: pastConfig.bg
 	property alias cfg_pastBold: pastConfig.bold
@@ -116,6 +119,8 @@ ColumnLayout {
 
 				widgetConfig.populateIf(theme, 'widget')
 
+				lastDayMonthConfig.populateIf(theme, 'lastDayMonth')
+
 				todayConfig.populateIf(theme, 'today', theme['today'])
 				todaySaturdayConfig.populateIf(theme, 'todaySaturday', theme['today'])
 				todaySundayConfig.populateIf(theme, 'todaySunday', theme['today'])
@@ -160,23 +165,20 @@ ColumnLayout {
 
 		property var clipboard: undefined
 
-		// Grid header
-/*
-		LabelCenter { Layout.columnSpan: 2 }
-		LabelCenter { text: i18n('Text') }
-		LabelCenter {}
-		LabelCenter { text: i18n('Bg') }
-		LabelCenter { text: i18n('Bold') }
-		LabelCenter { text: i18n('Italic') }
-		LabelCenter {}
-		LabelCenter {}
-*/
-
 		// widget background
 		LabelRight { text: i18n('Widget') }
 		AttributeConfig {
 			id: widgetConfig
 			alwaysEnabled: true
+			fgEnabled: false
+			boldEnabled: false
+			italicEnabled: false
+		}
+
+		// last day of the month marker
+		LabelRight { text: i18n('Month last day') }
+		AttributeConfig {
+			id: lastDayMonthConfig
 			fgEnabled: false
 			boldEnabled: false
 			italicEnabled: false

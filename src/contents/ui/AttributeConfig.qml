@@ -82,7 +82,7 @@ RowLayout {
 	ConfigCheckBox {
 		id: enabledButton
 		enabled: !alwaysEnabled
-		checked: alwaysEnabled
+		checked: configEnabled
 		opacity: alwaysEnabled ? 0 : 1
 		onCheckedChanged: configEnabled = checked
 	}
