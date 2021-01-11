@@ -4,6 +4,7 @@
   * Added (optional) visual indicator of last day of the month.
   * Added support for `%wy%` (week of the year) placeholder.
   * Added support for `00` placeholder formatting directive.
+  * Added support for theme export/import (as JSON).
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes

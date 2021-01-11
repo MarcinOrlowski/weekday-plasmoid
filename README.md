@@ -20,6 +20,7 @@ week days.
    * [Locale](#locale)
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
+   * [Import/Export](#import-export)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -40,7 +41,7 @@ Allows you to select one of predefined color theme create own color style, eithe
 theme as your starting point.
 
  * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
- * **Clone as custom colors**: Copies colors from currently set theme to custom color editior.
+ * **Clone**: Copies colors from currently set theme to custom color editior.
 
 #### Theme items ####
 
@@ -92,13 +93,20 @@ theme as your starting point.
  * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
  * **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
-
 ### Tooltip ###
 
-![Locale](img/config-tooltip.png)
+![Tooltip](img/config-tooltip.png)
 
  * **Main text**: template for main tooltip text line.
  * **Sub text**: template for tooltip subtext line.
+
+### Export/Import ###
+
+![Export/Import](img/config-export-import.png)
+
+ * **Export to JSONt**: Exports user custom colors as JSON string.
+ * **Import from JSON**: Imports theme settings from JSON string.
+
 
 #### Supported placeholders ####
 

@@ -12,79 +12,85 @@ import QtQuick 2.0
 Item {
 	readonly property string defaultBg: '#00000000'
 	readonly property string defaultFg: '#FF000000'
+	readonly property bool defaultBold: false
+	readonly property bool defaultItalic: false
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	// General theme attributes
 	property string widgetBg: defaultBg
 
+	// lastDayMonth
+	property bool	lastDayMonthEnabled: false
+	property string lastDayMonthBg: defaultBg
+
 	// Past days
 	property string pastFg: defaultFg
 	property string pastBg: defaultBg
-	property bool	pastBold: false
-	property bool	pastItalic: false
+	property bool	pastBold: defaultBold
+	property bool	pastItalic: defaultItalic
 
 	property bool	pastSaturdayEnabled: false
 	property string pastSaturdayFg: defaultFg
 	property string pastSaturdayBg: defaultBg
-	property bool	pastSaturdayBold: false
-	property bool	pastSaturdayItalic: false
+	property bool	pastSaturdayBold: defaultBold
+	property bool	pastSaturdayItalic: defaultItalic
 
 	property bool	pastSundayEnabled: false
 	property string pastSundayFg: defaultFg
 	property string pastSundayBg: defaultBg
-	property bool	pastSundayBold: false
-	property bool	pastSundayItalic: false
+	property bool	pastSundayBold: defaultBold
+	property bool	pastSundayItalic: defaultItalic
 
 	// Current day
 	property string todayFg: defaultFg
 	property string todayBg: defaultBg
-	property bool	todayBold: false
-	property bool	todayItalic: false
+	property bool	todayBold: defaultBold
+	property bool	todayItalic: defaultItalic
 
 	property bool	todaySaturdayEnabled: false
 	property string todaySaturdayFg: defaultFg
 	property string todaySaturdayBg: defaultBg
-	property bool	todaySaturdayBold: false
-	property bool	todaySaturdayItalic: false
+	property bool	todaySaturdayBold: defaultBold
+	property bool	todaySaturdayItalic: defaultItalic
 
 	property bool	todaySundayEnabled: false
 	property string todaySundayFg: defaultFg
 	property string todaySundayBg: defaultBg
-	property bool	todaySundayBold: false
-	property bool	todaySundayItalic: false
+	property bool	todaySundayBold: defaultBold
+	property bool	todaySundayItalic: defaultItalic
 
 	// Future days
 	property string futureFg: defaultFg
 	property string futureBg: defaultBg
-	property bool	futureBold: false
-	property bool	futureItalic: false
+	property bool	futureBold: defaultBold
+	property bool	futureItalic: defaultItalic
 
 	property bool	futureSaturdayEnabled: false
 	property string futureSaturdayFg: defaultFg
 	property string futureSaturdayBg: defaultBg
-	property bool	futureSaturdayBold: false
-	property bool	futureSaturdayItalic: false
+	property bool	futureSaturdayBold: defaultBold
+	property bool	futureSaturdayItalic: defaultItalic
 
 	property bool	futureSundayEnabled: false
 	property string futureSundayFg: defaultFg
 	property string futureSundayBg: defaultBg
-	property bool	futureSundayBold: false
-	property bool	futureSundayItalic: false
+	property bool	futureSundayBold: defaultBold
+	property bool	futureSundayItalic: defaultItalic
 
-    // -----------------------------------------------------------------------
-
-	function fromJson(obj) {
-
-	}
-
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	function toJson() {
 		return {
 			'widget': {
 				'bg': widgetBg
 			},
+
+			'lastDayMonth': {
+				'enabled': lastDayMonthEnabled,
+				'bg': lastDayMonthBg,
+			},
+
 			'past': {
 				'fg': pastFg,
 				'bg': pastBg,
@@ -150,5 +156,5 @@ Item {
 		}
 	}
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 }

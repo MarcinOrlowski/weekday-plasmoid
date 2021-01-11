@@ -111,7 +111,7 @@ ColumnLayout {
 		}
 
 		Button {
-			text: i18n('Clone as custom colors')
+			text: i18n('Clone')
 			enabled: !customColorsEnabled
 
 			onClicked: {
