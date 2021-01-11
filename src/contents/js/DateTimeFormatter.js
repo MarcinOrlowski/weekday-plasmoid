@@ -1,6 +1,7 @@
 function pad(str, len) {
 	if (len === undefined) len = 2
 	len = len * -1
+
 	return ('0000000' + str).substr(len)
 }
 
@@ -9,13 +10,26 @@ function ucfirst(string) {
 }
 
 // https://stackoverflow.com/a/8619946/1235698
-function getDayOfYear() {
-	var now = new Date()
-	var start = new Date(now.getFullYear(), 0, 0)
-	var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
+function getDayOfYear(dt) {
+	var start = new Date(dt.getFullYear(), 0, 0)
+	var diff = (dt - start) + ((start.getTimezoneOffset() - dt.getTimezoneOffset()) * 60 * 1000)
 	var oneDay = 1000 * 60 * 60 * 24
 	var day = Math.floor(diff / oneDay)
+
 	return day
+}
+
+function getWeekOfYear(dt) {
+	var tdt = new Date(dt.valueOf())
+	var dayn = (dt.getDay() + 6) % 7
+	tdt.setDate(tdt.getDate() - dayn + 3)
+	var firstThursday = tdt.valueOf()
+	tdt.setMonth(0, 1)
+	if (tdt.getDay() !== 4) {
+		tdt.setMonth(0, 1 + ((4 - tdt.getDay()) + 7) % 7)
+	}
+
+	return 1 + Math.ceil((firstThursday - tdt) / 604800000)
 }
 
 /**
@@ -23,7 +37,7 @@ function getDayOfYear() {
  */
 function format(template, localeName) {
 	if (localeName === undefined) localeName = ''
-		
+
 	var locale = Qt.locale(localeName)
 	var map = {}
 	var now = new Date()
@@ -43,12 +57,12 @@ function format(template, localeName) {
 	map['D'] = map['DD'].substr(0, 1)
 	map['dd'] = Qt.formatDate(now, 'dd')
 	map['d'] = Qt.formatDate(now, 'd')
-	map['dy'] = getDayOfYear()
+	map['dy'] = getDayOfYear(now)
 
 	// FIXME: add support for any day being first day of the week for all d* fields (for now it's Sunday)
 	map['dw'] = now.getDay()+1
 //	wm
-//	wy
+	map['wy'] = getWeekOfYear(now)
 	map['hh'] = pad(now.getHours())
 	map['h'] = now.getHours()
 	map['kk'] = pad(now.getHours()%12)
