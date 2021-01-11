@@ -2,6 +2,7 @@
   * Clicking on widget opens CalendarView popup.
   * Fixed widget tooltip's sub-text not working properly.
   * Added (optional) visual indicator of last day of the month.
+  * Added support for `%wy%` (week of the year) placeholder.
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes
