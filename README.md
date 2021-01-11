@@ -145,6 +145,9 @@ theme as your starting point.
 | U	| turns whole placeholder uppercased (i.e. "%DD:U%" => "SAT") |
 | L | turns whole placeholder lowercased (i.e. "%DD:L%: => "sat") |
 | u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "%DDD%" can produce "wtorek" for Tuesday. With "%DDD:u%" you would get "Wtorek" instead. |
+| 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `%D:00%` produce `0M` on Mondays. |
+
+ **NOTE:** at the moment, formatting directives cannot be combined.
 
 ---
 
