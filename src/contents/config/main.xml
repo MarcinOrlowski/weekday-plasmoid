@@ -189,6 +189,14 @@
 	</group>
 
 	<group name="CalendarView">
+		<entry name="calendarViewEnabled" type="Bool">
+			<default>true</default>
+		</entry>
+	</group>
+
+	<!-- these are settings required by CalendarView.qml, so we keep
+	them unaltered to also avoid altering original CalendarView.qml -->
+	<group name="NeededByCalendarViewQml">
 	    <entry name="showWeekNumbers" type="Bool">
     	  <label>Whether the calendar should show week numbers.</label>
 	      <default>false</default>

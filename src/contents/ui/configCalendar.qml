@@ -17,6 +17,7 @@ import org.kde.kquickcontrols 2.0 as KQControls
 Kirigami.FormLayout {
 	Layout.fillWidth: true
 
+	property alias cfg_calendarViewEnabled: calendarViewEnabled.checked
     property alias cfg_showWeekNumbers: showWeekNumbers.checked
 
 //	Item {
@@ -25,7 +26,13 @@ Kirigami.FormLayout {
 //	}
 
 	CheckBox {
+		id: calendarViewEnabled
+		text: i18n("Enable calendar view")
+	}
+
+	CheckBox {
 		id: showWeekNumbers
+		enabled: cfg_calendarViewEnabled
 		text: i18n("Show week numbers")
 	}
 
