@@ -59,7 +59,7 @@ var themes = {
 		"future":{"enabled":true,"fg":"#ffffff","bg":"#00253137","bold":false,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false}
-	}
+	},
 	"forest": {
 		"theme":{"name":"Forest"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
@@ -89,7 +89,7 @@ var themes = {
 		"future":{"enabled":true,"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
-	},
+	}
 
 }
 
