@@ -15,8 +15,14 @@ import org.kde.plasma.plasmoid 2.0
 import "../js/meta.js" as Meta
 import "../js/DateTimeFormatter.js" as DTF
 
+import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.kquickcontrolsaddons 2.0
+import org.kde.plasma.private.digitalclock 1.0
+import org.kde.kquickcontrolsaddons 2.0
+import org.kde.plasma.calendar 2.0 as PlasmaCalendar
+
 Item {
-    id: main
+    id: root
 
     Component.onCompleted: {
         plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
@@ -36,13 +42,35 @@ Item {
 
     // ------------------------------------------------------------------------------------------------------------------------
 
+    PlasmaCore.DataSource {
+        id: dataSource
+        engine: "time"
+//        connectedSources: allTimezones
+//        interval: plasmoid.configuration.showSeconds ? 1000 : 60000
+//        intervalAlignment: plasmoid.configuration.showSeconds ? PlasmaCore.Types.NoAlignment : PlasmaCore.Types.AlignToMinute
+		connectedSources: ["Local", "UTC"]
+		interval: 60000
+        intervalAlignment: PlasmaCore.Types.AlignToMinute
+    }
+
+    property date tzDate: {
+        // get the time for the given timezone from the dataengine
+        var now = dataSource.data["Local"]["DateTime"];
+        // get current UTC time
+        var msUTC = now.getTime() + (now.getTimezoneOffset() * 60000);
+        // add the dataengine TZ offset to it
+        return new Date(msUTC + (dataSource.data["Local"]["Offset"] * 1000));
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
 	Plasmoid.toolTipMainText: {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
 		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
 	}
 	Plasmoid.toolTipSubText: {
 		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		return DTF.format(tooltipSecondLineFormat, localeToUse)
+		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
 	}
 
     // ------------------------------------------------------------------------------------------------------------------------
@@ -51,6 +79,7 @@ Item {
 	Plasmoid.compactRepresentation: Week {
 		timerInterval: 1
 	}
+	Plasmoid.fullRepresentation: CalendarView { }
 
     // ------------------------------------------------------------------------------------------------------------------------
 

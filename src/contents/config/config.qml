@@ -22,6 +22,11 @@ ConfigModel {
         source: "configLocale.qml"
     }
     ConfigCategory {
+        name: i18n("Calendar View")
+        icon: "view-calendar"
+        source: "configCalendar.qml"
+    }
+    ConfigCategory {
         name: i18n("Tooltip")
         icon: "view-calendar-workweek"
         source: "configTooltip.qml"

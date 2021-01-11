@@ -24,6 +24,18 @@ ColumnLayout {
 
     // ------------------------------------------------------------------------------------------------------------------------
 
+    MouseArea {
+        id: mouseArea
+        anchors.fill: parent
+        onClicked: {
+			if (plasmoid.configuration.calendarViewEnabled) {
+				plasmoid.expanded = !plasmoid.expanded
+			}
+		}
+	}
+
+    // ------------------------------------------------------------------------------------------------------------------------
+
 	property string themeName: plasmoid.configuration.themeName
 
 	function getUserTheme() {

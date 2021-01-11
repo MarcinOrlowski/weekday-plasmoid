@@ -1,3 +1,7 @@
+* @dev
+  * Clicking on widget opens CalendarView popup.
+  * Fixed widget tooltip's sub-text not working properly.
+
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes
   * Added separate (optional) appearance of future Saturday and Sunday
