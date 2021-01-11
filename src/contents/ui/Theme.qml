@@ -18,6 +18,10 @@ Item {
 	// General theme attributes
 	property string widgetBg: defaultBg
 
+	// lastDayMonth
+	property bool lastDayMonthEnabled: false
+	property string lastDayMonthBg: defaultBg
+
 	// Past days
 	property string pastFg: defaultFg
 	property string pastBg: defaultBg
@@ -85,6 +89,12 @@ Item {
 			'widget': {
 				'bg': widgetBg
 			},
+
+			'lastDayMonth': {
+				'enabled': lastDayMonthEnabled,
+				'bg': lastDayMonthBg,
+			},
+
 			'past': {
 				'fg': pastFg,
 				'bg': pastBg,
