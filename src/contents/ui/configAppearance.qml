@@ -91,20 +91,21 @@ ColumnLayout {
 
 		PlasmaComponents.ComboBox {
 			textRole: "text"
-
-			model: [
-				{ value: Themes.defaultTheme, text: i18n('Default') },
-
-				{ value: 'amber', text: i18n('Amber') },
-				{ value: 'accented-bw-dark', text: i18n('Accented B&W') },
-				{ value: 'bw-dark', text: i18n('B&W') },
-				{ value: 'forest', text: i18n('Forest') },
-				{ value: 'sea-blue', text: i18n('Sea Blue') },
-				{ value: 'violet', text: i18n('Violet') },
-			]
+			model: []
 			Component.onCompleted: {
-				var key = plasmoid.configuration['themeName']
-				currentIndex = find(Themes.themes[key]['theme']['name'])
+				// populate model from Theme object
+				var tmp = []
+				var idx = 0
+				var currentIdx = undefined
+				for(const key in Themes.themes) {
+					var name = Themes.themes[key]['theme']['name']
+					tmp.push({'value':key, 'text': name})
+					if (key === plasmoid.configuration['themeName']) currentIdx = idx
+					idx++
+				}
+				model = tmp
+
+				currentIndex = currentIdx
 			}
 			onCurrentIndexChanged: cfg_themeName = model[currentIndex]['value']
 		}
