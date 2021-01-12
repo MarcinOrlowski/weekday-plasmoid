@@ -13,7 +13,7 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 RowLayout {
-	// FIXME this should not be here, but this is not a reusable compnent though.
+	// FIXME this should not be here, but this is not a reusable component though.
 	Layout.columnSpan: 8
 
     // -----------------------------------------------------------------------
@@ -34,6 +34,7 @@ RowLayout {
 
     // -----------------------------------------------------------------------
 
+	onAlwaysEnabledChanged: if(alwaysEnabled) configEnabled = true
 	onConfigEnabledChanged: enabledButton.checked = configEnabled
 	onFgChanged: fgButton.color = fg
 	onBgChanged: bgButton.color = bg
