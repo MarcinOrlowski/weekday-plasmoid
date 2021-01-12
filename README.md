@@ -17,6 +17,7 @@ week days.
 
  * [Configuration](#configuration)
    * [Appearance](#appearance)
+   * [User Theme](#user-theme)
    * [Locale](#locale)
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
@@ -37,11 +38,19 @@ week days.
 
 ![Appearance](img/config-appearance.png)
 
-Allows you to select one of predefined color theme create own color style, either from scratch or using existing
-theme as your starting point.
+Allows you to select one of predefined color theme or use custom color styles, as defined in "User Theme" pane.
 
  * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
- * **Clone**: Copies colors from currently set theme to custom color editior.
+ * **Use User Theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
+
+
+### User Theme ###
+
+![Appearance](img/config-theme.png)
+
+Allows you to create own color style, either from scratch or using existing theme as your starting point.
+
+ * **Clone**: Copies colors from selected source built-in theme to custom color editior.
 
 #### Theme items ####
 
