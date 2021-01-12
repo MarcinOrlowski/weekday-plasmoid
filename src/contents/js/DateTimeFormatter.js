@@ -13,9 +13,9 @@
 ** is longer thatn 'len' is is returned unaltered.
 **
 ** Arguments:
-**	str: string to pad
-**	len: length to pad to (if str is shorter). Default 2
-**	padChar: padding character. Default is '0' (zero)
+**  str: string to pad
+**  len: length to pad to (if str is shorter). Default 2
+**  padChar: padding character. Default is '0' (zero)
 */
 function pad(str, len, padChar) {
 	if (len === undefined) len = 2
@@ -29,7 +29,9 @@ function pad(str, len, padChar) {
 }
 
 function ucfirst(string) {
-    return (string.length > 1) ? string.substr(0, 1).toUpperCase() + string.substr(1) : string.toUpperCase();
+	return (string.length > 1)
+			? string.substr(0, 1).toUpperCase() + string.substr(1)
+			: string.toUpperCase();
 }
 
 // https://stackoverflow.com/a/8619946/1235698
@@ -37,9 +39,7 @@ function getDayOfYear(dt) {
 	var start = new Date(dt.getFullYear(), 0, 0)
 	var diff = (dt - start) + ((start.getTimezoneOffset() - dt.getTimezoneOffset()) * 60 * 1000)
 	var oneDay = 1000 * 60 * 60 * 24
-	var day = Math.floor(diff / oneDay)
-
-	return day
+	return Math.floor(diff / oneDay)
 }
 
 function getWeekOfYear(dt) {
@@ -106,7 +106,6 @@ function format(template, localeName) {
 
 	for(var key in map) {
 		template = template.replace(new RegExp(`%${key}%`, 'g'), map[key])
-
 		template = template.replace(new RegExp(`%${key}:U%`, 'g'), map[key].toString().toUpperCase())
 		template = template.replace(new RegExp(`%${key}:L%`, 'g'), map[key].toString().toLowerCase())
 		template = template.replace(new RegExp(`%${key}:u%`, 'g'), ucfirst(map[key].toString()))

@@ -1,5 +1,4 @@
 var defaultTheme='__default__'
-var custom='__custom__'
 var themes = {
 /*
 	"<UNIQUE-ID>": {
