@@ -51,7 +51,7 @@ Allows you to create own color style, either from scratch or using existing them
 
 ![Appearance](img/config-theme.png)
 
- * **Clone**: Copies colors from selected source built-in theme to custom color editior.
+ * **Clone this theme**: Copies colors from selected source built-in theme to custom color editior.
 
 #### Theme items ####
 
