@@ -17,7 +17,7 @@ import "../js/meta.js" as Meta
 Dialog {
 	visible: false
 	title: i18n('Information')
-	:standardButtons: StandardButton.Ok
+	standardButtons: StandardButton.Ok
 
 	width: 600
 	height: 500
