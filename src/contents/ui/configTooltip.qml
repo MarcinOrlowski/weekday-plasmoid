@@ -30,19 +30,19 @@ Kirigami.FormLayout {
 		Kirigami.FormData.label: i18n('Second line')
 	}
 
-    PlasmaComponents.Label {
-         Layout.alignment: Qt.AlignHCenter
-         textFormat: Text.RichText
-         text: 'See <u>placeholders documentation</u> page.'
-         MouseArea {
-             anchors.fill: parent
-             onClicked: Qt.openUrlExternally(Meta.url)
-         }
-    }
+	PlasmaComponents.Label {
+		 Layout.alignment: Qt.AlignHCenter
+		 textFormat: Text.RichText
+		 text: 'See <u>placeholders documentation</u> page.'
+		 MouseArea {
+			 anchors.fill: parent
+			 onClicked: Qt.openUrlExternally(Meta.url)
+		 }
+	}
 
-    Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-    }
+	Item {
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+	}
 
 }

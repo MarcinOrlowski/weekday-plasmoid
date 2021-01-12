@@ -176,7 +176,7 @@ ColumnLayout {
 			italicEnabled: false
 		}
 
-    	// ------------------------------------------------------------------------------------------------------------------------
+		// ------------------------------------------------------------------------------------------------------------------------
 
 		// Today
 		LabelRight { text: i18n('Today') } 
@@ -201,10 +201,10 @@ ColumnLayout {
 		AttributeConfig { id: futureSundayConfig }
 	} // customColors (GridLayout)
 
-    Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-    }
+	Item {
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+	}
 
 } // ColumnLayout
 

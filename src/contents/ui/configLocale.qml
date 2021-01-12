@@ -15,18 +15,12 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
 
 Kirigami.FormLayout {
-//	width: childrenRect.width
 	Layout.fillWidth: true
 
-    property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
+	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_nonDefaultWeekStartDayEnabled: nonDefaultWeekStartDayEnabled.checked
 	property alias cfg_nonDefaultWeekStartDayDayIndex: nonDefaultWeekStartDayDayIndex.currentIndex
-
-//	Item {
-//		Kirigami.FormData.label: i18n('Localization')
-//		Kirigami.FormData.isSection: true
-//	}
 
 	RowLayout {
 		CheckBox {
@@ -69,9 +63,9 @@ Kirigami.FormLayout {
 		}
 	}
 
-    Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-    }
+	Item {
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+	}
 
 }

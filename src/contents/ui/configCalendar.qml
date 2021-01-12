@@ -18,7 +18,7 @@ Kirigami.FormLayout {
 	Layout.fillWidth: true
 
 	property alias cfg_calendarViewEnabled: calendarViewEnabled.checked
-    property alias cfg_showWeekNumbers: showWeekNumbers.checked
+	property alias cfg_showWeekNumbers: showWeekNumbers.checked
 
 //	Item {
 //		Kirigami.FormData.label: i18n('Localization')
@@ -36,9 +36,9 @@ Kirigami.FormLayout {
 		text: i18n("Show week numbers")
 	}
 
-    Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-    }
+	Item {
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+	}
 
 }

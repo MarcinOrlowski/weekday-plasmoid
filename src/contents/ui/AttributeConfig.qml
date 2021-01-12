@@ -16,7 +16,7 @@ RowLayout {
 	// FIXME this should not be here, but this is not a reusable component though.
 	Layout.columnSpan: 8
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	property bool alwaysEnabled: false
 	property bool fgEnabled: true
@@ -32,7 +32,7 @@ RowLayout {
 	property bool bold: false
 	property bool italic: false
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	onAlwaysEnabledChanged: if(alwaysEnabled) configEnabled = true
 	onConfigEnabledChanged: enabledButton.checked = configEnabled
@@ -41,7 +41,7 @@ RowLayout {
 	onBoldChanged: boldButton.checked = bold
 	onItalicChanged: italicButton.checked = italic
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	function getThemeVal(theme, key, field, defaultVal) {
 		return (key in theme)
@@ -78,7 +78,7 @@ RowLayout {
 		this.italic = node['italic'] || false
 	}
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	ConfigCheckBox {
 		id: enabledButton
@@ -143,5 +143,6 @@ RowLayout {
 			italicButton.checked = clip['italic']
 		}
 	}
-}
+
+} // RowLayout
 
