@@ -40,8 +40,8 @@ week days.
 
 Allows you to select one of predefined color theme or use custom color styles, as defined in "User Theme" pane.
 
- * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
- * **Use User Theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
+ * **Theme**: selects widget built-in color theme.
+ * **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
 
 
 ### User Theme ###
