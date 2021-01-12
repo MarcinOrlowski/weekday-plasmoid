@@ -138,16 +138,6 @@ ColumnLayout {
 	// -----------------------------------------------------------------------
 
 	Kirigami.InlineMessage {
-		id: messageWidget
-		Layout.fillWidth: true
-		Layout.margins: Kirigami.Units.smallSpacing
-		type: Kirigami.MessageType.Notice
-		text: i18n('Custom colors must be enabled for this feature to work.')
-		showCloseButton: false
-		visible: !plasmoid.configuration.useUserTheme
-	}
-
-	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true
 		Layout.margins: Kirigami.Units.smallSpacing
@@ -171,7 +161,6 @@ ColumnLayout {
 		id: textInput
 		Layout.fillWidth: true
 		Layout.fillHeight: true
-		enabled: plasmoid.configuration.useUserTheme
 		selectByMouse: true
 
 		MouseArea {
@@ -220,8 +209,6 @@ ColumnLayout {
 	}
 
 	RowLayout {
-		enabled: plasmoid.configuration.useUserTheme
-
 		QtControls.Button {
 			text: i18n('Export to JSON')
 			icon.name: 'document-export'
@@ -235,7 +222,7 @@ ColumnLayout {
 				try {
 					var json = JSON.parse(textInput.text)
 					fromJson(json)
-					infoMessageWidget.text = i18n('Theme imported successfuly.')
+					infoMessageWidget.text = i18n('User theme imported successfuly.')
 					infoMessageWidget.visible = true
 				} catch (error) {
 					errorMessageWidget.text = i18n('Failed to process theme JSON.')
