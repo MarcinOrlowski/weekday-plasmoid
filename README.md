@@ -17,6 +17,7 @@ week days.
 
  * [Configuration](#configuration)
    * [Appearance](#appearance)
+   * [User Theme](#user-theme)
    * [Locale](#locale)
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
@@ -35,13 +36,22 @@ week days.
 
 ### Appearance ###
 
+Allows you to select one of predefined color theme or use custom color styles, as defined in "User Theme" pane.
+
 ![Appearance](img/config-appearance.png)
 
-Allows you to select one of predefined color theme create own color style, either from scratch or using existing
-theme as your starting point.
+ * **Theme**: selects widget built-in color theme.
+ * **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
 
- * **Theme**: changes widget color theme. Switch to "Custom colors" to use own colors.
- * **Clone**: Copies colors from currently set theme to custom color editior.
+---
+
+### User Theme ###
+
+Allows you to create own color style, either from scratch or using existing theme as your starting point.
+
+![Appearance](img/config-theme.png)
+
+ * **Clone this theme**: Copies colors from selected source built-in theme to custom color editior.
 
 #### Theme items ####
 
@@ -78,7 +88,11 @@ theme as your starting point.
  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
  * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
 
+---
+
 ### Locale ###
+
+Allows you to configure locale used by the widget.
 
 ![Locale](img/config-locale.png)
 
@@ -86,27 +100,27 @@ theme as your starting point.
    locale (i.e. `en_US`) you want to be used for constructing day labels instead.
  * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
 
+---
+
 ### Calendar View ###
 
-![Locale](img/config-calendar.png)
+Configures built-in calendar view, shown (by default) on widget tap.
+
+![Calendara View](img/config-calendar.png)
 
  * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
  * **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
+---
+
 ### Tooltip ###
+
+Configures widget tooltip information, shown when you hoover over the widget.
 
 ![Tooltip](img/config-tooltip.png)
 
  * **Main text**: template for main tooltip text line.
  * **Sub text**: template for tooltip subtext line.
-
-### Export/Import ###
-
-![Export/Import](img/config-export-import.png)
-
- * **Export to JSONt**: Exports user custom colors as JSON string.
- * **Import from JSON**: Imports theme settings from JSON string.
-
 
 #### Supported placeholders ####
 
@@ -156,6 +170,17 @@ theme as your starting point.
 | 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `%D:00%` produce `0M` on Mondays. |
 
  **NOTE:** at the moment, formatting directives cannot be combined.
+
+---
+
+### Export/Import ###
+
+Allows you to export or import your theme.
+
+![Export/Import](img/config-export-import.png)
+
+ * **Export to JSONt**: Exports user custom colors as JSON string.
+ * **Import from JSON**: Imports theme settings from JSON string.
 
 ---
 
