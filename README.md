@@ -36,9 +36,9 @@ week days.
 
 ### Appearance ###
 
-![Appearance](img/config-appearance.png)
-
 Allows you to select one of predefined color theme or use custom color styles, as defined in "User Theme" pane.
+
+![Appearance](img/config-appearance.png)
 
  * **Theme**: selects widget built-in color theme.
  * **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
@@ -46,9 +46,9 @@ Allows you to select one of predefined color theme or use custom color styles, a
 
 ### User Theme ###
 
-![Appearance](img/config-theme.png)
-
 Allows you to create own color style, either from scratch or using existing theme as your starting point.
+
+![Appearance](img/config-theme.png)
 
  * **Clone**: Copies colors from selected source built-in theme to custom color editior.
 
@@ -89,6 +89,8 @@ Allows you to create own color style, either from scratch or using existing them
 
 ### Locale ###
 
+Allows you to configure locale used by the widget.
+
 ![Locale](img/config-locale.png)
 
  * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed
@@ -97,25 +99,21 @@ Allows you to create own color style, either from scratch or using existing them
 
 ### Calendar View ###
 
-![Locale](img/config-calendar.png)
+Configures built-in calendar view, shown (by default) on widget tap.
+
+![Calendara View](img/config-calendar.png)
 
  * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
  * **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
 ### Tooltip ###
 
+Configures widget tooltip information, shown when you hoover over the widget.
+
 ![Tooltip](img/config-tooltip.png)
 
  * **Main text**: template for main tooltip text line.
  * **Sub text**: template for tooltip subtext line.
-
-### Export/Import ###
-
-![Export/Import](img/config-export-import.png)
-
- * **Export to JSONt**: Exports user custom colors as JSON string.
- * **Import from JSON**: Imports theme settings from JSON string.
-
 
 #### Supported placeholders ####
 
@@ -165,6 +163,15 @@ Allows you to create own color style, either from scratch or using existing them
 | 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `%D:00%` produce `0M` on Mondays. |
 
  **NOTE:** at the moment, formatting directives cannot be combined.
+
+### Export/Import ###
+
+Allows you to export or import your theme.
+
+![Export/Import](img/config-export-import.png)
+
+ * **Export to JSONt**: Exports user custom colors as JSON string.
+ * **Import from JSON**: Imports theme settings from JSON string.
 
 ---
 
