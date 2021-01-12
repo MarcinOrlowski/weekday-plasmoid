@@ -6,6 +6,7 @@
   * Added support for `00` placeholder formatting directive.
   * Added support for theme export/import (as JSON).
   * Theme switcher no longer changes theme instantly bug follows Apply/Cancel pattern.
+  * Separated user theme configuration pane from Appearance config.
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes

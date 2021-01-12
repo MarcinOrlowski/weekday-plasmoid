@@ -17,6 +17,12 @@ ConfigModel {
         source: "configAppearance.qml"
     }
     ConfigCategory {
+        name: i18n("User Theme")
+        icon: "view-visible"
+        source: "configTheme.qml"
+    }
+
+    ConfigCategory {
         name: i18n("Locale")
         icon: "languages"
         source: "configLocale.qml"
