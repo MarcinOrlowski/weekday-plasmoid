@@ -129,45 +129,45 @@ Configures widget tooltip information, shown when you hoover over the widget.
 
 | Placeholder | Description |
 |-------------|-------------|
-| %yyyy% 	| long year (i.e. "2009") |
-| %yy% 		| short year (i.e. "09") |
-| %MMM%		| long month name (i.e. "January") |
-| %MM%		| abbreviated month name (i.e. "Jan") |
-| %M%		| first letter month name (i.e. "J") |
-| %mm%		| zero prefixed 2 digit month number ("02" for Feb, "12" for Dec) |
-| %m%		| month number as is ("2" for Feb, "12" for Dec) |
-| %DDD%		| full day name (i.e. "Saturday", "Sunday", "Monday") |
-| %DD%		| abbreviated day name ("Sat", "Sun", "Mon") |
-| %D%		| first letter day name ("S", "S", "M") |
-| %dd%		| zero prefixed 2 digit day number ("01", "27") |
-| %d%		| day number as is ("1", "27") |
-| %dy%		| day number of the year (i.e. "250") |
-| %dw%		| day number in week (i.e. "1" for Monday **if** weeks start on Mondays!) |
-| %wy%		| week of the year (i.e. "1" or "53") |
-| %hh%		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
-| %h%		| current hour, 24hrs clock (i.e. "1", "16") |
-| %kk%		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
-| %k%		| current hour, 12hrs clock (i.e. "1", "11") |
-| %ii%		| current minute, zero prefixed (i.e. "01", "35") |
-| %i%		| current minute, zero prefixed (i.e. "1", "35") |
-| %AA%		| upper-cased AM/PM marker (i.e. "AM") |
-| %A%		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
-| %aa%		| lower-cased am/pm marker (i.e. "am") |
-| %a%		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
-| %Aa%		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
-| %t%		| Name of currently used timezone (i.e. "UTC") |
+| {yyyy} 	| long year (i.e. "2009") |
+| {yy} 		| short year (i.e. "09") |
+| {MMM}		| long month name (i.e. "January") |
+| {MM}		| abbreviated month name (i.e. "Jan") |
+| {M}		| first letter month name (i.e. "J") |
+| {mm}		| zero prefixed 2 digit month number ("02" for Feb, "12" for Dec) |
+| {m}		| month number as is ("2" for Feb, "12" for Dec) |
+| {DDD}		| full day name (i.e. "Saturday", "Sunday", "Monday") |
+| {DD}		| abbreviated day name ("Sat", "Sun", "Mon") |
+| {D}		| first letter day name ("S", "S", "M") |
+| {dd}		| zero prefixed 2 digit day number ("01", "27") |
+| {d}		| day number as is ("1", "27") |
+| {dy}		| day number of the year (i.e. "250") |
+| {dw}		| day number in week (i.e. "1" for Monday **if** weeks start on Mondays!) |
+| {wy}		| week of the year (i.e. "1" or "53") |
+| {hh}		| current hour, zero prefixed, 24hrs clock (i.e. "01", "16") |
+| {h}		| current hour, 24hrs clock (i.e. "1", "16") |
+| {kk}		| current hour, zero prefixed, 12hrs clock (i.e. "01", "11") |
+| {k}		| current hour, 12hrs clock (i.e. "1", "11") |
+| {ii}		| current minute, zero prefixed (i.e. "01", "35") |
+| {i}		| current minute, zero prefixed (i.e. "1", "35") |
+| {AA}		| upper-cased AM/PM marker (i.e. "AM") |
+| {A}		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
+| {aa}		| lower-cased am/pm marker (i.e. "am") |
+| {a}		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
+| {Aa}		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
+| {t}		| Name of currently used timezone (i.e. "UTC") |
 
- For example, `Today is %DDD%` will produce `Today is Sunday` (assuming today is named "Sunday").
+ For example, `Today is {DDD}` will produce `Today is Sunday` (assuming today is named "Sunday").
 
- You can also use optional formatting directives. The syntax is `%PLACEHOLDER:DIRECTIVE%`
+ You can also use optional formatting directives. The syntax is `{PLACEHOLDER:DIRECTIVE}`
  and supported directives are:
 
 | Directive | Description |
 |-------------|-------------|
-| U	| turns whole placeholder uppercased (i.e. "%DD:U%" => "SAT") |
-| L | turns whole placeholder lowercased (i.e. "%DD:L%: => "sat") |
-| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "%DDD%" can produce "wtorek" for Tuesday. With "%DDD:u%" you would get "Wtorek" instead. |
-| 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `%D:00%` produce `0M` on Mondays. |
+| U	| turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
+| L | turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
+| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
+| 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
 
  **NOTE:** at the moment, formatting directives cannot be combined.
 

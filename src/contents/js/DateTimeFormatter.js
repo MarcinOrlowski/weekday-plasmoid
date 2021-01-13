@@ -90,7 +90,7 @@ function format(template, localeName) {
 	map['wy'] = getWeekOfYear(now)
 	map['hh'] = pad(now.getHours())
 	map['h'] = now.getHours()
-	map['kk'] = pad(now.getHours()%12)
+	map['kk'] = pad(now.getHours() % 12)
 	map['k'] = now.getHours()
 	map['ii'] = pad(now.getMinutes())
 	map['i'] = now.getMinutes()
@@ -107,11 +107,11 @@ function format(template, localeName) {
 //	default system format
 
 	for(var key in map) {
-		template = template.replace(new RegExp(`%${key}%`, 'g'), map[key])
-		template = template.replace(new RegExp(`%${key}:U%`, 'g'), map[key].toString().toUpperCase())
-		template = template.replace(new RegExp(`%${key}:L%`, 'g'), map[key].toString().toLowerCase())
-		template = template.replace(new RegExp(`%${key}:u%`, 'g'), ucfirst(map[key].toString()))
-		template = template.replace(new RegExp(`%${key}:00%`, 'g'), pad(map[key], 2))
+		template = template.replace(new RegExp(`{${key}}`, 'g'), map[key])
+		template = template.replace(new RegExp(`{${key}:U}`, 'g'), map[key].toString().toUpperCase())
+		template = template.replace(new RegExp(`{${key}:L}`, 'g'), map[key].toString().toLowerCase())
+		template = template.replace(new RegExp(`{${key}:u}`, 'g'), ucfirst(map[key].toString()))
+		template = template.replace(new RegExp(`{${key}:00}`, 'g'), pad(map[key], 2))
 	}
 
 	return template
