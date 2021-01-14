@@ -49,37 +49,16 @@ Dialog {
 			text: `${Meta.title} v${Meta.version}`
 		}
 
-		PlasmaComponents.Label {
-			Layout.alignment: Qt.AlignHCenter
-			textFormat: Text.RichText
-			text: {
-				var year = '2020'
-				var currentYear = new Date().getFullYear()
-				if (currentYear != year) {
-					year += `-${currentYear}`
-				}
-				return `&copy;${year} by <strong><u>${Meta.autorName}</u></strong>`
-			}
-			MouseArea {
-				anchors.fill: parent
-				onClicked: Qt.openUrlExternally(Meta.authorUrl)
-			}
-		}
+		CopyrightLabel { }
 
 		Item {
 			height: 20
 		}
 
-		PlasmaComponents.Label {
+		ClickableLabel {
 			Layout.alignment: Qt.AlignHCenter
-			textFormat: Text.RichText
 			text: i18n('Visit <u>project page</u> on Github')
-			MouseArea {
-				anchors.fill: parent
-				onClicked: {
-					Qt.openUrlExternally(Meta.url)
-				}
-			}
+			url: Meta.url
 		}
 
 	} // aboutMainContainer
