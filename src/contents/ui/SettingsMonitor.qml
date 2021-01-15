@@ -19,8 +19,8 @@ Item {
 	signal changed()
 
 	// Locale settings
-	property bool useSpecifiedLocaleEnabled: plasmoid.configuration.useSpecifiedLocaleEnabled
-	onUseSpecifiedLocaleEnabledChanged: changed()
+	property bool useSpecificLocaleEnabled: plasmoid.configuration.useSpecificLocaleEnabled
+	onUseSpecificLocaleEnabledChanged: changed()
 	property string useSpecificLocaleLocaleName: plasmoid.configuration.useSpecificLocaleLocaleName
 	onUseSpecificLocaleLocaleNameChanged: changed()
 	property bool nonDefaultWeekStartDayEnabled: plasmoid.configuration.nonDefaultWeekStartDayEnabled
