@@ -15,7 +15,6 @@ import org.kde.kquickcontrols 2.0 as KQControls
 import org.kde.plasma.components 3.0 as PlasmaComponents
 import "../js/themes.js" as Themes
 
-
 Kirigami.FormLayout {
 	Layout.fillWidth: true
 
