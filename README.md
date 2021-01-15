@@ -227,7 +227,9 @@ so you may want to convince Plasma by doing manual reload:
 
 ## Related links ##
 
- * [KDE store project page](https://store.kde.org/p/1460393/) 
+ * [Widget KDE store page](https://store.kde.org/p/1460393/) 
+
+ * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools).
 
 ---
 
