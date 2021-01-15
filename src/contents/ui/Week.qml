@@ -141,6 +141,35 @@ ColumnLayout {
 		redrawWidget(locale, firstDayOfWeek, currentTheme)
 	}
 
+	// dayIdx starts from 0 being Sunday, 6 being Saturday
+	function getDayLabel(dayIdx, fallback) {
+		var label = fallback
+		if (plasmoid.configuration.customDayLabelsEnabled) {
+			if (dayIdx === 0 && plasmoid.configuration.customDayLabelSundayEnabled) {
+				label = plasmoid.configuration.customDayLabelSundayLabel.substr(0, 1)
+			}
+			if (dayIdx === 1 && plasmoid.configuration.customDayLabelMondayEnabled) {
+				label = plasmoid.configuration.customDayLabelMondayLabel.substr(0, 1)
+			}
+			if (dayIdx === 2 && plasmoid.configuration.customDayLabelTuesdayEnabled) {
+				label = plasmoid.configuration.customDayLabelTuesdayLabel.substr(0, 1)
+			}
+			if (dayIdx === 3 && plasmoid.configuration.customDayLabelWednesdayEnabled) {
+				label = plasmoid.configuration.customDayLabelWednesdayLabel.substr(0, 1)
+			}
+			if (dayIdx === 4 && plasmoid.configuration.customDayLabelThursdayEnabled) {
+				label = plasmoid.configuration.customDayLabelThursdayLabel.substr(0, 1)
+			}
+			if (dayIdx === 5 && plasmoid.configuration.customDayLabelFridayEnabled) {
+				label = plasmoid.configuration.customDayLabelFridayLabel.substr(0, 1)
+			}
+			if (dayIdx === 6 && plasmoid.configuration.customDayLabelSaturdayEnabled) {
+				label = plasmoid.configuration.customDayLabelSaturdayLabel.substr(0, 1)
+			}
+		}
+		return label
+	}
+
 	function redrawWidget(locale, firstDayOfWeek, theme) {
 		// We always start our arrays with first element being first day of the week
 		// whatever that day is.
@@ -156,8 +185,9 @@ ColumnLayout {
 		// as this can be user configurable indepenently from real calendar specification, which is just fine
 		// as all we need to get here is weekday names.
 		for(var i=0; i<7; i++) {
-			var d = new Date(1980, 0, 6 + (firstDayOfWeek + i))
-			labels[i] = d.toLocaleDateString(locale, 'ddd').substr(0, 1).toUpperCase()
+			var offset = firstDayOfWeek + i
+			var d = new Date(1980, 0, 6 + offset)
+			labels[i] = getDayLabel((offset % 7), d.toLocaleDateString(locale, 'ddd').substr(0, 1).toUpperCase())
 		}
 
 		var now = new Date()
@@ -337,7 +367,10 @@ ColumnLayout {
 	// Update the week grid on each change of user settings. This is to keep data source hour aligned but still react
 	// in real time to important user settings changes.
 	SettingsMonitor {
-		onChanged: updateWeekGrid()
+		onChanged: {
+			console.debug('SettingsMonitor: onChanged()')
+			updateWeekGrid()
+		}
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

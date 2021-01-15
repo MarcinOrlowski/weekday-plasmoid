@@ -22,6 +22,23 @@ Kirigami.FormLayout {
 	property alias cfg_nonDefaultWeekStartDayEnabled: nonDefaultWeekStartDayEnabled.checked
 	property alias cfg_nonDefaultWeekStartDayDayIndex: nonDefaultWeekStartDayDayIndex.currentIndex
 
+	property alias cfg_customDayLabelsEnabled: customDayLabelsEnabled.checked
+
+	property alias cfg_customDayLabelSundayEnabled: customDayLabelSundayEnabled.checked
+	property alias cfg_customDayLabelSundayLabel: customDayLabelSundayLabel.text
+	property alias cfg_customDayLabelMondayEnabled: customDayLabelMondayEnabled.checked
+	property alias cfg_customDayLabelMondayLabel: customDayLabelMondayLabel.text
+	property alias cfg_customDayLabelTuesdayEnabled: customDayLabelTuesdayEnabled.checked
+	property alias cfg_customDayLabelTuesdayLabel: customDayLabelTuesdayLabel.text
+	property alias cfg_customDayLabelWednesdayEnabled: customDayLabelWednesdayEnabled.checked
+	property alias cfg_customDayLabelWednesdayLabel: customDayLabelWednesdayLabel.text
+	property alias cfg_customDayLabelThursdayEnabled: customDayLabelThursdayEnabled.checked
+	property alias cfg_customDayLabelThursdayLabel: customDayLabelThursdayLabel.text
+	property alias cfg_customDayLabelFridayEnabled: customDayLabelFridayEnabled.checked
+	property alias cfg_customDayLabelFridayLabel: customDayLabelFridayLabel.text
+	property alias cfg_customDayLabelSaturdayEnabled: customDayLabelSaturdayEnabled.checked
+	property alias cfg_customDayLabelSaturdayLabel: customDayLabelSaturdayLabel.text
+
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled
@@ -31,6 +48,7 @@ Kirigami.FormLayout {
 		TextField {
 			id: useSpecificLocaleLocaleName
 			enabled: cfg_useSpecificLocaleEnabled
+			placeholderText: "en_US"
 			Kirigami.FormData.label: i18n('Name of locale')
 		}
 	}
@@ -63,9 +81,125 @@ Kirigami.FormLayout {
 		}
 	}
 
+	// ------------------------------------------------------------------------------------------------------------------------
+
+	CheckBox {
+		id: customDayLabelsEnabled
+		text: i18n("Use custom day labels")
+	}
+
+	Kirigami.FormLayout {
+		Layout.fillWidth: true
+		anchors.left: parent.left
+		anchors.right: parent.right
+
+		enabled: cfg_customDayLabelsEnabled
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Sunday")
+			CheckBox {
+				id: customDayLabelSundayEnabled
+			}
+			TextField {
+				id: customDayLabelSundayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelSundayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Monday")
+			CheckBox {
+				id: customDayLabelMondayEnabled
+			}
+			TextField {
+				id: customDayLabelMondayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelMondayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Tuesday")
+			CheckBox {
+				id: customDayLabelTuesdayEnabled
+			}
+			TextField {
+				id: customDayLabelTuesdayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelTuesdayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Wednesday")
+			CheckBox {
+				id: customDayLabelWednesdayEnabled
+			}
+			TextField {
+				id: customDayLabelWednesdayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelWednesdayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Thursday")
+			CheckBox {
+				id: customDayLabelThursdayEnabled
+			}
+			TextField {
+				id: customDayLabelThursdayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelThursdayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Friday")
+			CheckBox {
+				id: customDayLabelFridayEnabled
+			}
+			TextField {
+				id: customDayLabelFridayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelFridayEnabled
+			}
+		}
+
+		RowLayout {
+			Layout.fillWidth: true
+			Kirigami.FormData.label: i18n("Saturday")
+			CheckBox {
+				id: customDayLabelSaturdayEnabled
+			}
+			TextField {
+				id: customDayLabelSaturdayLabel
+				maximumLength: 1
+				Layout.fillWidth: true
+				enabled: cfg_customDayLabelSaturdayEnabled
+			}
+		}
+
+	} // FormLayout
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
 	Item {
 		Layout.fillWidth: true
 		Layout.fillHeight: true
 	}
 
-}
+} // FormLayout
