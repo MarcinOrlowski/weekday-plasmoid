@@ -10,6 +10,7 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0
 import "../js/themes.js" as Themes
 import "../js/DateTimeFormatter.js" as DTF
@@ -114,7 +115,7 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	function update() {
+	function updateWeekGrid() {
 		// https://doc.qt.io/qt-5/qml-qtqml-locale.html
 		// Offset indicates first day of week with Sunday equals 0
 		// and Saturday equals 6
@@ -322,15 +323,21 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	property int timerInterval: 0
+	PlasmaCore.DataSource {
+		id: timeDataSource
+		engine: "time"
+		connectedSources: ["Local"]
+		interval: 60 * 60 * 1000	// 1hour
+		intervalAlignment: PlasmaCore.Types.AlignToHour
+		onNewData: updateWeekGrid()
+	}
 
-	// https://doc.qt.io/qt-5/richtext-html-subset.html
-	Timer {
-		interval: timerInterval * 1000
-		repeat: true
-		running: timerInterval != 0
-		triggeredOnStart: true
-		onTriggered: update()
+	// ------------------------------------------------------------------------------------------------------------------------
+
+	// Update the week grid on each change of user settings. This is to keep data source hour aligned but still react
+	// in real time to important user settings changes.
+	SettingsMonitor {
+		onChanged: updateWeekGrid()
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

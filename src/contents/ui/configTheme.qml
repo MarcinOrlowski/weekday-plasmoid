@@ -19,8 +19,6 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-//	property alias cfg_themeName: themeName.text
-
 	property alias cfg_widgetBg: widgetConfig.bg
 
 	property alias cfg_lastDayMonthEnabled: lastDayMonthConfig.configEnabled

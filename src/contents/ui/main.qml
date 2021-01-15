@@ -71,9 +71,7 @@ Item {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-	Plasmoid.compactRepresentation: Week {
-		timerInterval: 1
-	}
+	Plasmoid.compactRepresentation: Week { }
 	Plasmoid.fullRepresentation: CalendarView { }
 
 	// ------------------------------------------------------------------------------------------------------------------------
