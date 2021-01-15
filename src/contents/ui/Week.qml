@@ -367,10 +367,7 @@ ColumnLayout {
 	// Update the week grid on each change of user settings. This is to keep data source hour aligned but still react
 	// in real time to important user settings changes.
 	SettingsMonitor {
-		onChanged: {
-			console.debug('SettingsMonitor: onChanged()')
-			updateWeekGrid()
-		}
+		onChanged: updateWeekGrid()
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
