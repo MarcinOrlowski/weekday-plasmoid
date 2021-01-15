@@ -13,166 +13,187 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 // Hope there a smarter way to know when settings are changed
 // and I just missed it so far...
 Item {
-	// FIXME: The main issue (thus not that harmful) is that changed() will be emitted
-	// for each attribute changed (i.e. all theme's). I could deffer signal with timer
-	// but that's just making crappy apprach even worse.
+	// Emited when monitored settings' properties changed.
 	signal changed()
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
+	// Once settings are applied, there'll be burst of changed() signals emited (for each settings property monitored).
+	// I do not need that storm. One approach would be to emit changed() on first emitChangedSignal() and then ignore all
+	// subsequent calls for some time, but that's could trigger premature reaction (i.e. UI update). So I do opposite here.
+	// Each emitChangedSignal() signals signal emit attempt, but the signal is postponed and will only be emited if last
+	// attempt was at least silenceThresholdMillis ago. Any emitSignal() call within that threshold, will zero the delay
+	// counter and postpone signal.
+	readonly property int silenceThresholdMillis: 250
+
+	function emitChangedSignal() {
+		signalEmiter.restart()
+	}
+
+	Timer {
+		id: signalEmiter
+		interval: silenceThresholdMillis
+		repeat: false
+		running: false
+		triggeredOnStart: false
+		onTriggered: changed()
+	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	// Locale settings
 	property bool useSpecificLocaleEnabled: plasmoid.configuration.useSpecificLocaleEnabled
-	onUseSpecificLocaleEnabledChanged: changed()
+	onUseSpecificLocaleEnabledChanged: emitChangedSignal()
 	property string useSpecificLocaleLocaleName: plasmoid.configuration.useSpecificLocaleLocaleName
-	onUseSpecificLocaleLocaleNameChanged: changed()
+	onUseSpecificLocaleLocaleNameChanged: emitChangedSignal()
 	property bool nonDefaultWeekStartDayEnabled: plasmoid.configuration.nonDefaultWeekStartDayEnabled
-	onNonDefaultWeekStartDayEnabledChanged: changed()
+	onNonDefaultWeekStartDayEnabledChanged: emitChangedSignal()
 	property int nonDefaultWeekStartDayDayIndex: plasmoid.configuration.nonDefaultWeekStartDayDayIndex
-	onNonDefaultWeekStartDayDayIndexChanged: changed()
+	onNonDefaultWeekStartDayDayIndexChanged: emitChangedSignal()
 
 	// Custom labels
 	property bool customDayLabelsEnabled: plasmoid.configuration.customDayLabelsEnabled
-	onCustomDayLabelsEnabledChanged: changed()
+	onCustomDayLabelsEnabledChanged: emitChangedSignal()
 
 	property bool customDayLabelMondayEnabled: plasmoid.configuration.customDayLabelMondayEnabled
-	onCustomDayLabelMondayEnabledChanged: changed()
+	onCustomDayLabelMondayEnabledChanged: emitChangedSignal()
 	property string customDayLabelMondayLabel: plasmoid.configuration.customDayLabelMondayLabel
-	onCustomDayLabelMondayLabelChanged: changed()
+	onCustomDayLabelMondayLabelChanged: emitChangedSignal()
 	property bool customDayLabelTuesdayEnabled: plasmoid.configuration.customDayLabelTuesdayEnabled
-	onCustomDayLabelTuesdayEnabledChanged: changed()
+	onCustomDayLabelTuesdayEnabledChanged: emitChangedSignal()
 	property string customDayLabelTuesdayLabel: plasmoid.configuration.customDayLabelTuesdayLabel
-	onCustomDayLabelTuesdayLabelChanged: changed()
+	onCustomDayLabelTuesdayLabelChanged: emitChangedSignal()
 	property bool customDayLabelWednesdayEnabled: plasmoid.configuration.customDayLabelWednesdayEnabled
-	onCustomDayLabelWednesdayEnabledChanged: changed()
+	onCustomDayLabelWednesdayEnabledChanged: emitChangedSignal()
 	property string customDayLabelWednesdayLabel: plasmoid.configuration.customDayLabelWednesdayLabel
-	onCustomDayLabelWednesdayLabelChanged: changed()
+	onCustomDayLabelWednesdayLabelChanged: emitChangedSignal()
 	property bool customDayLabelThursdayEnabled: plasmoid.configuration.customDayLabelThursdayEnabled
-	onCustomDayLabelThursdayEnabledChanged: changed()
+	onCustomDayLabelThursdayEnabledChanged: emitChangedSignal()
 	property string customDayLabelThursdayLabel: plasmoid.configuration.customDayLabelThursdayLabel
-	onCustomDayLabelThursdayLabelChanged: changed()
+	onCustomDayLabelThursdayLabelChanged: emitChangedSignal()
 	property bool customDayLabelFridayEnabled: plasmoid.configuration.customDayLabelFridayEnabled
-	onCustomDayLabelFridayEnabledChanged: changed()
+	onCustomDayLabelFridayEnabledChanged: emitChangedSignal()
 	property string customDayLabelFridayLabel: plasmoid.configuration.customDayLabelFridayLabel
-	onCustomDayLabelFridayLabelChanged: changed()
+	onCustomDayLabelFridayLabelChanged: emitChangedSignal()
 	property bool customDayLabelSaturdayEnabled: plasmoid.configuration.customDayLabelSaturdayEnabled
-	onCustomDayLabelSaturdayEnabledChanged: changed()
+	onCustomDayLabelSaturdayEnabledChanged: emitChangedSignal()
 	property string customDayLabelSaturdayLabel: plasmoid.configuration.customDayLabelSaturdayLabel
-	onCustomDayLabelSaturdayLabelChanged: changed()
+	onCustomDayLabelSaturdayLabelChanged: emitChangedSignal()
 	property bool customDayLabelSundayEnabled: plasmoid.configuration.customDayLabelSundayEnabled
-	onCustomDayLabelSundayEnabledChanged: changed()
+	onCustomDayLabelSundayEnabledChanged: emitChangedSignal()
 	property string customDayLabelSundayLabel: plasmoid.configuration.customDayLabelSundayLabel
-	onCustomDayLabelSundayLabelChanged: changed()
+	onCustomDayLabelSundayLabelChanged: emitChangedSignal()
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	// Appearance theme
 	property string themeName: plasmoid.configuration.themeName
-	onThemeNameChanged: changed()
+	onThemeNameChanged: emitChangedSignal()
 	property bool useUserTheme: plasmoid.configuration.useUserTheme
-	onUseUserThemeChanged: changed()
+	onUseUserThemeChanged: emitChangedSignal()
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	// User theme settings
 	property string widgetBg: plasmoid.configuration.widgetBg
-	onWidgetBgChanged: changed()
+	onWidgetBgChanged: emitChangedSignal()
 
 	property string lastDayMonthEnabled: plasmoid.configuration.lastDayMonthEnabled
-	onLastDayMonthEnabledChanged: changed()
+	onLastDayMonthEnabledChanged: emitChangedSignal()
 	property string lastDayMonthBg: plasmoid.configuration.lastDayMonthBg
-	onLastDayMonthBgChanged: changed()
+	onLastDayMonthBgChanged: emitChangedSignal()
 
 	property string pastFg: plasmoid.configuration.pastFg
-	onPastFgChanged: changed()
+	onPastFgChanged: emitChangedSignal()
 	property string pastBg: plasmoid.configuration.pastBg
-	onPastBgChanged: changed()
+	onPastBgChanged: emitChangedSignal()
 	property bool pastBold: plasmoid.configuration.pastBold
-	onPastBoldChanged: changed()
+	onPastBoldChanged: emitChangedSignal()
 	property bool pastItalic: plasmoid.configuration.pastItalic
-	onPastItalicChanged: changed()
+	onPastItalicChanged: emitChangedSignal()
 
 	property string pastSaturdayEnabled: plasmoid.configuration.pastSaturdayEnabled
-	onPastSaturdayEnabledChanged: changed()
+	onPastSaturdayEnabledChanged: emitChangedSignal()
 	property string pastSaturdayFg: plasmoid.configuration.pastSaturdayFg
-	onPastSaturdayFgChanged: changed()
+	onPastSaturdayFgChanged: emitChangedSignal()
 	property string pastSaturdayBg: plasmoid.configuration.pastSaturdayBg
-	onPastSaturdayBgChanged: changed()
+	onPastSaturdayBgChanged: emitChangedSignal()
 	property bool pastSaturdayBold: plasmoid.configuration.pastSaturdayBold
-	onPastSaturdayBoldChanged: changed()
+	onPastSaturdayBoldChanged: emitChangedSignal()
 	property bool pastSaturdayItalic: plasmoid.configuration.pastSaturdayItalic
-	onPastSaturdayItalicChanged: changed()
+	onPastSaturdayItalicChanged: emitChangedSignal()
 
 	property string pastSundayEnabled: plasmoid.configuration.pastSundayEnabled
-	onPastSundayEnabledChanged: changed()
+	onPastSundayEnabledChanged: emitChangedSignal()
 	property string pastSundayFg: plasmoid.configuration.pastSundayFg
-	onPastSundayFgChanged: changed()
+	onPastSundayFgChanged: emitChangedSignal()
 	property string pastSundayBg: plasmoid.configuration.pastSundayBg
-	onPastSundayBgChanged: changed()
+	onPastSundayBgChanged: emitChangedSignal()
 	property bool pastSundayBold: plasmoid.configuration.pastSundayBold
-	onPastSundayBoldChanged: changed()
+	onPastSundayBoldChanged: emitChangedSignal()
 	property bool pastSundayItalic: plasmoid.configuration.pastSundayItalic
-	onPastSundayItalicChanged: changed()
+	onPastSundayItalicChanged: emitChangedSignal()
 
 	property string todayFg: plasmoid.configuration.todayFg
-	onTodayFgChanged: changed()
+	onTodayFgChanged: emitChangedSignal()
 	property string todayBg: plasmoid.configuration.todayBg
-	onTodayBgChanged: changed()
+	onTodayBgChanged: emitChangedSignal()
 	property bool todayBold: plasmoid.configuration.todayBold
-	onTodayBoldChanged: changed()
+	onTodayBoldChanged: emitChangedSignal()
 	property bool todayItalic: plasmoid.configuration.todayItalic
-	onTodayItalicChanged: changed()
+	onTodayItalicChanged: emitChangedSignal()
 
 	property string todaySaturdayEnabled: plasmoid.configuration.todaySaturdayEnabled
-	onTodaySaturdayEnabledChanged: changed()
+	onTodaySaturdayEnabledChanged: emitChangedSignal()
 	property string todaySaturdayFg: plasmoid.configuration.todaySaturdayFg
-	onTodaySaturdayFgChanged: changed()
+	onTodaySaturdayFgChanged: emitChangedSignal()
 	property string todaySaturdayBg: plasmoid.configuration.todaySaturdayBg
-	onTodaySaturdayBgChanged: changed()
+	onTodaySaturdayBgChanged: emitChangedSignal()
 	property bool todaySaturdayBold: plasmoid.configuration.todaySaturdayBold
-	onTodaySaturdayBoldChanged: changed()
+	onTodaySaturdayBoldChanged: emitChangedSignal()
 	property bool todaySaturdayItalic: plasmoid.configuration.todaySaturdayItalic
-	onTodaySaturdayItalicChanged: changed()
+	onTodaySaturdayItalicChanged: emitChangedSignal()
 
 	property string todaySundayEnabled: plasmoid.configuration.todaySundayEnabled
-	onTodaySundayEnabledChanged: changed()
+	onTodaySundayEnabledChanged: emitChangedSignal()
 	property string todaySundayFg: plasmoid.configuration.todaySundayFg
-	onTodaySundayFgChanged: changed()
+	onTodaySundayFgChanged: emitChangedSignal()
 	property string todaySundayBg: plasmoid.configuration.todaySundayBg
-	onTodaySundayBgChanged: changed()
+	onTodaySundayBgChanged: emitChangedSignal()
 	property bool todaySundayBold: plasmoid.configuration.todaySundayBold
-	onTodaySundayBoldChanged: changed()
+	onTodaySundayBoldChanged: emitChangedSignal()
 	property bool todaySundayItalic: plasmoid.configuration.todaySundayItalic
-	onTodaySundayItalicChanged: changed()
+	onTodaySundayItalicChanged: emitChangedSignal()
 
 	property string futureFg: plasmoid.configuration.futureFg
-	onFutureFgChanged: changed()
+	onFutureFgChanged: emitChangedSignal()
 	property string futureBg: plasmoid.configuration.futureBg
-	onFutureBgChanged: changed()
+	onFutureBgChanged: emitChangedSignal()
 	property bool futureBold: plasmoid.configuration.futureBold
-	onFutureBoldChanged: changed()
+	onFutureBoldChanged: emitChangedSignal()
 	property bool futureItalic: plasmoid.configuration.futureItalic
-	onFutureItalicChanged: changed()
+	onFutureItalicChanged: emitChangedSignal()
 
 	property string futureSaturdayEnabled: plasmoid.configuration.futureSaturdayEnabled
-	onFutureSaturdayEnabledChanged: changed()
+	onFutureSaturdayEnabledChanged: emitChangedSignal()
 	property string futureSaturdayFg: plasmoid.configuration.futureSaturdayFg
-	onFutureSaturdayFgChanged: changed()
+	onFutureSaturdayFgChanged: emitChangedSignal()
 	property string futureSaturdayBg: plasmoid.configuration.futureSaturdayBg
-	onFutureSaturdayBgChanged: changed()
+	onFutureSaturdayBgChanged: emitChangedSignal()
 	property string futureSaturdayBold: plasmoid.configuration.futureSaturdayBold
-	onFutureSaturdayBoldChanged: changed()
+	onFutureSaturdayBoldChanged: emitChangedSignal()
 	property bool futureSaturdayItalic: plasmoid.configuration.futureSaturdayItalic
-	onFutureSaturdayItalicChanged: changed()
+	onFutureSaturdayItalicChanged: emitChangedSignal()
 
 	property string futureSundayEnabled: plasmoid.configuration.futureSundayEnabled
-	onFutureSundayEnabledChanged: changed()
+	onFutureSundayEnabledChanged: emitChangedSignal()
 	property string futureSundayFg: plasmoid.configuration.futureSundayFg
-	onFutureSundayFgChanged: changed()
+	onFutureSundayFgChanged: emitChangedSignal()
 	property string futureSundayBg: plasmoid.configuration.futureSundayBg
-	onFutureSundayBgChanged: changed()
+	onFutureSundayBgChanged: emitChangedSignal()
 	property string futureSundayBold: plasmoid.configuration.futureSundayBold
-	onFutureSundayBoldChanged: changed()
+	onFutureSundayBoldChanged: emitChangedSignal()
 	property bool futureSundayItalic: plasmoid.configuration.futureSundayItalic
-	onFutureSundayItalicChanged: changed()
+	onFutureSundayItalicChanged: emitChangedSignal()
 
 }
