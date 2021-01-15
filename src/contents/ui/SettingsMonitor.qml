@@ -13,10 +13,12 @@ import org.kde.plasma.components 3.0 as PlasmaComponents
 // Hope there a smarter way to know when settings are changed
 // and I just missed it so far...
 Item {
-	// FIXME: The main issue (thus not that harmful) is that changed() will be emitted 
+	// FIXME: The main issue (thus not that harmful) is that changed() will be emitted
 	// for each attribute changed (i.e. all theme's). I could deffer signal with timer
 	// but that's just making crappy apprach even worse.
 	signal changed()
+
+	// ------------------------------------------------------------------------------------------------------------------------
 
 	// Locale settings
 	property bool useSpecificLocaleEnabled: plasmoid.configuration.useSpecificLocaleEnabled
@@ -28,11 +30,48 @@ Item {
 	property int nonDefaultWeekStartDayDayIndex: plasmoid.configuration.nonDefaultWeekStartDayDayIndex
 	onNonDefaultWeekStartDayDayIndexChanged: changed()
 
+	// Custom labels
+	property bool customDayLabelsEnabled: plasmoid.configuration.customDayLabelsEnabled
+	onCustomDayLabelsEnabledChanged: changed()
+
+	property bool customDayLabelMondayEnabled: plasmoid.configuration.customDayLabelMondayEnabled
+	onCustomDayLabelMondayEnabledChanged: changed()
+	property string customDayLabelMondayLabel: plasmoid.configuration.customDayLabelMondayLabel
+	onCustomDayLabelMondayLabelChanged: changed()
+	property bool customDayLabelTuesdayEnabled: plasmoid.configuration.customDayLabelTuesdayEnabled
+	onCustomDayLabelTuesdayEnabledChanged: changed()
+	property string customDayLabelTuesdayLabel: plasmoid.configuration.customDayLabelTuesdayLabel
+	onCustomDayLabelTuesdayLabelChanged: changed()
+	property bool customDayLabelWednesdayEnabled: plasmoid.configuration.customDayLabelWednesdayEnabled
+	onCustomDayLabelWednesdayEnabledChanged: changed()
+	property string customDayLabelWednesdayLabel: plasmoid.configuration.customDayLabelWednesdayLabel
+	onCustomDayLabelWednesdayLabelChanged: changed()
+	property bool customDayLabelThursdayEnabled: plasmoid.configuration.customDayLabelThursdayEnabled
+	onCustomDayLabelThursdayEnabledChanged: changed()
+	property string customDayLabelThursdayLabel: plasmoid.configuration.customDayLabelThursdayLabel
+	onCustomDayLabelThursdayLabelChanged: changed()
+	property bool customDayLabelFridayEnabled: plasmoid.configuration.customDayLabelFridayEnabled
+	onCustomDayLabelFridayEnabledChanged: changed()
+	property string customDayLabelFridayLabel: plasmoid.configuration.customDayLabelFridayLabel
+	onCustomDayLabelFridayLabelChanged: changed()
+	property bool customDayLabelSaturdayEnabled: plasmoid.configuration.customDayLabelSaturdayEnabled
+	onCustomDayLabelSaturdayEnabledChanged: changed()
+	property string customDayLabelSaturdayLabel: plasmoid.configuration.customDayLabelSaturdayLabel
+	onCustomDayLabelSaturdayLabelChanged: changed()
+	property bool customDayLabelSundayEnabled: plasmoid.configuration.customDayLabelSundayEnabled
+	onCustomDayLabelSundayEnabledChanged: changed()
+	property string customDayLabelSundayLabel: plasmoid.configuration.customDayLabelSundayLabel
+	onCustomDayLabelSundayLabelChanged: changed()
+
+	// ------------------------------------------------------------------------------------------------------------------------
+
 	// Appearance theme
 	property string themeName: plasmoid.configuration.themeName
 	onThemeNameChanged: changed()
 	property bool useUserTheme: plasmoid.configuration.useUserTheme
 	onUseUserThemeChanged: changed()
+
+	// ------------------------------------------------------------------------------------------------------------------------
 
 	// User theme settings
 	property string widgetBg: plasmoid.configuration.widgetBg
@@ -137,4 +176,3 @@ Item {
 	onFutureSundayItalicChanged: changed()
 
 }
-

@@ -1,13 +1,14 @@
 * @dev
   * Clicking on widget opens CalendarView popup.
-  * Fixed widget tooltip's sub-text not working properly.
+  * Added support for user configurable week days' labels
   * Added (optional) visual indicator of last day of the month.
-  * Added support for `%wy%` (week of the year) placeholder.
+  * Added support for `{wy}` (week of the year) placeholder.
   * Added support for `00` placeholder formatting directive.
   * Added support for theme export/import (as JSON).
   * Theme switcher no longer changes theme instantly bug follows Apply/Cancel pattern.
   * Separated user theme configuration pane from Appearance config.
   * Replaced use of Timer with hour aligned data source to make widged less resource hungry.
+  * Fixed widget tooltip's sub-text not working properly.
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes

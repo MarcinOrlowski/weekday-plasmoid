@@ -19,6 +19,55 @@
 		<entry name="nonDefaultWeekStartDayDayIndex" type="Int">
 			<default>0</default>
 		</entry>
+
+		<!-- custom day labels -->
+		<entry name="customDayLabelsEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+
+		<entry name="customDayLabelSundayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelSundayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelMondayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelMondayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelTuesdayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelTuesdayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelWednesdayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelWednesdayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelThursdayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelThursdayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelFridayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelFridayLabel" type="String">
+			<default></default>
+		</entry>
+		<entry name="customDayLabelSaturdayEnabled" type="Bool">
+			<default>false</default>
+		</entry>
+		<entry name="customDayLabelSaturdayLabel" type="String">
+			<default></default>
+		</entry>
+
 	</group>
 
 	<group name="Tooltip">
