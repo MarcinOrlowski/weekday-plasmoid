@@ -37,7 +37,7 @@ Dialog {
 			Layout.alignment: Qt.AlignHCenter
 			fillMode: Image.PreserveAspectFit
 			source: plasmoid.file('', 'images/logo.png')
-		} // aboutLogo
+		}
 
 		// metadata access is not available until very recent Plasma
 		// so as a work around we have it auto-generated as JS file
