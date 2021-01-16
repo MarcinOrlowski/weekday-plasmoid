@@ -71,7 +71,7 @@ var themes = {
 	},
 	"olive": {
 		"theme": {"name":"Olive"},
-		{"widget":{"bg":"#292c25"},
+		"widget":{"bg":"#292c25"},
 		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
 		"past":{"fg":"#865f4f","bg":"#4a5043","bold":true,"italic":false},
 		"today":{"fg":"#070602","bg":"#ffcb47","bold":true,"italic":false},
