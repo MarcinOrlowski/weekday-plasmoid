@@ -372,10 +372,14 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	function getField(theme, dayKey, key, fallback) {
-		return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
-	}
-
+	// Arguments:
+	//        theme: theme to get values from.
+	//          key: attribute key to get (i.e. 'bg', 'bold').
+	//        index: index of day (grid cell) being processed, relative to first day of the week
+	//               as shown in grid (i.e. 0 means first cell of the grid, 6, the last one).
+	//      weekday: real day index with 0 being Sunday, 1 Monday, ... 6 Saturday.
+	//  todayOffset: today's offset from begin of grid (i.e. 3 means cell 4th indicates day
+	//               we want to mark as "today").
 	function getVal(theme, key, index, weekday, todayOffset) {
 		var result = ''
 		if (index === todayOffset) {
@@ -398,6 +402,10 @@ ColumnLayout {
 			}
 		}
 		return result
+	}
+
+	function getField(theme, dayKey, key, fallback) {
+		return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
