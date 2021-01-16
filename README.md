@@ -28,7 +28,7 @@ week days.
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
  * [Upgrading](#upgrading)
- * [Related links](#related-links)
+ * [Additional resources](#additional-resources)
  * [Changelog](CHANGES.md)
  * [License](#license)
 
