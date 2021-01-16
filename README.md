@@ -1,3 +1,5 @@
+![Weekday Grid Logo](src/contents/images/logo.png)
+
 Weekday Grid Widget for KDE
 ===========================
 
