@@ -159,6 +159,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false}
 	},
+	"rusty": {
+		"theme": {"name": "Rusty"},
+		"widget":{"bg":"#691e06"},
+		"lastDayMonth":{"enabled":true,"bg":"#c4d318"},
+		"past":{"fg":"#fbba72","bg":"#691e06","bold":false,"italic":false},
+		"today":{"fg":"#691e06","bg":"#f8b871","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#ca5310","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#cbcbcb","bg":"#b49d3f0c","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#cbcbcb","bg":"#b49d3f0c","bold":true,"italic":false}
+	},
 	"sea-blue": {
 		"theme":{"name":"Sea Blue"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
