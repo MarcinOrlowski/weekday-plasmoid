@@ -59,6 +59,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false}
 	},
+	"brown-sugar": {
+		"theme": {"name":"Brown Sugar"},
+		"widget":{"bg":"#373f51"},
+		"lastDayMonth":{"enabled":true,"bg":"#22ff00"},
+		"past":{"fg":"#151515","bg":"#beb7a4","bold":false,"italic":false},
+		"today":{"fg":"#a1674a","bg":"#ffffff","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#a63a50","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#ba6e6e","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#ba6e6e","bold":false,"italic":false}
+	},
 	"bw-dark": {
 		"theme":{"name":"B&W"},
 		"widget":{"enabled":true,"bg":"#253137"},
