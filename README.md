@@ -70,26 +70,6 @@ Allows you to create own color style, either from scratch or using existing them
  * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
  * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
 
-#### Fake calendar ####
-
-To make theme testing easier you can enable "Fake calendar" feature and manually configure data passed to Weekday Grid
-such as day of today and last day of the month. All other appearance settings (incl. i.e. localization, day labels,
-first day of week) are also honored.
-
-#### Theme testing checklist ####
-
-While testing your theme, the following cases should be validated. The following checklist assumes
-Monday is first day of the week (thus occupies first cell in the grid), the last is Sunday. This
-only matters for testing.
-
- 1. Today in Wednesday: see if past and future days differ from Today.
- 1. If using separate style for Saturday/Sunday:
-    1. Set Today to Friday and see if weekend is visually different from Today and past days.
-    1. Set Today to Sunday to see if weekdays differ from Saturday.
- 1. If using end of the month marker:
-    1. Set both Today and Last Month Day to the same day to ensure it won't blend.
-    1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
-
 #### Item settings ####
 
 ![Theme item settings](img/config-appearance-item.png)
@@ -110,6 +90,26 @@ only matters for testing.
    by background color as set for specific type of day.
  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
  * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
+
+#### Fake calendar ####
+
+To make theme testing easier you can enable "Fake calendar" feature and manually configure data passed to Weekday Grid
+such as day of today and last day of the month. All other appearance settings (incl. i.e. localization, day labels,
+first day of week) are also honored.
+
+#### Theme testing checklist ####
+
+While testing your theme, the following cases should be validated. The following checklist assumes
+Monday is first day of the week (thus occupies first cell in the grid), the last is Sunday. This
+only matters for testing.
+
+ 1. Today in Wednesday: see if past and future days differ from Today.
+ 1. If using separate style for Saturday/Sunday:
+    1. Set Today to Friday and see if weekend is visually different from Today and past days.
+    1. Set Today to Sunday to see if weekdays differ from Saturday.
+ 1. If using end of the month marker:
+    1. Set both Today and Last Month Day to the same day to ensure it won't blend.
+    1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
 
 ---
 
