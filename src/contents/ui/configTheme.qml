@@ -201,10 +201,13 @@ ColumnLayout {
 	} // customColors (GridLayout)
 
 
+	Item {
+		height: 20
+	}
 
 	CheckBox {
 		id: useFakeCalendar
-		text: i18n("Use fake calendar values")
+		text: i18n("Fake calendar values")
 	}
 
 	Kirigami.FormLayout {
