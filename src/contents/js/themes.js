@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
+	"light-periwinkle": {
+		"theme":{"name":"Light Periwinkle"},
+		"widget":{"bg":"#a3c3d9"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#1b1b1b","bg":"#a3c3d9","bold":false,"italic":false},
+		"today":{"fg":"#eee4e4","bg":"#993955","bold":true,"italic":false},
+		"future":{"fg":"#444444","bg":"#ccd6eb","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false}
+	},
 	"olive": {
 		"theme": {"name":"Olive"},
 		"widget":{"bg":"#292c25"},
