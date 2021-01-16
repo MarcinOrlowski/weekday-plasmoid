@@ -240,6 +240,7 @@ so you may want to convince Plasma by doing manual reload:
  * [Widget KDE store page](https://store.kde.org/p/1460393/) 
 
  * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools).
+ * [Coolors (color palete generator)](https://coolors.co/)
 
 ---
 
