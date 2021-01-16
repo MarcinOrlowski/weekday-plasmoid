@@ -150,8 +150,6 @@ ColumnLayout {
 	GridLayout {
 		id: customColors
 		columns: 9
-//		enabled: cfg_useUserTheme
-//		visible: enabled
 
 		property var clipboard: undefined
 
@@ -176,20 +174,19 @@ ColumnLayout {
 
 		// ------------------------------------------------------------------------------------------------------------------------
 
-		// Today
-		LabelRight { text: i18n('Today') } 
-		AttributeConfig { id: todayConfig; alwaysEnabled: true }
-		LabelRight { text: i18n('Today Saturday') }
-		AttributeConfig { id: todaySaturdayConfig }
-		LabelRight { text: i18n('Today Sunday') }
-		AttributeConfig { id: todaySundayConfig }
-
 		LabelRight { text: i18n('Past Days') } 
 		AttributeConfig { id: pastConfig; alwaysEnabled: true }
 		LabelRight { text: i18n('Past Saturday') }
 		AttributeConfig { id: pastSaturdayConfig }
 		LabelRight { text: i18n('Past Sunday') }
 		AttributeConfig { id: pastSundayConfig }
+
+		LabelRight { text: i18n('Today') } 
+		AttributeConfig { id: todayConfig; alwaysEnabled: true }
+		LabelRight { text: i18n('Today Saturday') }
+		AttributeConfig { id: todaySaturdayConfig }
+		LabelRight { text: i18n('Today Sunday') }
+		AttributeConfig { id: todaySundayConfig }
 
 		LabelRight { text: i18n('Future') } 
 		AttributeConfig { id: futureConfig; alwaysEnabled: true }
