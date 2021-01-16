@@ -73,7 +73,7 @@ var themes = {
 		"theme":{"name":"Sea Blue"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
 		"lastDayMonth":{"enabled":true,"bg":"#FF00fbff"},
-		"today":{"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
+		"today":{"enabled":true,"fg":"#eeeeee","bg":"#ff006e","bold":true,"italic":false},
 		"past":{"enabled":true,"fg":"#50ffffff","bg":"#00000000","bold":false,"italic":false},
 		"future":{"enabled":true,"fg":"#ffffff","bg":"#3a738b","bold":false,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false},
