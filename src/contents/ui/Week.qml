@@ -134,9 +134,13 @@ ColumnLayout {
 			firstDayOfWeek = locale.firstDayOfWeek
 		}
 
+		var themeKey = plasmoid.configuration.themeName
+		if (themeKey === Themes.defaultTheme) {
+			themeKey = Themes.defaultThemeKey
+		}
 		var currentTheme = plasmoid.configuration.useUserTheme
 								? getUserTheme() 
-								: Themes.themes[plasmoid.configuration.themeName]
+								: Themes.themes[themeKey]
 
 		redrawWidget(locale, firstDayOfWeek, currentTheme)
 	}

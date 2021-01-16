@@ -1,36 +1,6 @@
 var defaultTheme='__default__'
+var defaultThemeKey='forest'
 var themes = {
-/*
-	"<UNIQUE-ID>": {
-		"theme":{"name":"<NAME>"},
-		"widget":{"bg":"#00000000"},
-		"lastDayMonth":{"enabled":true,"bg":"#FFafe109"},
-
-		"today":{"fg":"#FFffffff", "bg":"#FFff006e", "bold":true, "italic":false},
-		// todayXXX can be ommitied if "enabled: false". The Today values are the fallback
-		"todaySaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
-		"todaySunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
-
-		"past":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
-		// pastXXX can be ommitied if "enabled: false". The past values are the fallback
-		"pastSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
-		"pastSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
-
-		"future":{"fg":"#FFffffff", "bg":"#00000000", "bold":false, "italic":false},
-		// futureXXX can be ommitied if "enabled: false". The future values are the fallback
-		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
-	}
-*/
-
-	'__default__': {
-		"theme":{"name":"Default"},
-		"widget":{"enabled":true,"bg":"#00000000"},
-		"lastDayMonth":{"enabled":true,"bg":"#FFafe109"},
-		"today":{"enabled":true,"fg":"#FFffffff","bg":"#FFff006e","bold":true,"italic":false},
-		"past":{"enabled":true,"fg":"#FFffffff","bg":"#00000000","bold":false,"italic":false},
-		"future":{"enabled":true,"fg":"#FFffffff","bg":"#00000000","bold":false,"italic":false},
-	},
 	"amber": {
 		"theme":{"name":"Amber"},
 		"widget":{"enabled":true,"bg":"#00000000"},
