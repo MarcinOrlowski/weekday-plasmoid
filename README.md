@@ -5,7 +5,7 @@ Weekday Grid Widget for KDE
 
 Weekday Grid is a small widget for KDE that shows what the day is today in context of whole week by rendering small
 horizontal 7 cells grid, one for each week day and visually distinguishing day of today with past and future
-week days. 
+week days.
 
 ![Widget in action](img/widget01.png)
 ![Widget in action](img/widget02.png)
@@ -195,10 +195,10 @@ Configures widget tooltip information, shown when you hoover over the widget.
 
 | Directive | Description |
 |-------------|-------------|
-| U	| turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
-| L | turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
-| u | turns first letter of placeholder uppercased, all remaining are left unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
-| 00 | ensures placeholder values is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
+| U | Turns whole placeholder uppercased (i.e. "{DD:U}" => "SAT") |
+| L | Turns whole placeholder lowercased (i.e. "{DD:L}" => "sat") |
+| u | Turns first letter of placeholder uppercased, leaving remaining part unaltered. This is useful when i.e. weekday or month names are usually lowercased in your language but you'd like to have it other way. I.e. for Polish localization, "{DDD}" can produce "wtorek" for Tuesday. With "{DDD:u}" you would get "Wtorek" instead. |
+| 00 | Ensures placeholder value is **at last** two characters long by adding leading zeros to sorter strings. Makes use for numer values only. **NOTE:** values longer than two characters will not be trimmed. Also note zeroes will be prepended to any short value, even if that would make no much sense, i.e. `{D:00}` produce `0M` on Mondays. |
 
  **NOTE:** at the moment, formatting directives cannot be combined.
 
@@ -210,7 +210,7 @@ Allows you to export or import your theme.
 
 ![Export/Import](img/config-export-import.png)
 
- * **Export to JSONt**: Exports user custom colors as JSON string.
+ * **Export to JSON**: Exports user custom colors as JSON string.
  * **Import from JSON**: Imports theme settings from JSON string.
 
 ---
@@ -223,7 +223,7 @@ from [KDE Store](https://store.kde.org/p/1460393/)
 
 ### Using built-in installer ###
 
-To install widget using Plasma built-in mechanism, press right mouse button over your desktop or panel and select 
+To install widget using Plasma built-in mechanism, press right mouse button over your desktop or panel and select
 "Add Widgets..." from the context menu, then "Get new widgets..." eventually choosing "Download New Plasma Widgets...".
 Then search for "Weekday Grid" in "Plasma Add-On Installer" window.
 
@@ -251,15 +251,14 @@ with `--upgrade` option. This will update current installation while keeping you
 so you may want to convince Plasma by doing manual reload:
 
     kquitapp5 plasmashell && kstart5 plasmashell
-    
+
 **NOTE:** this will **NOT** log you out nor affects any other apps. 
 
 ---
 
-## Related links ##
+## Additional resources ##
 
  * [Widget KDE store page](https://store.kde.org/p/1460393/) 
-
  * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools).
  * [Coolors (color palete generator)](https://coolors.co/)
 
