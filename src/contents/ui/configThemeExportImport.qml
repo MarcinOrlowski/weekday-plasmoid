@@ -137,6 +137,8 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
+	FakeCalendarModeWarning {}
+
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true

@@ -104,7 +104,8 @@ Item {
 		var json = {
 			'widget': {
 				'bg': widgetBg
-			},
+			}
+		}
 
 
 		json = addIf(json, exportEnabledElementsOnly, {
@@ -112,7 +113,7 @@ Item {
 				'enabled': lastDayMonthEnabled,
 				'bg': lastDayMonthBg,
 			}
-		}
+		})
 
 		json['past'] = {
 			'fg': pastFg,

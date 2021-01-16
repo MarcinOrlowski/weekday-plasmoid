@@ -27,6 +27,8 @@ Kirigami.FormLayout {
 		id: themeName
 	}
 
+	FakeCalendarModeWarning {}
+
 	PlasmaComponents.ComboBox {
 		Kirigami.FormData.label: i18n('Theme')
 

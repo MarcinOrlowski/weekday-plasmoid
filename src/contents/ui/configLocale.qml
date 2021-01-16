@@ -39,6 +39,8 @@ Kirigami.FormLayout {
 	property alias cfg_customDayLabelSaturdayEnabled: customDayLabelSaturdayEnabled.checked
 	property alias cfg_customDayLabelSaturdayLabel: customDayLabelSaturdayLabel.text
 
+	FakeCalendarModeWarning {}
+
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled

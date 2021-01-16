@@ -190,27 +190,33 @@ ColumnLayout {
 			labels[i] = getDayLabel((offset % 7), d.toLocaleDateString(locale, 'ddd').substr(0, 1).toUpperCase())
 		}
 
+		// Which grid cell means Today?
 		var now = new Date()
-		var weekdayOffset = now.getDay()-firstDayOfWeek
-		if (weekdayOffset < 0) weekdayOffset += 7
+		var today = plasmoid.configuration.useFakeCalendar ? plasmoid.configuration.fakeToday : now.getDay()
+		var offsetOfToday = today - firstDayOfWeek
+		if (offsetOfToday < 0) offsetOfToday += 7
 
 		// Let's shift our date objects to first day of the week (matching our settings)
-		// We cannot use weekdayOffset as it is always positive (wrapped) value, which is
+		// We cannot use offsetOfToday as it is always positive (wrapped) value, which is
 		// not what we need here.
 		var today = new Date()
 		today.setDate(today.getDate() - today.getDay() + firstDayOfWeek)
 		for(var i=0; i<7; i++) {
 			var weekday = (i+firstDayOfWeek) % 7
-			fgs[i] = getVal(theme, 'fg', i, weekday, weekdayOffset)
-			bgs[i] = getVal(theme, 'bg', i, weekday, weekdayOffset)
-			bolds[i] = getVal(theme, 'bold', i, weekday, weekdayOffset)
-			italics[i] = getVal(theme, 'italic', i, weekday, weekdayOffset)
+			fgs[i] = getVal(theme, 'fg', i, weekday, offsetOfToday)
+			bgs[i] = getVal(theme, 'bg', i, weekday, offsetOfToday)
+			bolds[i] = getVal(theme, 'bold', i, weekday, offsetOfToday)
+			italics[i] = getVal(theme, 'italic', i, weekday, offsetOfToday)
 
 			// Let's see if next day is still in the same month or not.
-			var todayMonth = today.getMonth()
-			today.setDate(today.getDate() + 1)
-			var nextDayMonth = today.getMonth()
-			lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (todayMonth !== nextDayMonth) : false
+			if (plasmoid.configuration.useFakeCalendar) {
+				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (weekday === plasmoid.configuration.fakeLastDayMonth) : false
+			} else {
+				var todayMonth = today.getMonth()
+				today.setDate(today.getDate() + 1)
+				var nextDayMonth = today.getMonth()
+				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (todayMonth !== nextDayMonth) : false
+			}
 		}
 
 		// FIXME: this is lame, but I couldn't make QML notice value changes within
@@ -372,19 +378,23 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	function getField(theme, dayKey, key, fallback) {
-		return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
-	}
-
-	function getVal(theme, key, index, weekday, todayOffset) {
+	// Arguments:
+	//          theme: theme to get values from.
+	//            key: attribute key to get (i.e. 'bg', 'bold').
+	//          index: index of day (grid cell) being processed, relative to first day of the week
+	//                 as shown in grid (i.e. 0 means first cell of the grid, 6, the last one).
+	//        weekday: real day index with 0 being Sunday, 1 Monday, ... 6 Saturday.
+	//  offsetOfToday: today's offset from begin of grid (i.e. 3 means cell 4th indicates day
+	//                 we want to mark as "today").
+	function getVal(theme, key, index, weekday, offsetOfToday) {
 		var result = ''
-		if (index === todayOffset) {
+		if (index === offsetOfToday) {
 			result = theme['today'][key]
 			switch(weekday) {
 				case 0: result = getField(theme, 'todaySunday', key, result); break
 				case 6: result = getField(theme, 'todaySaturday', key, result); break
 			}
-		} else if (index < todayOffset) {
+		} else if (index < offsetOfToday) {
 			result = theme['past'][key]
 			switch(weekday) {
 				case 0: result = getField(theme, 'pastSunday', key, result); break
@@ -398,6 +408,10 @@ ColumnLayout {
 			}
 		}
 		return result
+	}
+
+	function getField(theme, dayKey, key, fallback) {
+		return dayKey in theme && theme[dayKey]['enabled'] ? theme[dayKey][key] : fallback
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------

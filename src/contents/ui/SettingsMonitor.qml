@@ -21,9 +21,8 @@ Item {
 	// Once settings are applied, there'll be burst of changed() signals emited (for each settings property monitored).
 	// I do not need that storm. One approach would be to emit changed() on first emitChangedSignal() and then ignore all
 	// subsequent calls for some time, but that's could trigger premature reaction (i.e. UI update). So I do opposite here.
-	// Each emitChangedSignal() signals signal emit attempt, but the signal is postponed and will only be emited if last
-	// attempt was at least silenceThresholdMillis ago. Any emitSignal() call within that threshold, will zero the delay
-	// counter and postpone signal.
+	// Each emitChangedSignal() call queuest and postpones emit attempt, but the signal will be emited only if last emit
+	// attempt was at least silenceThresholdMillis ago. Any emitSignal() call within that threshold will restart the counter.
 	readonly property int silenceThresholdMillis: 250
 
 	function emitChangedSignal() {
@@ -195,5 +194,13 @@ Item {
 	onFutureSundayBoldChanged: emitChangedSignal()
 	property bool futureSundayItalic: plasmoid.configuration.futureSundayItalic
 	onFutureSundayItalicChanged: emitChangedSignal()
+
+	// Fake Calendar
+	property bool useFakeCalendar: plasmoid.configuration.useFakeCalendar
+	onUseFakeCalendarChanged: emitChangedSignal()
+	property int fakeToday: plasmoid.configuration.fakeToday
+	onFakeTodayChanged: emitChangedSignal()
+	property int fakeLastDayMonth: plasmoid.configuration.fakeLastDayMonth
+	onFakeLastDayMonthChanged: emitChangedSignal()
 
 }
