@@ -84,11 +84,11 @@ only matters for testing.
 
  1. Today in Wednesday: see if past and future days differ from Today.
  1. If using separate style for Saturday/Sunday:
-   1. Set Today to Friday and see if weekend is visually different from Today and past days.
-   1. Set Today to Sunday to see if weekdays differ from Saturday.
+    1. Set Today to Friday and see if weekend is visually different from Today and past days.
+    1. Set Today to Sunday to see if weekdays differ from Saturday.
  1. If using end of the month marker:
-   1. Set both Today and Last Month Day to the same day to ensure it won't blend.
-   1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
+    1. Set both Today and Last Month Day to the same day to ensure it won't blend.
+    1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
 
 #### Item settings ####
 
