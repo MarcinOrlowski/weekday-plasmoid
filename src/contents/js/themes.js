@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false}
 	},
+	"princeton-orange": {
+		"theme":{"name":"Princeton Orange"},
+		"widget":{"bg":"#38726c"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#fffbbb","bg":"#d34e24","bold":false,"italic":false},
+		"today":{"fg":"#563f1b","bg":"#f7f052","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#ffd950","bg":"#563f1b","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#ffd950","bg":"#563f1b","bold":true,"italic":false}
+	},
 	"purple-rain": {
 		"theme":{"name":"Purple Rain"},
 		"widget":{"bg":"#431659"},
