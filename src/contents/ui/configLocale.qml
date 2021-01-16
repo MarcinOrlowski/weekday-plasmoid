@@ -64,21 +64,14 @@ Kirigami.FormLayout {
 		PlasmaComponents.ComboBox {
 			id: nonDefaultWeekStartDayDayIndex
 			enabled: cfg_nonDefaultWeekStartDayEnabled
-
-			// This is to make it work on pre Qt5.14
-			// https://develop.kde.org/docs/plasma/widget/plasma-qml-api/#combobox---multiple-choice
-			property string _valueRole: "value"
-			readonly property var _currentValue: _valueRole && currentIndex >= 0 ? model[currentIndex][_valueRole] : null
-
-			textRole: "text"
 			model: [
-				{ value: 0, text: i18n("Sunday") },
-				{ value: 1, text: i18n("Monday") },
-				{ value: 2, text: i18n("Tuesday") },
-				{ value: 3, text: i18n("Wednesday") },
-				{ value: 4, text: i18n("Thursday") },
-				{ value: 5, text: i18n("Friday") },
-				{ value: 6, text: i18n("Saturday") },
+				i18n("Sunday"),
+				i18n("Monday"),
+				i18n("Tuesday"),
+				i18n("Wednesday"),
+				i18n("Thursday"),
+				i18n("Friday"),
+				i18n("Saturday"),
 			]
 		}
 	}
