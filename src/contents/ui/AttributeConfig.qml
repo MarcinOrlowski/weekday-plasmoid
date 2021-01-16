@@ -58,7 +58,7 @@ RowLayout {
 		var defaultItalic = parentNode['italic'] || false
 
 		return {
-			'enabled': getThemeVal(theme, key, 'enabled', false),
+			'enabled': getThemeVal(theme, key, 'enabled', alwaysEnabled),
 			'fg': getThemeVal(theme, key, 'fg', defaultFg),
 			'bg': getThemeVal(theme, key, 'bg', defaultBg),
 			'bold': getThemeVal(theme, key, 'bold', defaultBold),
