@@ -75,6 +75,10 @@ ColumnLayout {
 	property alias cfg_futureSundayBold: futureSundayConfig.bold
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
+	property alias cfg_useFakeCalendar: useFakeCalendar.checked
+	property alias cfg_fakeToday: fakeToday.currentIndex
+	property alias cfg_fakeLastDayMonth: fakeLastDayMonth.currentIndex
+
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
 		Layout.fillWidth: true
@@ -195,6 +199,51 @@ ColumnLayout {
 		LabelRight { text: i18n('Future Sunday') }
 		AttributeConfig { id: futureSundayConfig }
 	} // customColors (GridLayout)
+
+
+
+	CheckBox {
+		id: useFakeCalendar
+		text: i18n("Use fake calendar values")
+	}
+
+	Kirigami.FormLayout {
+		Layout.fillWidth: true
+		anchors.left: parent.left
+		anchors.right: parent.right
+
+		enabled: cfg_useFakeCalendar
+
+		PlasmaComponents.ComboBox {
+			id: fakeToday
+			Kirigami.FormData.label: i18n("Fake Today")
+			model: [
+				i18n("Sunday"),
+				i18n("Monday"),
+				i18n("Tuesday"),
+				i18n("Wednesday"),
+				i18n("Thursday"),
+				i18n("Friday"),
+				i18n("Saturday"),
+			]
+		}
+
+		PlasmaComponents.ComboBox {
+			id: fakeLastDayMonth
+			Kirigami.FormData.label: i18n("Fake Last Month Day")
+			model: [
+				i18n("Sunday"),
+				i18n("Monday"),
+				i18n("Tuesday"),
+				i18n("Wednesday"),
+				i18n("Thursday"),
+				i18n("Friday"),
+				i18n("Saturday"),
+			]
+		}
+
+	} // FormLayout
+
 
 	Item {
 		Layout.fillWidth: true
