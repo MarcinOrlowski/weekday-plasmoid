@@ -119,6 +119,16 @@ var themes = {
 		"futureSaturday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false},
 		"futureSunday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false}
 	},
+	"red-wine": {
+		"theme":{"name":"Red Wine"},
+		"widget":{"bg":"#fffffa"},
+		"lastDayMonth":{"enabled":true,"bg":"#aaaa00"},
+		"past":{"fg":"#b6b6b3","bg":"#40434e","bold":false,"italic":false},
+		"today":{"fg":"#912f40","bg":"#fffffa","bold":true,"italic":false},
+		"future":{"fg":"#fffffa","bg":"#912f40","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false}
+	},
 	"sea-blue": {
 		"theme":{"name":"Sea Blue"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
