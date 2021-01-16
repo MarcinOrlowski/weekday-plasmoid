@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8524632","bg":"#c3c49e","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8524632","bg":"#c3c49e","bold":true,"italic":false}
 	},
+	"eggplant": {
+		"theme": {"name": "Eggplant"},
+		"widget":{"bg":"#373f51"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#ffffff","bg":"#a26e6d","bold":false,"italic":false},
+		"today":{"fg":"#ffffff","bg":"#4c1a57","bold":true,"italic":false},
+		"future":{"fg":"#e8e8e8","bg":"#b3679b","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#6c4b5e","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#6c4b5e","bold":false,"italic":false}
+	},
 	"feldgrau": {
 		"theme":{"name":"Feldgrau"},
 		"widget":{"bg":"#5b6c5d"},
