@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false}
 	},
+	"orchid": {
+		"theme":{"name":"Orchid"},
+		"widget":{"bg":"#4a3572"},
+		"lastDayMonth":{"enabled":true,"bg":"#f8ba00"},
+		"past":{"fg":"#dadada","bg":"#d664be","bold":false,"italic":false},
+		"today":{"fg":"#bd2d87","bg":"#ffffff","bold":true,"italic":false},
+		"future":{"fg":"#352b4d","bg":"#df99f0","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#b191ff","bg":"#a30015","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#b191ff","bg":"#a30015","bold":true,"italic":false}
+	},
 	"princeton-orange": {
 		"theme":{"name":"Princeton Orange"},
 		"widget":{"bg":"#38726c"},
