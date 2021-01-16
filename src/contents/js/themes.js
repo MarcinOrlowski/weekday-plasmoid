@@ -79,6 +79,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#326478","bold":true,"italic":false}
 	},
+	"sunset": {
+		"theme":{"name":"Sunset"},
+		"widget":{"bg":"#74546b"},
+		"lastDayMonth":{"enabled":true,"bg":"#2effee"},
+		"past":{"enabled":true,"fg":"#ad7c66","bg":"#74546b","bold":true,"italic":false},
+		"today":{"enabled":true,"fg":"#ffb997","bg":"#833b61","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#0b022d","bg":"#f67e7d","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#0b022d","bg":"#f67e7d","bold":false,"italic":false}
+	},
 	"violet": {
 		"theme":{"name":"Violet"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
