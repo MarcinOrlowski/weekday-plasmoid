@@ -99,6 +99,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
+	"lapis-lazuli": {
+		"theme":{"name": "Lapis Lazuli"},
+		"widget":{"bg":"#beb7a4"},
+		"lastDayMonth":{"enabled":true,"bg":"#66ff14"},
+		"past":{"fg":"#151515","bg":"#beb7a4","bold":false,"italic":false},
+		"today":{"fg":"#ffffff","bg":"#ff7f11","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#2660a4","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8ffffff","bg":"#802392","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8ffffff","bg":"#802392","bold":false,"italic":false}
+	},
 	"lavender": {
 		"theme":{"name":"Lavender"},
 		"widget":{"bg":"#4b4c4d"},
