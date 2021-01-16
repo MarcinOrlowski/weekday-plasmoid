@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
+	"lavender": {
+		"theme":{"name":"Lavender"},
+		"widget":{"bg":"#4b4c4d"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#856084","bg":"#c8d4adcf","bold":true,"italic":false},
+		"today":{"fg":"#212121","bg":"#8ff5a2","bold":true,"italic":false},
+		"future":{"fg":"#212121","bg":"#d4adcf","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#ceffc6","bg":"#856084","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#ceffc6","bg":"#856084","bold":true,"italic":false}
+	},
 	"light-periwinkle": {
 		"theme":{"name":"Light Periwinkle"},
 		"widget":{"bg":"#a3c3d9"},
