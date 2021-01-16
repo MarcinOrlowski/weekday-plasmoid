@@ -89,6 +89,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false}
 	},
+	"purple-rain": {
+		"theme":{"name":"Purple Rain"},
+		"widget":{"bg":"#431659"},
+		"lastDayMonth":{"enabled":true,"bg":"#f400bb"},
+		"past":{"fg":"#8c866f","bg":"#210b2c","bold":false,"italic":false},
+		"today":{"fg":"#210b2c","bg":"#bc96e6","bold":true,"italic":false},
+		"future":{"fg":"#ae759f","bg":"#00000000","bold":false,"italic":false},
+		"futureSaturday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false},
+		"futureSunday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false}
+	},
 	"sea-blue": {
 		"theme":{"name":"Sea Blue"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
