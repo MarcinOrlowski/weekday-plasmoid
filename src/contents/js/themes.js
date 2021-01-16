@@ -69,6 +69,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#ffffff","bg":"#707070","bold":true,"italic":false}
 	},
+	"dark-lava": {
+		"theme":{"name":"Dark Lava"},
+		"widget":{"bg":"#4b4c4d"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#9f9f80","bg":"#524632","bold":false,"italic":false},
+		"today":{"fg":"#19150f","bg":"#fff23c","bold":true,"italic":false},
+		"future":{"fg":"#30291d","bg":"#dedbd8","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#c8524632","bg":"#c3c49e","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#c8524632","bg":"#c3c49e","bold":true,"italic":false}
+	},
 	"feldgrau": {
 		"theme":{"name":"Feldgrau"},
 		"widget":{"bg":"#5b6c5d"},
