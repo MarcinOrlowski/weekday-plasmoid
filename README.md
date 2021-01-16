@@ -51,6 +51,7 @@ Allows you to select one of predefined color theme or use custom color styles, a
 
 Allows you to create own color style, either from scratch or using existing theme as your starting point.
 
+
 ![Appearance](img/config-theme.png)
 
  * **Clone this theme**: Copies colors from selected source built-in theme to custom color editior.
@@ -68,6 +69,12 @@ Allows you to create own color style, either from scratch or using existing them
  * **Future**: appearance of remaining, future days of the week.
  * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
  * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
+
+#### Fake calendar ####
+
+To make theme testing easier you can enable "Fake calendar" feature and manually configure data passed to Weekday Grid
+such as day of today and last day of the month. All other appearance settings (incl. i.e. localization, day labels,
+first day of week) are also honored.
 
 #### Item settings ####
 
