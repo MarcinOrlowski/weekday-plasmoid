@@ -212,7 +212,7 @@ ColumnLayout {
 		QtControls.Button {
 			text: i18n('Export to JSON')
 			icon.name: 'document-export'
-			onClicked: textInput.text = JSON.stringify(theme.toJson())
+			onClicked: textInput.text = JSON.stringify(theme.toJson(exportEnabledElementsOnly.checked))
 		}
 
 		QtControls.Button {
@@ -231,6 +231,13 @@ ColumnLayout {
 					console.debug(error)
 				}
 			}
+		}
+	} // RowLayout
+
+	RowLayout {
+		PlasmaComponents.CheckBox {
+			id: exportEnabledElementsOnly
+			text: i18n("Export enabled elements only")
 		}
 	} // RowLayout
 

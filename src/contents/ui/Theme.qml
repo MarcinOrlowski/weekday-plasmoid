@@ -80,8 +80,28 @@ Item {
 
 	// -----------------------------------------------------------------------
 
-	function toJson() {
-		return {
+	// Appends objToAdd if addConditionally is false, otherwise checks value
+	// of boolean node 'enabled' of first key in objToAdd and adds objToAdd
+	// only if 'enabled' is true. objToAdd is expected to be just single
+	// node object (single theme config item).
+	function addIf(targetJson, addConditionally, objToAdd) {
+		var result = targetJson
+		var keys = Object.keys(objToAdd)
+		var key = keys[0]
+		if (addConditionally) {
+			if (objToAdd[key]['enabled']) {
+				result[key] = objToAdd[key]
+			}
+		} else {
+			result[key] = objToAdd[key]
+		}
+		return result
+	}
+
+	// -----------------------------------------------------------------------
+
+	function toJson(exportEnabledElementsOnly) {
+		var json = {
 			'widget': {
 				'bg': widgetBg
 			},
@@ -97,55 +117,70 @@ Item {
 				'bold': pastBold,
 				'italic': pastItalic,
 			},
+		}
+
+		json = addIf(json, exportEnabledElementsOnly, {
 			'pastSaturday': {
 				'enabled': pastSaturdayEnabled,
 				'fg': pastSaturdayFg,
 				'bg': pastSaturdayBg,
 				'bold': pastSaturdayBold,
 				'italic': pastSaturdayItalic,
-			},
+			}
+		})
+		json = addIf(json, exportEnabledElementsOnly, {
 			'pastSunday': {
 				'enabled': pastSundayEnabled,
 				'fg': pastSundayFg,
 				'bg': pastSundayBg,
 				'bold': pastSundayBold,
 				'italic': pastSundayItalic,
-			},
+			}
+		})
+	
+		json['today'] = {
+			'fg': todayFg,
+			'bg': todayBg,
+			'bold': todayBold,
+			'italic': todayItalic,
+		}
 
-			'today': {
-				'fg': todayFg,
-				'bg': todayBg,
-				'bold': todayBold,
-				'italic': todayItalic,
-			},
+		json = addIf(json, exportEnabledElementsOnly, {
 			'todaySaturday': {
 				'enabled': todaySaturdayEnabled,
 				'fg': todaySaturdayFg,
 				'bg': todaySaturdayBg,
 				'bold': todaySaturdayBold,
 				'italic': todaySaturdayItalic,
-			},
+			}
+		})
+		json = addIf(json, exportEnabledElementsOnly, {
 			'todaySunday': {
 				'enabled': todaySundayEnabled,
 				'fg': todaySundayFg,
 				'bg': todaySundayBg,
 				'bold': todaySundayBold,
 				'italic': todaySundayItalic,
-			},
+			}
+		})
 
-			'future': {
-				'fg': futureFg,
-				'bg': futureBg,
-				'bold': futureBold,
-				'italic': futureItalic,
-			},
+		json['future'] = {
+			'fg': futureFg,
+			'bg': futureBg,
+			'bold': futureBold,
+			'italic': futureItalic,
+		}
+
+		json = addIf(json, exportEnabledElementsOnly, {
 			'futureSaturday': {
 				'enabled': futureSaturdayEnabled,
 				'fg': futureSaturdayFg,
 				'bg': futureSaturdayBg,
 				'bold': futureSaturdayBold,
 				'italic': futureSaturdayItalic,
-			},
+			}
+		})
+		json = addIf(json, exportEnabledElementsOnly, {
 			'futureSunday': {
 				'enabled': futureSundayEnabled,
 				'fg': futureSundayFg,
@@ -153,7 +188,9 @@ Item {
 				'bold': futureSundayBold,
 				'italic': futureSundayItalic,
 			}
-		}
+		})
+
+		return json
 	}
 
 	// -----------------------------------------------------------------------
