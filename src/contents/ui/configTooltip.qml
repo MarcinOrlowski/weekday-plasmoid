@@ -20,6 +20,8 @@ Kirigami.FormLayout {
 	property alias cfg_tooltipFirstLineFormat: tooltipFirstLineFormat.text
 	property alias cfg_tooltipSecondLineFormat: tooltipSecondLineFormat.text
 
+	FakeCalendarModeWarning {}
+
 	TextField {
 		id: tooltipFirstLineFormat
 		Kirigami.FormData.label: i18n('First line')

@@ -20,10 +20,7 @@ Kirigami.FormLayout {
 	property alias cfg_calendarViewEnabled: calendarViewEnabled.checked
 	property alias cfg_showWeekNumbers: showWeekNumbers.checked
 
-//	Item {
-//		Kirigami.FormData.label: i18n('Localization')
-//		Kirigami.FormData.isSection: true
-//	}
+	FakeCalendarModeWarning {}
 
 	CheckBox {
 		id: calendarViewEnabled
