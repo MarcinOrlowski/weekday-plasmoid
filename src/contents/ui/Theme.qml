@@ -106,17 +106,19 @@ Item {
 				'bg': widgetBg
 			},
 
+
+		json = addIf(json, exportEnabledElementsOnly, {
 			'lastDayMonth': {
 				'enabled': lastDayMonthEnabled,
 				'bg': lastDayMonthBg,
-			},
+			}
+		}
 
-			'past': {
-				'fg': pastFg,
-				'bg': pastBg,
-				'bold': pastBold,
-				'italic': pastItalic,
-			},
+		json['past'] = {
+			'fg': pastFg,
+			'bg': pastBg,
+			'bold': pastBold,
+			'italic': pastItalic,
 		}
 
 		json = addIf(json, exportEnabledElementsOnly, {
