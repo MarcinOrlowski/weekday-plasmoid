@@ -110,6 +110,7 @@ only matters for testing.
  1. If using end of the month marker:
     1. Set both Today and Last Month Day to the same day to ensure it won't blend.
     1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
+    1. Set Last Month Day to Tuesday and Today to Wednesday to see if it is still visible.
 
 ---
 
