@@ -49,6 +49,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ff007f","bg":"#00253137","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c80064","bg":"#00253137","bold":true,"italic":false}
 	},
+	"blue-crayola": {
+		"theme":{"name":"Blue Crayola"},
+		"widget":{"bg":"#005991"},
+		"lastDayMonth":{"enabled":true,"bg":"#a4e541"},
+		"past":{"fg":"#b5b5b6","bg":"#005488","bold":false,"italic":false},
+		"today":{"fg":"#161515","bg":"#e4cc37","bold":true,"italic":false},
+		"future":{"fg":"#fffffa","bg":"#1e91d6","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false}
+	},
 	"bw-dark": {
 		"theme":{"name":"B&W"},
 		"widget":{"enabled":true,"bg":"#253137"},
