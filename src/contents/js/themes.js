@@ -84,7 +84,7 @@ var themes = {
 		"widget":{"enabled":true,"bg":"#2e3136"},
 		"lastDayMonth":{"enabled":true,"bg":"#FF2effee"},
 		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
-		"past":{"enabked":true, "fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
+		"past":{"enabled":true, "fg":"#50ffffff","bg":"#3c66134c","bold":false,"italic":false},
 		"future":{"enabled":true,"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#c06252c6","bold":false,"italic":false}
