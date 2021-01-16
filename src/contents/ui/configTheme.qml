@@ -217,32 +217,76 @@ ColumnLayout {
 
 		enabled: cfg_useFakeCalendar
 
-		PlasmaComponents.ComboBox {
-			id: fakeToday
+		RowLayout {
 			Kirigami.FormData.label: i18n("Fake Today")
-			model: [
-				i18n("Sunday"),
-				i18n("Monday"),
-				i18n("Tuesday"),
-				i18n("Wednesday"),
-				i18n("Thursday"),
-				i18n("Friday"),
-				i18n("Saturday"),
-			]
+			PlasmaComponents.ComboBox {
+				id: fakeToday
+				model: [
+					i18n("Sunday"),
+					i18n("Monday"),
+					i18n("Tuesday"),
+					i18n("Wednesday"),
+					i18n("Thursday"),
+					i18n("Friday"),
+					i18n("Saturday"),
+				]
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-previous"
+				onClicked: {
+					var idx = (fakeToday.currentIndex > 0) ? (fakeToday.currentIndex - 1) : 6
+					fakeToday.currentIndex = idx
+					plasmoid.configuration['fakeToday'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-next"
+				onClicked: {
+					var idx = (fakeToday.currentIndex + 1) % 7
+					fakeToday.currentIndex = idx
+					plasmoid.configuration['fakeToday'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
 		}
 
-		PlasmaComponents.ComboBox {
-			id: fakeLastDayMonth
+		RowLayout {
 			Kirigami.FormData.label: i18n("Fake Last Month Day")
-			model: [
-				i18n("Sunday"),
-				i18n("Monday"),
-				i18n("Tuesday"),
-				i18n("Wednesday"),
-				i18n("Thursday"),
-				i18n("Friday"),
-				i18n("Saturday"),
-			]
+			PlasmaComponents.ComboBox {
+				id: fakeLastDayMonth
+				model: [
+					i18n("Sunday"),
+					i18n("Monday"),
+					i18n("Tuesday"),
+					i18n("Wednesday"),
+					i18n("Thursday"),
+					i18n("Friday"),
+					i18n("Saturday"),
+				]
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-previous"
+				onClicked: {
+					var idx = (fakeLastDayMonth.currentIndex > 0) ? (fakeLastDayMonth.currentIndex - 1) : 6
+					fakeLastDayMonth.currentIndex = idx
+					plasmoid.configuration['fakeLastDayMonth'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-next"
+				onClicked: {
+					var idx = (fakeLastDayMonth.currentIndex + 1) % 7
+					fakeLastDayMonth.currentIndex = idx
+					plasmoid.configuration['fakeLastDayMonth'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
 		}
 
 	} // FormLayout
