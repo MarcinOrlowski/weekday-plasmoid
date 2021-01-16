@@ -201,7 +201,6 @@ ColumnLayout {
 		today.setDate(today.getDate() - today.getDay() + firstDayOfWeek)
 		for(var i=0; i<7; i++) {
 			var weekday = (i+firstDayOfWeek) % 7
-weekdayOffset=3
 			fgs[i] = getVal(theme, 'fg', i, weekday, weekdayOffset)
 			bgs[i] = getVal(theme, 'bg', i, weekday, weekdayOffset)
 			bolds[i] = getVal(theme, 'bold', i, weekday, weekdayOffset)
