@@ -69,6 +69,16 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
+	"olive": {
+		"theme": {"name":"Olive"},
+		{"widget":{"bg":"#292c25"},
+		"lastDayMonth":{"enabled":true,"bg":"#ff006e"},
+		"past":{"fg":"#865f4f","bg":"#4a5043","bold":true,"italic":false},
+		"today":{"fg":"#070602","bg":"#ffcb47","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#337851","bold":false,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#0b022d","bg":"#a37500","bold":false,"italic":false}
+	},
 	"sea-blue": {
 		"theme":{"name":"Sea Blue"},
 		"widget":{"enabled":true,"bg":"#2e3136"},
