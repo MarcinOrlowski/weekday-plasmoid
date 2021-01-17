@@ -99,6 +99,18 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
+	"ivory": {
+		"theme":{"name":"Ivory"},
+		"widget":{"bg":"#d8d8d8"},
+		"lastDayMonth":{"enabled":true,"bg":"#006361"},
+		"past":{"fg":"#1d1d1a","bg":"#d8d8d8","bold":false,"italic":false},
+		"pastSaturday":{"enabled":true,"fg":"#ffffff","bg":"#b8b8b8","bold":false,"italic":false},
+		"pastSunday":{"enabled":true,"fg":"#ffffff","bg":"#b8b8b8","bold":false,"italic":false},
+		"today":{"fg":"#ffffff","bg":"#ff5e5b","bold":true,"italic":false},
+		"future":{"fg":"#1d1d1a","bg":"#00cecb","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#160800","bg":"#ffed66","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#160800","bg":"#ffed66","bold":false,"italic":false}
+	},
 	"lapis-lazuli": {
 		"theme":{"name": "Lapis Lazuli"},
 		"widget":{"bg":"#beb7a4"},
