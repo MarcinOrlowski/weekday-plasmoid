@@ -202,5 +202,7 @@ Item {
 	onFakeTodayChanged: emitChangedSignal()
 	property int fakeLastDayMonth: plasmoid.configuration.fakeLastDayMonth
 	onFakeLastDayMonthChanged: emitChangedSignal()
+	property int fakeWeekStartDay: plasmoid.configuration.fakeWeekStartDay
+	onFakeWeekStartDayChanged: emitChangedSignal()
 
 }

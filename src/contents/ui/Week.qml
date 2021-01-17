@@ -127,11 +127,10 @@ ColumnLayout {
 		var locale = Qt.locale(localeToUse)
 		firstDayOfWeek = locale.firstDayOfWeek
 
-		if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
+		if (plasmoid.configuration.useFakeCalendar) {
+			firstDayOfWeek = plasmoid.configuration.fakeWeekStartDay
+		} else if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
 			firstDayOfWeek = plasmoid.configuration.nonDefaultWeekStartDayDayIndex
-		} else {
-			var locale = Qt.locale(localeToUse)
-			firstDayOfWeek = locale.firstDayOfWeek
 		}
 
 		var themeKey = plasmoid.configuration.themeName

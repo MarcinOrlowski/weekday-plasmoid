@@ -263,6 +263,9 @@
 		<entry name="fakeLastDayMonth" type="Int">
 			<default>0</default>
 		</entry>
+		<entry name="fakeWeekStartDay" type="Int">
+			<default>0</default>
+		</entry>
 	</group>
 
 	<!-- Calendar View related settings -->

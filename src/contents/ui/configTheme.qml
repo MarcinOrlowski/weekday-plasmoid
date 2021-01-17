@@ -284,6 +284,44 @@ ColumnLayout {
 			}
 		}
 
+		RowLayout {
+			Kirigami.FormData.label: i18n("Fake week start day")
+			PlasmaComponents.ComboBox {
+				id: fakeWeekStartDay
+				model: [
+					i18n("Sunday"),
+					i18n("Monday"),
+					i18n("Tuesday"),
+					i18n("Wednesday"),
+					i18n("Thursday"),
+					i18n("Friday"),
+					i18n("Saturday"),
+				]
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-previous"
+				onClicked: {
+					var idx = (fakeWeekStartDay.currentIndex > 0) ? (fakeWeekStartDay.currentIndex - 1) : 6
+					fakeWeekStartDay.currentIndex = idx
+					plasmoid.configuration['fakeWeekStartDay'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
+			PlasmaComponents.Button {
+				implicitWidth: minimumWidth
+				icon.name: "go-next"
+				onClicked: {
+					var idx = (fakeWeekStartDay.currentIndex + 1) % 7
+					fakeWeekStartDay.currentIndex = idx
+					plasmoid.configuration['fakeWeekStartDay'] = idx
+					plasmoid.configuration['useFakeCalendar'] = true
+				}
+			}
+		}
+
+
+
 	} // FormLayout
 
 

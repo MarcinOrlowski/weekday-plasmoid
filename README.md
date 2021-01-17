@@ -119,9 +119,14 @@ Allows you to create own color style, either from scratch or using existing them
 
 #### Fake calendar ####
 
-To make theme testing easier you can enable "Fake calendar" feature and manually configure data passed to Weekday Grid
-such as day of today and last day of the month. All other appearance settings (incl. i.e. localization, day labels,
-first day of week) are also honored.
+To make theme testing easier you can enable "Use fake calendar" feature and manually configure several parameters normally obtained
+from the calendar and set it to any values helpful for testing  that would otherwise not ever occur (i.e. week starts on Wednesday).
+Currently "Use fake calendar" option overrides include:
+
+ * **Fake Today**: Specify what day you want to be considered "Today".
+ * **Fake month last day**: Tricks widget into believing month ends in week being displayed and lets you specify the last day
+   of the month. Helpful while testing "Month last day" theme marker
+ * **Fake week start day**: Set your fake first day of the week.
 
 **NOTE:** Both "Fake Today" and "Fake month last day" feature previous/next navigation buttons. These will automatically commit
 "Use Fake Calendar" option as enabled. This may not be reflected by "Apply" button so hitting "Cancel" will not disable
