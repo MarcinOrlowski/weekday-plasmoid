@@ -249,7 +249,7 @@ ColumnLayout {
 		}
 
 		RowLayout {
-			Kirigami.FormData.label: i18n("Fake month month day")
+			Kirigami.FormData.label: i18n("Fake month last day")
 			PlasmaComponents.ComboBox {
 				id: fakeLastDayMonth
 				model: [
