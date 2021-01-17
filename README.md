@@ -5,10 +5,11 @@ Weekday Grid widget for KDE
 
 Weekday Grid is a small widget for KDE that sits in your panel and its main role is to show you what the day is today
 in context of whole week. While it may sound bit odd at first, widget renders small, horizontal, 7 cells grid, one cell
-for each day of current and then visually marks them distinguish day of today, past and future and weekends. This lets
-you instantly tell what day of the week it really is, not by name, but rather by "location in time". I personally find
-this extremely helpful. Future versions may add intergration with KDE PIM to add additional markers based on your event
-calendars but this is how it looks now:
+for each day of current and then visually marks them distinguish day of today, past and future and weekends and even
+marks last day of the month. This lets you instantly tell what day of the week it really is, not by name, but rather
+by "location in time" which is suprisingly very helpful in time planing. Future versions may add intergration with
+KDE PIM to add additional markers based on your event calendars but this is how it looks now (with "Wednesday" being
+current day and widget configured with Monday as first day of the week):
 
 ![Widget in action](img/widget01.png)
 ![Widget in action](img/widget02.png)
