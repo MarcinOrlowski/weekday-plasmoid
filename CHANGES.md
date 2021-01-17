@@ -1,4 +1,5 @@
 * @dev
+  * Added huge set of predefined color schemes.
   * Clicking on widget opens CalendarView popup.
   * Added support for user configurable week days' labels
   * Added (optional) visual indicator of last day of the month.
