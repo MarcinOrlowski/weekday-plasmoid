@@ -1,11 +1,14 @@
 ![Weekday Grid Logo](src/contents/images/logo.png)
 
-Weekday Grid Widget for KDE
+Weekday Grid widget for KDE
 ===========================
 
-Weekday Grid is a small widget for KDE that shows what the day is today in context of whole week by rendering small
-horizontal 7 cells grid, one for each week day and visually distinguishing day of today with past and future
-week days.
+Weekday Grid is a small widget for KDE that sits in your panel and its main role is to show you what the day is today
+in context of whole week. While it may sound bit odd at first, widget renders small, horizontal, 7 cells grid, one cell
+for each day of current and then visually marks them distinguish day of today, past and future and weekends. This lets
+you instantly tell what day of the week it really is, not by name, but rather by "location in time". I personally find
+this extremely helpful. Future versions may add intergration with KDE PIM to add additional markers based on your event
+calendars but this is how it looks now:
 
 ![Widget in action](img/widget01.png)
 ![Widget in action](img/widget02.png)
@@ -36,6 +39,9 @@ week days.
 
 ## Configuration ##
 
+Weekday Grid widget is very flexible and configurable by design. Almost all aspects of its look and behavior can be modified
+to fit your needs.
+
 ### Appearance ###
 
 Allows you to select one of predefined color theme or use custom color styles, as defined in "User Theme" pane.
@@ -50,7 +56,6 @@ Allows you to select one of predefined color theme or use custom color styles, a
 ### User Theme ###
 
 Allows you to create own color style, either from scratch or using existing theme as your starting point.
-
 
 ![Appearance](img/config-theme.png)
 
@@ -75,10 +80,10 @@ Allows you to create own color style, either from scratch or using existing them
 ![Theme item settings](img/config-appearance-item.png)
 
  1. Configuration item label,
- 1. On/Off switch for optional configuration items,
- 1. Background color,
- 1. Swaps Background <-> Foreground colors,
- 1. Foreground (text) color,
+ 1. On/Off switch for optional theme elements,
+ 1. Text color,
+ 1. Swaps Background <-> Text colors,
+ 1. Cell background color,
  1. Boldface appearance on/off switch,
  1. Italic appearance on/off switch,
  1. Copy all item attributes to internal clipboard,
@@ -89,7 +94,8 @@ Allows you to create own color style, either from scratch or using existing them
  * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
    by background color as set for specific type of day.
  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
- * If you enable separate configuration for "Future Saturday" and "Future Sunday", background color set for "Future days" will not be used.
+ * If you enable separate configuration for "Future/Past Saturday/Sunday", corresponding background color set for "Future/Past" will not
+   be used and cell colors will only be blended with default widget background color.
 
 #### Fake calendar ####
 
@@ -218,6 +224,8 @@ Allows you to export or import your theme.
 
  * **Export to JSON**: Exports user custom colors as JSON string.
  * **Import from JSON**: Imports theme settings from JSON string.
+ * **Export enabled elements only**: When checked, will export optional theme elements (like i.e. `Past Saturday`) only
+   if it is enabled for being used by the theme, which makes exported JSON smaller.
 
 ---
 
@@ -256,7 +264,7 @@ with `--upgrade` option. This will update current installation while keeping you
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
 so you may want to convince Plasma by doing manual reload:
 
-    kquitapp5 plasmashell && kstart5 plasmashell
+    kquitapp5 plasmashell ; kstart5 plasmashell
 
 **NOTE:** this will **NOT** log you out nor affects any other apps. 
 
