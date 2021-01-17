@@ -130,10 +130,12 @@ Allows you to configure locale used by the widget.
 
 ![Locale](img/config-locale.png)
 
- * **Use non default locale**: system wide (`C`) locale is used to construct day labels. Enable this option and specify name of installed
-   locale (i.e. `en_US`) you want to be used for constructing day labels instead.
- * **Use non default week start day**: first day of the week is obtained from system or specified locale. Enable this option to set that day manually.
- * **Use custom day labels**: enable to use own labels for any of the week days. You can use any character (incl. unicode) that is supported by fonts you use.
+ * **Locale to use**: By default, the system wide locale settings are used while creating day labels. If you want to override this (i.e. have English
+   originated day labels while your whole system uses different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
+   Ensure such locale is available in your system.
+ * **Week start day**: By default, the first day of the week is obtained from system or specified locale, which usually means either Sunday or Monday,
+   depending on localization used. If you want to have it set differently, enable this option and set that day manually.
+ * **Custom day labels**: Enable this option to use own labels for any of the week days. You can use any character (incl. unicode) that is supported by fonts you use.
    * **Sunday**: enable to use own label for Sunday. Label can be one character only or empty string.
    * **Monday**: enable to use own label for Monday. Label can be one character only or empty string.
    * **Tuesday**: enable to use own label for Tuesday. Label can be one character only or empty string.

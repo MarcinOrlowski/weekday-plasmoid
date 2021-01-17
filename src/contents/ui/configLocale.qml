@@ -44,21 +44,20 @@ Kirigami.FormLayout {
 	RowLayout {
 		CheckBox {
 			id: useSpecificLocaleEnabled
-			text: i18n("Use non default locale")
+			text: i18n("Locale to use")
 		}
 
 		TextField {
 			id: useSpecificLocaleLocaleName
 			enabled: cfg_useSpecificLocaleEnabled
 			placeholderText: "en_US"
-			Kirigami.FormData.label: i18n('Name of locale')
 		}
 	}
 
 	RowLayout {
 		CheckBox {
 			id: nonDefaultWeekStartDayEnabled
-			text: i18n("Use non default week start day")
+			text: i18n("Week start day")
 		}
 
 		DaySelector {
@@ -71,7 +70,7 @@ Kirigami.FormLayout {
 
 	CheckBox {
 		id: customDayLabelsEnabled
-		text: i18n("Use custom day labels")
+		text: i18n("Custom day labels")
 	}
 
 	Kirigami.FormLayout {
