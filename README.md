@@ -17,6 +17,24 @@ current day and widget configured with Monday as first day of the week):
 ![Widget in action](img/widget04.png)
 ![Widget in action](img/widget05.png)
 
+## Features ##
+
+ * Small and compact
+ * Fully themable
+   * 25+ built-in color themes
+   * Custom theme editor
+   * Separate color settings for
+     * Past, Today and Future days
+     * Optional separate setup for weekends
+     * Optional marker for last day of the month
+     * Multilayer color blending
+ * Locale aware with ability to override
+   * First day of the week
+   * Week day labels
+ * Fully configurable widget tooltip
+ * Themes export/import
+ * Free and open source.
+
 ---
 
 ## Table of Contents ##
