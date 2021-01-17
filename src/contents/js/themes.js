@@ -181,6 +181,18 @@ var themes = {
 		"futureSaturday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false},
 		"futureSunday":{"enabled":false,"fg":"#ffffff","bg":"#00000000","bold":false,"italic":false}
 	},
+	"rainbow": {
+		"theme":{"name":"Rainbow"},
+		"widget":{"bg":"#253137"},
+		"lastDayMonth":{"enabled":true,"bg":"#ffffff"},
+		"past":{"fg":"#232323","bg":"#ff595e","bold":false,"italic":false},
+		"pastSaturday":{"enabled":true,"fg":"#ffffff","bg":"#c81982c4","bold":false,"italic":false},
+		"pastSunday":{"enabled":true,"fg":"#ffffff","bg":"#c86a4c93","bold":false,"italic":false},
+		"today":{"fg":"#232323","bg":"#ffca3a","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#8ac926","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#ffffff","bg":"#1982c4","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#ffffff","bg":"#6a4c93","bold":false,"italic":false}
+	},
 	"red-wine": {
 		"theme":{"name":"Red Wine"},
 		"widget":{"bg":"#fffffa"},
