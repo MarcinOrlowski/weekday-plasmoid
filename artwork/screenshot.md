@@ -1,1 +1,1 @@
-plasmoidviewer window width: 756 px
+plasmoidviewer window width: 774 px

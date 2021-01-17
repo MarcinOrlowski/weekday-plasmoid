@@ -195,9 +195,9 @@ Item {
 	property bool futureSundayItalic: plasmoid.configuration.futureSundayItalic
 	onFutureSundayItalicChanged: emitChangedSignal()
 
-	// Fake Calendar
-	property bool useFakeCalendar: plasmoid.configuration.useFakeCalendar
-	onUseFakeCalendarChanged: emitChangedSignal()
+	// Fake parameters
+	property bool useFakeParameters: plasmoid.configuration.useFakeParameters
+	onUseFakeParametersChanged: emitChangedSignal()
 	property int fakeToday: plasmoid.configuration.fakeToday
 	onFakeTodayChanged: emitChangedSignal()
 	property int fakeLastDayMonth: plasmoid.configuration.fakeLastDayMonth

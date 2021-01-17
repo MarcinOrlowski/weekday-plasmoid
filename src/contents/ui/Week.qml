@@ -127,7 +127,7 @@ ColumnLayout {
 		var locale = Qt.locale(localeToUse)
 		firstDayOfWeek = locale.firstDayOfWeek
 
-		if (plasmoid.configuration.useFakeCalendar) {
+		if (plasmoid.configuration.useFakeParameters) {
 			firstDayOfWeek = plasmoid.configuration.fakeWeekStartDay
 		} else if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
 			firstDayOfWeek = plasmoid.configuration.nonDefaultWeekStartDayDayIndex
@@ -195,7 +195,7 @@ ColumnLayout {
 
 		// Which grid cell means Today?
 		var now = new Date()
-		var today = plasmoid.configuration.useFakeCalendar ? plasmoid.configuration.fakeToday : now.getDay()
+		var today = plasmoid.configuration.useFakeParameters ? plasmoid.configuration.fakeToday : now.getDay()
 		var offsetOfToday = today - firstDayOfWeek
 		if (offsetOfToday < 0) offsetOfToday += 7
 
@@ -212,7 +212,7 @@ ColumnLayout {
 			italics[i] = getVal(theme, 'italic', i, weekday, offsetOfToday)
 
 			// Let's see if next day is still in the same month or not.
-			if (plasmoid.configuration.useFakeCalendar) {
+			if (plasmoid.configuration.useFakeParameters) {
 				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (weekday === plasmoid.configuration.fakeLastDayMonth) : false
 			} else {
 				var todayMonth = today.getMonth()

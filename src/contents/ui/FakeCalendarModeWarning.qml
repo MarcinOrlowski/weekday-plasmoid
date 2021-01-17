@@ -16,8 +16,8 @@ Kirigami.InlineMessage {
 	Layout.fillWidth: true
 	Layout.margins: Kirigami.Units.smallSpacing
 	type: Kirigami.MessageType.Warning
-	text: 'Widget "Fake Calendar" mode is enabled in "Theme" editor.'
+	text: 'Widget "Fake parameters" mode is enabled in "Theme" editor.'
 	showCloseButton: true
-	visible: plasmoid.configuration.useFakeCalendar
+	visible: plasmoid.configuration.useFakeParameters
 }
 

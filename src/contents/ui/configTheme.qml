@@ -75,7 +75,7 @@ ColumnLayout {
 	property alias cfg_futureSundayBold: futureSundayConfig.bold
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
-	property alias cfg_useFakeCalendar: useFakeCalendar.checked
+	property alias cfg_useFakeParameters: useFakeParameters.checked
 	property alias cfg_fakeToday: fakeToday.currentIndex
 	property alias cfg_fakeLastDayMonth: fakeLastDayMonth.currentIndex
 
@@ -201,8 +201,8 @@ ColumnLayout {
 	}
 
 	CheckBox {
-		id: useFakeCalendar
-		text: i18n("Fake calendar values")
+		id: useFakeParameters
+		text: i18n("Use fake parameters")
 	}
 
 	Kirigami.FormLayout {
@@ -210,7 +210,7 @@ ColumnLayout {
 		anchors.left: parent.left
 		anchors.right: parent.right
 
-		enabled: cfg_useFakeCalendar
+		enabled: cfg_useFakeParameters
 
 		RowLayout {
 			Kirigami.FormData.label: i18n("Fake Today")
@@ -233,7 +233,7 @@ ColumnLayout {
 					var idx = (fakeToday.currentIndex > 0) ? (fakeToday.currentIndex - 1) : 6
 					fakeToday.currentIndex = idx
 					plasmoid.configuration['fakeToday'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 			PlasmaComponents.Button {
@@ -243,7 +243,7 @@ ColumnLayout {
 					var idx = (fakeToday.currentIndex + 1) % 7
 					fakeToday.currentIndex = idx
 					plasmoid.configuration['fakeToday'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 		}
@@ -269,7 +269,7 @@ ColumnLayout {
 					var idx = (fakeLastDayMonth.currentIndex > 0) ? (fakeLastDayMonth.currentIndex - 1) : 6
 					fakeLastDayMonth.currentIndex = idx
 					plasmoid.configuration['fakeLastDayMonth'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 			PlasmaComponents.Button {
@@ -279,7 +279,7 @@ ColumnLayout {
 					var idx = (fakeLastDayMonth.currentIndex + 1) % 7
 					fakeLastDayMonth.currentIndex = idx
 					plasmoid.configuration['fakeLastDayMonth'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 		}
@@ -305,7 +305,7 @@ ColumnLayout {
 					var idx = (fakeWeekStartDay.currentIndex > 0) ? (fakeWeekStartDay.currentIndex - 1) : 6
 					fakeWeekStartDay.currentIndex = idx
 					plasmoid.configuration['fakeWeekStartDay'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 			PlasmaComponents.Button {
@@ -315,11 +315,10 @@ ColumnLayout {
 					var idx = (fakeWeekStartDay.currentIndex + 1) % 7
 					fakeWeekStartDay.currentIndex = idx
 					plasmoid.configuration['fakeWeekStartDay'] = idx
-					plasmoid.configuration['useFakeCalendar'] = true
+					plasmoid.configuration['useFakeParameters'] = true
 				}
 			}
 		}
-
 
 
 	} // FormLayout

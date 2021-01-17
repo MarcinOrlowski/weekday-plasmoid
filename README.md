@@ -47,6 +47,7 @@ This is how it looks now, with Wednesday being current day and widget configured
    * [Calendar View](#calendar-view)
    * [Tooltip](#tooltip)
    * [Import/Export](#import-export)
+ * [Custom themes](#custom-themes)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -95,6 +96,8 @@ Allows you to create own color style, either from scratch or using existing them
  * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
  * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
 
+**NOTE:** Options present in "Fake parameters" group are documented in [Custom themes](#custom-themes) chapter.
+
 #### Item settings ####
 
 ![Theme item settings](img/config-appearance-item.png)
@@ -116,39 +119,6 @@ Allows you to create own color style, either from scratch or using existing them
  * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
  * If you enable separate configuration for "Future/Past Saturday/Sunday", corresponding background color set for "Future/Past" will not
    be used and cell colors will only be blended with default widget background color.
-
-#### Fake calendar ####
-
-To make theme testing easier you can enable "Use fake calendar" feature and manually configure several parameters normally obtained
-from the calendar and set it to any values helpful for testing  that would otherwise not ever occur (i.e. week starts on Wednesday).
-Currently "Use fake calendar" option overrides include:
-
- * **Fake Today**: Specify what day you want to be considered "Today".
- * **Fake month last day**: Tricks widget into believing month ends in week being displayed and lets you specify the last day
-   of the month. Helpful while testing "Month last day" theme marker
- * **Fake week start day**: Set your fake first day of the week.
-
-**NOTE:** Both "Fake Today" and "Fake month last day" feature previous/next navigation buttons. These will automatically commit
-"Use Fake Calendar" option as enabled. This may not be reflected by "Apply" button so hitting "Cancel" will not disable
-fake calendar feature. You need to uncheck this option and "Apply" or, in case you made more changes to the settings you do
-not want to apply, close and reopen settings window, then uncheck "Use Fake Calendar" and "Apply" to disable it.
-
-#### Theme testing checklist ####
-
-While testing your theme, the following cases should be validated. The following checklist assumes
-Monday is first day of the week (thus occupies first cell in the grid), the last is Sunday. This
-only matters for testing.
-
- 1. Today in Wednesday: see if past and future days differ from Today.
- 1. If using separate style for Saturday/Sunday:
-    1. Set Today to Friday and see if weekend is visually different from Today and past days.
-    1. Set Today to Sunday to see if weekdays differ from Saturday.
- 1. If using separate style for Past Saturday/Sunday:
-    1. Set week to start on Wednesday, so weekend days are in the middle of grid.
- 1. If using end of the month marker:
-    1. Set both Today and Last Month Day to the same day to ensure it won't blend.
-    1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
-    1. Set Last Month Day to Tuesday and Today to Wednesday to see if it is still visible.
 
 ---
 
@@ -253,6 +223,49 @@ Allows you to export or import your theme.
  * **Import from JSON**: Imports theme settings from JSON string.
  * **Export enabled elements only**: When checked, will export optional theme elements (like i.e. `Past Saturday`) only
    if it is enabled for being used by the theme, which makes exported JSON smaller.
+
+---
+
+## Custom themes ##
+
+To allow you to widely test your theme configuration for variety of cases (see suggested checklist below), "Theme" configuration
+pane offers ability to use "fake" parameters for easier testing.
+
+### Testing with fake parameters ###
+
+![Fake parameters](img/config-theme-testing.png)
+
+To make theme testing easier you can enable "Use fake parameters" feature and manually configure several parameters normally obtained
+from the calendar and set it to any values helpful for testing  that would otherwise not ever occur (i.e. week starts on Wednesday).
+Currently "Use fake parameters" option overrides include:
+
+ * **Fake Today**: Specify what day you want to be considered "Today".
+ * **Fake month last day**: Tricks widget into believing month ends in week being displayed and lets you specify the last day
+   of the month. Helpful while testing "Month last day" theme marker
+ * **Fake week start day**: Set your fake first day of the week.
+
+**NOTE:** Both "Fake Today" and "Fake month last day" feature previous/next navigation buttons. These will automatically commit
+"Use Fake Calendar" option as enabled. This may not be reflected by "Apply" button so hitting "Cancel" will not disable
+fake calendar feature. You need to uncheck this option and "Apply" or, in case you made more changes to the settings you do
+not want to apply, close and reopen settings window, then uncheck "Use Fake Calendar" and "Apply" to disable it.
+
+#### Theme testing checklist ####
+
+While testing your theme, the following cases should be validated. The following checklist assumes
+Monday is first day of the week (thus occupies first cell in the grid), the last is Sunday. This
+only matters for testing.
+
+ 1. Today in Wednesday: see if past and future days differ from Today.
+ 1. If using separate style for Saturday/Sunday:
+    1. Set Today to Friday and see if weekend is visually different from Today and past days.
+    1. Set Today to Sunday to see if weekdays differ from Saturday.
+ 1. If using separate style for Past Saturday/Sunday:
+    1. Set week to start on Wednesday, so weekend days are in the middle of grid.
+ 1. If using end of the month marker:
+    1. Set both Today and Last Month Day to the same day to ensure it won't blend.
+    1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
+    1. Set Last Month Day to Tuesday and Today to Wednesday to see if it is still visible.
+
 
 ---
 

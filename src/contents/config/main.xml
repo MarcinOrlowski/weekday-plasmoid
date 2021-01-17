@@ -254,7 +254,7 @@
 
 	<!-- fake calendar settings -->
 	<group name="FakeCalendar">
-		<entry name="useFakeCalendar" type="Bool">
+		<entry name="useFakeParameters" type="Bool">
 			<default>false</default>
 		</entry>
 		<entry name="fakeToday" type="Int">
