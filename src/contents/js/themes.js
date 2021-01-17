@@ -91,11 +91,15 @@ var themes = {
 	},
 	"forest": {
 		"theme":{"name":"Forest"},
-		"widget":{"enabled":true,"bg":"#2e3136"},
-		"lastDayMonth":{"enabled":true,"bg":"#FFaaff00"},
-		"today":{"enabled":true,"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
-		"past":{"enabled":true,"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
-		"future":{"enabled":true,"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
+		"widget":{"bg":"#2e3136"},
+		"lastDayMonth":{"enabled":true,"bg":"#aaff00"},
+		"past":{"fg":"#50ffffff","bg":"#482d3e","bold":false,"italic":false},
+		"pastSaturday":{"enabled":true,"fg":"#50ffff7f","bg":"#c82f1d28","bold":true,"italic":false},
+		"pastSunday":{"enabled":true,"fg":"#50ffff7f","bg":"#c82f1d28","bold":true,"italic":false},
+		"today":{"fg":"#ffffff","bg":"#ff006e","bold":true,"italic":false},
+		"todaySaturday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
+		"todaySunday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
 	},
@@ -140,6 +144,18 @@ var themes = {
 		"future":{"fg":"#444444","bg":"#ccd6eb","bold":true,"italic":false},
 		"futureSaturday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#ceffc6","bg":"#1e91d6","bold":true,"italic":false}
+	},
+	"neon": {
+		"theme":{"name":"Neon"},
+		"widget":{"bg":"#120508"},
+		"lastDayMonth":{"enabled":true,"bg":"#d95699"},
+		"past":{"fg":"#a700d9","bg":"#230844","bold":false,"italic":false},
+		"pastSaturday":{"enabled":true,"fg":"#099162","bg":"#5e1e27","bold":false,"italic":false},
+		"pastSunday":{"enabled":true,"fg":"#099162","bg":"#5e1e27","bold":false,"italic":false},
+		"today":{"fg":"#080721","bg":"#16f5cb","bold":true,"italic":false},
+		"future":{"fg":"#fb25b1","bg":"#58029e","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#11f4a5","bg":"#140d3f","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#11f4a5","bg":"#140d3f","bold":true,"italic":false}
 	},
 	"olive": {
 		"theme": {"name":"Olive"},
