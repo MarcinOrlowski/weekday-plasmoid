@@ -169,6 +169,15 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#797f93","bg":"#702632","bold":false,"italic":false}
 	},
+	"rosewood": {
+		"theme":{"name":"Rosewood"},
+		"widget":{"bg":"#03071e"},
+		"past":{"fg":"#faa307","bg":"#370617","bold":false,"italic":false},
+		"today":{"fg":"#03071e","bg":"#e85d04","bold":true,"italic":false},
+		"future":{"fg":"#ffffff","bg":"#d00000","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#e85d04","bg":"#6a040f","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#e85d04","bg":"#6a040f","bold":false,"italic":false}
+	},
 	"rusty": {
 		"theme": {"name": "Rusty"},
 		"widget":{"bg":"#691e06"},
