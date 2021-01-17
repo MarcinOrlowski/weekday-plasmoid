@@ -84,12 +84,7 @@ ColumnLayout {
 		Layout.fillWidth: true
 		Layout.margins: Kirigami.Units.smallSpacing
 		type: Kirigami.MessageType.Information
-		text: {
-			return !plasmoid.configuration.useUserTheme
-					? i18n('You are currently using built-in theme "%1". No changes in this pane will be reflected unless you enable "Use user theme" option in "Appearance" pane.',
-							Themes.themes[plasmoid.configuration.themeName]['theme']['name'])
-					: ''
-		}
+		text: i18n('You are currently using built-in theme. No changes in this pane will be reflected unless you enable "Use user theme" option in "Appearance" pane.')
 		showCloseButton: true
 		visible: !plasmoid.configuration.useUserTheme
 	}
@@ -254,7 +249,7 @@ ColumnLayout {
 		}
 
 		RowLayout {
-			Kirigami.FormData.label: i18n("Fake Last Month Day")
+			Kirigami.FormData.label: i18n("Fake month month day")
 			PlasmaComponents.ComboBox {
 				id: fakeLastDayMonth
 				model: [
