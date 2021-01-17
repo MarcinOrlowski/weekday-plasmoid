@@ -161,6 +161,18 @@ var themes = {
 		"futureSaturday":{"enabled":true,"fg":"#b191ff","bg":"#a30015","bold":true,"italic":false},
 		"futureSunday":{"enabled":true,"fg":"#b191ff","bg":"#a30015","bold":true,"italic":false}
 	},
+	"pneuma": {
+		"theme": {"name":"Pneuma"},
+		"widget":{"bg":"#120508"},
+		"lastDayMonth":{"enabled":true,"bg":"#e46538"},
+		"past":{"fg":"#dd3960","bg":"#57171d","bold":false,"italic":false},
+		"pastSaturday":{"enabled":true,"fg":"#a22a7c","bg":"#3f1234","bold":false,"italic":false},
+		"pastSunday":{"enabled":true,"fg":"#a22a7c","bg":"#c857171d","bold":false,"italic":false},
+		"today":{"fg":"#f3abe8","bg":"#a93080","bold":true,"italic":false},
+		"future":{"fg":"#1e0718","bg":"#6b165b","bold":true,"italic":false},
+		"futureSaturday":{"enabled":true,"fg":"#dca296","bg":"#3f1234","bold":false,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#dca296","bg":"#3f1234","bold":false,"italic":false}
+	},
 	"princeton-orange": {
 		"theme":{"name":"Princeton Orange"},
 		"widget":{"bg":"#38726c"},
