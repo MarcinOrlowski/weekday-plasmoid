@@ -48,6 +48,8 @@ This is how it looks now, with Wednesday being current day and widget configured
    * [Tooltip](#tooltip)
    * [Import/Export](#import-export)
  * [Custom themes](#custom-themes)
+   * [Testing with fake parameters](#testing-with-fake-parameters)
+   * [Testing checklist](#testing-checklist)
  * [Installation](#installation)
    * [Using built-in installer](#using-built-in-installer)
    * [Manual installation](#manual-installation)
@@ -249,7 +251,7 @@ Currently "Use fake parameters" option overrides include:
 fake calendar feature. You need to uncheck this option and "Apply" or, in case you made more changes to the settings you do
 not want to apply, close and reopen settings window, then uncheck "Use Fake Calendar" and "Apply" to disable it.
 
-#### Theme testing checklist ####
+### Testing checklist ###
 
 While testing your theme, the following cases should be validated. The following checklist assumes
 Monday is first day of the week (thus occupies first cell in the grid), the last is Sunday. This
