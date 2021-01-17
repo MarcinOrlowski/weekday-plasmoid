@@ -20,7 +20,7 @@ Kirigami.FormLayout {
 	property alias cfg_useSpecificLocaleEnabled: useSpecificLocaleEnabled.checked
 	property alias cfg_useSpecificLocaleLocaleName: useSpecificLocaleLocaleName.text
 	property alias cfg_nonDefaultWeekStartDayEnabled: nonDefaultWeekStartDayEnabled.checked
-	property alias cfg_nonDefaultWeekStartDayDayIndex: nonDefaultWeekStartDayDayIndex.currentIndex
+	property alias cfg_nonDefaultWeekStartDayDayIndex: nonDefaultWeekStartDayDayIndex.value
 
 	property alias cfg_customDayLabelsEnabled: customDayLabelsEnabled.checked
 
@@ -61,18 +61,9 @@ Kirigami.FormLayout {
 			text: i18n("Use non default week start day")
 		}
 
-		PlasmaComponents.ComboBox {
+		DaySelector {
 			id: nonDefaultWeekStartDayDayIndex
 			enabled: cfg_nonDefaultWeekStartDayEnabled
-			model: [
-				i18n("Sunday"),
-				i18n("Monday"),
-				i18n("Tuesday"),
-				i18n("Wednesday"),
-				i18n("Thursday"),
-				i18n("Friday"),
-				i18n("Saturday"),
-			]
 		}
 	}
 

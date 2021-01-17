@@ -76,8 +76,8 @@ ColumnLayout {
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
 	property alias cfg_useFakeParameters: useFakeParameters.checked
-	property alias cfg_fakeToday: fakeToday.currentIndex
-	property alias cfg_fakeLastDayMonth: fakeLastDayMonth.currentIndex
+//	property alias cfg_fakeToday: fakeToday.currentIndex
+//	property alias cfg_fakeLastDayMonth: fakeLastDayMonth.currentIndex
 
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
@@ -212,114 +212,29 @@ ColumnLayout {
 
 		enabled: cfg_useFakeParameters
 
-		RowLayout {
+		DaySelector {
 			Kirigami.FormData.label: i18n("Fake Today")
-			PlasmaComponents.ComboBox {
-				id: fakeToday
-				model: [
-					i18n("Sunday"),
-					i18n("Monday"),
-					i18n("Tuesday"),
-					i18n("Wednesday"),
-					i18n("Thursday"),
-					i18n("Friday"),
-					i18n("Saturday"),
-				]
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-previous"
-				onClicked: {
-					var idx = (fakeToday.currentIndex > 0) ? (fakeToday.currentIndex - 1) : 6
-					fakeToday.currentIndex = idx
-					plasmoid.configuration['fakeToday'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-next"
-				onClicked: {
-					var idx = (fakeToday.currentIndex + 1) % 7
-					fakeToday.currentIndex = idx
-					plasmoid.configuration['fakeToday'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
+			onChanged: {
+				plasmoid.configuration['fakeToday'] = dayIndex
+				plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
 
-		RowLayout {
+		DaySelector {
 			Kirigami.FormData.label: i18n("Fake month last day")
-			PlasmaComponents.ComboBox {
-				id: fakeLastDayMonth
-				model: [
-					i18n("Sunday"),
-					i18n("Monday"),
-					i18n("Tuesday"),
-					i18n("Wednesday"),
-					i18n("Thursday"),
-					i18n("Friday"),
-					i18n("Saturday"),
-				]
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-previous"
-				onClicked: {
-					var idx = (fakeLastDayMonth.currentIndex > 0) ? (fakeLastDayMonth.currentIndex - 1) : 6
-					fakeLastDayMonth.currentIndex = idx
-					plasmoid.configuration['fakeLastDayMonth'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-next"
-				onClicked: {
-					var idx = (fakeLastDayMonth.currentIndex + 1) % 7
-					fakeLastDayMonth.currentIndex = idx
-					plasmoid.configuration['fakeLastDayMonth'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
+			onChanged: {
+				plasmoid.configuration['fakeLastDayMonth'] = dayIndex
+				plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
 
-		RowLayout {
+		DaySelector {
 			Kirigami.FormData.label: i18n("Fake week start day")
-			PlasmaComponents.ComboBox {
-				id: fakeWeekStartDay
-				model: [
-					i18n("Sunday"),
-					i18n("Monday"),
-					i18n("Tuesday"),
-					i18n("Wednesday"),
-					i18n("Thursday"),
-					i18n("Friday"),
-					i18n("Saturday"),
-				]
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-previous"
-				onClicked: {
-					var idx = (fakeWeekStartDay.currentIndex > 0) ? (fakeWeekStartDay.currentIndex - 1) : 6
-					fakeWeekStartDay.currentIndex = idx
-					plasmoid.configuration['fakeWeekStartDay'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
-			}
-			PlasmaComponents.Button {
-				implicitWidth: minimumWidth
-				icon.name: "go-next"
-				onClicked: {
-					var idx = (fakeWeekStartDay.currentIndex + 1) % 7
-					fakeWeekStartDay.currentIndex = idx
-					plasmoid.configuration['fakeWeekStartDay'] = idx
-					plasmoid.configuration['useFakeParameters'] = true
-				}
+			onChanged: {
+				plasmoid.configuration['fakeWeekStartDay'] = dayIndex
+				plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
-
 
 	} // FormLayout
 
