@@ -104,7 +104,7 @@ To make theme testing easier you can enable "Fake calendar" feature and manually
 such as day of today and last day of the month. All other appearance settings (incl. i.e. localization, day labels,
 first day of week) are also honored.
 
-**NOTE:** Both "Fake Today" and "Fake Last Month Day" feature previous/next navigation buttons. These will automatically commit
+**NOTE:** Both "Fake Today" and "Fake month last day" feature previous/next navigation buttons. These will automatically commit
 "Use Fake Calendar" option as enabled. This may not be reflected by "Apply" button so hitting "Cancel" will not disable
 fake calendar feature. You need to uncheck this option and "Apply" or, in case you made more changes to the settings you do
 not want to apply, close and reopen settings window, then uncheck "Use Fake Calendar" and "Apply" to disable it.
