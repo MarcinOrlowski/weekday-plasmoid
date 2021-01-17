@@ -60,12 +60,20 @@ Item {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	Plasmoid.toolTipMainText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		return DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+		var msg = i18n("Widget is in Fake Parameters mode now.")
+		if (!plasmoid.configuration.useFakeParameters) {
+			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+			msg = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+		}
+		return msg
 	}
 	Plasmoid.toolTipSubText: {
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
-		return DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+		var msg = i18n("Disable it in Settings/User Theme.")
+		if (!plasmoid.configuration.useFakeParameters) {
+			var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled ? plasmoid.configuration.useSpecificLocaleLocaleName : ''
+			msg = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+		}
+		return msg
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
