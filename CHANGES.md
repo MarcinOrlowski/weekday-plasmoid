@@ -8,9 +8,9 @@
   * Added support for theme export/import (as JSON).
   * Theme switcher no longer changes theme instantly bug follows Apply/Cancel pattern.
   * Separated user theme configuration pane from Appearance config.
-  * Replaced use of Timer with hour aligned data source to make widged less resource hungry.
+  * Replaced use of Timer with hour aligned data source to make widget less resource hungry.
   * Theme editor features "Fake calendar" mode now, to make theme testing a breeze.
-  * Fixed widget tooltip's sub-text not working properly.
+  * Fixed widget's tooltip sub-text not working properly.
 
 * v1.4.0 (2021-01-10)
   * Added bunch of predefined color schemes.
