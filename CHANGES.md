@@ -1,4 +1,4 @@
-* @dev
+* v1.5.0 (2021-01-19)
   * Added huge set of predefined color schemes.
   * Clicking on widget opens CalendarView popup.
   * Added support for user configurable week days' labels
