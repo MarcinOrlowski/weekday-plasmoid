@@ -18,12 +18,16 @@ Rectangle {
 	property string bg: "#00000000"
 	property bool bold: false
 	property bool italic: false
+	property bool lastDay: false
+	property string lastDayBg: "#FF00ff00"
 
-	implicitWidth: dayLabel.implicitWidth
+	readonly property int lastDayWidth: 2
+
+	implicitWidth: dayLabel.implicitWidth + (lastDay ? lastDayWidth : 0)
 	implicitHeight: dayLabel.implicitHeight
 
 	Layout.fillWidth: true
-	Layout.minimumWidth: weekGrid.cellMinWidth
+	Layout.minimumWidth: weekGrid.cellMinWidth + (lastDay ? lastDayWidth : 0)
 	Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 	Layout.margins: 0
 
@@ -45,5 +49,14 @@ Rectangle {
 		horizontalAlignment: Text.AlignHCenter
 		verticalAlignment: Text.AlignVCenter
 		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+	}
+
+	Rectangle {
+		visible: lastDay
+		anchors.right: parent.right
+		anchors.top: parent.top
+		anchors.bottom: parent.bottom
+		implicitWidth: lastDayWidth
+		color: lastDayBg
 	}
 }

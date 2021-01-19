@@ -11,8 +11,8 @@ import QtQuick 2.0
 import QtQuick.Controls 2.3 as QtControls
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
-import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.kquickcontrols 2.0 as KQControls
+import org.kde.plasma.components 3.0 as PlasmaComponents
 import org.kde.plasma.plasmoid 2.0
 import "../js/themes.js" as Themes
 
@@ -20,15 +20,18 @@ ColumnLayout {
 	Layout.fillWidth: true
 	Layout.fillHeight: true
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	Theme {
 		id: theme
 	}
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	property alias cfg_widgetBg: theme.widgetBg
+
+	property alias cfg_lastDayMonthEnabled: theme.lastDayMonthEnabled
+	property alias cfg_lastDayMonthBg: theme.lastDayMonthBg
 
 	// past
 	property alias cfg_pastFg: theme.pastFg
@@ -86,158 +89,163 @@ ColumnLayout {
 
 	// -----------------------------------------------------------------------
 
-	readonly property bool customColorsEnabled: plasmoid.configuration.themeName === Themes.custom
+	/*
+	** Imports theme from JSON object to cfg_* properties.
+	*/ 
+	function fromJson(j) {
+		var result = false
+
+		cfg_widgetBg = j.widget.bg || theme.defaultBg
+
+		cfg_lastDayMonthEnabled = j.lastDayMonth.enabled || false
+		cfg_lastDayMonthBg = j.lastDayMonth.bg || theme.defaultBg
+
+		cfg_pastFg = j.past.fg || theme.defaultFg
+		cfg_pastBg = j.past.bg || theme.defaultBg
+		cfg_pastBold = j.past.bold || theme.defaultBold
+		cfg_pastItalic = j.past.italic || theme.defaultItalic
+
+		cfg_pastSaturdayEnabled = j.pastSaturdayEnabled || false
+		cfg_pastSaturdayFg = j.pastSaturday.fg || theme.defaultFg
+		cfg_pastSaturdayBg = j.pastSaturday.bg || theme.defaultBg
+		cfg_pastSaturdayBold = j.pastSaturday.bold || theme.defaultBold
+		cfg_pastSaturdayItalic = j.pastSaturday.italic || theme.defaultItalic
+
+		cfg_pastSundayEnabled = j.pastSundayEnabled || false
+		cfg_pastSundayFg = j.pastSunday.fg || theme.defaultFg
+		cfg_pastSundayBg = j.pastSunday.bg || theme.defaultBg
+		cfg_pastSundayBold = j.pastSunday.bold || theme.defaultBold
+		cfg_pastSundayItalic = j.pastSunday.italic || theme.defaultItalic
+
+		cfg_futureFg = j.future.fg || theme.defaultFg
+		cfg_futureBg = j.future.bg || theme.defaultBg
+		cfg_futureBold = j.future.bold || theme.defaultBold
+		cfg_futureItalic = j.future.italic || theme.defaultItalic
+
+		cfg_futureSaturdayEnabled = j.futureSaturdayEnabled || false
+		cfg_futureSaturdayFg = j.futureSaturday.fg || theme.defaultFg
+		cfg_futureSaturdayBg = j.futureSaturday.bg || theme.defaultBg
+		cfg_futureSaturdayBold = j.futureSaturday.bold || theme.defaultBold
+		cfg_futureSaturdayItalic = j.futureSaturday.italic || theme.defaultItalic
+
+		cfg_futureSundayEnabled = j.futureSundayEnabled || false
+		cfg_futureSundayFg = j.futureSunday.fg || theme.defaultFg
+		cfg_futureSundayBg = j.futureSunday.bg || theme.defaultBg
+		cfg_futureSundayBold = j.futureSunday.bold || theme.defaultBold
+		cfg_futureSundayItalic = j.futureSunday.italic || theme.defaultItalic
+	}
 
 	// -----------------------------------------------------------------------
 
+	FakeCalendarModeWarning {}
+
 	Kirigami.InlineMessage {
-		id: messageWidget
+		id: infoMessageWidget
 		Layout.fillWidth: true
 		Layout.margins: Kirigami.Units.smallSpacing
-		type: Kirigami.MessageType.Notice
-		text: i18n('Custom colors must be enabled for this feature to work.')
-		showCloseButton: false
-		visible: !customColorsEnabled
+		type: Kirigami.MessageType.Information
+		text: i18n('OK')
+		showCloseButton: true
+		visible: false
+	}
+
+	Kirigami.InlineMessage {
+		id: errorMessageWidget
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Error
+		text: i18n('Error occured.')
+		showCloseButton: true
+		visible: false
 	}
 
 	QtControls.TextArea {
 		id: textInput
 		Layout.fillWidth: true
 		Layout.fillHeight: true
-		enabled: customColorsEnabled
 		selectByMouse: true
 
 		MouseArea {
 			anchors.fill: parent
 			acceptedButtons: Qt.RightButton
 			hoverEnabled: true
-   			onClicked: {
-        	    var selectStart = textInput.selectionStart;
-            	var selectEnd = textInput.selectionEnd;
-	            var curPos = textInput.cursorPosition;
-	            contextMenu.x = mouse.x;
-	            contextMenu.y = mouse.y;
-	            contextMenu.open();
-    	        textInput.cursorPosition = curPos;
-	            textInput.select(selectStart,selectEnd);
-	        }
-	        onPressAndHold: {
-    	        if (mouse.source === Qt.MouseEventNotSynthesized) {
-        	        var selectStart = textInput.selectionStart;
-            	    var selectEnd = textInput.selectionEnd;
-	                var curPos = textInput.cursorPosition;
-    	            contextMenu.x = mouse.x;
-        	        contextMenu.y = mouse.y;
-            	    contextMenu.open();
-	                textInput.cursorPosition = curPos;
-    	            textInput.select(selectStart,selectEnd);
-        	    }
-	        }
+			onClicked: {
+				var selectStart = textInput.selectionStart;
+				var selectEnd = textInput.selectionEnd;
+				var curPos = textInput.cursorPosition;
+				contextMenu.x = mouse.x;
+				contextMenu.y = mouse.y;
+				contextMenu.open();
+				textInput.cursorPosition = curPos;
+				textInput.select(selectStart,selectEnd);
+			}
+			onPressAndHold: {
+				if (mouse.source === Qt.MouseEventNotSynthesized) {
+					var selectStart = textInput.selectionStart;
+					var selectEnd = textInput.selectionEnd;
+					var curPos = textInput.cursorPosition;
+					contextMenu.x = mouse.x;
+					contextMenu.y = mouse.y;
+					contextMenu.open();
+					textInput.cursorPosition = curPos;
+					textInput.select(selectStart,selectEnd);
+				}
+			}
 
-    	    QtControls.Menu {
-        	    id: contextMenu
-            	QtControls.MenuItem {
-		            text: i18n("Cut")
-        	        onTriggered: textInput.cut()
-	            }
-    	        QtControls.MenuItem {
-        	        text: i18n("Copy")
-	                onTriggered: textInput.copy()
-    	        }
-        	    QtControls.MenuItem {
-            	    text: i18n("Paste")
-	                onTriggered: textInput.paste()
-    	        }
-	        }
-    	}
+			QtControls.Menu {
+				id: contextMenu
+				QtControls.MenuItem {
+					text: i18n("Cut")
+					onTriggered: textInput.cut()
+				}
+				QtControls.MenuItem {
+					text: i18n("Copy")
+					onTriggered: textInput.copy()
+				}
+				QtControls.MenuItem {
+					text: i18n("Paste")
+					onTriggered: textInput.paste()
+				}
+			}
+		}
 	}
 
 	RowLayout {
-		enabled: customColorsEnabled
-
 		QtControls.Button {
-			text: i18n('Export')
+			text: i18n('Export to JSON')
 			icon.name: 'document-export'
-			onClicked: textInput.text = JSON.stringify(theme.toJson())
+			onClicked: textInput.text = JSON.stringify(theme.toJson(exportEnabledElementsOnly.checked))
 		}
 
 		QtControls.Button {
-			text: i18n('Import')
+			text: i18n('Import from JSON')
 			icon.name: 'document-import'
 			onClicked: {
 				try {
 					var json = JSON.parse(textInput.text)
-
-console.debug(JSON.stringify(json))
-
-/*
-					plasmoid.configuration.customColorsWidgetBg = json['widget']['bg']
-
-					plasmoid.configuration.customColorsPastFg = json['past']['fg']
-					plasmoid.configuration.customColorsPastBg = json['past']['bg']
-					plasmoid.configuration.customColorsPastBold = json['past']['bold']
-					plasmoid.configuration.customColorsPastItalic = json['past']['italic']
-
-					plasmoid.configuration.customColorsPastSaturdayEnabled = json['pastSaturday']['enabled']
-					plasmoid.configuration.customColorsPastSaturdayFg = json['pastSaturday']['fg']
-					plasmoid.configuration.customColorsPastSaturdayBg = json['pastSaturday']['bg']
-					plasmoid.configuration.customColorsPastSaturdayBold = json['pastSaturday']['bold']
-					plasmoid.configuration.customColorsPastSaturdayItalic = json['pastSaturday']['italic']
-
-					plasmoid.configuration.customColorsPastSundayEnabled = json['pastSunday']['enabled']
-					plasmoid.configuration.customColorsPastSundayFg = json['pastSunday']['fg']
-					plasmoid.configuration.customColorsPastSundayBg = json['pastSunday']['bg']
-					plasmoid.configuration.customColorsPastSundayBold = json['pastSunday']['bold']
-					plasmoid.configuration.customColorsPastSundayItalic = json['pastSunday']['italic']
-	
-
-					plasmoid.configuration.customColorsTodayFg = json['today']['fg']
-					plasmoid.configuration.customColorsTodayBg = json['today']['bg']
-					plasmoid.configuration.customColorsTodayBold = json['today']['bold']
-					plasmoid.configuration.customColorsTodayItalic = json['today']['italic']
-
-					plasmoid.configuration.customColorsTodaySaturdayEnabled = json['todaySaturday']['enabled']
-					plasmoid.configuration.customColorsTodaySaturdayFg = json['todaySaturday']['fg']
-					plasmoid.configuration.customColorsTodaySaturdayBg = json['todaySaturday']['bg']
-					plasmoid.configuration.customColorsTodaySaturdayBold = json['todaySaturday']['bold']
-					plasmoid.configuration.customColorsTodaySaturdayItalic = json['todaySaturday']['italic']
-
-					plasmoid.configuration.customColorsTodaySundayEnabled = json['todaySunday']['enabled']
-					plasmoid.configuration.customColorsTodaySundayFg = json['todaySunday']['fg']
-					plasmoid.configuration.customColorsTodaySundayBg = json['todaySunday']['bg']
-					plasmoid.configuration.customColorsTodaySundayBold = json['todaySunday']['bold']
-					plasmoid.configuration.customColorsTodaySundayItalic = json['todaySunday']['italic']
-	
-
-					plasmoid.configuration.customColorsFutureFg = json['future']['fg']
-					plasmoid.configuration.customColorsFutureBg = json['future']['bg']
-					plasmoid.configuration.customColorsFutureBold = json['future']['bold']
-					plasmoid.configuration.customColorsFutureItalic = json['future']['italic']
-
-					plasmoid.configuration.customColorsFutureSaturdayEnabled = json['futureSaturday']['enabled']
-					plasmoid.configuration.customColorsFutureSaturdayFg = json['futureSaturday']['fg']
-					plasmoid.configuration.customColorsFutureSaturdayBg = json['futureSaturday']['bg']
-					plasmoid.configuration.customColorsFutureSaturdayBold = json['futureSaturday']['bold']
-					plasmoid.configuration.customColorsFutureSaturdayItalic = json['futureSaturday']['italic']
-
-					plasmoid.configuration.customColorsFutureSundayEnabled = json['futureSunday']['enabled']
-					plasmoid.configuration.customColorsFutureSundayFg = json['futureSunday']['fg']
-					plasmoid.configuration.customColorsFutureSundayBg = json['futureSunday']['bg']
-					plasmoid.configuration.customColorsFutureSundayBold = json['futureSunday']['bold']
-					plasmoid.configuration.customColorsFutureSundayItalic = json['futureSunday']['italic']
-
-					plasmod.configuration.themeName = Themes.custom
-*/
+					fromJson(json)
+					infoMessageWidget.text = i18n('User theme imported successfuly.')
+					infoMessageWidget.visible = true
 				} catch (error) {
+					errorMessageWidget.text = i18n('Failed to process theme JSON.')
+					errorMessageWidget.visible = true
 
+					console.debug(error)
 				}
 			}
 		}
 	} // RowLayout
 
-    Item {
-        Layout.fillWidth: true
-        Layout.fillHeight: true
-    }
+	RowLayout {
+		PlasmaComponents.CheckBox {
+			id: exportEnabledElementsOnly
+			text: i18n("Export enabled elements only")
+		}
+	} // RowLayout
+
+	Item {
+		Layout.fillWidth: true
+		Layout.fillHeight: true
+	}
 
 } // ColumnLayout

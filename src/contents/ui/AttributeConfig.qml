@@ -13,10 +13,10 @@ import QtQuick.Layouts 1.1
 import org.kde.plasma.components 3.0 as PlasmaComponents
 
 RowLayout {
-	// FIXME this should not be here, but this is not a reusable compnent though.
+	// FIXME this should not be here, but this is not a reusable component though.
 	Layout.columnSpan: 8
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	property bool alwaysEnabled: false
 	property bool fgEnabled: true
@@ -32,15 +32,16 @@ RowLayout {
 	property bool bold: false
 	property bool italic: false
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
+	onAlwaysEnabledChanged: if(alwaysEnabled) configEnabled = true
 	onConfigEnabledChanged: enabledButton.checked = configEnabled
 	onFgChanged: fgButton.color = fg
 	onBgChanged: bgButton.color = bg
 	onBoldChanged: boldButton.checked = bold
 	onItalicChanged: italicButton.checked = italic
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	function getThemeVal(theme, key, field, defaultVal) {
 		return (key in theme)
@@ -57,7 +58,7 @@ RowLayout {
 		var defaultItalic = parentNode['italic'] || false
 
 		return {
-			'enabled': getThemeVal(theme, key, 'enabled', false),
+			'enabled': getThemeVal(theme, key, 'enabled', alwaysEnabled),
 			'fg': getThemeVal(theme, key, 'fg', defaultFg),
 			'bg': getThemeVal(theme, key, 'bg', defaultBg),
 			'bold': getThemeVal(theme, key, 'bold', defaultBold),
@@ -77,12 +78,12 @@ RowLayout {
 		this.italic = node['italic'] || false
 	}
 
-    // -----------------------------------------------------------------------
+	// -----------------------------------------------------------------------
 
 	ConfigCheckBox {
 		id: enabledButton
 		enabled: !alwaysEnabled
-		checked: alwaysEnabled
+		checked: configEnabled
 		opacity: alwaysEnabled ? 0 : 1
 		onCheckedChanged: configEnabled = checked
 	}
@@ -142,5 +143,6 @@ RowLayout {
 			italicButton.checked = clip['italic']
 		}
 	}
-}
+
+} // RowLayout
 
