@@ -1,3 +1,7 @@
+* dev
+  * Added placeholders for seconds: `{s}` and `{ss}`.
+  * Added locale based date/time placeholders: `{ldl}`, `{lds}`, `{ltl}`, `{lts}`, `{ldtl}` and `{ldts}`.
+
 * v1.5.0 (2021-01-19)
   * Added huge set of predefined color schemes.
   * Clicking on widget opens CalendarView popup.
