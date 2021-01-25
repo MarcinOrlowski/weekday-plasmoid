@@ -1,6 +1,9 @@
-var defaultTheme='__default__'
-var defaultThemeKey='forest'
-var themes = {
+// https://doc.qt.io/qt-5/qtqml-javascript-resources.html
+.pragma library
+
+const defaultTheme='__default__'
+const defaultThemeKey='forest'
+const themes = {
 	"amber": {
 		"theme":{"name":"Amber"},
 		"widget":{"enabled":true,"bg":"#00000000"},
