@@ -107,12 +107,14 @@ RowLayout {
 	}
 	ConfigCheckableButton {
 		id: boldButton
+		enabled: enabledButton.checked
 		icon.name: 'format-text-bold-symbolic'
 		opacity: boldEnabled ? 1 : 0
 		onCheckedChanged: bold = checked
 	}
 	ConfigCheckableButton {
 		id: italicButton
+		enabled: enabledButton.checked
 		icon.name: 'format-text-italic-symbolic'
 		opacity: italicEnabled ? 1 : 0
 		onCheckedChanged: italic = checked
