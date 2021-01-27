@@ -102,7 +102,7 @@ Allows you to create own color style, either from scratch or using existing them
 
 #### Item settings ####
 
-![Theme item settings](img/config-appearance-item.png)
+![Theme item settings](img/config-theme-item.png)
 
  1. Configuration item label,
  1. On/Off switch for optional theme elements,
@@ -194,12 +194,20 @@ Configures widget tooltip information, shown when you hoover over the widget.
 | {k}		| current hour, 12hrs clock (i.e. "1", "11") |
 | {ii}		| current minute, zero prefixed (i.e. "01", "35") |
 | {i}		| current minute, zero prefixed (i.e. "1", "35") |
+| {ss}		| current second, zero prefixed (i.e. "01", "35") |
+| {s}		| current second (i.e. "1", "35") |
 | {AA}		| upper-cased AM/PM marker (i.e. "AM") |
 | {A}		| upper-cased abbreviated AM/PM marker. "A" for "AM", "P" for "PM" |
 | {aa}		| lower-cased am/pm marker (i.e. "am") |
 | {a}		| lower-cased abbreviated AM/PM marker. "a" for "am", "p" for "pm" |
 | {Aa}		| AM/PM marker with first letter uppercased (i.e. "Am"/"Pm") |
 | {t}		| Name of currently used timezone (i.e. "UTC") |
+| {ldl}		| Locale based date long format |
+| {lds}		| Locale based date short format |
+| {ltl}		| Locale based time long format |
+| {lts}		| Locale based time short format |
+| {ldtl}	| Locale based date and time long format |
+| {ldts}	| Locale based date and time short format |
 
  For example, `Today is {DDD}` will produce `Today is Sunday` (assuming today is named "Sunday").
 
