@@ -2,7 +2,7 @@
   * Added placeholders for seconds: `{s}` and `{ss}`.
   * Added locale based date/time placeholders: `{ldl}`, `{lds}`, `{ltl}`, `{lts}`, `{ldtl}` and `{ldts}`.
   * `{k}` now returns hour in 12hrs-based clock.
-  * Theme editor's Bold/Italic checkboxes are now replaced with labeled buttons (@Zren [#55]).
+  * Theme editor's Bold/Italic checkboxes are now replaced with labeled buttons (@Zren [#49]).
   * Fixed `{k}` and `{kk}` to return `12` instead of incorrect `0` for 12hrs clock.
   * Added `.pragma library` to all stateless JS files (@Zren).
   * Fixed tooltip content not being properly updated ([#50]).
