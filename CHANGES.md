@@ -2,9 +2,8 @@
   * Added placeholders for seconds: `{s}` and `{ss}`.
   * Added locale based date/time placeholders: `{ldl}`, `{lds}`, `{ltl}`, `{lts}`, `{ldtl}` and `{ldts}`.
   * `{k}` now returns hour in 12hrs-based clock.
-  * Added `.pragma library` to all stateless JS files. Thanks @Zren
-  * Theme editor's Bold/Italic checkboxes are now replaced with labeled buttons.
-  * Added `.pragma library` to all stateless JS files. Thanks @Zren
+  * Theme editor's Bold/Italic checkboxes are now replaced with labeled buttons (@Zren [#55]).
+  * Added `.pragma library` to all stateless JS files (@Zren).
 
 * v1.5.0 (2021-01-19)
   * Added huge set of predefined color schemes.
