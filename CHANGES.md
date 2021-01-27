@@ -5,6 +5,7 @@
   * Theme editor's Bold/Italic checkboxes are now replaced with labeled buttons (@Zren [#55]).
   * Fixed `{k}` and `{kk}` to return `12` instead of incorrect `0` for 12hrs clock.
   * Added `.pragma library` to all stateless JS files (@Zren).
+  * Fixed tooltip content not being properly updated ([#50]).
 
 * v1.5.0 (2021-01-19)
   * Added huge set of predefined color schemes.
