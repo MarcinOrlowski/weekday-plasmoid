@@ -102,7 +102,7 @@ Allows you to create own color style, either from scratch or using existing them
 
 #### Item settings ####
 
-![Theme item settings](img/config-appearance-item.png)
+![Theme item settings](img/config-theme-item.png)
 
  1. Configuration item label,
  1. On/Off switch for optional theme elements,

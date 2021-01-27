@@ -105,15 +105,17 @@ RowLayout {
 		opacity: bgEnabled ? 1 : 0
 		onColorChanged: bg = color.toString()
 	}
-	ConfigCheckBox {
+	ConfigCheckableButton {
 		id: boldButton
 		enabled: enabledButton.checked
+		icon.name: 'format-text-bold-symbolic'
 		opacity: boldEnabled ? 1 : 0
 		onCheckedChanged: bold = checked
 	}
-	ConfigCheckBox {
+	ConfigCheckableButton {
 		id: italicButton
 		enabled: enabledButton.checked
+		icon.name: 'format-text-italic-symbolic'
 		opacity: italicEnabled ? 1 : 0
 		onCheckedChanged: italic = checked
 	}

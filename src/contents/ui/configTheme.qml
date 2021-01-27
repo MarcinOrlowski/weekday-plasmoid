@@ -201,11 +201,14 @@ ColumnLayout {
 	}
 
 	CheckBox {
+visible: false
 		id: useFakeParameters
 		text: i18n("Use fake parameters")
 	}
 
 	Kirigami.FormLayout {
+
+visible: false
 		Layout.fillWidth: true
 		anchors.left: parent.left
 		anchors.right: parent.right
