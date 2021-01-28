@@ -40,6 +40,12 @@ Item {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
+	// fonts
+	property bool useCustomFont: plasmoid.configuration.useCustomFont
+	onUseCustomFontChanged: emitChangedSignal()
+	property font customFont: plasmoid.configuration.customFont
+	onCustomFontChanged: emitChangedSignal()
+
 	// Locale settings
 	property bool useSpecificLocaleEnabled: plasmoid.configuration.useSpecificLocaleEnabled
 	onUseSpecificLocaleEnabledChanged: emitChangedSignal()

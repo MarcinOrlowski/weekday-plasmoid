@@ -9,6 +9,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.0
+import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
@@ -20,6 +21,8 @@ Kirigami.FormLayout {
 
 	property alias cfg_themeName: themeName.text
 	property alias cfg_useUserTheme: useUserTheme.checked
+	property alias cfg_useCustomFont: useCustomFont.checked
+	property alias cfg_customFont: customFontDialog.font
 
 	// key of theme
 	Text {
@@ -48,7 +51,7 @@ Kirigami.FormLayout {
 			}
 			model = tmp
 
-			currentIndex = currentIdx
+			if (currentIdx !== undefined) currentIndex = currentIdx
 		}
 		onCurrentIndexChanged: cfg_themeName = model[currentIndex]['value']
 	}
@@ -57,5 +60,36 @@ Kirigami.FormLayout {
 		id: useUserTheme
 		text: i18n("Use user theme")
 	}
+
+	Item {
+		height: 10
+	}
+
+	PlasmaComponents.CheckBox {
+		id: useCustomFont
+		text: i18n("Use custom font")
+	}
+
+	RowLayout {
+		enabled: cfg_useCustomFont
+
+		ColumnLayout {
+			PlasmaComponents.Label {
+				text: i18n('Font: %1', cfg_customFont.family)
+			}
+			PlasmaComponents.Label {
+				text: i18n('Size: %1', cfg_customFont.pointSize)
+			}
+		}
+
+		Button {
+			text: i18n("Select font")
+			onClicked: customFontDialog.visible = true
+			FontDialog {
+				id: customFontDialog
+			}
+		}
+	}
+
 }
 
