@@ -9,7 +9,6 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 1.0
-import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
 import org.kde.kirigami 2.5 as Kirigami
 import org.kde.kquickcontrols 2.0 as KQControls
@@ -22,7 +21,7 @@ Kirigami.FormLayout {
 	property alias cfg_themeName: themeName.text
 	property alias cfg_useUserTheme: useUserTheme.checked
 	property alias cfg_useCustomFont: useCustomFont.checked
-	property alias cfg_customFont: customFontDialog.font
+	property alias cfg_customFont: fontSelector.selectedFont
 
 	// key of theme
 	Text {
@@ -82,12 +81,8 @@ Kirigami.FormLayout {
 			}
 		}
 
-		Button {
-			text: i18n("Select font")
-			onClicked: customFontDialog.visible = true
-			FontDialog {
-				id: customFontDialog
-			}
+		ConfigFontSelector {
+			id: fontSelector
 		}
 	}
 
