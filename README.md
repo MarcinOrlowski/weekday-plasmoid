@@ -74,7 +74,7 @@ Allows you to select one of predefined color theme or use custom color styles, a
  * **Theme**: selects widget built-in color theme.
  * **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
  * **Use custom font**: enables use of custom font (and its size) instead of theme default.
-   * ** Select font**: opends font dialog to select new typeface to use. You can also specify font size.
+   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
 
 > ![Notes](img/notes.png) However font selector allows you to specify multiple font attributes, styles
 > (i.e. bold) and effects like underline or strikethru, these are ignored intentionally to avoid conflict
