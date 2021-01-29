@@ -23,6 +23,7 @@ This is how it looks now, with Wednesday being current day and widget configured
  * Small and compact
  * Fully themable
    * 25+ built-in color themes
+   * Custom font support
    * Custom theme editor
    * Separate color settings for
      * Past, Today and Future days
