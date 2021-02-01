@@ -1,6 +1,6 @@
 * v1.7.0 (2021-02-01)
-  * Added option to use custom fonts [#48].
-  * Removed theme export's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
+  * Added support for using custom fonts [#48].
+  * Removed theme export's custom context menu. <kbd>CTRL-C</kbd>, <kbd>CTRL-V</kbd>, <kbd>CTRL-X</kbd> still works.
 
 * v1.6.0 (2021-01-27)
   * Added placeholders for seconds: `{s}` and `{ss}`.
