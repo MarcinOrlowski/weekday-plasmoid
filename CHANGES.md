@@ -1,4 +1,4 @@
-* @dev
+* v1.7.0 (2021-02-01)
   * Added option to use custom fonts [#48].
   * Removed theme export's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
 
