@@ -201,7 +201,6 @@ ColumnLayout {
 	}
 
 	CheckBox {
-visible: false
 		id: useFakeParameters
 		text: i18n("Use fake parameters")
 	}
