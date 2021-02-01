@@ -207,8 +207,6 @@ visible: false
 	}
 
 	Kirigami.FormLayout {
-
-visible: false
 		Layout.fillWidth: true
 		anchors.left: parent.left
 		anchors.right: parent.right
