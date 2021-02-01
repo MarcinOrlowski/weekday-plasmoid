@@ -236,6 +236,8 @@ ColumnLayout {
 		day0Italic = italics[i]
 		day0LastDayMonth = lastDayMonth[i]
 		day0LastDayMonthBg = LastDayMonthBg
+		day0UseFont = plasmoid.configuration.useCustomFont
+		day0Font = plasmoid.configuration.customFont
 
 		i++
 		day1Label = labels[i]
@@ -245,6 +247,8 @@ ColumnLayout {
 		day1Italic = italics[i]
 		day1LastDayMonth = lastDayMonth[i]
 		day1LastDayMonthBg = LastDayMonthBg
+		day1UseFont = plasmoid.configuration.useCustomFont
+		day1Font = plasmoid.configuration.customFont
 
 		i++
 		day2Label = labels[i]
@@ -254,6 +258,8 @@ ColumnLayout {
 		day2Italic = italics[i]
 		day2LastDayMonth = lastDayMonth[i]
 		day2LastDayMonthBg = LastDayMonthBg
+		day2UseFont = plasmoid.configuration.useCustomFont
+		day2Font = plasmoid.configuration.customFont
 
 		i++
 		day3Label = labels[i]
@@ -263,6 +269,8 @@ ColumnLayout {
 		day3Italic = italics[i]
 		day3LastDayMonth = lastDayMonth[i]
 		day3LastDayMonthBg = LastDayMonthBg
+		day3UseFont = plasmoid.configuration.useCustomFont
+		day3Font = plasmoid.configuration.customFont
 
 		i++
 		day4Label = labels[i]
@@ -272,6 +280,8 @@ ColumnLayout {
 		day4Italic = italics[i]
 		day4LastDayMonth = lastDayMonth[i]
 		day4LastDayMonthBg = LastDayMonthBg
+		day4UseFont = plasmoid.configuration.useCustomFont
+		day4Font = plasmoid.configuration.customFont
 
 		i++
 		day5Label = labels[i]
@@ -281,6 +291,8 @@ ColumnLayout {
 		day5Italic = italics[i]
 		day5LastDayMonth = lastDayMonth[i]
 		day5LastDayMonthBg = LastDayMonthBg
+		day5UseFont = plasmoid.configuration.useCustomFont
+		day5Font = plasmoid.configuration.customFont
 
 		i++
 		day6Label = labels[i]
@@ -290,6 +302,8 @@ ColumnLayout {
 		day6Italic = italics[i]
 		day6LastDayMonth = lastDayMonth[i]
 		day6LastDayMonthBg = LastDayMonthBg
+		day6UseFont = plasmoid.configuration.useCustomFont
+		day6Font = plasmoid.configuration.customFont
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
@@ -301,6 +315,8 @@ ColumnLayout {
 	readonly property bool defaultItalic: false
 	readonly property bool defaultLastMonthDay: false
 	readonly property string defaultLastMonthDayBg: "#00000000"
+	readonly property bool defaultUseFont: false
+	readonly property font defaultFont: undefined
 
 	property string widgetBg: defaultBg
 
@@ -311,6 +327,8 @@ ColumnLayout {
 	property bool day0Italic: defaultItalic
 	property bool day0LastDayMonth: defaultLastMonthDay
 	property string day0LastDayMonthBg: defaultLastMonthDayBg
+	property bool day0UseFont: defaultUseFont
+	property font day0Font: defaultFont
 
 	property string day1Label: defaultLabel
 	property string day1Fg: defaultFg
@@ -319,6 +337,8 @@ ColumnLayout {
 	property bool day1Italic: defaultItalic
 	property bool day1LastDayMonth: defaultLastMonthDay
 	property string day1LastDayMonthBg: defaultLastMonthDayBg
+	property bool day1UseFont: defaultUseFont
+	property font day1Font: defaultFont
 
 	property string day2Label: defaultLabel
 	property string day2Fg: defaultFg
@@ -327,6 +347,8 @@ ColumnLayout {
 	property bool day2Italic: defaultItalic
 	property bool day2LastDayMonth: defaultLastMonthDay
 	property string day2LastDayMonthBg: defaultLastMonthDayBg
+	property bool day2UseFont: defaultUseFont
+	property font day2Font: defaultFont
 
 	property string day3Label: defaultLabel
 	property string day3Fg: defaultFg
@@ -335,6 +357,8 @@ ColumnLayout {
 	property bool day3Italic: defaultItalic
 	property bool day3LastDayMonth: defaultLastMonthDay
 	property string day3LastDayMonthBg: defaultLastMonthDayBg
+	property bool day3UseFont: defaultUseFont
+	property font day3Font: defaultFont
 
 	property string day4Label: defaultLabel
 	property string day4Fg: defaultFg
@@ -343,6 +367,8 @@ ColumnLayout {
 	property bool day4Italic: defaultItalic
 	property bool day4LastDayMonth: defaultLastMonthDay
 	property string day4LastDayMonthBg: defaultLastMonthDayBg
+	property bool day4UseFont: defaultUseFont
+	property font day4Font: defaultFont
 
 	property string day5Label: defaultLabel
 	property string day5Fg: defaultFg
@@ -351,6 +377,8 @@ ColumnLayout {
 	property bool day5Italic: defaultItalic
 	property bool day5LastDayMonth: defaultLastMonthDay
 	property string day5LastDayMonthBg: defaultLastMonthDayBg
+	property bool day5UseFont: defaultUseFont
+	property font day5Font: defaultFont
 
 	property string day6Label: defaultLabel
 	property string day6Fg: defaultFg
@@ -359,6 +387,8 @@ ColumnLayout {
 	property bool day6Italic: defaultItalic
 	property bool day6LastDayMonth: defaultLastMonthDay
 	property string day6LastDayMonthBg: defaultLastMonthDayBg
+	property bool day6UseFont: defaultUseFont
+	property font day6Font: defaultFont
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -444,6 +474,8 @@ ColumnLayout {
 			italic: day0Italic
 			lastDay: day0LastDayMonth
 			lastDayBg: day0LastDayMonthBg
+			useCustomFont: day0UseFont
+			typeface: day0Font
 		}
 		Day {
 			label: day1Label
@@ -453,6 +485,8 @@ ColumnLayout {
 			italic: day1Italic
 			lastDay: day1LastDayMonth
 			lastDayBg: day1LastDayMonthBg
+			useCustomFont: day1UseFont
+			typeface: day1Font
 		}
 		Day {
 			label: day2Label
@@ -462,6 +496,8 @@ ColumnLayout {
 			italic: day2Italic
 			lastDay: day2LastDayMonth
 			lastDayBg: day2LastDayMonthBg
+			useCustomFont: day2UseFont
+			typeface: day2Font
 		}
 		Day {
 			label: day3Label
@@ -471,6 +507,8 @@ ColumnLayout {
 			italic: day3Italic
 			lastDay: day3LastDayMonth
 			lastDayBg: day3LastDayMonthBg
+			useCustomFont: day3UseFont
+			typeface: day3Font
 		}
 		Day {
 			label: day4Label
@@ -480,6 +518,8 @@ ColumnLayout {
 			italic: day4Italic
 			lastDay: day4LastDayMonth
 			lastDayBg: day4LastDayMonthBg
+			useCustomFont: day4UseFont
+			typeface: day4Font
 		}
 		Day {
 			label: day5Label
@@ -489,7 +529,8 @@ ColumnLayout {
 			italic: day5Italic
 			lastDay: day5LastDayMonth
 			lastDayBg: day5LastDayMonthBg
-
+			useCustomFont: day5UseFont
+			typeface: day5Font
 		}
 		Day {
 			label: day6Label
@@ -499,6 +540,8 @@ ColumnLayout {
 			italic: day6Italic
 			lastDay: day6LastDayMonth
 			lastDayBg: day6LastDayMonthBg
+			useCustomFont: day6UseFont
+			typeface: day6Font
 		}
 	} // weekGrid
 } // ColumnLayout

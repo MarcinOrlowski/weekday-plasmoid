@@ -23,6 +23,9 @@ Rectangle {
 
 	readonly property int lastDayWidth: 2
 
+	property bool useCustomFont: false
+	property font typeface: undefined
+
 	implicitWidth: dayLabel.implicitWidth + (lastDay ? lastDayWidth : 0)
 	implicitHeight: dayLabel.implicitHeight
 
@@ -40,6 +43,9 @@ Rectangle {
 		color: fg
 		font.bold: bold
 		font.italic: italic
+
+		font.family: useCustomFont ? typeface.family : theme.defaultFont.family
+		font.pointSize: useCustomFont ? typeface.pointSize : theme.defaultFont.pointSize
 
 		anchors.fill: container
 
