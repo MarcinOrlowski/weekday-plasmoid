@@ -20,6 +20,8 @@ Kirigami.FormLayout {
 
 	property alias cfg_themeName: themeName.text
 	property alias cfg_useUserTheme: useUserTheme.checked
+	property alias cfg_useCustomFont: useCustomFont.checked
+	property alias cfg_customFont: fontSelector.selectedFont
 
 	// key of theme
 	Text {
@@ -48,7 +50,7 @@ Kirigami.FormLayout {
 			}
 			model = tmp
 
-			currentIndex = currentIdx
+			if (currentIdx !== undefined) currentIndex = currentIdx
 		}
 		onCurrentIndexChanged: cfg_themeName = model[currentIndex]['value']
 	}
@@ -57,5 +59,32 @@ Kirigami.FormLayout {
 		id: useUserTheme
 		text: i18n("Use user theme")
 	}
+
+	Item {
+		height: 10
+	}
+
+	PlasmaComponents.CheckBox {
+		id: useCustomFont
+		text: i18n("Use custom font")
+	}
+
+	RowLayout {
+		enabled: cfg_useCustomFont
+
+		ColumnLayout {
+			PlasmaComponents.Label {
+				text: i18n('Font: %1', cfg_customFont.family)
+			}
+			PlasmaComponents.Label {
+				text: i18n('Size: %1', cfg_customFont.pointSize)
+			}
+		}
+
+		ConfigFontSelector {
+			id: fontSelector
+		}
+	}
+
 }
 

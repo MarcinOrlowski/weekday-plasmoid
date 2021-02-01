@@ -1,3 +1,7 @@
+* v1.7.0 (2021-02-01)
+  * Added option to use custom fonts [#48].
+  * Removed theme export's custom context menu. CTRL-C/CTRL-V/CTRL-X works.
+
 * v1.6.0 (2021-01-27)
   * Added placeholders for seconds: `{s}` and `{ss}`.
   * Added locale based date/time placeholders: `{ldl}`, `{lds}`, `{ltl}`, `{lts}`, `{ldtl}` and `{ldts}`.
