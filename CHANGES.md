@@ -1,5 +1,6 @@
 * @dev
   * Tweaked "Forest" theme.
+  * Added "fake mode" warning to theme editor pane.
 
 * v1.7.0 (2021-02-01)
   * Added support for using custom fonts [#48].
