@@ -103,8 +103,8 @@ const themes = {
 		"todaySaturday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
 		"todaySunday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
 		"future":{"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
-		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
+		"futureSaturday":{"enabled":true,"fg":"#909047","bg":"#1d4830","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#909047","bg":"#1d4830","bold":true,"italic":false}
 	},
 	"ivory": {
 		"theme":{"name":"Ivory"},

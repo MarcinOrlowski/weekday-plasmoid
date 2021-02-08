@@ -1,3 +1,6 @@
+* @dev
+  * Tweaked "Forest" theme.
+
 * v1.7.0 (2021-02-01)
   * Added support for using custom fonts [#48].
   * Removed theme export's custom context menu. <kbd>CTRL-C</kbd>, <kbd>CTRL-V</kbd>, <kbd>CTRL-X</kbd> still works.
