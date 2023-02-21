@@ -1,6 +1,15 @@
 // https://doc.qt.io/qt-5/qtqml-javascript-resources.html
 .pragma library
 
+/**
+ * Weekday Grid widget for KDE
+ *
+ * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+ * @copyright 2020-2023 Marcin Orlowski
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT
+ * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
+ */
+
 const defaultTheme='__default__'
 const defaultThemeKey='forest'
 const themes = {
@@ -103,8 +112,8 @@ const themes = {
 		"todaySaturday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
 		"todaySunday":{"enabled":true,"fg":"#ffff7f","bg":"#c8ff006e","bold":true,"italic":false},
 		"future":{"fg":"#ffffff","bg":"#327851","bold":false,"italic":false},
-		"futureSaturday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false},
-		"futureSunday":{"enabled":true,"fg":"#c8ffff7f","bg":"#24583b","bold":true,"italic":false}
+		"futureSaturday":{"enabled":true,"fg":"#909047","bg":"#1d4830","bold":true,"italic":false},
+		"futureSunday":{"enabled":true,"fg":"#909047","bg":"#1d4830","bold":true,"italic":false}
 	},
 	"ivory": {
 		"theme":{"name":"Ivory"},
@@ -285,4 +294,3 @@ const themes = {
 	}
 
 }
-

@@ -2,7 +2,7 @@
  * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2021 Marcin Orlowski
+ * @copyright 2020-2023 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
@@ -203,6 +203,16 @@ ColumnLayout {
 	CheckBox {
 		id: useFakeParameters
 		text: i18n("Use fake parameters")
+	}
+
+	Kirigami.InlineMessage {
+		Layout.fillWidth: true
+		Layout.margins: Kirigami.Units.smallSpacing
+		type: Kirigami.MessageType.Warning
+		text: "Changes made in this section are instant and permanent. Do not forget to disable this feature once you completed your tests!"
+		font.pixelSize: Qt.application.font.pixelSize * 0.8
+		showCloseButton: true
+		visible: true
 	}
 
 	Kirigami.FormLayout {
