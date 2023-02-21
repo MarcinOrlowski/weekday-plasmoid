@@ -296,8 +296,8 @@ from [KDE Store](https://store.kde.org/p/1460393/)
 ### Using built-in installer ###
 
 To install widget using Plasma built-in mechanism, press right mouse button over your desktop or panel and select
-"Add Widgets..." from the context menu, then "Get new widgets..." eventually choosing "Download New Plasma Widgets...".
-Then search for "Weekday Grid" in "Plasma Add-On Installer" window.
+`Add Widgets...` from the context menu, then `Get new widgets...` eventually choosing `Download New Plasma Widgets...`.
+Then search for `Weekday Grid` in `Plasma Add-On Installer` window:
 
 ![Plasma Add-On Installer](img/plasma-installer.png)
 
@@ -305,26 +305,26 @@ Then search for "Weekday Grid" in "Plasma Add-On Installer" window.
 
 Download `*.plasmoid` file from [project Release section](https://github.com/MarcinOrlowski/weekday-plasmoid/releases).
 Then you can either install it via Plasmashell's GUI, by clicking right mouse button over your desktop or panel and
-selecting "Add widgets...", then "Get new widgets..." eventually choosing "Install from local file..." and pointing to downloaded
+selecting `Add widgets...`, then `Get new widgets...` eventually choosing `Install from local file...` and pointing to downloaded
 `*.plasmoid` file.
 
 Alternatively you can install it using your terminal, with help of `kpackagetool5`:
 
-    kpackagetool5 --install /PATH/TO/DOWNLOADED/weekday.plasmoid 
+    kpackagetool5 --install weekday.plasmoid 
 
 ## Upgrading ##
 
 If you already have widget running and there's newer release your want to install, use `kpackagetool5`
 with `--upgrade` option. This will update current installation while keeping your settings intact:
 
-    kpackagetool5 --upgrade /PATH/TO/DOWNLOADED/weekday.plasmoid
+    kpackagetool5 --upgrade weekday.plasmoid
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
 so you may want to convince Plasma by doing manual reload:
 
     kquitapp5 plasmashell ; kstart5 plasmashell
 
-**NOTE:** this will **NOT** log you out nor affects any other apps. 
+**NOTE:** this will **NOT** log you out nor affects any other apps.
 
 ---
 
