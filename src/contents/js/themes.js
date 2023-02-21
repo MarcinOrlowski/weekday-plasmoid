@@ -1,6 +1,15 @@
 // https://doc.qt.io/qt-5/qtqml-javascript-resources.html
 .pragma library
 
+/**
+ * Weekday Grid widget for KDE
+ *
+ * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+ * @copyright 2020-2023 Marcin Orlowski
+ * @license   http://www.opensource.org/licenses/mit-license.php MIT
+ * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
+ */
+
 const defaultTheme='__default__'
 const defaultThemeKey='forest'
 const themes = {
@@ -285,4 +294,3 @@ const themes = {
 	}
 
 }
-

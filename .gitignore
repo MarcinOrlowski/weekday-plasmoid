@@ -7,3 +7,4 @@
 package/contents/config/main.xml
 *.plasmoid
 /*.sh
+/release
