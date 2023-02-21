@@ -1,8 +1,9 @@
 # CHANGELOG
 
-* @dev
+* v1.7.1 (2023-02-21)
   * Tweaked "Forest" theme.
   * Added "fake mode" warning to theme editor pane.
+  * Internal code cleanup.
 
 * v1.7.0 (2021-02-01)
   * Added support for using custom fonts [#48].
