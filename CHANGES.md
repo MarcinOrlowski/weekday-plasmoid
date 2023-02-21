@@ -1,3 +1,5 @@
+# CHANGELOG
+
 * @dev
   * Tweaked "Forest" theme.
   * Added "fake mode" warning to theme editor pane.

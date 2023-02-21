@@ -20,44 +20,44 @@ This is how it looks now, with Wednesday being current day and widget configured
 
 ## Features ##
 
- * Small and compact
- * Fully themable
-   * 25+ built-in color themes
-   * Custom font support
-   * Custom theme editor
-   * Separate color settings for
-     * Past, Today and Future days
-     * Optional separate setup for weekends
-     * Optional marker for last day of the month
-     * Multilayer color blending
- * Locale aware with ability to override
-   * First day of the week
-   * Week day labels
- * Fully configurable widget tooltip
- * Themes export/import
- * Free and open source.
+* Small and compact
+* Fully themable
+  * 25+ built-in color themes
+  * Custom font support
+  * Custom theme editor
+  * Separate color settings for
+    * Past, Today and Future days
+    * Optional separate setup for weekends
+    * Optional marker for last day of the month
+    * Multilayer color blending
+* Locale aware with ability to override
+  * First day of the week
+  * Week day labels
+* Fully configurable widget tooltip
+* Themes export/import
+* Free and open source.
 
 ---
 
 ## Table of Contents ##
 
- * [Configuration](#configuration)
-   * [Appearance](#appearance)
-   * [User Theme](#user-theme)
-   * [Locale](#locale)
-   * [Calendar View](#calendar-view)
-   * [Tooltip](#tooltip)
-   * [Import/Export](#import-export)
- * [Custom themes](#custom-themes)
-   * [Testing with fake parameters](#testing-with-fake-parameters)
-   * [Testing checklist](#testing-checklist)
- * [Installation](#installation)
-   * [Using built-in installer](#using-built-in-installer)
-   * [Manual installation](#manual-installation)
- * [Upgrading](#upgrading)
- * [Additional resources](#additional-resources)
- * [Changelog](CHANGES.md)
- * [License](#license)
+* [Configuration](#configuration)
+  * [Appearance](#appearance)
+  * [User Theme](#user-theme)
+  * [Locale](#locale)
+  * [Calendar View](#calendar-view)
+  * [Tooltip](#tooltip)
+  * [Export/Import](#exportimport)
+* [Custom themes](#custom-themes)
+  * [Testing with fake parameters](#testing-with-fake-parameters)
+  * [Testing checklist](#testing-checklist)
+* [Installation](#installation)
+  * [Using built-in installer](#using-built-in-installer)
+  * [Manual installation](#manual-installation)
+* [Upgrading](#upgrading)
+* [Additional resources](#additional-resources)
+* [Changelog](CHANGES.md)
+* [License](#license)
 
 ---
 
@@ -72,10 +72,10 @@ Allows you to select one of predefined color theme or use custom color styles, a
 
 ![Appearance](img/config-appearance.png)
 
- * **Theme**: selects widget built-in color theme.
- * **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
- * **Use custom font**: enables use of custom font (and its size) instead of theme default.
-   * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
+* **Theme**: selects widget built-in color theme.
+* **Use user theme**: uses [user theme](#user-theme) colors, instead of built-in theme.
+* **Use custom font**: enables use of custom font (and its size) instead of theme default.
+  * **Select font**: opends font dialog to select new typeface to use. You can also specify font size.
 
 > ![Notes](img/notes.png) However font selector allows you to specify multiple font attributes, styles
 > (i.e. bold) and effects like underline or strikethru, these are ignored intentionally to avoid conflict
@@ -89,21 +89,21 @@ Allows you to create own color style, either from scratch or using existing them
 
 ![Appearance](img/config-theme.png)
 
- * **Clone this theme**: Copies colors from selected source built-in theme to custom color editior.
+* **Clone this theme**: Copies colors from selected source built-in theme to custom color editior.
 
 #### Theme items ####
 
- * **Widget**: specifies general widget background color. 
- * **Month last day**: optional month separator bar, drawn after last day of the current month.
- * **Today**: appearance of current day
- * **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
- * **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
- * **Past**: appearance of past week days
- * **Past Saturday**: optional, separate appearance of past Saturday. If not enabled, "Past" is used.
- * **Past Sunday**: optional, separate appearance of past Sunday. If not enabled, "Past" is used.
- * **Future**: appearance of remaining, future days of the week.
- * **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
- * **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
+* **Widget**: specifies general widget background color. 
+* **Month last day**: optional month separator bar, drawn after last day of the current month.
+* **Today**: appearance of current day
+* **Today Saturday**: optional, separate appearance of current day if it is Saturday. If not enabled "Today" is used.
+* **Today Sunday**: optional, separate appearance of current day if it is Sunday. If not enabled, "Today" is used.
+* **Past**: appearance of past week days
+* **Past Saturday**: optional, separate appearance of past Saturday. If not enabled, "Past" is used.
+* **Past Sunday**: optional, separate appearance of past Sunday. If not enabled, "Past" is used.
+* **Future**: appearance of remaining, future days of the week.
+* **Furure Saturday**: optional, separate appearance of future Saturday. If not enabled, "Future" will be used.
+* **Future Sunday**: optional, separate appearance of future Sunday. If not enabled, "Future" will be used.
 
 **NOTE:** Options present in "Fake parameters" group are documented in [Custom themes](#custom-themes) chapter.
 
@@ -122,12 +122,12 @@ Allows you to create own color style, either from scratch or using existing them
  1. Paste attributes from internal clipboard.
 
 **NOTES:** 
- * For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
- * Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
-   by background color as set for specific type of day.
- * If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
- * If you enable separate configuration for "Future/Past Saturday/Sunday", corresponding background color set for "Future/Past" will not
-   be used and cell colors will only be blended with default widget background color.
+* For each color you can specify transparency ("alpha channel") from `0` meaning full transparency, to `255` meaning full opaque.
+* Colors are **layered** to allow fancy configuration. Widget general background color is **always** drawn for each day then it is overlaid
+  by background color as set for specific type of day.
+* If you do not want color mixing to happen, ensure top layer color's transparency is set to `255` (full opaque).
+* If you enable separate configuration for "Future/Past Saturday/Sunday", corresponding background color set for "Future/Past" will not
+  be used and cell colors will only be blended with default widget background color.
 
 ---
 
@@ -137,19 +137,19 @@ Allows you to configure locale used by the widget.
 
 ![Locale](img/config-locale.png)
 
- * **Locale to use**: By default, the system wide locale settings are used while creating day labels. If you want to override this (i.e. have English
-   originated day labels while your whole system uses different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
-   Ensure such locale is available in your system.
- * **Week start day**: By default, the first day of the week is obtained from system or specified locale, which usually means either Sunday or Monday,
-   depending on localization used. If you want to have it set differently, enable this option and set that day manually.
- * **Custom day labels**: Enable this option to use own labels for any of the week days. You can use any character (incl. unicode) that is supported by fonts you use.
-   * **Sunday**: enable to use own label for Sunday. Label can be one character only or empty string.
-   * **Monday**: enable to use own label for Monday. Label can be one character only or empty string.
-   * **Tuesday**: enable to use own label for Tuesday. Label can be one character only or empty string.
-   * **Wednesday**: enable to use own label for Wednesday. Label can be one character only or empty string.
-   * **Thursday**: enable to use own label for Thursday. Label can be one character only or empty string.
-   * **Friday**: enable to use own label for Friday. Label can be one character only or empty string.
-   * **Saturday**: enable to use own label for Saturday. Label can be one character only or empty string.
+* **Locale to use**: By default, the system wide locale settings are used while creating day labels. If you want to override this (i.e. have English
+  originated day labels while your whole system uses different language, enable this option and put name of locale of your choice (i.e. `pl` or `en_GB`).
+  Ensure such locale is available in your system.
+* **Week start day**: By default, the first day of the week is obtained from system or specified locale, which usually means either Sunday or Monday,
+  depending on localization used. If you want to have it set differently, enable this option and set that day manually.
+* **Custom day labels**: Enable this option to use own labels for any of the week days. You can use any character (incl. unicode) that is supported by fonts you use.
+  * **Sunday**: enable to use own label for Sunday. Label can be one character only or empty string.
+  * **Monday**: enable to use own label for Monday. Label can be one character only or empty string.
+  * **Tuesday**: enable to use own label for Tuesday. Label can be one character only or empty string.
+  * **Wednesday**: enable to use own label for Wednesday. Label can be one character only or empty string.
+  * **Thursday**: enable to use own label for Thursday. Label can be one character only or empty string.
+  * **Friday**: enable to use own label for Friday. Label can be one character only or empty string.
+  * **Saturday**: enable to use own label for Saturday. Label can be one character only or empty string.
 
 ---
 
@@ -157,10 +157,10 @@ Allows you to configure locale used by the widget.
 
 Configures built-in calendar view, shown (by default) on widget tap.
 
-![Calendara View](img/config-calendar.png)
+![Calendar View](img/config-calendar.png)
 
- * **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
- * **Show week numbers**: specifies if popup calendar view should also show week numbers.
+* **Enabled calendar view**: uncheck to disable calendar view popup from showing up on widget click.
+* **Show week numbers**: specifies if popup calendar view should also show week numbers.
 
 ---
 
@@ -170,8 +170,8 @@ Configures widget tooltip information, shown when you hoover over the widget.
 
 ![Tooltip](img/config-tooltip.png)
 
- * **Main text**: template for main tooltip text line.
- * **Sub text**: template for tooltip subtext line.
+* **Main text**: template for main tooltip text line.
+* **Sub text**: template for tooltip subtext line.
 
 #### Supported placeholders ####
 
@@ -238,10 +238,10 @@ Allows you to export or import your theme.
 
 ![Export/Import](img/config-export-import.png)
 
- * **Export to JSON**: Exports user custom colors as JSON string.
- * **Import from JSON**: Imports theme settings from JSON string.
- * **Export enabled elements only**: When checked, will export optional theme elements (like i.e. `Past Saturday`) only
-   if it is enabled for being used by the theme, which makes exported JSON smaller.
+* **Export to JSON**: Exports user custom colors as JSON string.
+* **Import from JSON**: Imports theme settings from JSON string.
+* **Export enabled elements only**: When checked, will export optional theme elements (like i.e. `Past Saturday`) only
+  if it is enabled for being used by the theme, which makes exported JSON smaller.
 
 ---
 
@@ -258,10 +258,10 @@ To make theme testing easier you can enable "Use fake parameters" feature and ma
 from the calendar and set it to any values helpful for testing  that would otherwise not ever occur (i.e. week starts on Wednesday).
 Currently "Use fake parameters" option overrides include:
 
- * **Fake Today**: Specify what day you want to be considered "Today".
- * **Fake month last day**: Tricks widget into believing month ends in week being displayed and lets you specify the last day
-   of the month. Helpful while testing "Month last day" theme marker
- * **Fake week start day**: Set your fake first day of the week.
+* **Fake Today**: Specify what day you want to be considered "Today".
+* **Fake month last day**: Tricks widget into believing month ends in week being displayed and lets you specify the last day
+  of the month. Helpful while testing "Month last day" theme marker
+* **Fake week start day**: Set your fake first day of the week.
 
 **NOTE:** Both "Fake Today" and "Fake month last day" feature previous/next navigation buttons. These will automatically commit
 "Use Fake Calendar" option as enabled. This may not be reflected by "Apply" button so hitting "Cancel" will not disable
@@ -284,7 +284,6 @@ only matters for testing.
     1. Set both Today and Last Month Day to the same day to ensure it won't blend.
     1. Set Last Month Day to Monday, Friday and Saturday to see if it is still clearly visible.
     1. Set Last Month Day to Tuesday and Today to Wednesday to see if it is still visible.
-
 
 ---
 
@@ -331,14 +330,13 @@ so you may want to convince Plasma by doing manual reload:
 
 ## Additional resources ##
 
- * [Weekday Grid widget in KDE store](https://store.kde.org/p/1460393/)
- * [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools)
- * [Coolors (color palete generator)](https://coolors.co/)
+* [Weekday Grid widget in KDE Store](https://store.kde.org/p/1460393/)
+* [Plasmoid developer helper tools](https://github.com/marcinorlowski/plasmoid-tools)
+* [Coolors (color palete generator)](https://coolors.co/)
 
 ---
 
 ## License ##
 
- * Written and copyrighted &copy;2020-2021 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
- * Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
+* Written and copyrighted &copy;2020-2023 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+* Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
