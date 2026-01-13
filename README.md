@@ -1,12 +1,12 @@
 ![Weekday Grid Logo](src/contents/images/logo.png)
 
-# Weekday Grid widget for KDE #
+# Weekday Grid widget for Plasma 6 / KDE #
 
 Weekday Grid is a small widget for KDE that sits in your panel and its main role is to show you what the day is today
 in context of whole week. While it may sound bit odd at first, widget renders small, horizontal, 7 cells grid, one cell
 for each day of current and then visually marks them distinguish day of today, past and future and weekends and even
 marks last day of the month. This lets you instantly tell what day of the week it really is, not by name, but rather
-by "location in time" which is suprisingly very helpful in time planing.
+by "location in time" which is surprisingly very helpful in time planing.
 
 This is how it looks now, with Wednesday being current day and widget configured with Monday as first day of the week:
 
@@ -308,21 +308,21 @@ Then you can either install it via Plasmashell's GUI, by clicking right mouse bu
 selecting `Add widgets...`, then `Get new widgets...` eventually choosing `Install from local file...` and pointing to downloaded
 `*.plasmoid` file.
 
-Alternatively you can install it using your terminal, with help of `kpackagetool5`:
+Alternatively you can install it using your terminal, with help of `kpackagetool6`:
 
-    kpackagetool5 --install weekday.plasmoid 
+    kpackagetool6 --install weekday.plasmoid
 
 ## Upgrading ##
 
-If you already have widget running and there's newer release your want to install, use `kpackagetool5`
+If you already have widget running and there's newer release your want to install, use `kpackagetool6`
 with `--upgrade` option. This will update current installation while keeping your settings intact:
 
-    kpackagetool5 --upgrade weekday.plasmoid
+    kpackagetool6 --upgrade weekday.plasmoid
 
 **NOTE:** Sometimes, due to Plasma internals, newly installed version may not be instantly seen working,
 so you may want to convince Plasma by doing manual reload:
 
-    kquitapp5 plasmashell ; kstart5 plasmashell
+    kquitapp6 plasmashell && kstart plasmashell
 
 **NOTE:** this will **NOT** log you out nor affects any other apps.
 
@@ -338,5 +338,5 @@ so you may want to convince Plasma by doing manual reload:
 
 ## License ##
 
-* Written and copyrighted &copy;2020-2023 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+* Written and copyrighted &copy;2020-2026 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
 * Weekday Grid widget is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
