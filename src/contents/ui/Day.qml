@@ -7,8 +7,8 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Layouts
 
 Rectangle {
 	id: container
@@ -44,8 +44,8 @@ Rectangle {
 		font.bold: bold
 		font.italic: italic
 
-		font.family: useCustomFont ? typeface.family : theme.defaultFont.family
-		font.pointSize: useCustomFont ? typeface.pointSize : theme.defaultFont.pointSize
+		font.family: useCustomFont ? typeface.family : Qt.application.font.family
+		font.pointSize: useCustomFont ? typeface.pointSize : Qt.application.font.pointSize
 
 		anchors.fill: container
 

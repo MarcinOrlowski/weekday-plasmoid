@@ -7,7 +7,7 @@
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
+import QtQuick
 
 Item {
 	readonly property string defaultBg: '#00000000'

@@ -2,17 +2,18 @@
  * Weekday Grid widget for KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2024 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Controls as QtControls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.kquickcontrols as KQControls
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasmoid
 import "../js/themes.js" as Themes
 
 ColumnLayout {
@@ -76,8 +77,6 @@ ColumnLayout {
 	property alias cfg_futureSundayItalic: futureSundayConfig.italic
 
 	property alias cfg_useFakeParameters: useFakeParameters.checked
-//	property alias cfg_fakeToday: fakeToday.currentIndex
-//	property alias cfg_fakeLastDayMonth: fakeLastDayMonth.currentIndex
 
 	Kirigami.InlineMessage {
 		id: infoMessageWidget
@@ -86,7 +85,7 @@ ColumnLayout {
 		type: Kirigami.MessageType.Information
 		text: i18n('You are currently using built-in theme. No changes in this pane will be reflected unless you enable "Use user theme" option in "Appearance" pane.')
 		showCloseButton: true
-		visible: !plasmoid.configuration.useUserTheme
+		visible: !Plasmoid.configuration.useUserTheme
 	}
 
 	property string themeKey: undefined
@@ -105,7 +104,7 @@ ColumnLayout {
 				for(const key in Themes.themes) {
 					var name = Themes.themes[key]['theme']['name']
 					tmp.push({'value':key, 'text': name})
-					if (key === plasmoid.configuration['themeName']) currentIdx = idx
+					if (key === Plasmoid.configuration['themeName']) currentIdx = idx
 					idx++
 				}
 				model = tmp
@@ -115,7 +114,7 @@ ColumnLayout {
 			onCurrentIndexChanged: themeKey = model[currentIndex]['value']
 		}
 
-		Button {
+		QtControls.Button {
 			text: i18n('Clone this theme')
 
 			onClicked: {
@@ -173,21 +172,21 @@ ColumnLayout {
 
 		// ------------------------------------------------------------------------------------------------------------------------
 
-		LabelRight { text: i18n('Past Days') } 
+		LabelRight { text: i18n('Past Days') }
 		AttributeConfig { id: pastConfig; alwaysEnabled: true }
 		LabelRight { text: i18n('Past Saturday') }
 		AttributeConfig { id: pastSaturdayConfig }
 		LabelRight { text: i18n('Past Sunday') }
 		AttributeConfig { id: pastSundayConfig }
 
-		LabelRight { text: i18n('Today') } 
+		LabelRight { text: i18n('Today') }
 		AttributeConfig { id: todayConfig; alwaysEnabled: true }
 		LabelRight { text: i18n('Today Saturday') }
 		AttributeConfig { id: todaySaturdayConfig }
 		LabelRight { text: i18n('Today Sunday') }
 		AttributeConfig { id: todaySundayConfig }
 
-		LabelRight { text: i18n('Future') } 
+		LabelRight { text: i18n('Future') }
 		AttributeConfig { id: futureConfig; alwaysEnabled: true }
 		LabelRight { text: i18n('Future Saturday') }
 		AttributeConfig { id: futureSaturdayConfig }
@@ -200,7 +199,7 @@ ColumnLayout {
 		height: 20
 	}
 
-	CheckBox {
+	QtControls.CheckBox {
 		id: useFakeParameters
 		text: i18n("Use fake parameters")
 	}
@@ -225,24 +224,24 @@ ColumnLayout {
 		DaySelector {
 			Kirigami.FormData.label: i18n("Fake Today")
 			onChanged: {
-				plasmoid.configuration['fakeToday'] = dayIndex
-				plasmoid.configuration['useFakeParameters'] = true
+				Plasmoid.configuration['fakeToday'] = dayIndex
+				Plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
 
 		DaySelector {
 			Kirigami.FormData.label: i18n("Fake month last day")
 			onChanged: {
-				plasmoid.configuration['fakeLastDayMonth'] = dayIndex
-				plasmoid.configuration['useFakeParameters'] = true
+				Plasmoid.configuration['fakeLastDayMonth'] = dayIndex
+				Plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
 
 		DaySelector {
 			Kirigami.FormData.label: i18n("Fake week start day")
 			onChanged: {
-				plasmoid.configuration['fakeWeekStartDay'] = dayIndex
-				plasmoid.configuration['useFakeParameters'] = true
+				Plasmoid.configuration['fakeWeekStartDay'] = dayIndex
+				Plasmoid.configuration['useFakeParameters'] = true
 			}
 		}
 
