@@ -1,6 +1,6 @@
 # CHANGELOG
 
-* dev (TBD)
+* v2.0.0 (2026-01-13)
   * Migrated to KDE Plasma 6 / Qt 6.
   * Removed custom update checker.
   * Removed custom About dialog (uses KDE standard instead).
