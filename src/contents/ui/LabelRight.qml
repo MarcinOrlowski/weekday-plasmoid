@@ -1,16 +1,16 @@
 /**
- * Weekday Grid widget for KDE
+ * Weekday Grid widget for Plasma 6 / KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.3
-import org.kde.plasma.components 3.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import org.kde.plasma.components as PlasmaComponents
 
 PlasmaComponents.Label {
 	text: ''

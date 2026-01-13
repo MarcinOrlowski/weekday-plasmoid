@@ -1,19 +1,19 @@
 /**
- * Weekday Grid widget for KDE
+ * Weekday Grid widget for Plasma 6 / KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.3 as QtControls
-import QtQuick.Layouts 1.1
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.kquickcontrols 2.0 as KQControls
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Controls as QtControls
+import QtQuick.Layouts
+import org.kde.kirigami as Kirigami
+import org.kde.kquickcontrols as KQControls
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.plasmoid
 import "../js/themes.js" as Themes
 
 ColumnLayout {
@@ -91,7 +91,7 @@ ColumnLayout {
 
 	/*
 	** Imports theme from JSON object to cfg_* properties.
-	*/ 
+	*/
 	function fromJson(j) {
 		var result = false
 

@@ -1,51 +1,32 @@
 /**
- * Weekday Grid widget for KDE
+ * Weekday Grid widget for Plasma 6 / KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import org.kde.plasma.calendar 2.0 as PlasmaCalendar
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.workspace.calendar as PlasmaCalendar
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.plasma5support as Plasma5Support
 import "../js/DateTimeFormatter.js" as DTF
-import "../js/meta.js" as Meta
 
-Item {
+PlasmoidItem {
 	id: root
-
-	Component.onCompleted: {
-		plasmoid.setAction("showAboutDialog", i18n('About %1…', Meta.title));
-		plasmoid.setAction("checkUpdateAvailability", i18n("Check update…"));
-	}
-
-	function action_checkUpdateAvailability() {
-		updateChecker.checkUpdateAvailability(true)
-	}
-
-	function action_showAboutDialog() {
-		aboutDialog.visible = true
-	}
-	AboutDialog {
-		id: aboutDialog
-	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		id: dataSource
 		engine: "time"
-//		  connectedSources: allTimezones
-//		  interval: plasmoid.configuration.showSeconds ? 1000 : 60000
-//		  intervalAlignment: plasmoid.configuration.showSeconds ? PlasmaCore.Types.NoAlignment : PlasmaCore.Types.AlignToMinute
 		connectedSources: ["Local", "UTC"]
 		interval: 60000
-		intervalAlignment: PlasmaCore.Types.AlignToMinute
+		intervalAlignment: Plasma5Support.Types.AlignToMinute
 	}
 
 	property date tzDate: {
@@ -59,48 +40,42 @@ Item {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	property string tooltipMainText: ''
-	property string tooltipSubText: ''
+	property string tooltipMainTextValue: ''
+	property string tooltipSubTextValue: ''
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		engine: "time"
 		connectedSources: ["Local"]
 		interval: 1000
-		intervalAlignment: PlasmaCore.Types.NoAlignment
+		intervalAlignment: Plasma5Support.Types.NoAlignment
 		onDataChanged: {
 			var mainText = i18n("Widget is in Fake Parameters mode now.")
 			var subText = i18n("Disable it in Settings/User Theme.")
 
-			if (!plasmoid.configuration.useFakeParameters) {
-				var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
-						? plasmoid.configuration.useSpecificLocaleLocaleName
+			if (!Plasmoid.configuration.useFakeParameters) {
+				var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
+						? Plasmoid.configuration.useSpecificLocaleLocaleName
 						: ''
 
-				mainText = DTF.format(plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
-				subText = DTF.format(plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
+				mainText = DTF.format(Plasmoid.configuration.tooltipFirstLineFormat, localeToUse)
+				subText = DTF.format(Plasmoid.configuration.tooltipSecondLineFormat, localeToUse)
 			}
 
-			tooltipMainText = mainText
-			tooltipSubText = subText
+			tooltipMainTextValue = mainText
+			tooltipSubTextValue = subText
 		}
 	}
 
-	Plasmoid.toolTipMainText: tooltipMainText
-	Plasmoid.toolTipSubText: tooltipSubText
+	toolTipMainText: tooltipMainTextValue
+	toolTipSubText: tooltipSubTextValue
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
-	Plasmoid.compactRepresentation: Week { }
-	Plasmoid.fullRepresentation: CalendarView { }
-
-	// ------------------------------------------------------------------------------------------------------------------------
-
-	UpdateChecker {
-		id: updateChecker
-
-		// once per 7 days
-		checkInterval: (((1000*60)*60)*24*7)
+	preferredRepresentation: compactRepresentation
+	compactRepresentation: Week {
+		id: weekWidget
+		onToggleExpanded: root.expanded = !root.expanded
 	}
+	fullRepresentation: CalendarView { }
 
 } // main

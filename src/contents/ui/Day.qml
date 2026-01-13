@@ -1,14 +1,14 @@
 /**
- * Weekday Grid widget for KDE
+ * Weekday Grid widget for Plasma 6 / KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Layouts
 
 Rectangle {
 	id: container
@@ -44,8 +44,8 @@ Rectangle {
 		font.bold: bold
 		font.italic: italic
 
-		font.family: useCustomFont ? typeface.family : theme.defaultFont.family
-		font.pointSize: useCustomFont ? typeface.pointSize : theme.defaultFont.pointSize
+		font.family: useCustomFont ? typeface.family : Qt.application.font.family
+		font.pointSize: useCustomFont ? typeface.pointSize : Qt.application.font.pointSize
 
 		anchors.fill: container
 

@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Marcin Orlowski",
+                "Email": "",
+                "Url": "http://marcinorlowski.com/"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "Handy, compact one-week calendar grid",
+        "Icon": "office-calendar",
+        "Id": "com.marcinorlowski.kde.weekday",
+        "License": "MIT",
+        "Name": "Weekday Grid",
+        "Version": "2.0.0",
+        "Website": "https://github.com/MarcinOrlowski/weekday-plasmoid"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet",
+    "X-KDE-PluginInfo-UpdateChecker-Url": "https://raw.githubusercontent.com/MarcinOrlowski/weekday-plasmoid/master/src/metadata.json",
+    "X-KDE-PluginInfo-FirstReleaseYear": 2020
+}

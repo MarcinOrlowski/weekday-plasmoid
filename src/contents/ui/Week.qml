@@ -1,26 +1,51 @@
 /**
- * Weekday Grid widget for KDE
+ * Weekday Grid widget for Plasma 6 / KDE
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2020-2023 Marcin Orlowski
+ * @copyright 2020-2026 Marcin Orlowski
  * @license   http://www.opensource.org/licenses/mit-license.php MIT
  * @link      https://github.com/MarcinOrlowski/weekday-plasmoid
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import org.kde.plasma.components 3.0 as PlasmaComponents
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.plasmoid 2.0
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.components as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.kirigami as Kirigami
 import "../js/themes.js" as Themes
 import "../js/DateTimeFormatter.js" as DTF
 
-ColumnLayout {
+Item {
+	id: weekRoot
+
 	// we always count from 0 being sunday unless user set different day to be first day of the week
 	property int firstDayOfWeek: 0
 
-	// https://api.kde.org/frameworks/plasma-framework/html/classPlasma_1_1QuickTheme.html
-	// or PlasmaCore.Theme.* (starting frameworks 5.73)
+	// Signal for toggling expanded state (Plasma 6 pattern)
+	signal toggleExpanded()
+
+	// Layout sizing - respond to panel form factor
+	readonly property bool isVertical: Plasmoid.formFactor === PlasmaCore.Types.Vertical
+	readonly property bool isHorizontal: Plasmoid.formFactor === PlasmaCore.Types.Horizontal
+	readonly property bool inPanel: isVertical || isHorizontal
+
+	// Use Kirigami grid unit for consistent sizing
+	readonly property int minCellHeight: Kirigami.Units.gridUnit
+
+	implicitWidth: weekGrid.implicitWidth
+	implicitHeight: Math.max(weekGrid.implicitHeight, minCellHeight)
+
+	// Explicit Layout constraints - don't let panel expand us beyond content size
+	Layout.minimumWidth: weekGrid.implicitWidth
+	Layout.minimumHeight: Math.max(weekGrid.implicitHeight, minCellHeight)
+	Layout.preferredWidth: weekGrid.implicitWidth
+	Layout.preferredHeight: Math.max(weekGrid.implicitHeight, minCellHeight)
+	Layout.maximumWidth: isVertical ? -1 : weekGrid.implicitWidth
+	Layout.maximumHeight: isHorizontal ? -1 : Math.max(weekGrid.implicitHeight, minCellHeight)
+	Layout.fillWidth: isVertical
+	Layout.fillHeight: isHorizontal
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
@@ -28,8 +53,8 @@ ColumnLayout {
 		id: mouseArea
 		anchors.fill: parent
 		onClicked: {
-			if (plasmoid.configuration.calendarViewEnabled) {
-				plasmoid.expanded = !plasmoid.expanded
+			if (Plasmoid.configuration.calendarViewEnabled) {
+				weekRoot.toggleExpanded()
 			}
 		}
 	}
@@ -40,75 +65,75 @@ ColumnLayout {
 		return {
 			"theme": {"name": "UserTheme1"},
 			"widget": {
-				"bg": plasmoid.configuration.widgetBg
+				"bg": Plasmoid.configuration.widgetBg
 			},
 
 			"lastDayMonth": {
-				"enabled": plasmoid.configuration.lastDayMonthEnabled,
-				"bg": plasmoid.configuration.lastDayMonthBg
+				"enabled": Plasmoid.configuration.lastDayMonthEnabled,
+				"bg": Plasmoid.configuration.lastDayMonthBg
 			},
 
 			"past": {
-				"fg": plasmoid.configuration.pastFg,
-				"bg": plasmoid.configuration.pastBg,
-				"bold": plasmoid.configuration.pastBold,
-				"italic": plasmoid.configuration.pastItalic
+				"fg": Plasmoid.configuration.pastFg,
+				"bg": Plasmoid.configuration.pastBg,
+				"bold": Plasmoid.configuration.pastBold,
+				"italic": Plasmoid.configuration.pastItalic
 			},
 			"pastSaturday": {
-				"enabled": plasmoid.configuration.pastSaturdayEnabled,
-				"fg": plasmoid.configuration.pastSaturdayFg,
-				"bg": plasmoid.configuration.pastSaturdayBg,
-				"bold": plasmoid.configuration.pastSaturdayBold,
-				"italic": plasmoid.configuration.pastSaturdayItalic
+				"enabled": Plasmoid.configuration.pastSaturdayEnabled,
+				"fg": Plasmoid.configuration.pastSaturdayFg,
+				"bg": Plasmoid.configuration.pastSaturdayBg,
+				"bold": Plasmoid.configuration.pastSaturdayBold,
+				"italic": Plasmoid.configuration.pastSaturdayItalic
 			},
 			"pastSunday": {
-				"enabled": plasmoid.configuration.pastSundayEnabled,
-				"fg": plasmoid.configuration.pastSundayFg,
-				"bg": plasmoid.configuration.pastSundayBg,
-				"bold": plasmoid.configuration.pastSundayBold,
-				"italic": plasmoid.configuration.pastSundayItalic
+				"enabled": Plasmoid.configuration.pastSundayEnabled,
+				"fg": Plasmoid.configuration.pastSundayFg,
+				"bg": Plasmoid.configuration.pastSundayBg,
+				"bold": Plasmoid.configuration.pastSundayBold,
+				"italic": Plasmoid.configuration.pastSundayItalic
 			},
 
 			"today": {
-				"fg": plasmoid.configuration.todayFg,
-				"bg": plasmoid.configuration.todayBg,
-				"bold": plasmoid.configuration.todayBold,
-				"italic": plasmoid.configuration.todayItalic
+				"fg": Plasmoid.configuration.todayFg,
+				"bg": Plasmoid.configuration.todayBg,
+				"bold": Plasmoid.configuration.todayBold,
+				"italic": Plasmoid.configuration.todayItalic
 			},
 			"todaySaturday": {
-				"enabled": plasmoid.configuration.todaySaturdayEnabled,
-				"fg": plasmoid.configuration.todaySaturdayFg,
-				"bg": plasmoid.configuration.todaySaturdayBg,
-				"bold": plasmoid.configuration.todaySaturdayBold,
-				"italic": plasmoid.configuration.todaySaturdayItalic
+				"enabled": Plasmoid.configuration.todaySaturdayEnabled,
+				"fg": Plasmoid.configuration.todaySaturdayFg,
+				"bg": Plasmoid.configuration.todaySaturdayBg,
+				"bold": Plasmoid.configuration.todaySaturdayBold,
+				"italic": Plasmoid.configuration.todaySaturdayItalic
 			},
 			"todaySunday": {
-				"enabled": plasmoid.configuration.todaySundayEnabled,
-				"fg": plasmoid.configuration.todaySundayFg,
-				"bg": plasmoid.configuration.todaySundayBg,
-				"bold": plasmoid.configuration.todaySundayBold,
-				"italic": plasmoid.configuration.todaySundayItalic
+				"enabled": Plasmoid.configuration.todaySundayEnabled,
+				"fg": Plasmoid.configuration.todaySundayFg,
+				"bg": Plasmoid.configuration.todaySundayBg,
+				"bold": Plasmoid.configuration.todaySundayBold,
+				"italic": Plasmoid.configuration.todaySundayItalic
 			},
 
 			"future": {
-				"fg": plasmoid.configuration.futureFg,
-				"bg": plasmoid.configuration.futureBg,
-				"bold": plasmoid.configuration.futureBold,
-				"italic": plasmoid.configuration.futureItalic
+				"fg": Plasmoid.configuration.futureFg,
+				"bg": Plasmoid.configuration.futureBg,
+				"bold": Plasmoid.configuration.futureBold,
+				"italic": Plasmoid.configuration.futureItalic
 			},
 			"futureSaturday": {
-				"enabled": plasmoid.configuration.futureSaturdayEnabled,
-				"fg": plasmoid.configuration.futureSaturdayFg,
-				"bg": plasmoid.configuration.futureSaturdayBg,
-				"bold": plasmoid.configuration.futureSaturdayBold,
-				"italic": plasmoid.configuration.futureSaturdayItalic
+				"enabled": Plasmoid.configuration.futureSaturdayEnabled,
+				"fg": Plasmoid.configuration.futureSaturdayFg,
+				"bg": Plasmoid.configuration.futureSaturdayBg,
+				"bold": Plasmoid.configuration.futureSaturdayBold,
+				"italic": Plasmoid.configuration.futureSaturdayItalic
 			},
 			"futureSunday": {
-				"enabled": plasmoid.configuration.futureSundayEnabled,
-				"fg": plasmoid.configuration.futureSundayFg,
-				"bg": plasmoid.configuration.futureSundayBg,
-				"bold": plasmoid.configuration.futureSundayBold,
-				"italic": plasmoid.configuration.futureSundayItalic
+				"enabled": Plasmoid.configuration.futureSundayEnabled,
+				"fg": Plasmoid.configuration.futureSundayFg,
+				"bg": Plasmoid.configuration.futureSundayBg,
+				"bold": Plasmoid.configuration.futureSundayBold,
+				"italic": Plasmoid.configuration.futureSundayItalic
 			}
 		}
 	}
@@ -116,29 +141,28 @@ ColumnLayout {
 	// ------------------------------------------------------------------------------------------------------------------------
 
 	function updateWeekGrid() {
-		// https://doc.qt.io/qt-5/qml-qtqml-locale.html
+		// https://doc.qt.io/qt-6/qml-qtqml-locale.html
 		// Offset indicates first day of week with Sunday equals 0
 		// and Saturday equals 6
-		// https://doc.qt.io/qt-5/qml-qtqml-locale.html#firstDayOfWeek-prop
-		var localeToUse = plasmoid.configuration.useSpecificLocaleEnabled
-				? plasmoid.configuration.useSpecificLocaleLocaleName 
+		var localeToUse = Plasmoid.configuration.useSpecificLocaleEnabled
+				? Plasmoid.configuration.useSpecificLocaleLocaleName
 				: ''
 
 		var locale = Qt.locale(localeToUse)
 		firstDayOfWeek = locale.firstDayOfWeek
 
-		if (plasmoid.configuration.useFakeParameters) {
-			firstDayOfWeek = plasmoid.configuration.fakeWeekStartDay
-		} else if (plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
-			firstDayOfWeek = plasmoid.configuration.nonDefaultWeekStartDayDayIndex
+		if (Plasmoid.configuration.useFakeParameters) {
+			firstDayOfWeek = Plasmoid.configuration.fakeWeekStartDay
+		} else if (Plasmoid.configuration.nonDefaultWeekStartDayEnabled) {
+			firstDayOfWeek = Plasmoid.configuration.nonDefaultWeekStartDayDayIndex
 		}
 
-		var themeKey = plasmoid.configuration.themeName
+		var themeKey = Plasmoid.configuration.themeName
 		if (themeKey === Themes.defaultTheme) {
 			themeKey = Themes.defaultThemeKey
 		}
-		var currentTheme = plasmoid.configuration.useUserTheme
-								? getUserTheme() 
+		var currentTheme = Plasmoid.configuration.useUserTheme
+								? getUserTheme()
 								: Themes.themes[themeKey]
 
 		redrawWidget(locale, firstDayOfWeek, currentTheme)
@@ -147,27 +171,27 @@ ColumnLayout {
 	// dayIdx starts from 0 being Sunday, 6 being Saturday
 	function getDayLabel(dayIdx, fallback) {
 		var label = fallback
-		if (plasmoid.configuration.customDayLabelsEnabled) {
-			if (dayIdx === 0 && plasmoid.configuration.customDayLabelSundayEnabled) {
-				label = plasmoid.configuration.customDayLabelSundayLabel.substr(0, 1)
+		if (Plasmoid.configuration.customDayLabelsEnabled) {
+			if (dayIdx === 0 && Plasmoid.configuration.customDayLabelSundayEnabled) {
+				label = Plasmoid.configuration.customDayLabelSundayLabel.substr(0, 1)
 			}
-			if (dayIdx === 1 && plasmoid.configuration.customDayLabelMondayEnabled) {
-				label = plasmoid.configuration.customDayLabelMondayLabel.substr(0, 1)
+			if (dayIdx === 1 && Plasmoid.configuration.customDayLabelMondayEnabled) {
+				label = Plasmoid.configuration.customDayLabelMondayLabel.substr(0, 1)
 			}
-			if (dayIdx === 2 && plasmoid.configuration.customDayLabelTuesdayEnabled) {
-				label = plasmoid.configuration.customDayLabelTuesdayLabel.substr(0, 1)
+			if (dayIdx === 2 && Plasmoid.configuration.customDayLabelTuesdayEnabled) {
+				label = Plasmoid.configuration.customDayLabelTuesdayLabel.substr(0, 1)
 			}
-			if (dayIdx === 3 && plasmoid.configuration.customDayLabelWednesdayEnabled) {
-				label = plasmoid.configuration.customDayLabelWednesdayLabel.substr(0, 1)
+			if (dayIdx === 3 && Plasmoid.configuration.customDayLabelWednesdayEnabled) {
+				label = Plasmoid.configuration.customDayLabelWednesdayLabel.substr(0, 1)
 			}
-			if (dayIdx === 4 && plasmoid.configuration.customDayLabelThursdayEnabled) {
-				label = plasmoid.configuration.customDayLabelThursdayLabel.substr(0, 1)
+			if (dayIdx === 4 && Plasmoid.configuration.customDayLabelThursdayEnabled) {
+				label = Plasmoid.configuration.customDayLabelThursdayLabel.substr(0, 1)
 			}
-			if (dayIdx === 5 && plasmoid.configuration.customDayLabelFridayEnabled) {
-				label = plasmoid.configuration.customDayLabelFridayLabel.substr(0, 1)
+			if (dayIdx === 5 && Plasmoid.configuration.customDayLabelFridayEnabled) {
+				label = Plasmoid.configuration.customDayLabelFridayLabel.substr(0, 1)
 			}
-			if (dayIdx === 6 && plasmoid.configuration.customDayLabelSaturdayEnabled) {
-				label = plasmoid.configuration.customDayLabelSaturdayLabel.substr(0, 1)
+			if (dayIdx === 6 && Plasmoid.configuration.customDayLabelSaturdayEnabled) {
+				label = Plasmoid.configuration.customDayLabelSaturdayLabel.substr(0, 1)
 			}
 		}
 		return label
@@ -195,15 +219,15 @@ ColumnLayout {
 
 		// Which grid cell means Today?
 		var now = new Date()
-		var today = plasmoid.configuration.useFakeParameters ? plasmoid.configuration.fakeToday : now.getDay()
+		var today = Plasmoid.configuration.useFakeParameters ? Plasmoid.configuration.fakeToday : now.getDay()
 		var offsetOfToday = today - firstDayOfWeek
 		if (offsetOfToday < 0) offsetOfToday += 7
 
 		// Let's shift our date objects to first day of the week (matching our settings)
 		// We cannot use offsetOfToday as it is always positive (wrapped) value, which is
 		// not what we need here.
-		var today = new Date()
-		today.setDate(today.getDate() - today.getDay() + firstDayOfWeek)
+		var todayDate = new Date()
+		todayDate.setDate(todayDate.getDate() - todayDate.getDay() + firstDayOfWeek)
 		for(var i=0; i<7; i++) {
 			var weekday = (i+firstDayOfWeek) % 7
 			fgs[i] = getVal(theme, 'fg', i, weekday, offsetOfToday)
@@ -212,12 +236,12 @@ ColumnLayout {
 			italics[i] = getVal(theme, 'italic', i, weekday, offsetOfToday)
 
 			// Let's see if next day is still in the same month or not.
-			if (plasmoid.configuration.useFakeParameters) {
-				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (weekday === plasmoid.configuration.fakeLastDayMonth) : false
+			if (Plasmoid.configuration.useFakeParameters) {
+				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (weekday === Plasmoid.configuration.fakeLastDayMonth) : false
 			} else {
-				var todayMonth = today.getMonth()
-				today.setDate(today.getDate() + 1)
-				var nextDayMonth = today.getMonth()
+				var todayMonth = todayDate.getMonth()
+				todayDate.setDate(todayDate.getDate() + 1)
+				var nextDayMonth = todayDate.getMonth()
 				lastDayMonth[i] = theme['lastDayMonth']['enabled'] ? (todayMonth !== nextDayMonth) : false
 			}
 		}
@@ -236,8 +260,8 @@ ColumnLayout {
 		day0Italic = italics[i]
 		day0LastDayMonth = lastDayMonth[i]
 		day0LastDayMonthBg = LastDayMonthBg
-		day0UseFont = plasmoid.configuration.useCustomFont
-		day0Font = plasmoid.configuration.customFont
+		day0UseFont = Plasmoid.configuration.useCustomFont
+		day0Font = Plasmoid.configuration.customFont
 
 		i++
 		day1Label = labels[i]
@@ -247,8 +271,8 @@ ColumnLayout {
 		day1Italic = italics[i]
 		day1LastDayMonth = lastDayMonth[i]
 		day1LastDayMonthBg = LastDayMonthBg
-		day1UseFont = plasmoid.configuration.useCustomFont
-		day1Font = plasmoid.configuration.customFont
+		day1UseFont = Plasmoid.configuration.useCustomFont
+		day1Font = Plasmoid.configuration.customFont
 
 		i++
 		day2Label = labels[i]
@@ -258,8 +282,8 @@ ColumnLayout {
 		day2Italic = italics[i]
 		day2LastDayMonth = lastDayMonth[i]
 		day2LastDayMonthBg = LastDayMonthBg
-		day2UseFont = plasmoid.configuration.useCustomFont
-		day2Font = plasmoid.configuration.customFont
+		day2UseFont = Plasmoid.configuration.useCustomFont
+		day2Font = Plasmoid.configuration.customFont
 
 		i++
 		day3Label = labels[i]
@@ -269,8 +293,8 @@ ColumnLayout {
 		day3Italic = italics[i]
 		day3LastDayMonth = lastDayMonth[i]
 		day3LastDayMonthBg = LastDayMonthBg
-		day3UseFont = plasmoid.configuration.useCustomFont
-		day3Font = plasmoid.configuration.customFont
+		day3UseFont = Plasmoid.configuration.useCustomFont
+		day3Font = Plasmoid.configuration.customFont
 
 		i++
 		day4Label = labels[i]
@@ -280,8 +304,8 @@ ColumnLayout {
 		day4Italic = italics[i]
 		day4LastDayMonth = lastDayMonth[i]
 		day4LastDayMonthBg = LastDayMonthBg
-		day4UseFont = plasmoid.configuration.useCustomFont
-		day4Font = plasmoid.configuration.customFont
+		day4UseFont = Plasmoid.configuration.useCustomFont
+		day4Font = Plasmoid.configuration.customFont
 
 		i++
 		day5Label = labels[i]
@@ -291,8 +315,8 @@ ColumnLayout {
 		day5Italic = italics[i]
 		day5LastDayMonth = lastDayMonth[i]
 		day5LastDayMonthBg = LastDayMonthBg
-		day5UseFont = plasmoid.configuration.useCustomFont
-		day5Font = plasmoid.configuration.customFont
+		day5UseFont = Plasmoid.configuration.useCustomFont
+		day5Font = Plasmoid.configuration.customFont
 
 		i++
 		day6Label = labels[i]
@@ -302,8 +326,8 @@ ColumnLayout {
 		day6Italic = italics[i]
 		day6LastDayMonth = lastDayMonth[i]
 		day6LastDayMonthBg = LastDayMonthBg
-		day6UseFont = plasmoid.configuration.useCustomFont
-		day6Font = plasmoid.configuration.customFont
+		day6UseFont = Plasmoid.configuration.useCustomFont
+		day6Font = Plasmoid.configuration.customFont
 	}
 
 	// ------------------------------------------------------------------------------------------------------------------------
@@ -316,7 +340,7 @@ ColumnLayout {
 	readonly property bool defaultLastMonthDay: false
 	readonly property string defaultLastMonthDayBg: "#00000000"
 	readonly property bool defaultUseFont: false
-	readonly property font defaultFont: undefined
+	readonly property font defaultFont: Qt.application.font
 
 	property string widgetBg: defaultBg
 
@@ -392,12 +416,12 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
-	PlasmaCore.DataSource {
+	Plasma5Support.DataSource {
 		id: timeDataSource
 		engine: "time"
 		connectedSources: ["Local"]
 		interval: 60 * 60 * 1000	// 1hour
-		intervalAlignment: PlasmaCore.Types.AlignToHour
+		intervalAlignment: Plasma5Support.Types.AlignToHour
 		onNewData: updateWeekGrid()
 	}
 
@@ -449,22 +473,22 @@ ColumnLayout {
 
 	// ------------------------------------------------------------------------------------------------------------------------
 
+	Rectangle {
+		id: bgRect
+		anchors.fill: parent
+		color: widgetBg
+		z: -1
+	}
+
 	GridLayout {
 		id: weekGrid
+		anchors.fill: parent
 		columns: 7
 		rows: 1
-		Layout.fillWidth: true
-		Layout.fillHeight: true
-		Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
 		columnSpacing: 0
 
 		readonly property int cellMinWidth: 16
 		readonly property int monthEndWidth: 8
-
-		Rectangle {
-			anchors.fill: weekGrid
-			color: widgetBg
-		}
 
 		Day {
 			label: day0Label
@@ -544,4 +568,4 @@ ColumnLayout {
 			typeface: day6Font
 		}
 	} // weekGrid
-} // ColumnLayout
+} // Item weekRoot
