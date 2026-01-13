@@ -15,7 +15,6 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import org.kde.plasma.plasma5support as Plasma5Support
 import "../js/DateTimeFormatter.js" as DTF
-import "../js/meta.js" as Meta
 
 PlasmoidItem {
 	id: root
@@ -78,19 +77,5 @@ PlasmoidItem {
 		onToggleExpanded: root.expanded = !root.expanded
 	}
 	fullRepresentation: CalendarView { }
-
-	// ------------------------------------------------------------------------------------------------------------------------
-
-	Plasmoid.contextualActions: [
-		PlasmaCore.Action {
-			text: i18n('About %1…', Meta.title)
-			icon.name: "help-about"
-			onTriggered: aboutDialog.visible = true
-		}
-	]
-
-	AboutDialog {
-		id: aboutDialog
-	}
 
 } // main
